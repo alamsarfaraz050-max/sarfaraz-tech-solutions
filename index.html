@@ -1,1413 +1,934 @@
 <!DOCTYPE html>
-<html lang="en" class="scroll-smooth">
+<html lang="en">
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Sarfaraz Tech Solutions | Custom Software Systems &amp; Android Apps (APK)</title>
-  <meta name="description" content="Custom Software Systems & Android Apps (APK) for Hospitals, Clinics, Shops, Malls, Companies, and Schools. Fast, user-friendly, and 100% tailored setup by Sarfaraz Tech Solutions." />
-  <meta name="theme-color" content="#070d1f" />
+  <title>Sarfaraz Tech Solutions | Custom Software, ERP & Android Apps</title>
+  <meta name="description" content="Custom Software, HMS, POS Billing, Company ERP, School Panels & Branded Android APK Apps by Sarfaraz Tech Solutions. Try 5 interactive live demos and get a free quote." />
+  <meta name="theme-color" content="#06101e" />
+  <link rel="canonical" href="https://alamsarfaraz050-max.github.io/sarfaraz-tech-solutions/" />
 
-  <!-- Open Graph / Social Link Preview -->
+  <!-- Social preview (WhatsApp / Facebook / Instagram / LinkedIn). Upload og.png next to index.html -->
   <meta property="og:type" content="website" />
+  <meta property="og:site_name" content="Sarfaraz Tech Solutions" />
+  <meta property="og:title" content="Sarfaraz Tech Solutions | Custom Software, ERP & Android Apps" />
+  <meta property="og:description" content="Hospital, School, Shop, Mall & Company software and branded Android apps. Try free live demos." />
   <meta property="og:url" content="https://alamsarfaraz050-max.github.io/sarfaraz-tech-solutions/" />
-  <meta property="og:title" content="Sarfaraz Tech Solutions — Custom Software & Android Apps (APK)" />
-  <meta property="og:description" content="Hospital HMS, Retail Billing, Mall POS, Company ERP, School Management & Custom Android APKs. Try interactive live demos and request a free consultation." />
+  <meta property="og:image" content="https://alamsarfaraz050-max.github.io/sarfaraz-tech-solutions/og.png" />
+  <meta property="og:image:width" content="1200" />
+  <meta property="og:image:height" content="630" />
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="Sarfaraz Tech Solutions | Custom Software, ERP & Android Apps" />
+  <meta name="twitter:image" content="https://alamsarfaraz050-max.github.io/sarfaraz-tech-solutions/og.png" />
 
-  <!-- Inline SVG Favicon matching STS Hexagonal Circuit Logo -->
-  <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 120 120'%3E%3Cdefs%3E%3ClinearGradient id='g' x1='0%25' y1='0%25' x2='100%25' y2='100%25'%3E%3Cstop offset='0%25' stop-color='%232563eb'/%3E%3Cstop offset='100%25' stop-color='%2322d3ee'/%3E%3C/linearGradient%3E%3C/defs%3E%3Crect width='120' height='120' rx='24' fill='%23070d1f'/%3E%3Cpolygon points='60,10 104,35 104,85 60,110 16,85 16,35' fill='none' stroke='url(%23g)' stroke-width='5'/%3E%3Ctext x='60' y='73' text-anchor='middle' font-family='Arial,sans-serif' font-weight='900' font-size='38' fill='url(%23g)'%3ESTS%3C/text%3E%3C/svg%3E" />
+  <!-- Favicon (inline, no extra file needed) -->
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Cpolygon points='50,4 90,27 90,73 50,96 10,73 10,27' fill='%2306101e' stroke='%2318e0ff' stroke-width='7' stroke-linejoin='round'/%3E%3Ctext x='50' y='63' text-anchor='middle' font-family='Arial' font-weight='900' font-size='34' fill='%2318e0ff'%3ESTS%3C/text%3E%3C/svg%3E" />
+
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "ProfessionalService",
+    "name": "Sarfaraz Tech Solutions",
+    "url": "https://alamsarfaraz050-max.github.io/sarfaraz-tech-solutions/",
+    "description": "Custom software, ERP, POS billing, hospital and school management systems and branded Android apps.",
+    "areaServed": "IN",
+    "email": "alamsarfaraz050@gmail.com"
+  }
+  </script>
 
   <style>
     :root {
-      --bg-main: #060b18;
-      --bg-card: #0d162c;
-      --bg-card-2: #111d38;
-      --border: rgba(56, 189, 248, 0.22);
-      --border-strong: rgba(34, 211, 238, 0.5);
-      --text-main: #f1f5f9;
-      --text-muted: #94a3b8;
-      --blue: #2563eb;
-      --cyan: #22d3ee;
-      --green: #22c55e;
-      --amber: #f59e0b;
-      --red: #ef4444;
-      --radius: 16px;
-      --shadow: 0 14px 36px rgba(0, 0, 0, 0.45);
+      --bg-dark: #06101e;
+      --bg-card: #0c1d36;
+      --bg-card-soft: #102646;
+      --cyan: #18e0ff;
+      --cyan-glow: rgba(24, 224, 255, 0.28);
+      --blue-circuit: #1d6fe8;
+      --text-main: #f4f9ff;
+      --text-muted: #9eb3cc;
+      --border-cyan: rgba(24, 224, 255, 0.35);
+      --success: #22e584;
+      --error: #ff5c77;
+      --wa: #25d366;
     }
 
     * { box-sizing: border-box; margin: 0; padding: 0; }
-    html { font-family: system-ui, -apple-system, "Segoe UI", Roboto, Helvetica, Arial, sans-serif; background: var(--bg-main); color: var(--text-main); line-height: 1.55; }
+    html { scroll-behavior: smooth; scroll-padding-top: 76px; }
+
     body {
-      background:
-        radial-gradient(circle at 12% 10%, rgba(37, 99, 235, 0.18), transparent 36%),
-        radial-gradient(circle at 88% 18%, rgba(34, 211, 238, 0.14), transparent 34%),
-        var(--bg-main);
-      overflow-x: hidden;
-      padding-bottom: 76px;
-    }
-    @media (min-width: 768px) { body { padding-bottom: 0; } }
-
-    a { color: inherit; text-decoration: none; }
-    button, input, select, textarea { font: inherit; color: inherit; }
-
-    .container { width: 100%; max-width: 1180px; margin: 0 auto; padding: 0 20px; }
-    .section { padding: 72px 0; }
-    .section-head { text-align: center; max-width: 720px; margin: 0 auto 44px; }
-    .eyebrow {
-      display: inline-flex; align-items: center; gap: 8px;
-      padding: 6px 14px; border-radius: 999px;
-      background: rgba(34, 211, 238, 0.1); border: 1px solid rgba(34, 211, 238, 0.35);
-      color: var(--cyan); font-size: 0.8rem; font-weight: 700; letter-spacing: 0.06em; text-transform: uppercase;
-      margin-bottom: 14px;
-    }
-    .section-head h2 { font-size: clamp(1.75rem, 3.2vw, 2.5rem); font-weight: 800; letter-spacing: -0.02em; margin-bottom: 10px; }
-    .section-head p { color: var(--text-muted); font-size: 1rem; }
-
-    .grad-text {
-      background: linear-gradient(90deg, #60a5fa, #22d3ee);
-      -webkit-background-clip: text; background-clip: text; color: transparent;
+      font-family: "Segoe UI", Roboto, Arial, sans-serif;
+      background-color: var(--bg-dark);
+      background-image:
+        radial-gradient(circle at 15% 15%, rgba(29, 111, 232, 0.18), transparent 40%),
+        radial-gradient(circle at 85% 25%, rgba(24, 224, 255, 0.14), transparent 42%),
+        linear-gradient(rgba(24, 224, 255, 0.04) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(24, 224, 255, 0.04) 1px, transparent 1px);
+      background-size: auto, auto, 36px 36px, 36px 36px;
+      color: var(--text-main);
+      line-height: 1.6;
     }
 
-    /* Buttons */
+    a { color: var(--cyan); text-decoration: none; }
+    :focus-visible { outline: 2px solid var(--cyan); outline-offset: 2px; }
+
+    .container { max-width: 1120px; margin: 0 auto; padding: 0 20px; }
+
+    header {
+      position: sticky;
+      top: 0;
+      z-index: 20;
+      background: rgba(6, 16, 30, 0.92);
+      backdrop-filter: blur(10px);
+      border-bottom: 1px solid var(--border-cyan);
+    }
+
+    .nav {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 10px 0;
+      gap: 12px;
+      flex-wrap: wrap;
+    }
+
+    .brand {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      font-weight: 800;
+      font-size: 1.1rem;
+      letter-spacing: 0.6px;
+      color: #ffffff;
+    }
+
+    .brand span { color: var(--cyan); }
+    .brand svg { flex: none; filter: drop-shadow(0 0 6px var(--cyan-glow)); }
+
+    .nav-links { display: flex; gap: 18px; align-items: center; font-size: 0.95rem; flex-wrap: wrap; }
+    .nav-links a:hover { color: #ffffff; }
+    .nav-links a.btn:hover { color: #04101d; }
+
     .btn {
-      display: inline-flex; align-items: center; justify-content: center; gap: 8px;
-      padding: 12px 22px; border-radius: 12px; font-weight: 700; font-size: 0.95rem;
-      border: 1px solid transparent; cursor: pointer; transition: transform 0.16s ease, box-shadow 0.2s ease, background 0.2s ease;
+      display: inline-block;
+      padding: 11px 20px;
+      border-radius: 8px;
+      font-weight: 700;
+      font-size: 0.95rem;
+      cursor: pointer;
+      border: none;
+      transition: 0.2s ease;
+      font-family: inherit;
     }
-    .btn:active { transform: translateY(1px); }
-    .btn-primary {
-      background: linear-gradient(135deg, #2563eb, #06b6d4); color: #fff;
-      box-shadow: 0 8px 24px rgba(6, 182, 212, 0.32);
+
+    .btn-cyan {
+      background: var(--cyan);
+      color: #04101d;
+      box-shadow: 0 0 18px var(--cyan-glow);
     }
-    .btn-primary:hover { box-shadow: 0 12px 30px rgba(6, 182, 212, 0.48); filter: brightness(1.06); }
+
+    .btn-cyan:hover { transform: translateY(-1px); filter: brightness(1.06); }
+    .btn-cyan:disabled { opacity: 0.6; cursor: wait; transform: none; }
+
     .btn-outline {
-      background: rgba(15, 23, 42, 0.7); border-color: var(--border-strong); color: #e2e8f0;
+      background: transparent;
+      color: var(--cyan);
+      border: 1px solid var(--border-cyan);
     }
-    .btn-outline:hover { background: rgba(34, 211, 238, 0.12); }
-    .btn-whatsapp {
-      background: linear-gradient(135deg, #16a34a, #22c55e); color: #fff;
-      box-shadow: 0 8px 22px rgba(34, 197, 94, 0.28);
-    }
-    .btn-whatsapp:hover { filter: brightness(1.07); }
-    .btn-sm { padding: 8px 14px; font-size: 0.84rem; border-radius: 9px; }
 
-    /* Navbar */
-    .navbar {
-      position: sticky; top: 0; z-index: 50;
-      background: rgba(6, 11, 24, 0.86); backdrop-filter: blur(14px);
-      border-bottom: 1px solid var(--border);
-    }
-    .nav-inner { display: flex; align-items: center; justify-content: space-between; gap: 16px; min-height: 72px; }
-    .brand-lockup { display: inline-flex; align-items: center; gap: 11px; }
-    .brand-icon { width: 44px; height: 44px; flex-shrink: 0; filter: drop-shadow(0 0 10px rgba(34, 211, 238, 0.35)); }
-    .brand-words { display: flex; flex-direction: column; line-height: 1.1; }
-    .brand-name { font-size: 1.08rem; font-weight: 900; letter-spacing: 0.05em; }
-    .brand-sub { font-size: 0.7rem; font-weight: 700; letter-spacing: 0.14em; color: #cbd5e1; margin-top: 2px; }
-    .nav-links { display: none; align-items: center; gap: 24px; font-size: 0.92rem; font-weight: 600; color: #cbd5e1; }
-    .nav-links a:hover { color: var(--cyan); }
-    .nav-actions { display: flex; align-items: center; gap: 10px; }
-    @media (min-width: 880px) { .nav-links { display: flex; } }
+    .btn-outline:hover { background: rgba(24, 224, 255, 0.1); }
 
-    /* Hero */
-    .hero { padding: 54px 0 64px; }
-    .hero-grid { display: grid; gap: 36px; align-items: center; }
-    @media (min-width: 920px) { .hero-grid { grid-template-columns: 1.18fr 0.82fr; } }
-    .hero h1 { font-size: clamp(2rem, 4.4vw, 3.35rem); font-weight: 900; line-height: 1.12; letter-spacing: -0.025em; margin-bottom: 16px; }
-    .hero-desc { color: var(--text-muted); font-size: 1.06rem; max-width: 580px; margin-bottom: 24px; }
-    .hero-cta { display: flex; flex-wrap: wrap; gap: 12px; margin-bottom: 26px; }
-    .trust-pills { display: flex; flex-wrap: wrap; gap: 10px; }
+    .btn-wa { background: var(--wa); color: #04210f; }
+    .btn-wa:hover { filter: brightness(1.06); transform: translateY(-1px); }
+
+    .hero { padding: 64px 0 44px; text-align: center; }
+
     .pill {
-      display: inline-flex; align-items: center; gap: 7px;
-      padding: 7px 12px; border-radius: 10px;
-      background: rgba(15, 23, 42, 0.85); border: 1px solid var(--border);
-      font-size: 0.82rem; color: #cbd5e1; font-weight: 600;
+      display: inline-block;
+      padding: 6px 14px;
+      border-radius: 999px;
+      border: 1px solid var(--cyan);
+      background: rgba(24, 224, 255, 0.08);
+      color: var(--cyan);
+      font-size: 0.8rem;
+      font-weight: 700;
+      letter-spacing: 0.8px;
+      text-transform: uppercase;
+      margin-bottom: 18px;
     }
 
-    .hero-card {
-      background: linear-gradient(160deg, rgba(17, 29, 56, 0.96), rgba(8, 15, 32, 0.98));
-      border: 1px solid var(--border-strong); border-radius: 22px; padding: 28px;
-      box-shadow: var(--shadow), 0 0 40px rgba(34, 211, 238, 0.12);
-      text-align: center; position: relative; overflow: hidden;
-    }
-    .hero-emblem { width: 120px; height: 120px; margin: 0 auto 14px; filter: drop-shadow(0 0 22px rgba(34, 211, 238, 0.45)); }
-    .hero-card h3 { font-size: 1.28rem; font-weight: 900; letter-spacing: 0.06em; }
-    .hero-card .tag { font-size: 0.78rem; letter-spacing: 0.16em; color: var(--cyan); font-weight: 700; margin-top: 4px; margin-bottom: 20px; }
-    .hero-metrics { display: grid; grid-template-columns: repeat(3, 1fr); gap: 10px; margin-bottom: 18px; }
-    .metric {
-      background: rgba(6, 11, 24, 0.75); border: 1px solid var(--border);
-      border-radius: 12px; padding: 12px 8px;
-    }
-    .metric strong { display: block; font-size: 1.15rem; color: var(--cyan); }
-    .metric span { font-size: 0.74rem; color: var(--text-muted); }
-    .hero-contact-strip {
-      display: flex; flex-direction: column; gap: 6px;
-      background: rgba(34, 211, 238, 0.08); border: 1px solid rgba(34, 211, 238, 0.25);
-      border-radius: 12px; padding: 12px; font-size: 0.86rem; color: #e2e8f0;
+    h1 { font-size: clamp(2rem, 4.5vw, 3.2rem); line-height: 1.15; margin-bottom: 16px; }
+    h1 span { color: var(--cyan); }
+
+    .hero p {
+      max-width: 720px;
+      margin: 0 auto 28px;
+      color: var(--text-muted);
+      font-size: 1.05rem;
     }
 
-    /* Services Grid */
-    .services-grid { display: grid; gap: 20px; grid-template-columns: 1fr; }
-    @media (min-width: 680px) { .services-grid { grid-template-columns: repeat(2, 1fr); } }
-    @media (min-width: 1020px) { .services-grid { grid-template-columns: repeat(3, 1fr); } }
+    .hero-actions { display: flex; justify-content: center; gap: 14px; flex-wrap: wrap; }
 
-    .service-card {
-      background: var(--bg-card); border: 1px solid var(--border); border-radius: var(--radius);
-      padding: 24px; display: flex; flex-direction: column; justify-content: space-between;
-      transition: transform 0.2s ease, border-color 0.2s ease;
+    .trust {
+      display: flex; justify-content: center; gap: 10px 22px; flex-wrap: wrap;
+      margin-top: 26px; color: var(--text-muted); font-size: 0.9rem;
     }
-    .service-card:hover { transform: translateY(-4px); border-color: var(--border-strong); }
-    .service-card.featured {
-      grid-column: 1 / -1;
-      background: linear-gradient(135deg, rgba(15, 32, 66, 0.96), rgba(10, 22, 44, 0.96));
-      border: 1.5px solid rgba(34, 211, 238, 0.6);
-      box-shadow: 0 0 34px rgba(34, 211, 238, 0.14);
-    }
-    @media (min-width: 820px) {
-      .service-card.featured { flex-direction: row; align-items: center; gap: 28px; }
-    }
-    .badge-new {
-      display: inline-block; padding: 3px 10px; border-radius: 999px;
-      background: linear-gradient(90deg, #06b6d4, #2563eb); color: #fff;
-      font-size: 0.72rem; font-weight: 800; letter-spacing: 0.08em; text-transform: uppercase;
-      margin-bottom: 10px;
-    }
-    .svc-icon {
-      width: 46px; height: 46px; border-radius: 12px;
-      display: inline-flex; align-items: center; justify-content: center;
-      background: rgba(34, 211, 238, 0.12); border: 1px solid rgba(34, 211, 238, 0.3);
-      color: var(--cyan); margin-bottom: 14px;
-    }
-    .service-card h3 { font-size: 1.16rem; font-weight: 800; margin-bottom: 8px; }
-    .service-card p { color: var(--text-muted); font-size: 0.9rem; margin-bottom: 14px; }
-    .feat-list { list-style: none; display: grid; gap: 6px; margin-bottom: 18px; font-size: 0.86rem; color: #cbd5e1; }
-    .feat-list li::before { content: "✓ "; color: var(--cyan); font-weight: 800; }
+    .trust b { color: var(--cyan); }
 
-    /* Interactive Live Demos */
-    .demo-shell {
-      background: var(--bg-card); border: 1px solid var(--border-strong);
-      border-radius: 20px; overflow: hidden; box-shadow: var(--shadow);
-    }
-    .demo-tabs {
-      display: flex; overflow-x: auto; gap: 8px; padding: 14px 16px;
-      background: rgba(6, 11, 24, 0.9); border-bottom: 1px solid var(--border);
-    }
-    .demo-tab {
-      white-space: nowrap; padding: 9px 15px; border-radius: 10px;
-      background: transparent; border: 1px solid var(--border); color: var(--text-muted);
-      font-weight: 700; font-size: 0.86rem; cursor: pointer; transition: 0.18s;
-    }
-    .demo-tab.active {
-      background: linear-gradient(135deg, #2563eb, #06b6d4); border-color: transparent; color: #fff;
-    }
-    .demo-topbar {
-      display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: 10px;
-      padding: 12px 20px; background: rgba(17, 29, 56, 0.8); border-bottom: 1px solid var(--border);
-      font-size: 0.85rem;
-    }
-    .powered-sts { display: inline-flex; align-items: center; gap: 8px; font-weight: 700; color: var(--cyan); }
-    .demo-body { padding: 22px; }
-    .demo-panel { display: none; }
-    .demo-panel.active { display: block; }
+    section { padding: 48px 0; }
 
-    .demo-grid-2 { display: grid; gap: 18px; }
-    @media (min-width: 820px) { .demo-grid-2 { grid-template-columns: 1.25fr 0.75fr; } }
+    .section-title { text-align: center; margin-bottom: 32px; }
+    .section-title h2 { font-size: 1.9rem; margin-bottom: 8px; }
+    .section-title p { color: var(--text-muted); }
 
-    .subcard {
-      background: rgba(6, 11, 24, 0.72); border: 1px solid var(--border);
-      border-radius: 14px; padding: 16px;
-    }
-    .subcard h4 { font-size: 0.96rem; font-weight: 800; margin-bottom: 12px; color: #e2e8f0; }
+    .grid-3 { display: grid; grid-template-columns: repeat(auto-fit, minmax(290px, 1fr)); gap: 20px; }
 
-    .stat-row { display: grid; grid-template-columns: repeat(3, 1fr); gap: 10px; margin-bottom: 14px; }
-    .stat-box { background: rgba(15, 23, 42, 0.9); border: 1px solid var(--border); border-radius: 10px; padding: 10px; text-align: center; }
-    .stat-box strong { display: block; font-size: 1.15rem; color: var(--cyan); }
-    .stat-box span { font-size: 0.75rem; color: var(--text-muted); }
+    .card {
+      background: var(--bg-card);
+      border: 1px solid var(--border-cyan);
+      border-radius: 14px;
+      padding: 22px;
+      box-shadow: 0 8px 24px rgba(0, 0, 0, 0.35);
+    }
 
-    .inline-form { display: flex; flex-wrap: wrap; gap: 8px; margin-bottom: 12px; }
-    .input-sm {
-      flex: 1; min-width: 120px; padding: 8px 11px; border-radius: 9px;
-      background: #0b1326; border: 1px solid var(--border); font-size: 0.86rem;
-    }
-    .data-list { display: grid; gap: 8px; }
-    .data-row {
-      display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: 8px;
-      padding: 10px 12px; border-radius: 10px; background: rgba(17, 29, 56, 0.65); border: 1px solid rgba(148, 163, 184, 0.16);
-      font-size: 0.86rem;
-    }
-    .status-chip {
-      display: inline-block; padding: 3px 9px; border-radius: 999px; font-size: 0.74rem; font-weight: 700;
-    }
-    .chip-wait { background: rgba(245, 158, 11, 0.18); color: #fbbf24; }
-    .chip-done { background: rgba(34, 197, 94, 0.18); color: #4ade80; }
-    .chip-info { background: rgba(34, 211, 238, 0.16); color: #22d3ee; }
-
-    /* Android Mockup */
-    .phone-wrap { display: grid; gap: 20px; align-items: center; }
-    @media (min-width: 760px) { .phone-wrap { grid-template-columns: 0.9fr 1.1fr; } }
-    .phone-frame {
-      width: 270px; margin: 0 auto; border-radius: 30px; padding: 12px;
-      background: #040812; border: 3px solid #334155; box-shadow: 0 18px 40px rgba(0, 0, 0, 0.6);
-    }
-    .phone-screen {
-      background: #0d162c; border-radius: 20px; padding: 14px; min-height: 360px;
-      display: flex; flex-direction: column; justify-content: space-between;
-    }
-    .phone-notch { width: 84px; height: 10px; background: #1e293b; border-radius: 99px; margin: 0 auto 12px; }
+    .card h3 { color: var(--cyan); margin-bottom: 8px; font-size: 1.15rem; }
+    .card p { color: var(--text-muted); font-size: 0.95rem; }
+    .card ul { margin: 10px 0 0 18px; color: var(--text-muted); font-size: 0.9rem; }
+    .price { margin-top: 12px; color: #ffffff; font-weight: 800; font-size: 1.25rem; }
+    .price s { color: var(--text-muted); font-weight: 600; font-size: .95rem; margin-right: 6px; }
+    .price-note { text-align: center; color: var(--text-muted); font-size: .85rem; margin-top: 18px; }
+    .card .btn { margin-top: 14px; padding: 8px 14px; font-size: 0.85rem; }
 
     /* Process */
-    .steps-grid { display: grid; gap: 18px; grid-template-columns: 1fr; }
-    @media (min-width: 760px) { .steps-grid { grid-template-columns: repeat(4, 1fr); } }
-    .step-card {
-      background: var(--bg-card); border: 1px solid var(--border); border-radius: var(--radius); padding: 22px;
+    .steps { display: grid; grid-template-columns: repeat(auto-fit, minmax(230px, 1fr)); gap: 18px; }
+    .step { position: relative; padding-top: 34px; }
+    .step .num {
+      position: absolute; top: -16px; left: 20px; width: 38px; height: 38px; border-radius: 50%;
+      background: var(--cyan); color: #04101d; font-weight: 800; display: flex; align-items: center; justify-content: center;
+      box-shadow: 0 0 14px var(--cyan-glow);
     }
-    .step-num {
-      width: 34px; height: 34px; border-radius: 10px;
-      background: linear-gradient(135deg, #2563eb, #06b6d4); color: #fff;
-      font-weight: 900; display: inline-flex; align-items: center; justify-content: center;
-      margin-bottom: 12px;
-    }
-    .step-card h3 { font-size: 1rem; margin-bottom: 6px; }
-    .step-card p { font-size: 0.87rem; color: var(--text-muted); }
+    .steps .step { margin-top: 12px; padding-top: 30px; }
 
-    /* Inquiry Form Section */
-    .contact-grid { display: grid; gap: 24px; }
-    @media (min-width: 900px) { .contact-grid { grid-template-columns: 0.85fr 1.15fr; } }
-    .contact-card, .form-card {
-      background: var(--bg-card); border: 1px solid var(--border); border-radius: 20px; padding: 26px;
+    /* FAQ */
+    .faq { max-width: 780px; margin: 0 auto; display: grid; gap: 12px; }
+    details {
+      background: var(--bg-card); border: 1px solid var(--border-cyan); border-radius: 12px; padding: 14px 18px;
     }
-    .info-item {
-      display: flex; align-items: flex-start; gap: 12px; padding: 14px;
-      background: rgba(6, 11, 24, 0.7); border: 1px solid var(--border); border-radius: 12px;
-      margin-bottom: 12px;
-    }
-    .form-grid { display: grid; gap: 14px; }
-    @media (min-width: 620px) { .form-row-2 { display: grid; grid-template-columns: 1fr 1fr; gap: 14px; } }
-    label { display: block; font-size: 0.84rem; font-weight: 700; color: #cbd5e1; margin-bottom: 6px; }
-    .field {
-      width: 100%; padding: 11px 13px; border-radius: 10px;
-      background: #070e20; border: 1px solid var(--border); color: #f8fafc; font-size: 0.94rem;
-      outline: none; transition: border-color 0.18s;
-    }
-    .field:focus { border-color: var(--cyan); }
-    .captcha-box {
-      display: flex; flex-wrap: wrap; align-items: center; gap: 10px;
-      background: rgba(6, 11, 24, 0.85); border: 1px solid var(--border); border-radius: 10px; padding: 10px 12px;
-    }
-    .captcha-q { font-weight: 800; color: var(--cyan); font-size: 0.96rem; min-width: 110px; }
-    .hp-field { position: absolute; left: -9999px; width: 1px; height: 1px; opacity: 0; pointer-events: none; }
-    .alert {
-      display: none; padding: 14px 16px; border-radius: 12px; font-size: 0.9rem; margin-top: 12px;
-    }
-    .alert.show { display: block; }
-    .alert-success { background: rgba(34, 197, 94, 0.14); border: 1px solid rgba(34, 197, 94, 0.45); color: #bbf7d0; }
-    .alert-warn { background: rgba(245, 158, 11, 0.14); border: 1px solid rgba(245, 158, 11, 0.45); color: #fde68a; }
-    .alert-err { background: rgba(239, 68, 68, 0.14); border: 1px solid rgba(239, 68, 68, 0.45); color: #fecaca; }
+    summary { cursor: pointer; font-weight: 700; list-style-position: outside; }
+    details[open] summary { color: var(--cyan); margin-bottom: 8px; }
+    details p { color: var(--text-muted); font-size: 0.95rem; }
 
-    /* Footer */
+    /* Interactive Live Demos */
+    .demo-tabs {
+      display: flex;
+      gap: 10px;
+      justify-content: center;
+      flex-wrap: wrap;
+      margin-bottom: 22px;
+    }
+
+    .tab-btn {
+      padding: 10px 16px;
+      border-radius: 8px;
+      background: var(--bg-card);
+      color: var(--text-main);
+      border: 1px solid var(--border-cyan);
+      cursor: pointer;
+      font-weight: 600;
+      font-size: 0.9rem;
+      font-family: inherit;
+    }
+
+    .tab-btn.active {
+      background: var(--cyan);
+      color: #05111e;
+      border-color: var(--cyan);
+    }
+
+    .demo-box {
+      background: var(--bg-card);
+      border: 1px solid var(--cyan);
+      border-radius: 16px;
+      padding: 24px;
+      box-shadow: 0 0 28px rgba(24, 224, 255, 0.12);
+    }
+
+    .demo-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: 10px;
+      padding-bottom: 14px;
+      margin-bottom: 18px;
+      border-bottom: 1px solid rgba(24, 224, 255, 0.2);
+    }
+
+    .demo-metrics {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(170px, 1fr));
+      gap: 14px;
+      margin-bottom: 18px;
+    }
+
+    .metric {
+      background: var(--bg-card-soft);
+      border: 1px solid var(--border-cyan);
+      border-radius: 10px;
+      padding: 14px;
+    }
+
+    .metric small { color: var(--text-muted); display: block; font-size: 0.8rem; }
+    .metric strong { font-size: 1.35rem; color: var(--cyan); }
+
+    .pos-controls { display: flex; gap: 10px; flex-wrap: wrap; margin-bottom: 14px; }
+
+    select, input, textarea {
+      width: 100%;
+      padding: 11px 14px;
+      border-radius: 8px;
+      border: 1px solid var(--border-cyan);
+      background: #071426;
+      color: var(--text-main);
+      font-size: 0.95rem;
+      font-family: inherit;
+    }
+
+    input[aria-invalid="true"], textarea[aria-invalid="true"], select[aria-invalid="true"] { border-color: var(--error); }
+
+    .pos-controls select, .pos-controls input { width: auto; min-width: 150px; }
+
+    .table-wrap { overflow-x: auto; -webkit-overflow-scrolling: touch; }
+    table { width: 100%; border-collapse: collapse; margin-top: 10px; font-size: 0.92rem; min-width: 460px; }
+    th, td { padding: 10px; text-align: left; border-bottom: 1px solid rgba(255, 255, 255, 0.08); }
+    th { color: var(--cyan); }
+
+    /* Inquiry Form */
+    .form-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); gap: 16px; }
+    .form-group { margin-bottom: 14px; }
+    label { display: block; margin-bottom: 6px; font-size: 0.9rem; font-weight: 600; color: #d8ebff; }
+    .field-err { color: var(--error); font-size: 0.82rem; margin-top: 4px; min-height: 1em; }
+    .hint { color: var(--text-muted); font-size: 0.8rem; text-align: right; margin-top: 4px; }
+    .hp { position: absolute; left: -9999px; width: 1px; height: 1px; overflow: hidden; }
+
+    .status-msg {
+      margin-top: 14px;
+      padding: 12px 14px;
+      border-radius: 8px;
+      display: none;
+      font-size: 0.95rem;
+    }
+
+    .status-msg.ok { display: block; background: rgba(34, 229, 132, 0.14); border: 1px solid var(--success); color: var(--success); }
+    .status-msg.err { display: block; background: rgba(255, 92, 119, 0.14); border: 1px solid var(--error); color: var(--error); }
+    .status-msg .btn { margin-top: 10px; }
+
+    .contact-row { display: flex; justify-content: center; gap: 12px; flex-wrap: wrap; margin-bottom: 22px; }
+    .privacy { color: var(--text-muted); font-size: 0.82rem; margin-top: 12px; text-align: center; }
+    .privacy a { text-decoration: underline; cursor: pointer; }
+
     footer {
-      border-top: 1px solid var(--border); background: #040812; padding: 36px 0 28px;
-      color: var(--text-muted); font-size: 0.88rem;
+      border-top: 1px solid var(--border-cyan);
+      padding: 28px 0 90px;
+      text-align: center;
+      color: var(--text-muted);
+      font-size: 0.9rem;
+      margin-top: 32px;
     }
-    .footer-flex { display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: 18px; }
 
-    /* Floating WhatsApp (Desktop) & Mobile Action Bar */
+    /* Floating WhatsApp */
     .wa-float {
-      display: none; position: fixed; right: 22px; bottom: 22px; z-index: 45;
-      padding: 12px 18px; border-radius: 999px; background: #16a34a; color: #fff;
-      font-weight: 800; box-shadow: 0 12px 28px rgba(22, 163, 74, 0.45);
+      position: fixed; right: 16px; bottom: 16px; z-index: 30;
+      display: flex; align-items: center; gap: 8px;
+      background: var(--wa); color: #04210f; font-weight: 800; padding: 12px 18px; border-radius: 999px;
+      box-shadow: 0 6px 20px rgba(0,0,0,.45);
     }
-    @media (min-width: 768px) { .wa-float { display: inline-flex; align-items: center; gap: 8px; } }
+    .wa-float:hover { filter: brightness(1.07); color: #04210f; }
 
-    .mobile-bar {
-      position: fixed; left: 0; right: 0; bottom: 0; z-index: 60;
-      display: grid; grid-template-columns: repeat(3, 1fr); gap: 8px;
-      padding: 10px 12px; background: rgba(6, 11, 24, 0.96);
-      border-top: 1px solid var(--border-strong); backdrop-filter: blur(12px);
+    dialog {
+      background: var(--bg-card); color: var(--text-main); border: 1px solid var(--cyan); border-radius: 14px;
+      padding: 24px; max-width: 520px; width: calc(100% - 32px);
     }
-    .mobile-bar a {
-      text-align: center; padding: 10px 6px; border-radius: 10px; font-size: 0.82rem; font-weight: 800;
-    }
-    @media (min-width: 768px) { .mobile-bar { display: none; } }
+    dialog::backdrop { background: rgba(0,0,0,.65); }
+    dialog h3 { color: var(--cyan); margin-bottom: 10px; }
+    dialog p { color: var(--text-muted); font-size: 0.95rem; margin-bottom: 10px; }
 
-    /* Modal */
-    .modal-backdrop {
-      display: none; position: fixed; inset: 0; z-index: 100;
-      background: rgba(2, 6, 18, 0.8); backdrop-filter: blur(6px);
-      align-items: center; justify-content: center; padding: 20px;
+    @media (max-width: 640px) {
+      .nav-links { gap: 12px; font-size: 0.88rem; }
+      .hide-sm { display: none; }
+      .hero { padding-top: 40px; }
+      .demo-box { padding: 16px; }
+      .wa-float span { display: none; }
+      .wa-float { padding: 14px; }
     }
-    .modal-backdrop.open { display: flex; }
-    .modal-box {
-      background: var(--bg-card); border: 1px solid var(--border-strong); border-radius: 18px;
-      max-width: 560px; width: 100%; padding: 24px; box-shadow: var(--shadow);
+
+    @media (prefers-reduced-motion: reduce) {
+      html { scroll-behavior: auto; }
+      .btn { transition: none; }
     }
   </style>
 </head>
 <body>
 
-  <!-- Reusable Inline SVG STS Hexagonal Circuit Logo -->
-  <svg width="0" height="0" style="position:absolute;visibility:hidden;" aria-hidden="true">
-    <defs>
-      <linearGradient id="stsBlueCyan" x1="0%" y1="0%" x2="100%" y2="100%">
-        <stop offset="0%" stop-color="#2563eb"/>
-        <stop offset="55%" stop-color="#06b6d4"/>
-        <stop offset="100%" stop-color="#22d3ee"/>
-      </linearGradient>
-      <linearGradient id="stsSilver" x1="0%" y1="0%" x2="0%" y2="100%">
-        <stop offset="0%" stop-color="#ffffff"/>
-        <stop offset="50%" stop-color="#cbd5e1"/>
-        <stop offset="100%" stop-color="#64748b"/>
-      </linearGradient>
-      <symbol id="sts-logo" viewBox="0 0 120 120">
-        <polygon points="60,8 106,34 106,86 60,112 14,86 14,34" fill="#071024" stroke="url(#stsBlueCyan)" stroke-width="4.5" stroke-linejoin="round"/>
-        <!-- Top coding brackets & circuit nodes -->
-        <path d="M46 31 L39 37 L46 43 M74 31 L81 37 L74 43 M63 29 L57 45" fill="none" stroke="#22d3ee" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>
-        <path d="M27 42 L36 33 M93 42 L84 33" fill="none" stroke="#38bdf8" stroke-width="2.5" stroke-linecap="round"/>
-        <circle cx="88" cy="28" r="3.2" fill="#071024" stroke="#22d3ee" stroke-width="2.2"/>
-        <!-- Bottom circuit pathways -->
-        <path d="M60 76 L60 100 M44 76 L44 89 L35 95 M76 76 L76 89 L85 95 M52 76 L52 84 M68 76 L68 84" fill="none" stroke="#22d3ee" stroke-width="2.6" stroke-linecap="round"/>
-        <circle cx="60" cy="102" r="3.4" fill="#071024" stroke="#22d3ee" stroke-width="2.2"/>
-        <circle cx="33" cy="96" r="2.8" fill="#071024" stroke="#3b82f6" stroke-width="2"/>
-        <circle cx="87" cy="96" r="2.8" fill="#071024" stroke="#22d3ee" stroke-width="2"/>
-        <!-- STS Bold Monogram -->
-        <text x="32" y="72" text-anchor="middle" font-family="Arial Black, system-ui, sans-serif" font-weight="900" font-size="33" fill="url(#stsBlueCyan)">S</text>
-        <text x="60" y="72" text-anchor="middle" font-family="Arial Black, system-ui, sans-serif" font-weight="900" font-size="34" fill="url(#stsSilver)">T</text>
-        <text x="88" y="72" text-anchor="middle" font-family="Arial Black, system-ui, sans-serif" font-weight="900" font-size="33" fill="url(#stsBlueCyan)">S</text>
-      </symbol>
-    </defs>
-  </svg>
-
-  <!-- Navbar -->
-  <header class="navbar">
-    <div class="container nav-inner">
-      <a href="#top" class="brand-lockup" aria-label="Sarfaraz Tech Solutions Home">
-        <svg class="brand-icon" viewBox="0 0 120 120"><use href="#sts-logo"></use></svg>
-        <span class="brand-words">
-          <span class="brand-name grad-text">SARFARAZ</span>
-          <span class="brand-sub">TECH SOLUTIONS</span>
-        </span>
+  <header>
+    <div class="container nav">
+      <a class="brand" href="#top" aria-label="Sarfaraz Tech Solutions home">
+        <svg width="38" height="38" viewBox="0 0 100 100" aria-hidden="true">
+          <polygon points="50,4 90,27 90,73 50,96 10,73 10,27" fill="#071636" stroke="#18e0ff" stroke-width="6" stroke-linejoin="round"/>
+          <text x="50" y="62" text-anchor="middle" font-family="Segoe UI, Arial, sans-serif" font-weight="900" font-size="32" fill="#ffffff">STS</text>
+        </svg>
+        <div>SARFARAZ <span>TECH SOLUTIONS</span></div>
       </a>
-
-      <nav class="nav-links" aria-label="Primary Navigation">
+      <nav class="nav-links" aria-label="Main">
         <a href="#services">Services</a>
         <a href="#demos">Live Demos</a>
-        <a href="#process">Process</a>
-        <a href="#contact">Request Form</a>
+        <a href="#process" class="hide-sm">Process</a>
+        <a href="#faq" class="hide-sm">FAQ</a>
+        <a href="#inquiry" class="btn btn-cyan">Get Free Quote</a>
       </nav>
-
-      <div class="nav-actions">
-        <a href="tel:+919135041918" class="btn btn-outline btn-sm">Call: 9135041918</a>
-        <a href="#contact" class="btn btn-primary btn-sm">Get Quote</a>
-      </div>
     </div>
   </header>
 
-  <main id="top">
-    <!-- Hero -->
+  <main class="container" id="top">
     <section class="hero">
-      <div class="container hero-grid">
-        <div>
-          <div class="eyebrow">Custom Software &amp; Android App Development</div>
-          <h1>Take Your Business, Hospital, Shop or School <span class="grad-text">100% Digital</span></h1>
-          <p class="hero-desc">
-            We build fast, reliable, and easy-to-use <strong>Custom Software Systems</strong>, <strong>ERP Portals</strong>, and <strong>Android Apps (APK)</strong> tailored to your exact workflow — complete with setup, training, and dedicated support.
-          </p>
-          <div class="hero-cta">
-            <a href="#contact" class="btn btn-primary">Request Custom Software</a>
-            <a href="#demos" class="btn btn-outline">Try 5 Interactive Demos</a>
-            <a href="https://wa.me/919135041918?text=Hello%20Sarfaraz%20Tech%20Solutions%2C%20I%20would%20like%20to%20inquire%20about%20custom%20software%20%2F%20Android%20APK%20development." target="_blank" rel="noopener noreferrer" class="btn btn-whatsapp">WhatsApp Chat</a>
-          </div>
-          <div class="trust-pills">
-            <span class="pill">✓ 100% Custom Built</span>
-            <span class="pill">✓ Easy-to-Use UI</span>
-            <span class="pill">✓ Complete Setup &amp; Training</span>
-            <span class="pill">✓ Budget-Friendly Plans</span>
-          </div>
-        </div>
-
-        <div class="hero-card">
-          <svg class="hero-emblem" viewBox="0 0 120 120" role="img" aria-label="Sarfaraz Tech Solutions STS Emblem"><use href="#sts-logo"></use></svg>
-          <h3 class="grad-text">SARFARAZ TECH SOLUTIONS</h3>
-          <div class="tag">SOFTWARE &amp; APP DEVELOPMENT</div>
-          <div class="hero-metrics">
-            <div class="metric"><strong>7+</strong><span>Industries</span></div>
-            <div class="metric"><strong>100%</strong><span>Custom Build</span></div>
-            <div class="metric"><strong>24×7</strong><span>WhatsApp Support</span></div>
-          </div>
-          <div class="hero-contact-strip">
-            <div><strong>Call / WhatsApp:</strong> +91 9135041918</div>
-            <div><strong>Email:</strong> alamsarfaraz050@gmail.com</div>
-          </div>
-        </div>
+      <div class="pill">Custom Software &amp; Android Apps</div>
+      <h1>Software Built Exactly for <span>Your Business</span></h1>
+      <p>
+        Hospital, clinic, shop, mall, company ya school &mdash; hum aapke workflow ke hisaab se Software Systems, ERP Portals,
+        Billing POS, School Panels aur Branded Android Apps (APK) banate hain. Poore India mein, setup aur training ke saath.
+      </p>
+      <div class="hero-actions">
+        <a href="#demos" class="btn btn-cyan">Try 5 Live Demos Free</a>
+        <a href="#inquiry" class="btn btn-outline">Submit Custom Requirement</a>
+        <a href="#" class="btn btn-wa" data-wa="Hello Sarfaraz Tech Solutions, mujhe custom software ke baare mein baat karni hai.">WhatsApp Chat</a>
+      </div>
+      <div class="trust">
+        <span><b>&#10003;</b> 100% Custom Built</span>
+        <span><b>&#10003;</b> Setup &amp; Training</span>
+        <span><b>&#10003;</b> Web Panel + Android APK</span>
+        <span><b>&#10003;</b> Direct Developer Support</span>
       </div>
     </section>
 
-    <!-- Services -->
-    <section id="services" class="section">
-      <div class="container">
-        <div class="section-head">
-          <div class="eyebrow">Our Solutions</div>
-          <h2>Complete Digital Systems for <span class="grad-text">Every Industry</span></h2>
-          <p>Select any service below to pre-fill your requirements directly in the inquiry form.</p>
+    <section id="services">
+      <div class="section-title">
+        <h2>Core Software &amp; App Solutions</h2>
+        <p>Customized to your exact business workflow with setup, training, and ongoing support.</p>
+      </div>
+      <div class="grid-3">
+        <div class="card">
+          <h3>Hospital &amp; Clinic HMS</h3>
+          <p>OPD/IPD registration, token queue, patient records, bed tracking, and integrated pharmacy &amp; lab billing.</p>
+          <div class="price">Starting ₹25,000</div>
+          <button type="button" class="btn btn-outline" data-pick="Hospital & Clinic HMS">Inquire</button>
         </div>
-
-        <div class="services-grid">
-          <!-- Featured NEW Hospital Card -->
-          <article class="service-card featured">
-            <div>
-              <span class="badge-new">NEW • Featured Solution</span>
-              <h3>Hospital &amp; Clinic Management Software (HMS)</h3>
-              <p>An end-to-end digital management platform for Hospitals, Clinics, Nursing Homes, and Diagnostic Labs — streamline everything from patient registration to discharge billing in one unified dashboard.</p>
-              <ul class="feat-list" style="grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));">
-                <li>OPD / IPD Token &amp; Doctor Queue</li>
-                <li>Patient Medical History &amp; Prescription</li>
-                <li>Bed, Ward &amp; ICU Occupancy Tracking</li>
-                <li>Pharmacy Stock &amp; Lab Test Billing</li>
-              </ul>
-            </div>
-            <div style="flex-shrink:0; display:flex; flex-direction:column; gap:10px; min-width:210px;">
-              <button type="button" class="btn btn-primary" data-pick-biz="Hospital / Clinic / Diagnostic Lab" data-pick-svc="Hospital & Clinic Management Software">Book Hospital HMS Demo</button>
-              <a href="#demos" class="btn btn-outline btn-sm" onclick="switchDemoTab('hms')">Test Live HMS Preview</a>
-            </div>
-          </article>
-
-          <article class="service-card">
-            <div>
-              <div class="svc-icon" aria-hidden="true">
-                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 9l9-6 9 6v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/><path d="M9 22V12h6v10"/></svg>
-              </div>
-              <h3>Shop &amp; Retail Billing Software</h3>
-              <p>High-speed billing and inventory control designed for Grocery Marts, Pharmacies, Electronics, Garments, and Retail Stores.</p>
-              <ul class="feat-list">
-                <li>Thermal &amp; A4 GST / Non-GST Billing</li>
-                <li>Barcode Printing &amp; Scanner Support</li>
-                <li>Low-Stock Alerts &amp; Customer Credit Ledger</li>
-              </ul>
-            </div>
-            <button type="button" class="btn btn-outline btn-sm" data-pick-biz="Shop / Retail Store" data-pick-svc="Shop & Retail Billing Software">Inquire for Shop Software</button>
-          </article>
-
-          <article class="service-card">
-            <div>
-              <div class="svc-icon" aria-hidden="true">
-                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="4" width="20" height="16" rx="2"/><path d="M2 10h20M7 15h4"/></svg>
-              </div>
-              <h3>Mall &amp; Supermarket POS</h3>
-              <p>Multi-counter POS billing, discount offers, and live profit &amp; loss tracking built for large stores and supermarkets.</p>
-              <ul class="feat-list">
-                <li>Multi-Counter Fast Checkout POS</li>
-                <li>Purchase Order (PO) &amp; GRN Inwarding</li>
-                <li>Daily EOD Cash, UPI &amp; Card Reconciliation</li>
-              </ul>
-            </div>
-            <button type="button" class="btn btn-outline btn-sm" data-pick-biz="Mall / Supermarket" data-pick-svc="Mall & Supermarket Multi-Counter POS">Inquire for Mall POS</button>
-          </article>
-
-          <article class="service-card">
-            <div>
-              <div class="svc-icon" aria-hidden="true">
-                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 21h18M5 21V7l8-4v18M19 21V11l-6-4"/><path d="M9 9v.01M9 12v.01M9 15v.01"/></svg>
-              </div>
-              <h3>Company ERP &amp; Accounts System</h3>
-              <p>Centralized operations for Offices, Distributors, and Factories — manage staff, inventory, procurement, sales, and reports in one place.</p>
-              <ul class="feat-list">
-                <li>Staff Attendance, Payroll &amp; Task Tracker</li>
-                <li>Vendor PO, Quotations &amp; GST Invoicing</li>
-                <li>Role-Based Admin &amp; Analytics Dashboard</li>
-              </ul>
-            </div>
-            <button type="button" class="btn btn-outline btn-sm" data-pick-biz="Company / Office / Factory" data-pick-svc="Company ERP & Accounts System">Inquire for Company ERP</button>
-          </article>
-
-          <article class="service-card">
-            <div>
-              <div class="svc-icon" aria-hidden="true">
-                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 10v6M2 10l10-5 10 5-10 5z"/><path d="M6 12v5c3 3 9 3 12 0v-5"/></svg>
-              </div>
-              <h3>School &amp; Coaching Management</h3>
-              <p>Streamlined administration for Schools, Colleges, and Coaching Institutes covering admissions, fee receipts, and exam results.</p>
-              <ul class="feat-list">
-                <li>Fee Collection, Dues Reminder &amp; Receipts</li>
-                <li>Student / Teacher Attendance &amp; ID Cards</li>
-                <li>Exam Marksheet &amp; Parent Notices</li>
-              </ul>
-            </div>
-            <button type="button" class="btn btn-outline btn-sm" data-pick-biz="School / College / Coaching" data-pick-svc="School & Coaching Management System">Inquire for School System</button>
-          </article>
-
-          <article class="service-card">
-            <div>
-              <div class="svc-icon" aria-hidden="true">
-                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="6" y="2" width="12" height="20" rx="2"/><path d="M12 18h.01"/></svg>
-              </div>
-              <h3>Custom Android Apps (APK)</h3>
-              <p>Lightweight, fast, and secure Android APKs tailored for your business or startup, backed by a dedicated admin panel.</p>
-              <ul class="feat-list">
-                <li>Direct Installable APK &amp; Play Store Ready</li>
-                <li>Live Cloud / Google Sheet / Database Sync</li>
-                <li>Order, Booking, Delivery &amp; Staff Apps</li>
-              </ul>
-            </div>
-            <button type="button" class="btn btn-outline btn-sm" data-pick-biz="Other / Custom Business" data-pick-svc="Custom Android App (APK)">Inquire for Android APK</button>
-          </article>
-
-          <article class="service-card">
-            <div>
-              <div class="svc-icon" aria-hidden="true">
-                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="16 18 22 12 16 6"/><polyline points="8 6 2 12 8 18"/></svg>
-              </div>
-              <h3>Custom Software &amp; Web Portals</h3>
-              <p>100% tailored web applications, CRMs, booking websites, and automation tools built specifically for your unique workflow.</p>
-              <ul class="feat-list">
-                <li>Business Websites with Lead Capture</li>
-                <li>Google Sheets / Apps Script Automation</li>
-                <li>Custom Dashboards &amp; PDF Generators</li>
-              </ul>
-            </div>
-            <button type="button" class="btn btn-outline btn-sm" data-pick-biz="Other / Custom Business" data-pick-svc="Custom Software / Web Portal">Inquire for Custom Project</button>
-          </article>
+        <div class="card">
+          <h3>Retail &amp; Mall POS</h3>
+          <p>Fast multi-counter checkout, GST/Non-GST invoicing, barcode/item stock sync, and daily profit analytics.</p>
+          <div class="price">Starting ₹8,000</div>
+          <button type="button" class="btn btn-outline" data-pick="Retail & Mall POS Billing">Inquire</button>
         </div>
+        <div class="card">
+          <h3>Company ERP &amp; Accounts</h3>
+          <p>Unified inventory, purchase orders, sales ledgers, party balances, and real-time operational reporting.</p>
+          <div class="price">Starting ₹30,000</div>
+          <button type="button" class="btn btn-outline" data-pick="Company ERP & Accounts">Inquire</button>
+        </div>
+        <div class="card">
+          <h3>School &amp; Coaching Panel</h3>
+          <p>Student profiles, quick attendance, fee receipts, pending dues alerts, and institute progress reports.</p>
+          <div class="price"><s>₹11,999</s> Starting ₹10,000</div>
+          <button type="button" class="btn btn-outline" data-pick="School & Coaching Panel">Inquire</button>
+        </div>
+        <div class="card">
+          <h3>Custom Android Apps (APK)</h3>
+          <p>Branded Android applications with your business name, logo, live data sync, and custom workflow screens.</p>
+          <div class="price">Starting ₹15,000</div>
+          <button type="button" class="btn btn-outline" data-pick="Custom Android App (APK)">Inquire</button>
+        </div>
+        <div class="card">
+          <h3>Tailor-Made Workflows</h3>
+          <p>Need something unique? Tell us how your team works and we build a custom web or mobile system around it.</p>
+          <div class="price">Quote as per need</div>
+          <button type="button" class="btn btn-outline" data-pick="Custom Workflow / Other">Inquire</button>
+        </div>
+      </div>
+      <p class="price-note">Prices are starting rates for the standard package. Final quote depends on your modules and features. GST extra as applicable.</p>
+    </section>
+
+    <section id="demos">
+      <div class="section-title">
+        <h2>5 Interactive Live Demos</h2>
+        <p>Test how the interface works before requesting a custom build for your business.</p>
+      </div>
+
+      <div class="demo-tabs" role="tablist" aria-label="Live demos">
+        <button class="tab-btn active" role="tab" aria-selected="true" onclick="switchDemo('pos', this)">1. Retail POS</button>
+        <button class="tab-btn" role="tab" aria-selected="false" onclick="switchDemo('hms', this)">2. Hospital HMS</button>
+        <button class="tab-btn" role="tab" aria-selected="false" onclick="switchDemo('erp', this)">3. Company ERP</button>
+        <button class="tab-btn" role="tab" aria-selected="false" onclick="switchDemo('school', this)">4. School Panel</button>
+        <button class="tab-btn" role="tab" aria-selected="false" onclick="switchDemo('apk', this)">5. Android APK</button>
+      </div>
+
+      <div id="demo-workspace" class="demo-box" role="tabpanel" aria-live="polite"></div>
+    </section>
+
+    <section id="process">
+      <div class="section-title">
+        <h2>Your Custom System in 4 Simple Steps</h2>
+        <p>Clear process, no surprises.</p>
+      </div>
+      <div class="steps">
+        <div class="card step"><div class="num">1</div><h3>Share Your Requirement</h3><p>Form bhariye ya WhatsApp par batayein ki aapko kya chahiye.</p></div>
+        <div class="card step"><div class="num">2</div><h3>Demo &amp; Quote</h3><p>Hum workflow samajhkar demo aur clear plan/price share karte hain.</p></div>
+        <div class="card step"><div class="num">3</div><h3>We Build It</h3><p>Aapke modules, logo aur rules ke saath software/app banta hai.</p></div>
+        <div class="card step"><div class="num">4</div><h3>Setup &amp; Support</h3><p>Web panel, Android APK, team training aur setup ke baad support.</p></div>
       </div>
     </section>
 
-    <!-- Interactive Live Demos -->
-    <section id="demos" class="section" style="padding-top: 24px;">
-      <div class="container">
-        <div class="section-head">
-          <div class="eyebrow">Interactive Preview</div>
-          <h2>Experience It Yourself — <span class="grad-text">5 Interactive Live Demos</span></h2>
-          <p>Click through the tabs below to test our live software interfaces in real time.</p>
-        </div>
-
-        <div class="demo-shell">
-          <div class="demo-tabs" role="tablist" aria-label="Software Live Demos">
-            <button type="button" class="demo-tab active" data-tab="hms">1. Hospital (HMS)</button>
-            <button type="button" class="demo-tab" data-tab="pos">2. Shop &amp; Mall POS</button>
-            <button type="button" class="demo-tab" data-tab="erp">3. Company ERP</button>
-            <button type="button" class="demo-tab" data-tab="school">4. School Panel</button>
-            <button type="button" class="demo-tab" data-tab="apk">5. Android APK</button>
-          </div>
-
-          <div class="demo-topbar">
-            <span class="powered-sts">
-              <svg width="22" height="22" viewBox="0 0 120 120"><use href="#sts-logo"></use></svg>
-              Powered by STS • Interactive Sandbox
-            </span>
-            <span style="color:var(--text-muted); font-size:0.8rem;">Sample data only — 100% customizable to match your business workflow</span>
-          </div>
-
-          <div class="demo-body">
-            <!-- TAB 1: Hospital HMS -->
-            <div id="panel-hms" class="demo-panel active">
-              <div class="stat-row">
-                <div class="stat-box"><strong id="hmsTotalOpd">3</strong><span>Today OPD Tokens</span></div>
-                <div class="stat-box"><strong id="hmsBeds">14 / 20</strong><span>Ward Beds Occupied</span></div>
-                <div class="stat-box"><strong id="hmsBillTotal">₹850</strong><span>Quick Pharmacy/Lab Bill</span></div>
-              </div>
-              <div class="demo-grid-2">
-                <div class="subcard">
-                  <h4>OPD Patient Queue (Add Walk-in Token)</h4>
-                  <div class="inline-form">
-                    <input type="text" id="hmsPatientInput" class="input-sm" placeholder="Patient Name (e.g. Rajesh Kumar)" maxlength="40" />
-                    <select id="hmsDeptSelect" class="input-sm" style="max-width:165px;">
-                      <option value="General Medicine">General Medicine</option>
-                      <option value="Cardiology">Cardiology</option>
-                      <option value="Pediatrics">Pediatrics</option>
-                      <option value="Orthopedics">Orthopedics</option>
-                    </select>
-                    <button type="button" id="hmsAddBtn" class="btn btn-primary btn-sm">+ Add Token</button>
-                  </div>
-                  <div id="hmsQueueList" class="data-list"></div>
-                </div>
-
-                <div class="subcard">
-                  <h4>Bed Control &amp; Quick Pharmacy/Lab Bill</h4>
-                  <div style="display:flex; gap:8px; margin-bottom:14px;">
-                    <button type="button" id="hmsAdmitBtn" class="btn btn-outline btn-sm" style="flex:1;">+ Admit Bed</button>
-                    <button type="button" id="hmsDischargeBtn" class="btn btn-outline btn-sm" style="flex:1;">- Discharge</button>
-                  </div>
-                  <div class="data-list" style="margin-bottom:12px;">
-                    <div class="data-row"><span>OPD Consultation Fee</span><button type="button" class="btn btn-outline btn-sm" data-hms-add="300">+ ₹300</button></div>
-                    <div class="data-row"><span>CBC Blood Lab Test</span><button type="button" class="btn btn-outline btn-sm" data-hms-add="450">+ ₹450</button></div>
-                    <div class="data-row"><span>Pharmacy Medicine Kit</span><button type="button" class="btn btn-outline btn-sm" data-hms-add="250">+ ₹250</button></div>
-                  </div>
-                  <button type="button" id="hmsResetBill" class="btn btn-sm btn-outline" style="width:100%;">Reset Quick Bill</button>
-                </div>
-              </div>
-            </div>
-
-            <!-- TAB 2: Retail POS -->
-            <div id="panel-pos" class="demo-panel">
-              <div class="demo-grid-2">
-                <div class="subcard">
-                  <h4>Quick Barcode / Item Tap (Grocery &amp; Retail)</h4>
-                  <div id="posCatalog" class="data-list"></div>
-                </div>
-                <div class="subcard">
-                  <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom:10px;">
-                    <h4 style="margin:0;">Live Invoice Counter</h4>
-                    <label style="display:inline-flex; align-items:center; gap:6px; margin:0; cursor:pointer; font-size:0.8rem;">
-                      <input type="checkbox" id="posGstToggle" checked /> Include 5% GST
-                    </label>
-                  </div>
-                  <div id="posCartList" class="data-list" style="margin-bottom:12px;"></div>
-                  <div style="border-top:1px solid var(--border); padding-top:10px; font-size:0.88rem; display:grid; gap:4px;">
-                    <div style="display:flex; justify-content:space-between;"><span>Subtotal</span><strong id="posSub">₹0</strong></div>
-                    <div style="display:flex; justify-content:space-between;"><span>GST (5%)</span><strong id="posGst">₹0</strong></div>
-                    <div style="display:flex; justify-content:space-between; font-size:1.05rem; color:var(--cyan);"><span>Grand Total</span><strong id="posGrand">₹0</strong></div>
-                  </div>
-                </div>
-              </div>
-            </div>
-
-            <!-- TAB 3: Company ERP -->
-            <div id="panel-erp" class="demo-panel">
-              <div class="subcard">
-                <div style="display:flex; flex-wrap:wrap; justify-content:space-between; align-items:center; gap:10px; margin-bottom:12px;">
-                  <h4 style="margin:0;">Purchase Order (PO) &amp; GRN Stock Tracker</h4>
-                  <div style="display:flex; flex-wrap:wrap; gap:6px;">
-                    <button type="button" class="btn btn-sm btn-primary erp-filter" data-filter="All">All</button>
-                    <button type="button" class="btn btn-sm btn-outline erp-filter" data-filter="Pending">Pending</button>
-                    <button type="button" class="btn btn-sm btn-outline erp-filter" data-filter="Approved">Approved</button>
-                    <button type="button" class="btn btn-sm btn-outline erp-filter" data-filter="Received">Received</button>
-                  </div>
-                </div>
-                <div id="erpPoList" class="data-list"></div>
-              </div>
-            </div>
-
-            <!-- TAB 4: School Panel -->
-            <div id="panel-school" class="demo-panel">
-              <div class="stat-row">
-                <div class="stat-box"><strong id="schPaidCount">0</strong><span>Fees Paid</span></div>
-                <div class="stat-box"><strong id="schPendingCount">0</strong><span>Fees Pending</span></div>
-                <div class="stat-box"><strong id="schCollected">₹0</strong><span>Total Collected</span></div>
-              </div>
-              <div class="subcard">
-                <h4>Student Monthly Fee Counter (Click to Toggle Status)</h4>
-                <div id="schoolList" class="data-list"></div>
-              </div>
-            </div>
-
-            <!-- TAB 5: Android APK Preview -->
-            <div id="panel-apk" class="demo-panel">
-              <div class="phone-wrap">
-                <div class="phone-frame">
-                  <div class="phone-screen">
-                    <div>
-                      <div class="phone-notch"></div>
-                      <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom:12px;">
-                        <strong id="apkAppTitle" style="font-size:0.9rem; color:var(--cyan);">STS Hospital App</strong>
-                        <span class="status-chip chip-info">APK v2.4</span>
-                      </div>
-                      <div id="apkCards" class="data-list"></div>
-                    </div>
-                    <div style="text-align:center; padding-top:12px; border-top:1px solid var(--border); font-size:0.75rem; color:var(--text-muted);">
-                      Built by Sarfaraz Tech Solutions
-                    </div>
-                  </div>
-                </div>
-
-                <div class="subcard">
-                  <h4>Switch Android APK Mode</h4>
-                  <p style="color:var(--text-muted); font-size:0.88rem; margin-bottom:14px;">Preview how a custom mobile APK looks and operates for your business:</p>
-                  <div style="display:flex; flex-wrap:wrap; gap:8px; margin-bottom:16px;">
-                    <button type="button" class="btn btn-sm btn-primary apk-switch" data-apk="hospital">Hospital App</button>
-                    <button type="button" class="btn btn-sm btn-outline apk-switch" data-apk="shop">Shop Billing App</button>
-                    <button type="button" class="btn btn-sm btn-outline apk-switch" data-apk="school">School Parent App</button>
-                  </div>
-                  <ul class="feat-list">
-                    <li>Lightweight Android APK (Fast install on any phone)</li>
-                    <li>Admin &amp; Staff separate login access</li>
-                    <li>Direct WhatsApp bill / receipt share button</li>
-                    <li>Offline-friendly + live cloud backup option</li>
-                  </ul>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
+    <section id="faq">
+      <div class="section-title">
+        <h2>Frequently Asked Questions</h2>
+      </div>
+      <div class="faq">
+        <details><summary>Software banane mein kitna time lagta hai?</summary><p>Requirement ke hisaab se alag hota hai. Quote ke saath hum estimated delivery time bata dete hain.</p></details>
+        <details><summary>Price kitna hoga?</summary><p>School Panel ₹10,000 se, Retail POS ₹8,000 se, Hospital HMS ₹25,000 se, Company ERP ₹30,000 se aur Android App ₹15,000 se shuru hota hai. Final price aapke modules aur features par depend karta hai; requirement bhejein, hum clear quote dete hain.</p></details>
+        <details><summary>Kya Android app bhi milega?</summary><p>Haan. Web panel ke saath aapke naam aur logo wala branded Android APK bhi banaya ja sakta hai.</p></details>
+        <details><summary>Setup aur training milti hai?</summary><p>Haan, setup aur aapki team ki training shuru mein di jati hai, uske baad support bhi.</p></details>
+        <details><summary>Mera data safe rahega?</summary><p>Aapki jaankari sirf aapse sampark karne ke liye use hoti hai. Hum ise bechte ya share nahi karte.</p></details>
       </div>
     </section>
 
-    <!-- Process -->
-    <section id="process" class="section">
-      <div class="container">
-        <div class="section-head">
-          <div class="eyebrow">How We Work</div>
-          <h2>Your Custom System Ready in <span class="grad-text">4 Simple Steps</span></h2>
-        </div>
-        <div class="steps-grid">
-          <div class="step-card">
-            <div class="step-num">1</div>
-            <h3>Requirement Discussion</h3>
-            <p>Share your needs via our form, phone, or WhatsApp — whether for a Hospital, Shop, Mall, School, or Custom APK.</p>
-          </div>
-          <div class="step-card">
-            <div class="step-num">2</div>
-            <h3>Demo &amp; Budget Plan</h3>
-            <p>We provide a clear project structure, a live sample demo, and a transparent, budget-friendly quotation.</p>
-          </div>
-          <div class="step-card">
-            <div class="step-num">3</div>
-            <h3>Custom Development</h3>
-            <p>We build a fast, secure software system or Android APK branded with your business name, logo, and exact workflow.</p>
-          </div>
-          <div class="step-card">
-            <div class="step-num">4</div>
-            <h3>Setup &amp; Support</h3>
-            <p>Get complete installation, hands-on staff training, and continuous WhatsApp &amp; phone support whenever you need it.</p>
-          </div>
-        </div>
+    <section id="inquiry">
+      <div class="section-title">
+        <h2>Request Custom Software or App</h2>
+        <p>Share your requirements and our team will review your workflow and get back to you.</p>
       </div>
-    </section>
 
-    <!-- Contact & Customer Inquiry Form -->
-    <section id="contact" class="section">
-      <div class="container">
-        <div class="section-head">
-          <div class="eyebrow">Start Your Project</div>
-          <h2>Submit Your <span class="grad-text">Software / App Request</span></h2>
-          <p>Fill out the form below — your inquiry is saved securely to our system, and our team will contact you shortly.</p>
-        </div>
+      <div class="contact-row">
+        <a href="#" class="btn btn-wa" data-wa="Hello Sarfaraz Tech Solutions, mujhe custom software ke baare mein baat karni hai.">Message Directly on WhatsApp</a>
+      </div>
 
-        <div class="contact-grid">
-          <div class="contact-card">
-            <h3 style="font-size:1.25rem; margin-bottom:14px;">Direct Contact Details</h3>
-            <p style="color:var(--text-muted); font-size:0.9rem; margin-bottom:18px;">Call, WhatsApp, or email us directly to discuss your requirements or schedule a free demo:</p>
-
-            <div class="info-item">
-              <div>
-                <div style="font-size:0.78rem; color:var(--cyan); font-weight:700;">CALL / WHATSAPP</div>
-                <a href="tel:+919135041918" style="font-size:1.06rem; font-weight:800;">+91 9135041918</a>
-              </div>
+      <div class="card" style="max-width: 780px; margin: 0 auto;">
+        <form id="inquiryForm" novalidate>
+          <div class="form-grid">
+            <div class="form-group">
+              <label for="fullName">Your Name / Contact Person *</label>
+              <input type="text" id="fullName" name="fullName" required maxlength="80" autocomplete="name" placeholder="e.g., Rahul Verma" />
+              <div class="field-err" data-for="fullName"></div>
             </div>
-
-            <div class="info-item">
-              <div>
-                <div style="font-size:0.78rem; color:var(--cyan); font-weight:700;">EMAIL ADDRESS</div>
-                <a href="mailto:alamsarfaraz050@gmail.com" style="font-size:0.98rem; font-weight:700; word-break:break-all;">alamsarfaraz050@gmail.com</a>
-              </div>
+            <div class="form-group">
+              <label for="businessName">Business / Hospital / Institute Name *</label>
+              <input type="text" id="businessName" name="businessName" required maxlength="120" autocomplete="organization" placeholder="e.g., City Care Clinic" />
+              <div class="field-err" data-for="businessName"></div>
             </div>
-
-            <div class="info-item">
-              <div>
-                <div style="font-size:0.78rem; color:var(--cyan); font-weight:700;">SERVICES COVERED</div>
-                <div style="font-size:0.9rem; color:#cbd5e1;">Hospitals, Clinics, Shops, Malls, Companies, Schools &amp; Custom Android APKs (All-India Support)</div>
-              </div>
-            </div>
-
-            <a href="https://wa.me/919135041918?text=Hello%20Sarfaraz%20Tech%20Solutions%2C%20I%20would%20like%20to%20build%20custom%20software%20%2F%20an%20Android%20APK%20for%20my%20business." target="_blank" rel="noopener noreferrer" class="btn btn-whatsapp" style="width:100%; margin-top:6px;">
-              Message Directly on WhatsApp
-            </a>
           </div>
 
-          <div class="form-card">
-            <form id="inquiryForm" class="form-grid" novalidate>
-              <!-- Honeypot anti-spam trap -->
-              <input type="text" id="website_hp" name="website_hp" class="hp-field" tabindex="-1" autocomplete="off" aria-hidden="true" />
-
-              <div class="form-row-2">
-                <div>
-                  <label for="custName">Full Name *</label>
-                  <input type="text" id="custName" name="Name" class="field" placeholder="Enter your full name" required maxlength="80" />
-                </div>
-                <div>
-                  <label for="custPhone">Mobile / WhatsApp Number *</label>
-                  <input type="tel" id="custPhone" name="Phone" class="field" placeholder="10-digit mobile number" required maxlength="15" />
-                </div>
-              </div>
-
-              <div class="form-row-2">
-                <div>
-                  <label for="custEmail">Email ID (Optional)</label>
-                  <input type="email" id="custEmail" name="Email" class="field" placeholder="example@gmail.com" maxlength="100" />
-                </div>
-                <div>
-                  <label for="businessType">Business / Organization Type *</label>
-                  <select id="businessType" name="BusinessType" class="field" required>
-                    <option value="">-- Select Type --</option>
-                    <option value="Hospital / Clinic / Diagnostic Lab">Hospital / Clinic / Diagnostic Lab</option>
-                    <option value="Shop / Retail Store">Shop / Retail Store</option>
-                    <option value="Mall / Supermarket">Mall / Supermarket</option>
-                    <option value="Company / Office / Factory">Company / Office / Factory</option>
-                    <option value="School / College / Coaching">School / College / Coaching</option>
-                    <option value="Other / Custom Business">Other / Custom Business</option>
-                  </select>
-                </div>
-              </div>
-
-              <div>
-                <label for="serviceType">Required Software / App *</label>
-                <select id="serviceType" name="Service" class="field" required>
-                  <option value="">-- Select Service --</option>
-                  <option value="Hospital & Clinic Management Software">Hospital &amp; Clinic Management Software (HMS)</option>
-                  <option value="Shop & Retail Billing Software">Shop &amp; Retail Billing Software</option>
-                  <option value="Mall & Supermarket Multi-Counter POS">Mall &amp; Supermarket Multi-Counter POS</option>
-                  <option value="Company ERP & Accounts System">Company ERP &amp; Accounts System</option>
-                  <option value="School & Coaching Management System">School &amp; Coaching Management System</option>
-                  <option value="Custom Android App (APK)">Custom Android App (APK)</option>
-                  <option value="Custom Software / Web Portal">Custom Software / Web Portal</option>
-                </select>
-              </div>
-
-              <div>
-                <div style="display:flex; justify-content:space-between; align-items:center;">
-                  <label for="custDetails">Project Requirement Details *</label>
-                  <span id="charCount" style="font-size:0.76rem; color:var(--text-muted);">0 / 800</span>
-                </div>
-                <textarea id="custDetails" name="Details" class="field" rows="3" maxlength="800" required placeholder="Tell us the features you need (e.g., Billing, Barcode, OPD/IPD, Android App)..."></textarea>
-              </div>
-
-              <div>
-                <label for="captchaInput">Security Check (Human Verification) *</label>
-                <div class="captcha-box">
-                  <span id="captchaQuestion" class="captcha-q"></span>
-                  <input type="number" id="captchaInput" class="input-sm" placeholder="Enter answer" required style="max-width:140px;" />
-                  <button type="button" id="refreshCaptcha" class="btn btn-outline btn-sm">Refresh</button>
-                </div>
-              </div>
-
-              <button type="submit" id="submitBtn" class="btn btn-primary" style="width:100%; padding:14px;">
-                Submit Request
-              </button>
-
-              <p style="font-size:0.78rem; color:var(--text-muted); text-align:center;">
-                Your information is kept strictly confidential. Read our <a href="#" id="openPrivacy" style="color:var(--cyan); text-decoration:underline;">Privacy Policy</a>.
-              </p>
-
-              <div id="formAlert" class="alert" role="status" aria-live="polite"></div>
-            </form>
+          <div class="form-grid">
+            <div class="form-group">
+              <label for="email">Email Address (for confirmation) *</label>
+              <input type="email" id="email" name="email" required maxlength="120" autocomplete="email" placeholder="name@example.com" />
+              <div class="field-err" data-for="email"></div>
+            </div>
+            <div class="form-group">
+              <label for="phone">Phone / WhatsApp Number *</label>
+              <input type="tel" id="phone" name="phone" required maxlength="16" autocomplete="tel" inputmode="numeric" placeholder="10-digit mobile number" />
+              <div class="field-err" data-for="phone"></div>
+            </div>
           </div>
-        </div>
+
+          <div class="form-grid">
+            <div class="form-group">
+              <label for="solutionType">Required Solution *</label>
+              <select id="solutionType" name="solutionType" required>
+                <option value="Hospital & Clinic HMS">Hospital &amp; Clinic HMS</option>
+                <option value="Retail & Mall POS Billing">Retail &amp; Mall POS Billing</option>
+                <option value="Company ERP & Accounts">Company ERP &amp; Accounts</option>
+                <option value="School & Coaching Panel">School &amp; Coaching Panel</option>
+                <option value="Custom Android App (APK)">Custom Android App (APK)</option>
+                <option value="Custom Workflow / Other">Custom Workflow / Other</option>
+              </select>
+            </div>
+            <div class="form-group">
+              <label for="cityState">City &amp; State</label>
+              <input type="text" id="cityState" name="cityState" maxlength="80" autocomplete="address-level2" placeholder="e.g., Delhi / Patna / Muzaffarpur" />
+            </div>
+          </div>
+
+          <div class="form-group">
+            <label for="requirements">Describe the System You Want Built *</label>
+            <textarea id="requirements" name="requirements" rows="4" required maxlength="800" placeholder="Tell us about billing, stock, OPD/IPD, fees, staff count, or custom features you need..."></textarea>
+            <div class="field-err" data-for="requirements"></div>
+            <div class="hint"><span id="reqCount">0</span>/800</div>
+          </div>
+
+          <!-- Honeypot: real users never see or fill this -->
+          <div class="hp" aria-hidden="true">
+            <label for="website">Website</label>
+            <input type="text" id="website" name="website" tabindex="-1" autocomplete="off" />
+          </div>
+
+          <button type="submit" id="submitBtn" class="btn btn-cyan" style="width: 100%;">Submit Requirement Request</button>
+          <div id="statusBox" class="status-msg" role="status" aria-live="polite"></div>
+          <p class="privacy">Your information is used only to contact you about your request. <a id="privacyLink" role="button" tabindex="0">Privacy note</a></p>
+        </form>
       </div>
     </section>
   </main>
 
-  <!-- Footer -->
   <footer>
-    <div class="container footer-flex">
-      <div class="brand-lockup">
-        <svg width="36" height="36" viewBox="0 0 120 120"><use href="#sts-logo"></use></svg>
-        <span class="brand-words">
-          <span class="brand-name grad-text" style="font-size:0.95rem;">SARFARAZ TECH SOLUTIONS</span>
-          <span class="brand-sub" style="font-size:0.65rem;">CUSTOM SOFTWARE &amp; ANDROID APPS</span>
-        </span>
-      </div>
-      <div>
-        Call / WhatsApp: <a href="tel:+919135041918" style="color:#fff; font-weight:700;">9135041918</a> •
-        <a href="mailto:alamsarfaraz050@gmail.com" style="color:#fff;">alamsarfaraz050@gmail.com</a>
-      </div>
-      <div>
-        © <span id="yr"></span> Sarfaraz Tech Solutions.
-        <a href="#" id="openPrivacyFooter" style="color:var(--cyan); margin-left:8px;">Privacy Policy</a>
-      </div>
+    <div class="container">
+      &copy; <span id="year"></span> Sarfaraz Tech Solutions &bull; Custom Software, ERP &amp; Branded Android Apps Across India
     </div>
   </footer>
 
-  <!-- Floating WhatsApp (Desktop) -->
-  <a class="wa-float" href="https://wa.me/919135041918?text=Hello%20Sarfaraz%20Tech%20Solutions%2C%20I%20would%20like%20to%20discuss%20a%20custom%20software%20or%20Android%20app%20project." target="_blank" rel="noopener noreferrer">
-    WhatsApp: 9135041918
+  <a href="#" class="wa-float" data-wa="Hello Sarfaraz Tech Solutions, mujhe custom software ke baare mein baat karni hai." aria-label="Chat on WhatsApp">
+    <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M21 12a9 9 0 11-4-7.5L21 3v5h-5"/><path d="M8.5 12.5l2.5 2.5 4.5-5"/></svg>
+    <span>WhatsApp</span>
   </a>
 
-  <!-- Mobile Bottom Quick Action Bar -->
-  <div class="mobile-bar" aria-label="Quick Contact Actions">
-    <a href="tel:+919135041918" style="background:#1e293b; color:#fff;">Call Now</a>
-    <a href="https://wa.me/919135041918?text=Hello%20Sarfaraz%20Tech%20Solutions%2C%20I%20would%20like%20to%20inquire%20about%20custom%20software%20%2F%20Android%20APK%20development." target="_blank" rel="noopener noreferrer" style="background:#16a34a; color:#fff;">WhatsApp</a>
-    <a href="#contact" style="background:linear-gradient(135deg,#2563eb,#06b6d4); color:#fff;">Request Form</a>
-  </div>
-
-  <!-- Privacy Policy Modal -->
-  <div id="privacyModal" class="modal-backdrop" role="dialog" aria-modal="true" aria-labelledby="privTitle">
-    <div class="modal-box">
-      <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom:12px;">
-        <h3 id="privTitle" style="font-size:1.15rem;">Privacy Policy — Sarfaraz Tech Solutions</h3>
-        <button type="button" id="closePrivacy" class="btn btn-outline btn-sm">Close</button>
-      </div>
-      <p style="color:var(--text-muted); font-size:0.9rem; margin-bottom:10px;">
-        We collect your name, phone number, email address, and project details solely to contact you regarding your custom software or Android app consultation.
-      </p>
-      <p style="color:var(--text-muted); font-size:0.9rem;">
-        Your data is never shared with or sold to any third-party marketers. To request deletion of your data, email <strong>alamsarfaraz050@gmail.com</strong> or contact <strong>+91 9135041918</strong>.
-      </p>
-    </div>
-  </div>
+  <dialog id="privacyDialog">
+    <h3>Privacy Note</h3>
+    <p>The details you submit (name, business, email, phone, requirement) are used only to contact you about your request.</p>
+    <p>We do not sell or share your information. To have your data deleted, email us and mention your Request ID.</p>
+    <button type="button" class="btn btn-cyan" id="privacyClose">Close</button>
+  </dialog>
 
   <script>
-    const GOOGLE_SCRIPT_URL = "https://script.google.com/macros/s/AKfycbxpHjJ-aNevHuTMzTej3Q1zlDf2tL6hMUolsrce90AGeq_PtOysxR2CcUokRT9InVk8bA/exec";
-    const API_SECRET_TOKEN = "STS-2026-SECURE-KEY";
+    /* ===================== CONFIG (edit only this block) ===================== */
+    // Deployed Google Apps Script Web App URL (Deploy > New deployment > Web app > copy URL ending in /exec)
+    const APPS_SCRIPT_WEB_APP_URL = "https://script.google.com/macros/s/AKfycbxpHjJ-aNevHuTMzTej3Q1zlDf2tL6hMUolsrce90AGeq_PtOysxR2CcUokRT9InVk8bA/exec";
+    // WhatsApp number with country code, digits only (e.g. 919876543210). Leave "" to hide WhatsApp buttons.
     const WHATSAPP_NUMBER = "919135041918";
+    // Optional Google Analytics 4 ID (e.g. "G-XXXXXXXXXX"). Leave "" to disable tracking.
+    const GA_MEASUREMENT_ID = "";
+    /* ========================================================================= */
 
-    document.getElementById("yr").textContent = new Date().getFullYear();
+    const isConfigured = APPS_SCRIPT_WEB_APP_URL.indexOf("REPLACE_WITH") === -1;
 
-    // Helper for XSS-safe DOM creation
-    function el(tag, attrs, text) {
-      const node = document.createElement(tag);
-      if (attrs) {
-        Object.keys(attrs).forEach((k) => {
-          if (k === "className") node.className = attrs[k];
-          else if (k === "style") node.style.cssText = attrs[k];
-          else node.setAttribute(k, attrs[k]);
-        });
-      }
-      if (text !== undefined) node.textContent = text;
-      return node;
+    /* ---------- Optional analytics ---------- */
+    if (GA_MEASUREMENT_ID) {
+      const s = document.createElement("script");
+      s.async = true;
+      s.src = "https://www.googletagmanager.com/gtag/js?id=" + encodeURIComponent(GA_MEASUREMENT_ID);
+      document.head.appendChild(s);
+      window.dataLayer = window.dataLayer || [];
+      window.gtag = function () { window.dataLayer.push(arguments); };
+      gtag("js", new Date());
+      gtag("config", GA_MEASUREMENT_ID);
+    }
+    function track(name, params) {
+      try { if (window.gtag) window.gtag("event", name, params || {}); } catch (e) { /* ignore */ }
     }
 
-    // Service card quick-select into Inquiry Form
-    document.querySelectorAll("[data-pick-svc]").forEach((btn) => {
-      btn.addEventListener("click", () => {
-        const biz = btn.getAttribute("data-pick-biz");
-        const svc = btn.getAttribute("data-pick-svc");
-        const bizSel = document.getElementById("businessType");
-        const svcSel = document.getElementById("serviceType");
-        if (biz) bizSel.value = biz;
-        if (svc) svcSel.value = svc;
-        document.getElementById("contact").scrollIntoView({ behavior: "smooth" });
-        document.getElementById("custName").focus();
-      });
-    });
-
-    // Demo Tab Switching
-    function switchDemoTab(tabId) {
-      document.querySelectorAll(".demo-tab").forEach((t) => {
-        t.classList.toggle("active", t.getAttribute("data-tab") === tabId);
-      });
-      document.querySelectorAll(".demo-panel").forEach((p) => {
-        p.classList.toggle("active", p.id === "panel-" + tabId);
-      });
-    }
-    window.switchDemoTab = switchDemoTab;
-
-    document.querySelectorAll(".demo-tab").forEach((tab) => {
-      tab.addEventListener("click", () => switchDemoTab(tab.getAttribute("data-tab")));
-    });
-
-    /* ---------- DEMO 1: Hospital HMS ---------- */
-    const hmsState = {
-      nextToken: 104,
-      beds: 14,
-      maxBeds: 20,
-      quickBill: 850,
-      queue: [
-        { token: "OPD-101", name: "Mohd. Aarif", dept: "General Medicine", done: true },
-        { token: "OPD-102", name: "Sunita Devi", dept: "Cardiology", done: false },
-        { token: "OPD-103", name: "Vikash Verma", dept: "Orthopedics", done: false }
-      ]
-    };
-
-    function renderHms() {
-      document.getElementById("hmsTotalOpd").textContent = String(hmsState.queue.length);
-      document.getElementById("hmsBeds").textContent = hmsState.beds + " / " + hmsState.maxBeds;
-      document.getElementById("hmsBillTotal").textContent = "₹" + hmsState.quickBill;
-
-      const list = document.getElementById("hmsQueueList");
-      list.replaceChildren();
-      hmsState.queue.forEach((item, idx) => {
-        const row = el("div", { className: "data-row" });
-        const left = el("div");
-        left.appendChild(el("strong", null, item.token + " • " + item.name));
-        left.appendChild(el("div", { style: "font-size:0.78rem;color:#94a3b8;" }, item.dept));
-
-        const right = el("div", { style: "display:flex;align-items:center;gap:8px;" });
-        right.appendChild(el("span", { className: "status-chip " + (item.done ? "chip-done" : "chip-wait") }, item.done ? "Consulted" : "Waiting"));
-        const toggleBtn = el("button", { type: "button", className: "btn btn-outline btn-sm" }, item.done ? "Undo" : "Mark Done");
-        toggleBtn.addEventListener("click", () => {
-          hmsState.queue[idx].done = !hmsState.queue[idx].done;
-          renderHms();
-        });
-        right.appendChild(toggleBtn);
-        row.appendChild(left);
-        row.appendChild(right);
-        list.appendChild(row);
-      });
-    }
-
-    document.getElementById("hmsAddBtn").addEventListener("click", () => {
-      const inp = document.getElementById("hmsPatientInput");
-      const name = inp.value.trim();
-      if (!name) return;
-      const dept = document.getElementById("hmsDeptSelect").value;
-      hmsState.queue.unshift({ token: "OPD-" + hmsState.nextToken++, name, dept, done: false });
-      inp.value = "";
-      renderHms();
-    });
-    document.getElementById("hmsAdmitBtn").addEventListener("click", () => {
-      if (hmsState.beds < hmsState.maxBeds) { hmsState.beds++; renderHms(); }
-    });
-    document.getElementById("hmsDischargeBtn").addEventListener("click", () => {
-      if (hmsState.beds > 0) { hmsState.beds--; renderHms(); }
-    });
-    document.querySelectorAll("[data-hms-add]").forEach((b) => {
-      b.addEventListener("click", () => {
-        hmsState.quickBill += Number(b.getAttribute("data-hms-add"));
-        renderHms();
-      });
-    });
-    document.getElementById("hmsResetBill").addEventListener("click", () => {
-      hmsState.quickBill = 0;
-      renderHms();
-    });
-    renderHms();
-
-    /* ---------- DEMO 2: Retail POS ---------- */
-    const posItems = [
-      { id: 1, name: "Basmati Rice 5kg", price: 480, qty: 1 },
-      { id: 2, name: "Mustard Oil 1L", price: 165, qty: 2 },
-      { id: 3, name: "Aashirvaad Atta 10kg", price: 430, qty: 0 },
-      { id: 4, name: "Tea Pack 500g", price: 240, qty: 0 }
-    ];
-
-    function renderPos() {
-      const cat = document.getElementById("posCatalog");
-      const cart = document.getElementById("posCartList");
-      cat.replaceChildren();
-      cart.replaceChildren();
-
-      let subtotal = 0;
-      posItems.forEach((item) => {
-        const cRow = el("div", { className: "data-row" });
-        cRow.appendChild(el("span", null, item.name + " (₹" + item.price + ")"));
-        const addBtn = el("button", { type: "button", className: "btn btn-primary btn-sm" }, "+ Add");
-        addBtn.addEventListener("click", () => { item.qty++; renderPos(); });
-        cRow.appendChild(addBtn);
-        cat.appendChild(cRow);
-
-        if (item.qty > 0) {
-          const lineTotal = item.price * item.qty;
-          subtotal += lineTotal;
-          const bRow = el("div", { className: "data-row" });
-          bRow.appendChild(el("span", null, item.name + " × " + item.qty));
-          const ctrls = el("div", { style: "display:flex;align-items:center;gap:6px;" });
-          ctrls.appendChild(el("strong", null, "₹" + lineTotal));
-          const minus = el("button", { type: "button", className: "btn btn-outline btn-sm" }, "-");
-          minus.addEventListener("click", () => { item.qty--; renderPos(); });
-          ctrls.appendChild(minus);
-          bRow.appendChild(ctrls);
-          cart.appendChild(bRow);
-        }
-      });
-
-      if (subtotal === 0) {
-        cart.appendChild(el("div", { style: "color:#94a3b8;font-size:0.84rem;" }, "Cart is empty — add items from the catalog on the left."));
-      }
-      const gstOn = document.getElementById("posGstToggle").checked;
-      const gst = gstOn ? Math.round(subtotal * 0.05) : 0;
-      document.getElementById("posSub").textContent = "₹" + subtotal;
-      document.getElementById("posGst").textContent = "₹" + gst;
-      document.getElementById("posGrand").textContent = "₹" + (subtotal + gst);
-    }
-    document.getElementById("posGstToggle").addEventListener("change", renderPos);
-    renderPos();
-
-    /* ---------- DEMO 3: Company ERP ---------- */
-    const erpOrders = [
-      { id: "PO-2026-081", vendor: "Metro Wholesale Distributors", amount: "₹48,500", status: "Pending" },
-      { id: "PO-2026-082", vendor: "Shree Packaging Suppliers", amount: "₹19,200", status: "Approved" },
-      { id: "PO-2026-083", vendor: "National FMCG Traders", amount: "₹74,000", status: "Received" }
-    ];
-    let erpFilter = "All";
-
-    function renderErp() {
-      const box = document.getElementById("erpPoList");
-      box.replaceChildren();
-      erpOrders.filter((o) => erpFilter === "All" || o.status === erpFilter).forEach((o) => {
-        const row = el("div", { className: "data-row" });
-        const left = el("div");
-        left.appendChild(el("strong", null, o.id + " — " + o.vendor));
-        left.appendChild(el("div", { style: "font-size:0.78rem;color:#94a3b8;" }, "Order Value: " + o.amount));
-
-        const right = el("div", { style: "display:flex;align-items:center;gap:8px;" });
-        const chipCls = o.status === "Received" ? "chip-done" : (o.status === "Approved" ? "chip-info" : "chip-wait");
-        right.appendChild(el("span", { className: "status-chip " + chipCls }, o.status));
-
-        if (o.status !== "Received") {
-          const nextLabel = o.status === "Pending" ? "Approve PO" : "Mark GRN Received";
-          const nextStatus = o.status === "Pending" ? "Approved" : "Received";
-          const btn = el("button", { type: "button", className: "btn btn-outline btn-sm" }, nextLabel);
-          btn.addEventListener("click", () => { o.status = nextStatus; renderErp(); });
-          right.appendChild(btn);
-        }
-        row.appendChild(left);
-        row.appendChild(right);
-        box.appendChild(row);
-      });
-    }
-
-    document.querySelectorAll(".erp-filter").forEach((b) => {
-      b.addEventListener("click", () => {
-        erpFilter = b.getAttribute("data-filter");
-        document.querySelectorAll(".erp-filter").forEach((x) => {
-          x.className = "btn btn-sm erp-filter " + (x === b ? "btn-primary" : "btn-outline");
-        });
-        renderErp();
-      });
-    });
-    renderErp();
-
-    /* ---------- DEMO 4: School Panel ---------- */
-    const students = [
-      { roll: "101", name: "Danish Alam", cls: "Class 1", fee: 1800, paid: true },
-      { roll: "102", name: "Ananya Sharma", cls: "Class 4", fee: 2200, paid: false },
-      { roll: "103", name: "Rohit Kumar", cls: "Class 7", fee: 2500, paid: false },
-      { roll: "104", name: "Zoya Khan", cls: "Class 5", fee: 2200, paid: true }
-    ];
-
-    function renderSchool() {
-      const box = document.getElementById("schoolList");
-      box.replaceChildren();
-      let paidC = 0, pendC = 0, total = 0;
-
-      students.forEach((s) => {
-        if (s.paid) { paidC++; total += s.fee; } else { pendC++; }
-        const row = el("div", { className: "data-row" });
-        row.appendChild(el("span", null, "Roll " + s.roll + " • " + s.name + " (" + s.cls + ") — ₹" + s.fee));
-        const right = el("div", { style: "display:flex;align-items:center;gap:8px;" });
-        right.appendChild(el("span", { className: "status-chip " + (s.paid ? "chip-done" : "chip-wait") }, s.paid ? "Paid" : "Pending"));
-        const btn = el("button", { type: "button", className: "btn btn-outline btn-sm" }, s.paid ? "Mark Pending" : "Collect Fee");
-        btn.addEventListener("click", () => { s.paid = !s.paid; renderSchool(); });
-        right.appendChild(btn);
-        row.appendChild(right);
-        box.appendChild(row);
-      });
-
-      document.getElementById("schPaidCount").textContent = String(paidC);
-      document.getElementById("schPendingCount").textContent = String(pendC);
-      document.getElementById("schCollected").textContent = "₹" + total;
-    }
-    renderSchool();
-
-    /* ---------- DEMO 5: Android APK Switcher ---------- */
-    const apkData = {
-      hospital: {
-        title: "STS Hospital App",
-        rows: [
-          ["Next OPD Token", "OPD-102 (Dr. Mehta)"],
-          ["Available Beds", "6 General • 2 ICU"],
-          ["Lab Reports Ready", "12 PDF Uploaded"],
-          ["Emergency Alert", "Active 24×7"]
-        ]
-      },
-      shop: {
-        title: "STS Retail POS App",
-        rows: [
-          ["Today Sales", "₹34,650 (42 Bills)"],
-          ["Low Stock Items", "5 Products Alert"],
-          ["Barcode Scanner", "Camera Scan Ready"],
-          ["WhatsApp Receipt", "1-Tap Share"]
-        ]
-      },
-      school: {
-        title: "STS School Parent App",
-        rows: [
-          ["Today Attendance", "Present (9:02 AM)"],
-          ["Fee Status", "Paid • Download Slip"],
-          ["Homework Notice", "Maths Ch. 4 Uploaded"],
-          ["Exam Result", "Term-1 Grade A+"]
-        ]
-      }
-    };
-
-    function renderApk(mode) {
-      const cfg = apkData[mode] || apkData.hospital;
-      document.getElementById("apkAppTitle").textContent = cfg.title;
-      const cards = document.getElementById("apkCards");
-      cards.replaceChildren();
-      cfg.rows.forEach((pair) => {
-        const r = el("div", { className: "data-row", style: "flex-direction:column;align-items:flex-start;gap:2px;" });
-        r.appendChild(el("span", { style: "font-size:0.72rem;color:#94a3b8;" }, pair[0]));
-        r.appendChild(el("strong", { style: "font-size:0.84rem;" }, pair[1]));
-        cards.appendChild(r);
-      });
-    }
-
-    document.querySelectorAll(".apk-switch").forEach((btn) => {
-      btn.addEventListener("click", () => {
-        document.querySelectorAll(".apk-switch").forEach((x) => {
-          x.className = "btn btn-sm apk-switch " + (x === btn ? "btn-primary" : "btn-outline");
-        });
-        renderApk(btn.getAttribute("data-apk"));
-      });
-    });
-    renderApk("hospital");
-
-    /* ---------- Privacy Modal ---------- */
-    const modal = document.getElementById("privacyModal");
-    function openModal(e) { e.preventDefault(); modal.classList.add("open"); }
-    document.getElementById("openPrivacy").addEventListener("click", openModal);
-    document.getElementById("openPrivacyFooter").addEventListener("click", openModal);
-    document.getElementById("closePrivacy").addEventListener("click", () => modal.classList.remove("open"));
-    modal.addEventListener("click", (e) => { if (e.target === modal) modal.classList.remove("open"); });
-
-    /* ---------- Hardened Inquiry Form Logic ---------- */
-    const formLoadedAt = Date.now();
-    let captchaAnswer = 0;
-
-    function generateCaptcha() {
-      const a = Math.floor(Math.random() * 8) + 2;
-      const b = Math.floor(Math.random() * 8) + 1;
-      captchaAnswer = a + b;
-      document.getElementById("captchaQuestion").textContent = "Solve: " + a + " + " + b + " = ?";
-      document.getElementById("captchaInput").value = "";
-    }
-    document.getElementById("refreshCaptcha").addEventListener("click", generateCaptcha);
-    generateCaptcha();
-
-    const detailsEl = document.getElementById("custDetails");
-    detailsEl.addEventListener("input", () => {
-      document.getElementById("charCount").textContent = detailsEl.value.length + " / 800";
-    });
-
-    function sanitizeSheetText(str) {
-      const cleaned = String(str || "").trim();
-      return /^[=+\-@\t\r]/.test(cleaned) ? "'" + cleaned : cleaned;
-    }
-
-    function normalizeIndianPhone(raw) {
-      let digits = String(raw || "").replace(/\D/g, "");
-      if (digits.length === 12 && digits.startsWith("91")) digits = digits.slice(2);
-      else if (digits.length === 11 && digits.startsWith("0")) digits = digits.slice(1);
-      return digits;
-    }
-
-    function showAlert(type, message, waLink) {
-      const box = document.getElementById("formAlert");
-      box.className = "alert show alert-" + type;
-      box.replaceChildren();
-      box.appendChild(el("div", null, message));
-      if (waLink) {
-        const a = el("a", {
-          href: waLink,
-          target: "_blank",
-          rel: "noopener noreferrer",
-          className: "btn btn-whatsapp btn-sm",
-          style: "margin-top:10px;"
-        }, "Send Request on WhatsApp Now");
-        box.appendChild(a);
-      }
-    }
-
-    function buildWhatsAppUrl(p) {
-      const text =
-        "New Software / App Inquiry (STS Website)\n" +
-        "Name: " + p.Name + "\n" +
-        "Phone: " + p.Phone + "\n" +
-        (p.Email ? "Email: " + p.Email + "\n" : "") +
-        "Business Type: " + p.BusinessType + "\n" +
-        "Service: " + p.Service + "\n" +
-        "Details: " + p.Details;
+    /* ---------- WhatsApp links ---------- */
+    function waLink(text) {
       return "https://wa.me/" + WHATSAPP_NUMBER + "?text=" + encodeURIComponent(text);
     }
+    document.querySelectorAll("[data-wa]").forEach(function (el) {
+      if (!WHATSAPP_NUMBER) { el.style.display = "none"; return; }
+      el.href = waLink(el.getAttribute("data-wa"));
+      el.target = "_blank";
+      el.rel = "noopener";
+      el.addEventListener("click", function () { track("whatsapp_click"); });
+    });
 
-    document.getElementById("inquiryForm").addEventListener("submit", async (e) => {
+    /* ---------- Services -> prefill form ---------- */
+    document.querySelectorAll("[data-pick]").forEach(function (btn) {
+      btn.addEventListener("click", function () {
+        document.getElementById("solutionType").value = btn.getAttribute("data-pick");
+        document.getElementById("inquiry").scrollIntoView({ behavior: "smooth" });
+        setTimeout(function () { document.getElementById("fullName").focus({ preventScroll: true }); }, 500);
+      });
+    });
+
+    document.getElementById("year").textContent = new Date().getFullYear();
+
+    /* ---------- Privacy dialog ---------- */
+    const privacyDialog = document.getElementById("privacyDialog");
+    function openPrivacy() { if (privacyDialog.showModal) privacyDialog.showModal(); else privacyDialog.setAttribute("open", ""); }
+    document.getElementById("privacyLink").addEventListener("click", openPrivacy);
+    document.getElementById("privacyLink").addEventListener("keydown", function (e) { if (e.key === "Enter" || e.key === " ") { e.preventDefault(); openPrivacy(); } });
+    document.getElementById("privacyClose").addEventListener("click", function () { privacyDialog.close ? privacyDialog.close() : privacyDialog.removeAttribute("open"); });
+
+    /* ---------- Demos ---------- */
+    let cart = [
+      { item: "Basmati Rice (5kg)", qty: 1, rate: 420 },
+      { item: "Sunflower Oil (1L)", qty: 2, rate: 145 }
+    ];
+
+    const demoData = {
+      hms: {
+        title: "Hospital & Clinic Management (HMS) Preview",
+        badge: "OPD • IPD • Pharmacy • Lab",
+        metrics: [
+          { label: "Today's OPD Tokens", val: "38" },
+          { label: "Occupied Beds", val: "14 / 20" },
+          { label: "Pharmacy Bills", val: "₹24,650" }
+        ],
+        rows: [
+          ["OPD-104", "Patient Registration & Vitals", "Dr. Mehta (General)", "Completed"],
+          ["IPD-019", "Ward Bed & Nursing Chart", "General Ward", "Admitted"],
+          ["LAB-211", "CBC & Pathology Report", "Diagnostics", "Ready"]
+        ],
+        headers: ["Token / ID", "Module", "Department / Doctor", "Status"]
+      },
+      erp: {
+        title: "Company ERP & Accounts Preview",
+        badge: "Inventory • Purchase • Ledger",
+        metrics: [
+          { label: "Active SKUs", val: "1,240" },
+          { label: "Monthly Sales", val: "₹6,85,000" },
+          { label: "Pending Receivables", val: "₹1,12,400" }
+        ],
+        rows: [
+          ["PO-882", "Supplier Stock Purchase", "Apex Distributors", "Received"],
+          ["INV-409", "B2B Tax Invoice & Ledger", "Metro Traders", "Settled"],
+          ["STK-015", "Reorder Alert Triggered", "Warehouse A", "Low Stock"]
+        ],
+        headers: ["Voucher", "Workflow", "Party / Unit", "State"]
+      },
+      school: {
+        title: "School & Coaching Panel Preview",
+        badge: "Attendance • Fees • Reports",
+        metrics: [
+          { label: "Total Students", val: "460" },
+          { label: "Today's Attendance", val: "94.3%" },
+          { label: "Fees Collected (Month)", val: "₹3,92,000" }
+        ],
+        rows: [
+          ["STU-042", "Class 10 - Batch A", "Monthly Fee Receipt", "Paid"],
+          ["STU-089", "Class 8 - Batch B", "2 Months Pending", "Reminder Sent"],
+          ["ATT-012", "Morning Shift Roll Call", "434 / 460 Present", "Synced"]
+        ],
+        headers: ["Student ID", "Class / Batch", "Record Type", "Status"]
+      },
+      apk: {
+        title: "Custom Branded Android App (APK) Preview",
+        badge: "Your Logo • Your Brand Name",
+        metrics: [
+          { label: "Package Type", val: "Branded APK" },
+          { label: "Sync Mode", val: "Real-Time" },
+          { label: "User Roles", val: "Admin / Staff / User" }
+        ],
+        rows: [
+          ["Home Screen", "Custom Brand Splash & Menu", "Client Branding", "Configured"],
+          ["Order / Request", "Mobile Entry & Status Track", "Field / Customer", "Active"],
+          ["Notifications", "Instant Alerts & Updates", "Push / Alerts", "Enabled"]
+        ],
+        headers: ["Screen", "Capability", "Audience", "Mode"]
+      }
+    };
+
+    function switchDemo(key, btnEl) {
+      document.querySelectorAll(".tab-btn").forEach(function (b) {
+        b.classList.remove("active");
+        b.setAttribute("aria-selected", "false");
+      });
+      if (btnEl) { btnEl.classList.add("active"); btnEl.setAttribute("aria-selected", "true"); }
+      track("demo_tab", { demo: key });
+
+      const box = document.getElementById("demo-workspace");
+      if (key === "pos") { renderPosDemo(box); return; }
+
+      const d = demoData[key];
+      box.innerHTML =
+        '<div class="demo-header"><h3>' + d.title + '</h3><span class="pill" style="margin:0;">' + d.badge + '</span></div>' +
+        '<div class="demo-metrics">' +
+          d.metrics.map(function (m) { return '<div class="metric"><small>' + m.label + '</small><strong>' + m.val + '</strong></div>'; }).join("") +
+        '</div>' +
+        '<div class="table-wrap"><table><thead><tr>' +
+          d.headers.map(function (h) { return "<th>" + h + "</th>"; }).join("") +
+        '</tr></thead><tbody>' +
+          d.rows.map(function (r) { return "<tr>" + r.map(function (c) { return "<td>" + c + "</td>"; }).join("") + "</tr>"; }).join("") +
+        '</tbody></table></div>' +
+        '<p style="margin-top:16px;color:var(--text-muted);font-size:.9rem;">Aisa hi system aapke business ke hisaab se banaya jata hai. ' +
+        '<a href="#inquiry">Request your custom build &rarr;</a></p>';
+    }
+
+    function renderPosDemo(box) {
+      const subtotal = cart.reduce(function (sum, r) { return sum + r.qty * r.rate; }, 0);
+      box.innerHTML =
+        '<div class="demo-header"><h3>Retail &amp; Mall POS Billing Preview</h3><span class="pill" style="margin:0;">Fast Billing • Auto Stock</span></div>' +
+        '<div class="pos-controls">' +
+          '<select id="posItem" aria-label="Item">' +
+            '<option value="Basmati Rice (5kg)|420">Basmati Rice (5kg) - ₹420</option>' +
+            '<option value="Sunflower Oil (1L)|145">Sunflower Oil (1L) - ₹145</option>' +
+            '<option value="Toor Dal (1kg)|160">Toor Dal (1kg) - ₹160</option>' +
+            '<option value="Dishwash Bar Pack|90">Dishwash Bar Pack - ₹90</option>' +
+          '</select>' +
+          '<input type="number" id="posQty" min="1" max="50" value="1" aria-label="Quantity" />' +
+          '<button type="button" class="btn btn-cyan" onclick="addPosItem()">+ Add to Bill</button>' +
+        '</div>' +
+        '<div class="table-wrap"><table><thead><tr><th>Item</th><th>Qty</th><th>Rate</th><th>Amount</th></tr></thead><tbody>' +
+          cart.map(function (r) {
+            return "<tr><td>" + r.item + "</td><td>" + r.qty + "</td><td>₹" + r.rate + "</td><td>₹" + (r.qty * r.rate) + "</td></tr>";
+          }).join("") +
+        '</tbody></table></div>' +
+        '<div style="margin-top:16px;display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:12px;">' +
+          '<strong style="font-size:1.15rem;color:var(--cyan);">Bill Total: ₹' + subtotal.toLocaleString("en-IN") + '</strong>' +
+          '<button type="button" class="btn btn-outline" onclick="resetPosDemo()">Reset Sample Bill</button>' +
+        '</div>';
+    }
+
+    function addPosItem() {
+      const parts = document.getElementById("posItem").value.split("|");
+      const name = parts[0];
+      const rate = parseInt(parts[1], 10);
+      let qty = parseInt(document.getElementById("posQty").value || "1", 10);
+      if (isNaN(qty)) qty = 1;
+      qty = Math.min(50, Math.max(1, qty));
+      const existing = cart.find(function (x) { return x.item === name; });
+      if (existing) existing.qty += qty; else cart.push({ item: name, qty: qty, rate: rate });
+      renderPosDemo(document.getElementById("demo-workspace"));
+    }
+
+    function resetPosDemo() {
+      cart = [
+        { item: "Basmati Rice (5kg)", qty: 1, rate: 420 },
+        { item: "Sunflower Oil (1L)", qty: 2, rate: 145 }
+      ];
+      renderPosDemo(document.getElementById("demo-workspace"));
+    }
+
+    switchDemo("pos", document.querySelector(".tab-btn.active"));
+
+    /* ---------- Inquiry form ---------- */
+    const form = document.getElementById("inquiryForm");
+    const submitBtn = document.getElementById("submitBtn");
+    const statusBox = document.getElementById("statusBox");
+    const reqField = document.getElementById("requirements");
+    const COOLDOWN_MS = 30000;
+    let lastSubmit = 0;
+
+    reqField.addEventListener("input", function () {
+      document.getElementById("reqCount").textContent = reqField.value.length;
+    });
+
+    function setFieldError(id, msg) {
+      const el = document.getElementById(id);
+      const box = form.querySelector('.field-err[data-for="' + id + '"]');
+      if (box) box.textContent = msg || "";
+      if (el) el.setAttribute("aria-invalid", msg ? "true" : "false");
+    }
+
+    function normalizePhone(v) {
+      let d = String(v || "").replace(/[\s\-()]/g, "");
+      if (d.indexOf("+91") === 0) d = d.slice(3);
+      else if (d.indexOf("91") === 0 && d.length === 12) d = d.slice(2);
+      else if (d.charAt(0) === "0" && d.length === 11) d = d.slice(1);
+      return d;
+    }
+
+    function validate(data) {
+      let ok = true;
+      const checks = [
+        ["fullName", data.fullName.length >= 2, "Please enter your name."],
+        ["businessName", data.businessName.length >= 2, "Please enter your business / institute name."],
+        ["email", /^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/.test(data.email), "Please enter a valid email address."],
+        ["phone", /^[6-9]\d{9}$/.test(normalizePhone(data.phone)), "Enter a valid 10-digit Indian mobile number."],
+        ["requirements", data.requirements.length >= 10, "Please describe your requirement (at least 10 characters)."]
+      ];
+      checks.forEach(function (c) {
+        setFieldError(c[0], c[2] && !c[1] ? c[2] : "");
+        if (!c[1]) ok = false;
+      });
+      return ok;
+    }
+
+    function showStatus(kind, html) {
+      statusBox.className = "status-msg " + kind;
+      statusBox.innerHTML = html;
+    }
+
+    function escapeHtml(s) {
+      return String(s).replace(/[&<>"']/g, function (c) {
+        return { "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;", "'": "&#39;" }[c];
+      });
+    }
+
+    function buildWaSummary(data, requestId) {
+      return "Hello Sarfaraz Tech Solutions,\n" +
+        (requestId ? "Request ID: " + requestId + "\n" : "") +
+        "Name: " + data.fullName + "\n" +
+        "Business: " + data.businessName + "\n" +
+        "Solution: " + data.solutionType + "\n" +
+        (data.cityState ? "City: " + data.cityState + "\n" : "") +
+        "Requirement: " + data.requirements;
+    }
+
+    form.addEventListener("submit", async function (e) {
       e.preventDefault();
+      statusBox.className = "status-msg";
 
-      // 1. Honeypot & fast-bot fill check
-      if (document.getElementById("website_hp").value.trim() !== "") return;
-      if (Date.now() - formLoadedAt < 3000) {
-        showAlert("err", "Please take a moment to review the form and submit again.");
-        return;
-      }
-
-      // 2. Cooldown rate limit (60s)
-      const lastSub = Number(localStorage.getItem("sts_last_submit") || "0");
-      const elapsed = Math.floor((Date.now() - lastSub) / 1000);
-      if (lastSub && elapsed < 60) {
-        showAlert("warn", "You recently submitted an inquiry. Please wait " + (60 - elapsed) + " seconds before submitting another request.");
-        return;
-      }
-
-      // 3. Field validation
-      const name = document.getElementById("custName").value.trim();
-      const phone = normalizeIndianPhone(document.getElementById("custPhone").value);
-      const email = document.getElementById("custEmail").value.trim();
-      const businessType = document.getElementById("businessType").value;
-      const service = document.getElementById("serviceType").value;
-      const details = detailsEl.value.trim();
-      const captchaVal = Number(document.getElementById("captchaInput").value);
-
-      if (name.length < 2) {
-        showAlert("err", "Please enter a valid full name.");
-        return;
-      }
-      if (!/^[6-9]\d{9}$/.test(phone)) {
-        showAlert("err", "Please enter a valid 10-digit Indian mobile number (starting with 6, 7, 8, or 9).");
-        return;
-      }
-      if (email && !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)) {
-        showAlert("err", "Please enter a valid email address or leave this field blank.");
-        return;
-      }
-      if (!businessType || !service || details.length < 5) {
-        showAlert("err", "Please select a Business Type, Required Service, and enter brief project details.");
-        return;
-      }
-      if (captchaVal !== captchaAnswer) {
-        showAlert("err", "Incorrect security check answer. Please try again.");
-        generateCaptcha();
-        return;
-      }
-
-      const payload = {
-        token: API_SECRET_TOKEN,
-        Name: sanitizeSheetText(name),
-        Phone: phone,
-        Email: sanitizeSheetText(email),
-        BusinessType: sanitizeSheetText(businessType),
-        Service: sanitizeSheetText(service),
-        Details: sanitizeSheetText(details)
+      const data = {
+        fullName: form.fullName.value.trim(),
+        businessName: form.businessName.value.trim(),
+        email: form.email.value.trim(),
+        phone: normalizePhone(form.phone.value),
+        solutionType: form.solutionType.value,
+        cityState: form.cityState.value.trim(),
+        requirements: form.requirements.value.trim(),
+        website: form.website.value // honeypot
       };
-      const waFallback = buildWhatsAppUrl(payload);
 
-      // 4. Honest fallback if Google Script URL is not connected
-      if (!GOOGLE_SCRIPT_URL) {
-        showAlert(
-          "warn",
-          "Online sheet sync is currently in setup mode. Click the WhatsApp button below to send your pre-filled inquiry immediately:",
-          waFallback
-        );
+      if (!validate({ ...data, phone: form.phone.value })) {
+        showStatus("err", "Please fix the highlighted fields and try again.");
+        const first = form.querySelector('[aria-invalid="true"]');
+        if (first) first.focus();
         return;
       }
 
-      const submitBtn = document.getElementById("submitBtn");
+      if (data.website) { // bot filled the honeypot: pretend success, send nothing
+        showStatus("ok", "Thank you! Your request has been received.");
+        return;
+      }
+
+      const now = Date.now();
+      if (now - lastSubmit < COOLDOWN_MS) {
+        showStatus("err", "Please wait a few seconds before submitting again.");
+        return;
+      }
+
+      if (!isConfigured) {
+        showStatus("err",
+          "Online form abhi setup mein hai. Aap seedha WhatsApp par apni requirement bhej sakte hain." +
+          (WHATSAPP_NUMBER ? '<br><a class="btn btn-wa" target="_blank" rel="noopener" href="' + waLink(buildWaSummary(data)) + '">Send on WhatsApp</a>' : ""));
+        return;
+      }
+
       submitBtn.disabled = true;
       submitBtn.textContent = "Submitting...";
-
       const controller = new AbortController();
-      const timer = setTimeout(() => controller.abort(), 12000);
+      const timer = setTimeout(function () { controller.abort(); }, 20000);
 
       try {
-        const res = await fetch(GOOGLE_SCRIPT_URL, {
+        // text/plain avoids a CORS preflight, which Apps Script Web Apps do not answer.
+        const res = await fetch(APPS_SCRIPT_WEB_APP_URL, {
           method: "POST",
           headers: { "Content-Type": "text/plain;charset=utf-8" },
-          body: JSON.stringify(payload),
+          body: JSON.stringify(data),
           signal: controller.signal
         });
-        clearTimeout(timer);
+        const out = await res.json();
+        if (!out || !out.ok) throw new Error((out && out.error) || "Server error");
 
-        if (!res.ok) throw new Error("HTTP " + res.status);
-        const json = await res.json();
-        if (json && json.status === "success") {
-          localStorage.setItem("sts_last_submit", String(Date.now()));
-          document.getElementById("inquiryForm").reset();
-          document.getElementById("charCount").textContent = "0 / 800";
-          generateCaptcha();
-          showAlert(
-            "success",
-            "Thank you, " + name + "! Your request has been saved successfully. Our team will contact you shortly from +91 9135041918.",
-            waFallback
-          );
-        } else {
-          throw new Error((json && json.message) || "Server rejected request");
-        }
+        lastSubmit = Date.now();
+        track("generate_lead", { solution: data.solutionType });
+        form.reset();
+        document.getElementById("reqCount").textContent = "0";
+        showStatus("ok",
+          "<strong>Request received!</strong> Your Request ID: <strong>" + escapeHtml(out.requestId || "-") + "</strong>. " +
+          "A confirmation has been emailed to you. We will contact you soon." +
+          (WHATSAPP_NUMBER ? '<br><a class="btn btn-wa" target="_blank" rel="noopener" href="' + waLink(buildWaSummary(data, out.requestId)) + '">Also send on WhatsApp for faster reply</a>' : ""));
       } catch (err) {
-        clearTimeout(timer);
-        showAlert(
-          "warn",
-          "Unable to sync due to a slow network connection. Tap the button below to send your inquiry directly on WhatsApp so your request isn't missed:",
-          waFallback
-        );
+        const msg = err && err.name === "AbortError" ? "The request timed out." : (err && err.message) || "Something went wrong.";
+        showStatus("err",
+          escapeHtml(msg) + " Please try again, or contact us on WhatsApp." +
+          (WHATSAPP_NUMBER ? '<br><a class="btn btn-wa" target="_blank" rel="noopener" href="' + waLink(buildWaSummary(data)) + '">Send on WhatsApp</a>' : ""));
       } finally {
+        clearTimeout(timer);
         submitBtn.disabled = false;
-        submitBtn.textContent = "Submit Request";
+        submitBtn.textContent = "Submit Requirement Request";
       }
     });
   </script>
