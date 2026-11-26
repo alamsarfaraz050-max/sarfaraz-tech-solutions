@@ -67,50 +67,50 @@
  "mainEntity": [
   {
    "@type": "Question",
-   "name": "Software banane mein kitna time lagta hai?",
+   "name": "How long does it take to build the software?",
    "acceptedAnswer": {
     "@type": "Answer",
-    "text": "Requirement ke hisaab se alag hota hai. Quote ke saath hum estimated delivery time bata dete hain."
+    "text": "It depends on your requirements. We share an estimated delivery time along with the quote."
    }
   },
   {
    "@type": "Question",
-   "name": "Price kitna hoga?",
+   "name": "What will it cost?",
    "acceptedAnswer": {
     "@type": "Answer",
-    "text": "School Panel ₹10,000 se, Retail POS ₹8,000 se, Hospital HMS ₹25,000 se, Company ERP ₹30,000 se aur Android App ₹15,000 se shuru hota hai. Creatives: post ₹49, poster ₹49, reel ₹199 se, aur monthly packages ₹499 se. Final price aapke modules aur features par depend karta hai; requirement bhejein, hum clear quote dete hain."
+    "text": "Prices start at ₹10,000 for the School Panel, ₹8,000 for Retail POS, ₹25,000 for Hospital HMS, ₹30,000 for Company ERP and ₹15,000 for an Android App. Creatives: posts from ₹49, posters from ₹49, reels from ₹199, and monthly packages from ₹499. The final price depends on your modules and features; share your requirement and we will send a clear quote."
    }
   },
   {
    "@type": "Question",
-   "name": "Kya Android app bhi milega?",
+   "name": "Do you also build Android apps?",
    "acceptedAnswer": {
     "@type": "Answer",
-    "text": "Haan. Web panel ke saath aapke naam aur logo wala branded Android APK bhi banaya ja sakta hai."
+    "text": "Yes. Along with the web panel, we can build a branded Android APK with your name and logo."
    }
   },
   {
    "@type": "Question",
-   "name": "Kya aap kisi bhi brand ke liye poster, post aur ad video banate hain?",
+   "name": "Do you create posters, posts and ad videos for any brand?",
    "acceptedAnswer": {
     "@type": "Answer",
-    "text": "Haan. Aapke logo, colours aur offer ke hisaab se posters, social media posts aur 15-30 second ke ad videos/reels banaye jate hain. Quote aapke volume aur formats par depend karta hai."
+    "text": "Yes. We create posters, social media posts and 15-30 second ad videos and reels based on your logo, colours and offer. The quote depends on your volume and formats."
    }
   },
   {
    "@type": "Question",
-   "name": "Setup aur training milti hai?",
+   "name": "Do you provide setup and training?",
    "acceptedAnswer": {
     "@type": "Answer",
-    "text": "Haan, setup aur aapki team ki training shuru mein di jati hai, uske baad support bhi."
+    "text": "Yes. Setup and training for your team are provided at the start, with support afterwards."
    }
   },
   {
    "@type": "Question",
-   "name": "Mera data safe rahega?",
+   "name": "Will my data be safe?",
    "acceptedAnswer": {
     "@type": "Answer",
-    "text": "Aapki jaankari sirf aapse sampark karne ke liye use hoti hai. Hum ise bechte ya share nahi karte."
+    "text": "Your information is used only to contact you about your request. We do not sell or share it."
    }
   }
  ]
@@ -237,6 +237,12 @@
     .service .btn { margin-top: 16px; }
     .price-note { text-align: center; color: var(--muted); font-size: .86rem; margin-top: 22px; }
 
+    .card-btns { display: flex; gap: 8px; flex-wrap: wrap; }
+    .card-btns .btn { flex: 1 1 auto; justify-content: center; }
+    #lightbox .lb-actions { display: flex; gap: 8px; flex-wrap: wrap; margin-top: 10px; }
+    #lightbox .lb-actions .btn { flex: 1 1 auto; justify-content: center; }
+    .flash { animation: flashbox 1.4s ease; }
+    @keyframes flashbox { 0%,60% { box-shadow: 0 0 0 4px rgba(37,99,235,.45); } 100% { box-shadow: none; } }
     /* ---------- Business-wise demo ---------- */
     .bd-chips { display: flex; flex-wrap: wrap; gap: 8px; justify-content: center; margin-bottom: 22px; }
     .bd-chips .tab-btn { padding: 7px 14px; font-size: .84rem; }
@@ -666,13 +672,13 @@
           <span class="eyebrow">Custom Software &amp; Android Apps</span>
           <h1>Software Built Exactly for <span>Your Business</span></h1>
           <p class="lead">
-            Hospital, clinic, shop, mall, company ya school &mdash; hum aapke workflow ke hisaab se Software Systems, ERP Portals,
-            Billing POS, School Panels aur Branded Android Apps (APK) banate hain. Poore India mein, setup aur training ke saath.
+            Hospital, clinic, shop, mall, company or school &mdash; we build custom Software Systems, ERP Portals,
+            Billing POS, School Panels and Branded Android Apps (APK) tailored to your workflow. Serving all of India, with setup and training included.
           </p>
           <div class="hero-actions">
             <a href="#demos" class="btn btn-primary">Try 5 Live Demos Free</a>
             <a href="#inquiry" class="btn btn-outline">Submit Requirement</a>
-            <a href="#" class="btn btn-wa" data-wa="Hello Sarfaraz Tech Solutions, mujhe custom software ke baare mein baat karni hai.">WhatsApp Chat</a>
+            <a href="#" class="btn btn-wa" data-wa="Hello Sarfaraz Tech Solutions, I would like to discuss custom software.">WhatsApp Chat</a>
           </div>
           <div class="micro" style="margin-top:14px"><span>Free demo</span><span>No obligation</span><span>Clear quote</span></div>
           <div class="trust">
@@ -700,10 +706,10 @@
     <section id="problems">
       <div class="container">
         <div class="section-title">
-          <h2>Excel aur register se kab tak?</h2>
-          <p>Roz ki dikkatein jinhe hamara custom software seedha solve karta hai.</p>
+          <h2>Still running on Excel and registers?</h2>
+          <p>Everyday problems our custom software solves directly.</p>
         </div>
-        <div class="ps"><div class="card"><div class="pain"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"><path d="M6 6l12 12M18 6L6 18"/></svg><span>Register aur Excel mein hisaab, galtiyan aur der</span></div><div class="fix"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12.5l4.5 4.5L19 7.5"/></svg><span><b>Solution:</b> Auto billing, stock aur reports &mdash; ek click mein</span></div></div><div class="card"><div class="pain"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"><path d="M6 6l12 12M18 6L6 18"/></svg><span>OPD/IPD ki parchi aur lambi line</span></div><div class="fix"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12.5l4.5 4.5L19 7.5"/></svg><span><b>Solution:</b> Token queue, patient records aur bed tracking</span></div></div><div class="card"><div class="pain"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"><path d="M6 6l12 12M18 6L6 18"/></svg><span>Fees ka hisaab aur pending dues yaad nahi rehte</span></div><div class="fix"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12.5l4.5 4.5L19 7.5"/></svg><span><b>Solution:</b> Fee receipts, dues alerts aur attendance ek panel mein</span></div></div><div class="card"><div class="pain"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"><path d="M6 6l12 12M18 6L6 18"/></svg><span>Staff ka kaam aur stock alag-alag jagah</span></div><div class="fix"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12.5l4.5 4.5L19 7.5"/></svg><span><b>Solution:</b> Roles ke saath ek system, har kisi ki apni dashboard</span></div></div><div class="card"><div class="pain"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"><path d="M6 6l12 12M18 6L6 18"/></svg><span>Readymade software mein aapka process fit nahi hota</span></div><div class="fix"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12.5l4.5 4.5L19 7.5"/></svg><span><b>Solution:</b> Custom modules jo aapke workflow ke hisaab se bante hain</span></div></div><div class="card"><div class="pain"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"><path d="M6 6l12 12M18 6L6 18"/></svg><span>Customer ko app aur bill WhatsApp par chahiye</span></div><div class="fix"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12.5l4.5 4.5L19 7.5"/></svg><span><b>Solution:</b> Branded Android app aur WhatsApp par bill/receipt share</span></div></div></div>
+        <div class="ps"><div class="card"><div class="pain"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"><path d="M6 6l12 12M18 6L6 18"/></svg><span>Accounts kept in registers and Excel lead to errors and delays</span></div><div class="fix"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12.5l4.5 4.5L19 7.5"/></svg><span><b>Solution:</b> Auto billing, stock and reports &mdash; in one click</span></div></div><div class="card"><div class="pain"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"><path d="M6 6l12 12M18 6L6 18"/></svg><span>Paper slips and long queues at OPD/IPD</span></div><div class="fix"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12.5l4.5 4.5L19 7.5"/></svg><span><b>Solution:</b> Token queue, patient records and bed tracking</span></div></div><div class="card"><div class="pain"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"><path d="M6 6l12 12M18 6L6 18"/></svg><span>Fee records and pending dues are easy to lose track of</span></div><div class="fix"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12.5l4.5 4.5L19 7.5"/></svg><span><b>Solution:</b> Fee receipts, dues alerts and attendance in one panel</span></div></div><div class="card"><div class="pain"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"><path d="M6 6l12 12M18 6L6 18"/></svg><span>Staff work and stock scattered across places</span></div><div class="fix"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12.5l4.5 4.5L19 7.5"/></svg><span><b>Solution:</b> One system with roles and a dashboard for every user</span></div></div><div class="card"><div class="pain"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"><path d="M6 6l12 12M18 6L6 18"/></svg><span>Ready-made software does not fit your process</span></div><div class="fix"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12.5l4.5 4.5L19 7.5"/></svg><span><b>Solution:</b> Custom modules built around your workflow</span></div></div><div class="card"><div class="pain"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"><path d="M6 6l12 12M18 6L6 18"/></svg><span>Customers expect an app and bills on WhatsApp</span></div><div class="fix"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12.5l4.5 4.5L19 7.5"/></svg><span><b>Solution:</b> Branded Android app with bill and receipt sharing on WhatsApp</span></div></div></div>
         <div style="text-align:center;margin-top:28px"><a href="#demos" class="btn btn-primary">See it in action &rarr;</a></div>
       </div>
     </section>
@@ -720,45 +726,45 @@
             <h3>Hospital &amp; Clinic HMS</h3>
             <p>OPD/IPD registration, token queue, patient records, bed tracking, and integrated pharmacy &amp; lab billing.</p>
             <div class="price"><small>Starting</small>₹25,000</div>
-            <button type="button" class="btn btn-outline btn-sm" data-pick="Hospital & Clinic Management System" data-type="Hospital / Clinic">Inquire Now</button>
+            <div class="card-btns"><button type="button" class="btn btn-outline btn-sm" data-pick="Hospital & Clinic Management System" data-type="Hospital / Clinic">Inquire Now</button><button type="button" class="btn btn-primary btn-sm" onclick="goDemo('hms')">Live Demo</button></div>
           </div>
           <div class="card service">
             <div class="icon"><svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="9" cy="20" r="1.4"/><circle cx="18" cy="20" r="1.4"/><path d="M2 3h3l2.6 12.2a1 1 0 001 .8h8.8a1 1 0 001-.8L20 7H6"/></svg></div>
             <h3>Retail &amp; Mall POS</h3>
             <p>Fast multi-counter checkout, GST/Non-GST invoicing, barcode/item stock sync, and daily profit analytics.</p>
             <div class="price"><small>Starting</small>₹8,000</div>
-            <button type="button" class="btn btn-outline btn-sm" data-pick="Shop & Retail Billing Software" data-type="Shop / Retail Store">Inquire Now</button>
+            <div class="card-btns"><button type="button" class="btn btn-outline btn-sm" data-pick="Shop & Retail Billing Software" data-type="Shop / Retail Store">Inquire Now</button><button type="button" class="btn btn-primary btn-sm" onclick="goDemo('pos')">Live Demo</button></div>
           </div>
           <div class="card service">
             <div class="icon"><svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 21h18M5 21V7l7-4 7 4v14M9 21v-5h6v5M9 10h.01M15 10h.01M9 13h.01M15 13h.01"/></svg></div>
             <h3>Company ERP &amp; Accounts</h3>
             <p>Unified inventory, purchase orders, sales ledgers, party balances, and real-time operational reporting.</p>
             <div class="price"><small>Starting</small>₹30,000</div>
-            <button type="button" class="btn btn-outline btn-sm" data-pick="Company ERP & Accounts" data-type="Company / Office / Factory">Inquire Now</button>
+            <div class="card-btns"><button type="button" class="btn btn-outline btn-sm" data-pick="Company ERP & Accounts" data-type="Company / Office / Factory">Inquire Now</button><button type="button" class="btn btn-primary btn-sm" onclick="goDemo('erp')">Live Demo</button></div>
           </div>
           <div class="card service">
             <div class="icon"><svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M2 9l10-5 10 5-10 5L2 9z"/><path d="M6 11.5V16c0 1.4 2.7 3 6 3s6-1.6 6-3v-4.5"/></svg></div>
             <h3>School &amp; Coaching Panel</h3>
             <p>Student profiles, quick attendance, fee receipts, pending dues alerts, and institute progress reports.</p>
             <div class="price"><small>Starting</small><s>₹11,999</s>₹10,000</div>
-            <button type="button" class="btn btn-outline btn-sm" data-pick="School & Coaching Management System" data-type="School / College / Coaching">Inquire Now</button>
+            <div class="card-btns"><button type="button" class="btn btn-outline btn-sm" data-pick="School & Coaching Management System" data-type="School / College / Coaching">Inquire Now</button><button type="button" class="btn btn-primary btn-sm" onclick="goDemo('school')">Live Demo</button></div>
           </div>
           <div class="card service">
             <div class="icon"><svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="6" y="2" width="12" height="20" rx="3"/><path d="M11 18h2"/></svg></div>
             <h3>Custom Android Apps (APK)</h3>
             <p>Branded Android applications with your business name, logo, live data sync, and custom workflow screens.</p>
             <div class="price"><small>Starting</small>₹15,000</div>
-            <button type="button" class="btn btn-outline btn-sm" data-pick="Custom Android App (APK)" data-type="Other / Custom Business">Inquire Now</button>
+            <div class="card-btns"><button type="button" class="btn btn-outline btn-sm" data-pick="Custom Android App (APK)" data-type="Other / Custom Business">Inquire Now</button><button type="button" class="btn btn-primary btn-sm" onclick="goDemo('apk')">Live Demo</button></div>
           </div>
           <div class="card service">
             <div class="icon"><svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M8 6l-6 6 6 6M16 6l6 6-6 6M14 4l-4 16"/></svg></div>
             <h3>Tailor-Made Workflows</h3>
             <p>Need something unique? Tell us how your team works and we build a custom web or mobile system around it.</p>
             <div class="price">Quote as per need</div>
-            <button type="button" class="btn btn-outline btn-sm" data-pick="Custom Software / Web Portal" data-type="Other / Custom Business">Inquire Now</button>
+            <div class="card-btns"><button type="button" class="btn btn-outline btn-sm" data-pick="Custom Software / Web Portal" data-type="Other / Custom Business">Inquire Now</button><button type="button" class="btn btn-primary btn-sm" onclick="goDemo('biz')">Business Demos</button></div>
           </div>
         </div>
-        <p class="price-note">Prices are starting rates for the standard package. Final quote depends on your modules and features.</p>
+        <p class="price-note">Prices are starting rates for the standard package. Final quote depends on your modules and features. <a href="#bizdemo" style="color:var(--primary);font-weight:700">See the ERP + app demo for your business</a></p>
       </div>
     </section>
 
@@ -785,8 +791,8 @@
     <section id="bizdemo" style="border-top:1px solid var(--line)">
       <div class="container">
         <div class="section-title">
-          <h2>Aapke Business ka ERP + Android App Demo</h2>
-          <p>Apna business chuno. Uske hisaab se ERP aur customer app ka demo badal jata hai. Click karke try karo.</p>
+          <h2>ERP + Android App Demo for Your Business</h2>
+          <p>Choose your business type. The ERP and customer app demo adapts to it. Click around and try it.</p>
         </div>
         <div class="bd-chips" id="bdChips" role="group" aria-label="Choose your business type"></div>
         <div class="bd-grid">
@@ -799,10 +805,10 @@
             <div id="bdPhone" class="bd-phone" aria-live="polite"></div>
           </div>
         </div>
-        <p class="demo-hint" style="text-align:center">Ye sample data wala demo hai. Aapke business ke naam, items aur rates ke saath banaya jata hai.</p>
+        <p class="demo-hint" style="text-align:center">This demo uses sample data. We build it with your business name, items and rates.</p>
         <div class="bd-cta">
-          <button type="button" class="btn btn-primary" data-pick="Custom Software / Web Portal" data-type="Other / Custom Business">Get ERP Quote</button>
-          <button type="button" class="btn btn-outline" data-pick="Custom Android App (APK)" data-type="Other / Custom Business">Get Android App Quote</button>
+          <button type="button" class="btn btn-primary" onclick="bdQuote('erp')">Get ERP Quote for this business</button>
+          <button type="button" class="btn btn-outline" onclick="bdQuote('app')">Get Android App Quote</button>
         </div>
       </div>
     </section>
@@ -811,21 +817,21 @@
       <div class="container">
         <div class="section-title">
           <h2>Posters, Social Posts &amp; Ad Videos for Your Brand</h2>
-          <p>Software ke saath apni marketing bhi ek hi jagah se. Aapke logo, colours aur offer ke hisaab se professional creatives.</p>
+          <p>Marketing and software from a single team. Professional creatives built around your logo, colours and offers.</p>
         </div>
 
         <div class="grid-3 cr-tiles">
           <div class="card">
             <h3>Posters &amp; Social Posts</h3>
-            <p>Instagram/Facebook posts, carousels, stories, festival aur offer posters, aapke brand ke colours mein.</p>
+            <p>Instagram and Facebook posts, carousels, stories, and festival and offer posters in your brand colours.</p>
           </div>
           <div class="card">
             <h3>Ad Videos &amp; Reels</h3>
-            <p>15-30 second motion ads: offer, logo reveal aur text animation. Reels/Status (9:16) aur square formats.</p>
+            <p>15-30 second motion ads: offer, logo reveal and text animation. Reels/Status (9:16) and square formats.</p>
           </div>
           <div class="card">
             <h3>Brand Kit &amp; Content Plan</h3>
-            <p>Logo, colour palette, captions, hashtags aur monthly content calendar, taaki page regular aur professional dikhe.</p>
+            <p>Logo, colour palette, captions, hashtags and a monthly content calendar, so your page looks consistent and professional.</p>
           </div>
         </div>
 
@@ -860,7 +866,7 @@
             <button type="button" class="btn btn-outline btn-sm" data-pick="Brand Creatives (Posters, Posts, Ad Videos)" data-type="Other / Custom Business">Get a Quote</button>
           </div>
         </div>
-        <p class="price-note">Launch rates for our first clients. Bade volume (100+ reels) ke liye timeline aur formats ke hisaab se final quote milta hai.</p>
+        <p class="price-note">Launch rates for our first clients. For large volumes (100+ reels), the final quote depends on timeline and formats.</p>
 
         <h3 class="cr-sub">Single Items</h3>
         <div class="rates">
@@ -869,7 +875,7 @@
           <div class="rate"><span>Ad video / reel (15-30 sec)</span><b>₹199</b></div>
           <div class="rate"><span>Logo &amp; brand kit</span><b>₹599</b></div>
         </div>
-        <p class="price-note">Launch rates per item, with 2 rounds of changes. Monthly packages mein har item sasta padta hai.</p>
+        <p class="price-note">Launch rates per item, with 2 rounds of changes. Monthly packages lower the cost per item.</p>
 
         <div class="reel-box">
           <div class="reel-video">
@@ -913,7 +919,7 @@
           <button type="button" class="g-item" data-cat="biz" data-src="portfolio/biz-salon.jpg" data-cap="Salon & Beauty: bridal package poster"><img src="portfolio/biz-salon.jpg" width="720" height="900" loading="lazy" alt="Sample Salon & Beauty: bridal package poster by Sarfaraz Tech Solutions" /></button>
           <button type="button" class="g-item" data-cat="biz" data-src="portfolio/biz-gym.jpg" data-cap="Gym & Fitness: join now poster"><img src="portfolio/biz-gym.jpg" width="720" height="900" loading="lazy" alt="Sample Gym & Fitness: join now poster by Sarfaraz Tech Solutions" /></button>
           <button type="button" class="g-item" data-cat="biz" data-src="portfolio/biz-coaching.jpg" data-cap="Coaching: admission open poster"><img src="portfolio/biz-coaching.jpg" width="720" height="900" loading="lazy" alt="Sample Coaching: admission open poster by Sarfaraz Tech Solutions" /></button>
-          <button type="button" class="g-item" data-cat="biz" data-src="portfolio/biz-kirana.jpg" data-cap="Kirana & Grocery: ration offer poster"><img src="portfolio/biz-kirana.jpg" width="720" height="900" loading="lazy" alt="Sample Kirana & Grocery: ration offer poster by Sarfaraz Tech Solutions" /></button>
+          <button type="button" class="g-item" data-cat="biz" data-src="portfolio/biz-kirana.jpg" data-cap="Grocery Store: monthly offer poster"><img src="portfolio/biz-kirana.jpg" width="720" height="900" loading="lazy" alt="Sample Grocery Store: monthly offer poster by Sarfaraz Tech Solutions" /></button>
           <button type="button" class="g-item" data-cat="biz" data-src="portfolio/biz-medical.jpg" data-cap="Medical Store: health care offer poster"><img src="portfolio/biz-medical.jpg" width="720" height="900" loading="lazy" alt="Sample Medical Store: health care offer poster by Sarfaraz Tech Solutions" /></button>
           <button type="button" class="g-item" data-cat="biz" data-src="portfolio/biz-cosmetics.jpg" data-cap="Cosmetics: buy 1 get 1 poster"><img src="portfolio/biz-cosmetics.jpg" width="720" height="900" loading="lazy" alt="Sample Cosmetics: buy 1 get 1 poster by Sarfaraz Tech Solutions" /></button>
           <button type="button" class="g-item" data-cat="biz" data-src="portfolio/biz-electrical.jpg" data-cap="Electricals: mega sale poster"><img src="portfolio/biz-electrical.jpg" width="720" height="900" loading="lazy" alt="Sample Electricals: mega sale poster by Sarfaraz Tech Solutions" /></button>
@@ -928,7 +934,7 @@
           <button type="button" class="g-item" data-cat="biz" data-src="portfolio/biz-travel.jpg" data-cap="Travel & Tours: holiday packages poster"><img src="portfolio/biz-travel.jpg" width="720" height="900" loading="lazy" alt="Sample Travel & Tours: holiday packages poster by Sarfaraz Tech Solutions" /></button>
           <button type="button" class="g-item" data-cat="biz" data-src="portfolio/biz-footwear.jpg" data-cap="Footwear: big sale poster"><img src="portfolio/biz-footwear.jpg" width="720" height="900" loading="lazy" alt="Sample Footwear: big sale poster by Sarfaraz Tech Solutions" /></button>
         </div>
-        <p class="price-note">Software wale posts hamare apne brand ke hain. "By Business" wale posters sample designs hain (demo brand names ke saath): fashion, sweets, hotel, jewellery, salon, gym, coaching, kirana, medical, cosmetics, electrical, mobile, furniture, bakery, real estate, restaurant, tailor, tiles, school, travel aur footwear. Aapke business ka sample free banate hain. Aur samples dekhne ke liye <a href="#" data-wa="Hello Sarfaraz Tech Solutions, mujhe ad video aur poster ke aur samples dekhne hain.">WhatsApp par poochein &rarr;</a></p>
+        <p class="price-note">The software posters are our own brand's work. The "By Business" posters are sample designs with demo brand names: fashion, sweets, hotel, jewellery, salon, gym, coaching, grocery, medical, cosmetics, electrical, mobile, furniture, bakery, real estate, restaurant, tailor, tiles, school, travel and footwear. We create a free sample for your business. <a href="#" data-wa="Hello Sarfaraz Tech Solutions, I would like to see more ad video and poster samples.">Ask us on WhatsApp &rarr;</a></p>
       </div>
     </section>
 
@@ -939,10 +945,10 @@
           <p>Simple software that your team can start using from day one.</p>
         </div>
         <div class="why">
-          <div class="card"><div class="icon"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3l8 4v5c0 5-3.5 8-8 9-4.5-1-8-4-8-9V7l8-4z"/><path d="M9 12l2 2 4-4"/></svg></div><h3>Built Around Your Workflow</h3><p>Aapke process ke hisaab se modules, na ki readymade software mein fit hona.</p></div>
-          <div class="card"><div class="icon"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="4" width="14" height="11" rx="2"/><rect x="14" y="9" width="8" height="12" rx="2"/></svg></div><h3>Web Panel + Android App</h3><p>Computer par panel aur phone par branded APK, dono ek saath sync mein.</p></div>
-          <div class="card"><div class="icon"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 2"/></svg></div><h3>Setup &amp; Training</h3><p>Installation, data setup aur aapki team ki training shuru mein hi di jati hai.</p></div>
-          <div class="card"><div class="icon"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 12a8 8 0 01-11.6 7.1L4 20l1-4.6A8 8 0 1121 12z"/></svg></div><h3>Direct Developer Support</h3><p>Seedha developer se WhatsApp par baat, bina kisi call-centre ke.</p></div>
+          <div class="card"><div class="icon"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3l8 4v5c0 5-3.5 8-8 9-4.5-1-8-4-8-9V7l8-4z"/><path d="M9 12l2 2 4-4"/></svg></div><h3>Built Around Your Workflow</h3><p>Modules shaped around your process, instead of forcing your process into ready-made software.</p></div>
+          <div class="card"><div class="icon"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="4" width="14" height="11" rx="2"/><rect x="14" y="9" width="8" height="12" rx="2"/></svg></div><h3>Web Panel + Android App</h3><p>A panel on your computer and a branded APK on your phone, both in sync.</p></div>
+          <div class="card"><div class="icon"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 2"/></svg></div><h3>Setup &amp; Training</h3><p>Installation, data setup and team training are provided at the start.</p></div>
+          <div class="card"><div class="icon"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 12a8 8 0 01-11.6 7.1L4 20l1-4.6A8 8 0 1121 12z"/></svg></div><h3>Direct Developer Support</h3><p>Talk to the developer directly on WhatsApp, with no call centre in between.</p></div>
         </div>
       </div>
     </section>
@@ -954,10 +960,10 @@
           <p>Clear process, no surprises.</p>
         </div>
         <div class="steps">
-          <div class="step"><div class="num-badge">1</div><h3>Share Your Requirement</h3><p>Form bhariye ya WhatsApp par batayein ki aapko kya chahiye.</p></div>
-          <div class="step"><div class="num-badge">2</div><h3>Demo &amp; Quote</h3><p>Hum workflow samajhkar demo aur clear plan/price share karte hain.</p></div>
-          <div class="step"><div class="num-badge">3</div><h3>We Build It</h3><p>Aapke modules, logo aur rules ke saath software/app banta hai.</p></div>
-          <div class="step"><div class="num-badge">4</div><h3>Setup &amp; Support</h3><p>Web panel, Android APK, team training aur setup ke baad support.</p></div>
+          <div class="step"><div class="num-badge">1</div><h3>Share Your Requirement</h3><p>Fill in the form or tell us on WhatsApp what you need.</p></div>
+          <div class="step"><div class="num-badge">2</div><h3>Demo &amp; Quote</h3><p>We understand your workflow, then share a demo and a clear plan and price.</p></div>
+          <div class="step"><div class="num-badge">3</div><h3>We Build It</h3><p>The software or app is built with your modules, logo and business rules.</p></div>
+          <div class="step"><div class="num-badge">4</div><h3>Setup &amp; Support</h3><p>Web panel, Android APK, team training and post-setup support.</p></div>
         </div>
       </div>
     </section>
@@ -966,7 +972,7 @@
       <div class="container">
         <div class="section-title">
           <h2>Custom Software vs Readymade Software</h2>
-          <p>Kyun zyada businesses apne hisaab ka system chunte hain.</p>
+          <p>Why more businesses are choosing systems built around their own needs.</p>
         </div>
         <div class="cmp"><table class="rt"><thead><tr><th></th><th class="us">Sarfaraz Tech Solutions</th><th>Readymade software</th></tr></thead><tbody><tr><td data-label="">Fit with your workflow</td><td class="us" data-label="Sarfaraz Tech Solutions"><span class="yes">Built exactly for you</span></td><td data-label="Readymade software"><span class="no">You adjust to the software</span></td></tr><tr><td data-label="">Features you pay for</td><td class="us" data-label="Sarfaraz Tech Solutions"><span class="yes">Only what you need</span></td><td data-label="Readymade software"><span class="no">Bundle with unused modules</span></td></tr><tr><td data-label="">Branded Android app</td><td class="us" data-label="Sarfaraz Tech Solutions"><span class="yes">Your name &amp; logo</span></td><td data-label="Readymade software"><span class="no">Generic or extra cost</span></td></tr><tr><td data-label="">Changes &amp; new features</td><td class="us" data-label="Sarfaraz Tech Solutions"><span class="yes">Direct from the developer</span></td><td data-label="Readymade software"><span class="no">Ticket queue, limited options</span></td></tr><tr><td data-label="">Setup &amp; training</td><td class="us" data-label="Sarfaraz Tech Solutions"><span class="yes">Included</span></td><td data-label="Readymade software"><span class="no">Often paid separately</span></td></tr><tr><td data-label="">Support</td><td class="us" data-label="Sarfaraz Tech Solutions"><span class="yes">Direct WhatsApp support</span></td><td data-label="Readymade software"><span class="no">Call-centre / email</span></td></tr></tbody></table></div>
       </div>
@@ -976,12 +982,12 @@
       <div class="container">
         <div class="section-title"><h2>Frequently Asked Questions</h2></div>
         <div class="faq">
-          <details><summary>Software banane mein kitna time lagta hai?</summary><p>Requirement ke hisaab se alag hota hai. Quote ke saath hum estimated delivery time bata dete hain.</p></details>
-          <details><summary>Price kitna hoga?</summary><p>School Panel ₹10,000 se, Retail POS ₹8,000 se, Hospital HMS ₹25,000 se, Company ERP ₹30,000 se aur Android App ₹15,000 se shuru hota hai. Creatives: post ₹49, poster ₹49, reel ₹199 se, aur monthly packages ₹499 se. Final price aapke modules aur features par depend karta hai; requirement bhejein, hum clear quote dete hain.</p></details>
-          <details><summary>Kya Android app bhi milega?</summary><p>Haan. Web panel ke saath aapke naam aur logo wala branded Android APK bhi banaya ja sakta hai.</p></details>
-          <details><summary>Kya aap kisi bhi brand ke liye poster, post aur ad video banate hain?</summary><p>Haan. Aapke logo, colours aur offer ke hisaab se posters, social media posts aur 15-30 second ke ad videos/reels banaye jate hain. Quote aapke volume aur formats par depend karta hai.</p></details>
-          <details><summary>Setup aur training milti hai?</summary><p>Haan, setup aur aapki team ki training shuru mein di jati hai, uske baad support bhi.</p></details>
-          <details><summary>Mera data safe rahega?</summary><p>Aapki jaankari sirf aapse sampark karne ke liye use hoti hai. Hum ise bechte ya share nahi karte.</p></details>
+          <details><summary>How long does it take to build the software?</summary><p>It depends on your requirements. We share an estimated delivery time along with the quote.</p></details>
+          <details><summary>What will it cost?</summary><p>Prices start at ₹10,000 for the School Panel, ₹8,000 for Retail POS, ₹25,000 for Hospital HMS, ₹30,000 for Company ERP and ₹15,000 for an Android App. Creatives: posts from ₹49, posters from ₹49, reels from ₹199, and monthly packages from ₹499. The final price depends on your modules and features; share your requirement and we will send a clear quote.</p></details>
+          <details><summary>Do you also build Android apps?</summary><p>Yes. Along with the web panel, we can build a branded Android APK with your name and logo.</p></details>
+          <details><summary>Do you create posters, posts and ad videos for any brand?</summary><p>Yes. We create posters, social media posts and 15-30 second ad videos and reels based on your logo, colours and offer. The quote depends on your volume and formats.</p></details>
+          <details><summary>Do you provide setup and training?</summary><p>Yes. Setup and training for your team are provided at the start, with support afterwards.</p></details>
+          <details><summary>Will my data be safe?</summary><p>Your information is used only to contact you about your request. We do not sell or share it.</p></details>
         </div>
       </div>
     </section>
@@ -995,13 +1001,13 @@
         <div class="contact-grid">
           <div class="contact-info card">
             <h3>Talk to us directly</h3>
-            <p>Form bharne ka time nahi? Seedha WhatsApp par apni requirement bhej dein.</p>
+            <p>No time for the form? Send your requirement directly on WhatsApp.</p>
             <ul>
               <li><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12.5l4.5 4.5L19 7.5"/></svg>Free demo &amp; quote</li>
               <li><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12.5l4.5 4.5L19 7.5"/></svg>Confirmation email with Request ID</li>
               <li><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12.5l4.5 4.5L19 7.5"/></svg>All-India support</li>
             </ul>
-            <a href="#" class="btn btn-wa" data-wa="Hello Sarfaraz Tech Solutions, mujhe custom software ke baare mein baat karni hai.">Message on WhatsApp</a>
+            <a href="#" class="btn btn-wa" data-wa="Hello Sarfaraz Tech Solutions, I would like to discuss custom software.">Message on WhatsApp</a>
           </div>
 
           <div class="card">
@@ -1090,11 +1096,11 @@
     <section style="padding:56px 0">
       <div class="container">
         <div class="cta-band">
-          <h2>Apna business digital banayein &mdash; free demo aur quote</h2>
-          <p>Bas apni requirement batayein. Hum demo dikhayenge aur clear price share karenge, koi obligation nahi.</p>
+          <h2>Take your business digital &mdash; free demo and quote</h2>
+          <p>Just share your requirement. We will show you a demo and share a clear price, with no obligation.</p>
           <div class="cta-actions">
             <a href="#inquiry" class="btn btn-light">Get Free Demo &rarr;</a>
-            <a href="#" class="btn btn-wa" data-wa="Hello Sarfaraz Tech Solutions, mujhe free demo chahiye.">Chat on WhatsApp</a>
+            <a href="#" class="btn btn-wa" data-wa="Hello Sarfaraz Tech Solutions, I would like a free demo.">Chat on WhatsApp</a>
           </div>
         </div>
       </div>
@@ -1150,7 +1156,7 @@
         <div class="foot-contact-col">
           <h3>Get in Touch</h3>
           <ul class="foot-contact">
-            <li><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M21 12a8 8 0 01-11.6 7.1L4 20l1-4.6A8 8 0 1121 12z"/></svg><a href="#" data-wa="Hello Sarfaraz Tech Solutions, mujhe custom software ke baare mein baat karni hai.">Chat on WhatsApp</a></li>
+            <li><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M21 12a8 8 0 01-11.6 7.1L4 20l1-4.6A8 8 0 1121 12z"/></svg><a href="#" data-wa="Hello Sarfaraz Tech Solutions, I would like to discuss custom software.">Chat on WhatsApp</a></li>
             <li><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="5" width="18" height="14" rx="2"/><path d="M3 7l9 6 9-6"/></svg><a href="mailto:alamsarfaraz050@gmail.com">alamsarfaraz050@gmail.com</a></li>
             <li><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 21s-7-6.2-7-11a7 7 0 1114 0c0 4.8-7 11-7 11z"/><circle cx="12" cy="10" r="2.5"/></svg><span>India &mdash; serving clients all over the country</span></li>
             <li><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 2"/></svg><span>WhatsApp support, replies in working hours</span></li>
@@ -1167,10 +1173,10 @@
 
   <div class="sticky-cta">
     <a href="#inquiry" class="btn btn-primary">Get Free Demo</a>
-    <a href="#" class="btn btn-wa" data-wa="Hello Sarfaraz Tech Solutions, mujhe custom software ke baare mein baat karni hai.">WhatsApp</a>
+    <a href="#" class="btn btn-wa" data-wa="Hello Sarfaraz Tech Solutions, I would like to discuss custom software.">WhatsApp</a>
   </div>
 
-  <a href="#" class="wa-float" data-wa="Hello Sarfaraz Tech Solutions, mujhe custom software ke baare mein baat karni hai." aria-label="Chat on WhatsApp">
+  <a href="#" class="wa-float" data-wa="Hello Sarfaraz Tech Solutions, I would like to discuss custom software." aria-label="Chat on WhatsApp">
     <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M21 12a8 8 0 01-11.6 7.1L4 20l1-4.6A8 8 0 1121 12z"/></svg>
     <span>WhatsApp</span>
   </a>
@@ -1178,6 +1184,7 @@
   <dialog id="lightbox" aria-label="Creative preview">
     <img id="lbImg" alt="" />
     <div class="lb-bar"><span id="lbCap"></span><button type="button" class="btn btn-outline btn-sm" id="lbClose">Close</button></div>
+    <div class="lb-actions"><button type="button" class="btn btn-primary btn-sm" id="lbEnq">Enquiry for this</button><button type="button" class="btn btn-outline btn-sm" id="lbDemo" hidden>See ERP + App demo</button></div>
   </dialog>
 
   <dialog id="privacyDialog">
@@ -1236,7 +1243,10 @@
 
     /* ---------- Creatives gallery ---------- */
     (function () {
-      const items = document.querySelectorAll("#gallery .g-item"), lb = document.getElementById("lightbox");
+      const items = document.querySelectorAll("#gallery .g-item"), lb = document.getElementById("lightbox"); let lbCur = null;
+      function lbShut() { if (lb.close) lb.close(); else lb.removeAttribute("open"); }
+      document.getElementById("lbEnq").addEventListener("click", function () { const cap = lbCur ? lbCur.getAttribute("data-cap") : ""; lbShut(); quoteFor("Brand Creatives (Posters, Posts, Ad Videos)", "Creative enquiry: " + cap); });
+      document.getElementById("lbDemo").addEventListener("click", function () { const m = lbCur && lbCur.getAttribute("data-src").match(/biz-([a-z]+)\.jpg/); lbShut(); if (m) goBiz(m[1]); });
       document.querySelectorAll(".filters [data-f]").forEach(function (b) {
         b.addEventListener("click", function () {
           const f = b.getAttribute("data-f");
@@ -1249,6 +1259,9 @@
           document.getElementById("lbImg").src = it.getAttribute("data-src");
           document.getElementById("lbImg").alt = it.querySelector("img").alt;
           document.getElementById("lbCap").textContent = it.getAttribute("data-cap");
+          lbCur = it;
+          const bk = (it.getAttribute("data-src").match(/biz-([a-z]+)\.jpg/) || [])[1];
+          document.getElementById("lbDemo").hidden = !bk;
           if (lb.showModal) lb.showModal(); else lb.setAttribute("open", "");
           track("creative_view");
         });
@@ -1298,7 +1311,7 @@
         '<div class="app"><nav class="app-nav" aria-label="Demo modules">' +
         navs[key].map(function (n) { return '<button type="button" class="' + (n[0] === m ? "on" : "") + '" onclick="setMod(\'' + n[0] + '\')">' + n[1] + "</button>"; }).join("") +
         '</nav><div class="app-main">' + body + '</div></div>' +
-        '<p class="demo-hint">Ye sample data wala demo hai. Aisa hi system aapke business ke hisaab se banaya jata hai. <a href="#inquiry">Request your custom build &rarr;</a></p>';
+        '<p class="demo-hint">This demo uses sample data. We build the same system around your business. <a href="#inquiry">Request your custom build &rarr;</a></p>';
     }
     function setMod(id) { curMod[currentDemo] = id; render(false); }
     function bars(vals, labels, fmt) {
@@ -1331,9 +1344,9 @@
       { k: "coaching", n: "Coaching Institute", c: "#1e4fa3", app: "Bright Path Academy", il: "Batches", off: "Admission open 2027",
         items: "Class 10 Maths|1500|30;JEE Foundation|2500|20;NEET Biology|2200|25;Class 12 Physics|1800|28;English Speaking|1000|35;Test Series|600|99",
         sp: "Fee Collection|Student,Batch|Aman K.,Class 10;Neha S.,NEET;Rohit Y.,JEE|Due,Paid" },
-      { k: "kirana", n: "Kirana & Grocery", c: "#1b7a45", app: "Apni Dukaan Mart", il: "Products", off: "Free home delivery",
+      { k: "kirana", n: "Grocery Store", c: "#1b7a45", app: "Neighbourhood Mart", il: "Products", off: "Free home delivery",
         items: "Atta 10kg|420|40;Basmati Rice 5kg|420|30;Sunflower Oil 1L|145|60;Toor Dal 1kg|160|9;Sugar 1kg|48|80;Tea 250g|110|7",
-        sp: "Udhaar Ledger|Customer,Amount|Ramesh ji,Rs.1,250;Shanti Devi,Rs.480;Mohd. Salim,Rs.2,100|Pending,Cleared" },
+        sp: "Customer Credit Ledger|Customer,Amount|Ramesh ji,Rs.1,250;Shanti Devi,Rs.480;Mohd. Salim,Rs.2,100|Pending,Cleared" },
       { k: "medical", n: "Medical Store", c: "#00796b", app: "Life Care Medical", il: "Medicines", off: "Flat 20% off on medicines",
         items: "Paracetamol Strip|30|120;Cough Syrup|95|18;Vitamin C|120|9;Antacid Gel|45|40;BP Test Strip|220|14;Bandage Roll|60|50",
         sp: "Expiry Alerts|Medicine,Expiry|Cough Syrup,Dec 2026;Vitamin C,Jan 2027;Antacid Gel,Feb 2027|Near expiry,Returned" },
@@ -1394,12 +1407,12 @@
     function bdGen() {
       const b = bdB(), s = bdStk(b); let t = 0;
       Object.keys(bd.bill).forEach(function (i) { t += b.items[i].p * bd.bill[i]; s[i] = Math.max(0, s[i] - bd.bill[i]); });
-      if (!t) { toast("Pehle items add karo"); return; }
+      if (!t) { toast("Add items first"); return; }
       bd.n++; bd.bill = {}; bdRender(); toast("Bill BILL-" + bd.n + " generated: " + bdRs(t));
     }
     function bdStock(i, d) { const s = bdStk(bdB()); s[i] = Math.max(0, s[i] + d); bdRender(); }
     function bdSpec(i) { const s = bdSt(bdB()); s[i] = s[i] ? 0 : 1; bdRender(); toast("Status updated"); }
-    function bdOrder() { if (!Object.keys(bd.cart).length) { toast("Cart khaali hai"); return; } bd.cart = {}; bdRender(); toast("Order sent on WhatsApp (demo)"); }
+    function bdOrder() { if (!Object.keys(bd.cart).length) { toast("Your cart is empty"); return; } bd.cart = {}; bdRender(); toast("Order sent on WhatsApp (demo)"); }
     function bdSeed(b) { let h = 0; for (let i = 0; i < b.k.length; i++) h = (h * 31 + b.k.charCodeAt(i)) % 97; return h; }
     function bdErp(b) {
       const s = bdStk(b), seed = bdSeed(b), mods = [["dash", "Dashboard"], ["items", b.il], ["bill", "Billing"], ["cust", "Customers"], ["spec", b.spl]];
@@ -1416,15 +1429,15 @@
         }).join("");
       } else if (bd.m === "bill") {
         const ks = Object.keys(bd.bill); let tot = 0;
-        body = '<div class="sub-title">Quick billing: item par click karo</div><div class="demo-actions">' + b.items.map(function (it, i) { return '<button type="button" class="bd-mini" onclick="bdAdd(' + i + ')">+ ' + it.n + "</button>"; }).join("") + "</div>" +
-          (ks.length ? ks.map(function (i) { const it = b.items[i], q = bd.bill[i]; tot += it.p * q; return '<div class="bd-row"><span>' + it.n + " &times; " + q + '</span><span>' + bdRs(it.p * q) + ' <button class="bd-mini" aria-label="Remove one" onclick="bdSub(' + i + ')">&minus;</button></span></div>'; }).join("") + '<div class="bd-total"><span>Total</span><span>' + bdRs(tot) + '</span></div>' : '<p class="demo-hint">Abhi koi item nahi. Upar se add karo.</p>') +
+        body = '<div class="sub-title">Quick billing: click an item to add it</div><div class="demo-actions">' + b.items.map(function (it, i) { return '<button type="button" class="bd-mini" onclick="bdAdd(' + i + ')">+ ' + it.n + "</button>"; }).join("") + "</div>" +
+          (ks.length ? ks.map(function (i) { const it = b.items[i], q = bd.bill[i]; tot += it.p * q; return '<div class="bd-row"><span>' + it.n + " &times; " + q + '</span><span>' + bdRs(it.p * q) + ' <button class="bd-mini" aria-label="Remove one" onclick="bdSub(' + i + ')">&minus;</button></span></div>'; }).join("") + '<div class="bd-total"><span>Total</span><span>' + bdRs(tot) + '</span></div>' : '<p class="demo-hint">No items yet. Add items from above.</p>') +
           '<button type="button" class="btn btn-primary btn-sm" onclick="bdGen()">Generate Bill</button>';
       } else if (bd.m === "cust") {
         const nm = ["Rakesh Verma", "Meena Tiwari", "Arif Hussain", "Kavita Rao", "Sandeep Singh"];
         body = '<div class="sub-title">Customers &amp; repeat visits</div>' + nm.map(function (c, i) { const v = 3 + (seed + i * 5) % 14; return '<div class="bd-row"><span><b>' + c + "</b><br><small>" + v + " visits</small></span><span>" + bdRs(Math.round(v * (b.items[i % b.items.length].p) * 0.8)) + "</span></div>"; }).join("");
       } else {
         const st = bdSt(b);
-        body = '<div class="sub-title">' + b.spl + " (status badalne ke liye click karo)</div>" + b.spr.map(function (r, i) {
+        body = '<div class="sub-title">' + b.spl + " (click a status to change it)</div>" + b.spr.map(function (r, i) {
           return '<div class="bd-row"><span><b>' + r[0] + "</b><br><small>" + b.sph[1] + ": " + r[1] + '</small></span><button type="button" class="bd-st ' + (st[i] ? "b" : "a") + '" onclick="bdSpec(' + i + ')">' + b.sps[st[i]] + "</button></div>";
         }).join("");
       }
@@ -1434,14 +1447,14 @@
     function bdPhone(b) {
       const c = b.c; let body = "", tot = 0;
       if (bd.pt === "home") {
-        body = '<div class="bd-ph-banner" style="background:' + c + '">' + b.off + "<small>Aaj hi order karo</small></div>" + '<div class="bd-ph-grid">' + b.items.map(function (it, i) {
+        body = '<div class="bd-ph-banner" style="background:' + c + '">' + b.off + "<small>Order today</small></div>" + '<div class="bd-ph-grid">' + b.items.map(function (it, i) {
           return '<div class="bd-ph-card"><b>' + it.n + "</b>" + bdRs(it.p) + '<button style="background:' + c + '" onclick="bdPAdd(' + i + ')">Add</button></div>';
         }).join("") + "</div>";
       } else if (bd.pt === "cart") {
         const ks = Object.keys(bd.cart);
-        body = ks.length ? ks.map(function (i) { const it = b.items[i], q = bd.cart[i]; tot += it.p * q; return '<div class="bd-ph-line"><span>' + it.n + " &times; " + q + '</span><span>' + bdRs(it.p * q) + ' <button class="bd-mini" aria-label="Remove one" onclick="bdPSub(' + i + ')">&minus;</button></span></div>'; }).join("") + '<div class="bd-total"><span>Total</span><span>' + bdRs(tot) + '</span></div><button class="bd-ph-order" style="background:' + c + '" onclick="bdOrder()">Order on WhatsApp</button>' : '<p class="demo-hint">Cart khaali hai. Home se items add karo.</p>';
+        body = ks.length ? ks.map(function (i) { const it = b.items[i], q = bd.cart[i]; tot += it.p * q; return '<div class="bd-ph-line"><span>' + it.n + " &times; " + q + '</span><span>' + bdRs(it.p * q) + ' <button class="bd-mini" aria-label="Remove one" onclick="bdPSub(' + i + ')">&minus;</button></span></div>'; }).join("") + '<div class="bd-total"><span>Total</span><span>' + bdRs(tot) + '</span></div><button class="bd-ph-order" style="background:' + c + '" onclick="bdOrder()">Order on WhatsApp</button>' : '<p class="demo-hint">Your cart is empty. Add items from Home.</p>';
       } else {
-        body = '<div class="bd-coupon" style="--bdc:' + c + '"><b>FIRST10</b>Pehle order par 10% off</div><div class="bd-coupon" style="--bdc:' + c + '"><b>FREEDEL</b>' + bdRs(999) + ' se upar free delivery</div><div class="bd-coupon" style="--bdc:' + c + '"><b>Push notifications</b>Naye offers seedha customer ke phone par</div>';
+        body = '<div class="bd-coupon" style="--bdc:' + c + '"><b>FIRST10</b>10% off your first order</div><div class="bd-coupon" style="--bdc:' + c + '"><b>FREEDEL</b>Free delivery above ' + bdRs(999) + '</div><div class="bd-coupon" style="--bdc:' + c + '"><b>Push notifications</b>New offers delivered straight to the customer phone</div>';
       }
       const n = Object.keys(bd.cart).length;
       return '<div class="bd-ph-top" style="background:' + c + '">' + b.app + "<small>" + b.n + '</small></div><div class="bd-ph-body">' + body + '</div><div class="bd-ph-nav" style="--bdc:' + c + '">' +
@@ -1574,7 +1587,7 @@
           '<div class="mf"><label for="hDoc">Doctor</label><select id="hDoc">' + hms.doctors.map(function (d) { return "<option>" + d + "</option>"; }).join("") + "</select></div>" +
           '<div class="mf"><button type="submit" class="btn btn-primary btn-sm">Generate Token</button></div></form>' +
           (hms.lastToken ? '<div class="note ok">' + hms.lastToken + "</div>" : "") +
-          '<p class="demo-hint">Token generate hote hi Dashboard ki OPD Queue mein dikhne lagta hai.</p>';
+          '<p class="demo-hint">As soon as a token is generated, it appears in the Dashboard OPD Queue.</p>';
       } else if (m === "beds") {
         body = metrics([["Occupied", occ], ["Available", 20 - occ], ["Occupancy", Math.round(occ / 20 * 100) + "%"]]) +
           '<div class="sub-title">General Ward (tap a bed to admit / discharge)</div><div class="beds">' +
@@ -1638,7 +1651,7 @@
       } else if (m === "inv") {
         const rows = erp.items.map(function (i) { return '<tr><td data-label="Item"><b>' + i.n + '</b></td><td data-label="In Stock" class="num">' + i.s + '</td><td data-label="Reorder Level" class="num">' + i.min + '</td><td data-label="Status"><span class="chip ' + (i.s < i.min ? "warn" : "ok") + '">' + (i.s < i.min ? "Reorder" : "OK") + "</span></td></tr>"; }).join("");
         body = metrics([["SKUs Tracked", erp.items.length], ["Reorder Alerts", low], ["Units in Stock", erp.items.reduce(function (a, i) { return a + i.s; }, 0)]]) + '<div class="tbl"><table class="rt"><thead><tr><th>Item</th><th class="num">In Stock</th><th class="num">Reorder Level</th><th>Status</th></tr></thead><tbody>' + rows + "</tbody></table></div>" +
-          '<p class="demo-hint">Purchase Orders mein stock receive karne par yahan quantity apne aap badh jati hai.</p>';
+          '<p class="demo-hint">When stock is received against a Purchase Order, the quantity here updates automatically.</p>';
       } else if (m === "ledger") {
         const rows = erp.parties.map(function (p, i) { return '<tr><td data-label="Party"><b>' + p.n + '</b></td><td data-label="Balance Due" class="num">' + inr(p.bal) + '</td><td data-label="Status"><span class="chip ' + (p.bal ? "warn" : "ok") + '">' + (p.bal ? "Pending" : "Settled") + '</span></td><td data-label="" class="num">' + (p.bal ? '<button type="button" class="btn btn-outline btn-sm" onclick="erpPay(' + i + ')">Record ₹10,000 Payment</button>' : "") + "</td></tr>"; }).join("");
         body = metrics([["Total Receivables", inr(recv)], ["Parties", erp.parties.length], ["Settled", erp.parties.filter(function (p) { return !p.bal; }).length]]) + '<div class="tbl"><table class="rt"><thead><tr><th>Party</th><th class="num">Balance Due</th><th>Status</th><th></th></tr></thead><tbody>' + rows + "</tbody></table></div>";
@@ -1713,7 +1726,7 @@
           '<div><div class="phone"><div class="screen"><div class="top"><span class="ph-b">' + b + '</span><small>Dashboard</small></div><div class="body"><div class="tile">Today\'s Orders <span class="chip ok">24</span></div><div class="tile">Pending Requests <span class="chip warn">5</span></div><div class="tile">Collections <b>₹18,400</b></div><div class="tile">Notifications <span class="chip info">3</span></div></div></div></div><div class="phone-label">2. Home Screen</div></div>' +
           '<div><div class="phone"><div class="screen"><div class="top"><span class="ph-b">' + b + '</span><small>Orders</small></div><div class="body"><div class="tile">#1042 &bull; Delivered <span class="chip ok">Done</span></div><div class="tile">#1043 &bull; Packed <span class="chip info">Ready</span></div><div class="tile">#1044 &bull; New <span class="chip warn">New</span></div></div></div></div><div class="phone-label">3. Order Tracking</div></div></div>';
       } else {
-        const f = [["Your name & logo", "Splash screen, app icon aur theme aapke brand ke."], ["Login & roles", "Admin, staff aur customer ke alag access."], ["Live data sync", "Web panel aur app ka data real-time sync."], ["Push notifications", "Offers, dues aur order updates seedha phone par."], ["Order & request tracking", "Status updates ke saath poora history."], ["WhatsApp share", "Bill, receipt aur report ek tap mein share."]];
+        const f = [["Your name & logo", "Splash screen, app icon and theme in your brand style."], ["Login & roles", "Separate access for admin, staff and customers."], ["Live data sync", "Web panel and app data stay in sync in real time."], ["Push notifications", "Offers, dues and order updates delivered straight to the phone."], ["Order & request tracking", "Full history with status updates."], ["WhatsApp share", "Share bills, receipts and reports in one tap."]];
         body = '<div class="featgrid">' + f.map(function (x) { return '<div class="featcard"><b>' + x[0] + "</b><p>" + x[1] + "</p></div>"; }).join("") + "</div>";
       }
       return shell("apk", body);
@@ -1851,7 +1864,7 @@
     }
     function goStep(n, focusEl) {
       showStep(n);
-      const top = document.getElementById("inquiry"); if (top) top.scrollIntoView({ behavior: "smooth", block: "start" });
+      const top = document.getElementById("inquiryForm") || document.getElementById("inquiry"); if (top) top.scrollIntoView({ behavior: "smooth", block: "start" });
       saveDraft();
       setTimeout(function () { if (focusEl) focusEl.focus({ preventScroll: true }); }, 350);
     }
@@ -1865,6 +1878,30 @@
     });
     document.getElementById("wizBack").addEventListener("click", function () { goStep(step - 1); });
     ["users", "timeline"].forEach(function (id) { document.getElementById(id).addEventListener("change", saveDraft); });
+
+    /* Quote / demo helpers used by cards, gallery and business demo */
+    function quoteFor(serviceName, note) {
+      wizPick(serviceName);
+      const d = document.getElementById("details");
+      if (d && note && d.value.indexOf(note) < 0) { d.value = (d.value ? d.value + " | " : "") + note; }
+      const card = document.getElementById("inquiryForm"); if (card) { card.classList.remove("flash"); void card.offsetWidth; card.classList.add("flash"); }
+      toast("Selected: " + serviceName + ". Now choose your modules and click Next.");
+    }
+    function goDemo(key) {
+      if (key === "biz") { goBiz(bd.k); return; }
+      const btn = Array.prototype.filter.call(document.querySelectorAll(".demo-tabs .tab-btn"), function (b) { return (b.getAttribute("onclick") || "").indexOf("'" + key + "'") > -1; })[0];
+      if (btn) switchDemo(key, btn);
+      const t = document.getElementById("demos"); if (t) t.scrollIntoView({ behavior: "smooth", block: "start" });
+    }
+    function goBiz(k) {
+      bdPick(k);
+      const t = document.getElementById("bizdemo"); if (t) t.scrollIntoView({ behavior: "smooth", block: "start" });
+      toast("Demo: " + bdB().n);
+    }
+    function bdQuote(kind) {
+      const b = bdB();
+      quoteFor(kind === "app" ? "Custom Android App (APK)" : "Custom Software / Web Portal", "Business: " + b.n + " (viewed demo)");
+    }
 
     /* Service buttons elsewhere on the page jump straight to step 2 */
     function wizPick(serviceName) {
@@ -1958,7 +1995,7 @@
       if (Date.now() - lastSubmit < COOLDOWN_MS) { showStatus("err", "Please wait a few seconds before submitting again."); return; }
 
       if (!isConfigured) {
-        showStatus("err", "Online form abhi setup mein hai. Aap seedha WhatsApp par apni requirement bhej sakte hain." + waButton("Send on WhatsApp", data));
+        showStatus("err", "The online form is being set up. You can send your requirement directly on WhatsApp." + waButton("Send on WhatsApp", data));
         return;
       }
 
