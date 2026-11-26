@@ -1,6 +1,9 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+  <!-- Google Tag Manager -->
+  <script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src='https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);})(window,document,'script','dataLayer','GTM-5T9588R8');</script>
+  <!-- End Google Tag Manager -->
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Sarfaraz Tech Solutions | Custom Software, ERP & Android Apps</title>
@@ -75,7 +78,7 @@
    "name": "Price kitna hoga?",
    "acceptedAnswer": {
     "@type": "Answer",
-    "text": "School Panel ₹10,000 se, Retail POS ₹8,000 se, Hospital HMS ₹25,000 se, Company ERP ₹30,000 se aur Android App ₹15,000 se shuru hota hai. Final price aapke modules aur features par depend karta hai; requirement bhejein, hum clear quote dete hain."
+    "text": "School Panel ₹10,000 se, Retail POS ₹8,000 se, Hospital HMS ₹25,000 se, Company ERP ₹30,000 se aur Android App ₹15,000 se shuru hota hai. Creatives: post ₹49, poster ₹49, reel ₹199 se, aur monthly packages ₹499 se. Final price aapke modules aur features par depend karta hai; requirement bhejein, hum clear quote dete hain."
    }
   },
   {
@@ -233,6 +236,40 @@
     .price s { color: #8a97ad; font-weight: 600; font-size: .95rem; margin-right: 6px; }
     .service .btn { margin-top: 16px; }
     .price-note { text-align: center; color: var(--muted); font-size: .86rem; margin-top: 22px; }
+
+    /* ---------- Business-wise demo ---------- */
+    .bd-chips { display: flex; flex-wrap: wrap; gap: 8px; justify-content: center; margin-bottom: 22px; }
+    .bd-chips .tab-btn { padding: 7px 14px; font-size: .84rem; }
+    .bd-grid { display: grid; grid-template-columns: minmax(0, 1fr) 300px; gap: 24px; align-items: start; }
+    .bd-side { display: flex; flex-direction: column; align-items: center; gap: 10px; position: sticky; top: 84px; }
+    .bd-label { font-weight: 700; color: var(--navy); font-size: .9rem; }
+    .bd-phone { width: 280px; min-height: 540px; border: 8px solid #12203a; border-radius: 34px; background: #fff; overflow: hidden; display: flex; flex-direction: column; box-shadow: var(--shadow); }
+    .bd-ph-top { padding: 16px 16px 12px; color: #fff; font-weight: 800; font-size: 1rem; }
+    .bd-ph-top small { display: block; font-weight: 500; opacity: .85; font-size: .72rem; }
+    .bd-ph-body { flex: 1; padding: 12px; overflow: auto; max-height: 410px; }
+    .bd-ph-banner { border-radius: 12px; padding: 14px; color: #fff; font-weight: 700; margin-bottom: 12px; font-size: .92rem; }
+    .bd-ph-banner small { display: block; font-weight: 500; opacity: .9; }
+    .bd-ph-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 8px; }
+    .bd-ph-card { border: 1px solid var(--line); border-radius: 10px; padding: 8px; font-size: .78rem; background: var(--bg); }
+    .bd-ph-card b { display: block; color: var(--navy); font-size: .8rem; min-height: 2.4em; }
+    .bd-ph-card button, .bd-ph-order { margin-top: 6px; border: 0; border-radius: 8px; color: #fff; font: 700 .76rem inherit; font-family: inherit; padding: 6px 8px; cursor: pointer; width: 100%; }
+    .bd-ph-nav { display: grid; grid-template-columns: repeat(3, 1fr); border-top: 1px solid var(--line); }
+    .bd-ph-nav button { border: 0; background: #fff; padding: 11px 4px; font: 700 .76rem inherit; font-family: inherit; color: var(--muted); cursor: pointer; }
+    .bd-ph-nav button.on { color: var(--navy); box-shadow: inset 0 -3px 0 var(--bdc, var(--primary)); }
+    .bd-ph-line { display: flex; justify-content: space-between; gap: 8px; font-size: .82rem; padding: 7px 0; border-bottom: 1px dashed var(--line); }
+    .bd-coupon { border: 1.5px dashed var(--bdc, var(--primary)); border-radius: 10px; padding: 10px; margin-bottom: 10px; font-size: .8rem; }
+    .bd-coupon b { display: block; color: var(--navy); font-size: .92rem; }
+    .bd-cta { display: flex; gap: 12px; justify-content: center; flex-wrap: wrap; margin-top: 18px; }
+    .bd-row { display: flex; justify-content: space-between; align-items: center; gap: 10px; padding: 9px 0; border-bottom: 1px solid var(--line); font-size: .92rem; flex-wrap: wrap; }
+    .bd-row small { color: var(--muted); }
+    .bd-mini { border: 1.5px solid var(--line); background: #fff; border-radius: 8px; padding: 4px 10px; font: 700 .85rem inherit; font-family: inherit; cursor: pointer; color: var(--ink); }
+    .bd-mini:hover { border-color: var(--primary); color: var(--primary); }
+    .bd-st { border: 0; border-radius: 999px; padding: 4px 12px; font: 700 .76rem inherit; font-family: inherit; cursor: pointer; }
+    .bd-st.a { background: #fff4d6; color: #8a5a00; }
+    .bd-st.b { background: #dff5e6; color: #11682f; }
+    .bd-low { color: var(--err, #c0392b); font-weight: 700; font-size: .74rem; margin-left: 6px; }
+    .bd-total { display: flex; justify-content: space-between; font-weight: 800; color: var(--navy); font-size: 1.05rem; padding: 12px 0; }
+    @media (max-width: 960px) { .bd-grid { grid-template-columns: 1fr; } .bd-side { position: static; } }
 
     /* ---------- Demos ---------- */
     .demo-tabs { display: flex; gap: 8px; justify-content: center; flex-wrap: wrap; margin-bottom: 22px; }
@@ -563,6 +600,12 @@
     #lightbox .lb-bar { display: flex; justify-content: space-between; align-items: center; gap: 10px; margin-top: 10px; }
     #lightbox .lb-bar span { font-weight: 700; color: var(--navy); font-size: .95rem; }
 
+
+    .pkgs { display: grid; grid-template-columns: repeat(4, 1fr); gap: 18px; }
+    .pkg-per { color: var(--muted); font-size: .86rem; font-weight: 600; margin-top: -8px; }
+    .launch { display: inline-block; vertical-align: middle; margin-left: 8px; background: #fff4d6; color: #7a4a00; border: 1px solid #f3d37a; font-size: .74rem; font-weight: 800; padding: 3px 10px; border-radius: 999px; letter-spacing: .02em; }
+    @media (max-width: 1024px) { .pkgs { grid-template-columns: repeat(2, 1fr); } }
+    @media (max-width: 560px) { .pkgs { grid-template-columns: 1fr; } }
     .pkg-price { font-size: 1.9rem; font-weight: 800; color: var(--navy); line-height: 1; }
     .pkg-price small { font-size: .85rem; font-weight: 600; color: var(--muted); margin-left: 6px; }
     .rates { display: grid; grid-template-columns: repeat(auto-fit, minmax(210px, 1fr)); gap: 14px; max-width: 980px; margin: 0 auto; }
@@ -588,6 +631,9 @@
   </style>
 </head>
 <body>
+  <!-- Google Tag Manager (noscript) -->
+  <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-5T9588R8" height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+  <!-- End Google Tag Manager (noscript) -->
   <a class="skip" href="#top">Skip to content</a>
   <noscript><div style="background:#fff4e0;color:#7a4500;padding:12px 16px;text-align:center;font-weight:600">JavaScript is off. Demos and the quote form need it. WhatsApp: +91 9135041918</div></noscript>
   <div id="toast" class="toast" role="status" aria-live="polite"></div>
@@ -604,6 +650,7 @@
       <nav class="nav-links" aria-label="Main">
         <a class="link" href="#services">Services</a>
         <a class="link" href="#demos">Live Demos</a>
+        <a class="link" href="#bizdemo">Business Demo</a>
         <a class="link" href="#creatives">Creatives</a>
         <a class="link" href="#process">Process</a>
         <a class="link" href="#faq">FAQ</a>
@@ -711,7 +758,7 @@
             <button type="button" class="btn btn-outline btn-sm" data-pick="Custom Software / Web Portal" data-type="Other / Custom Business">Inquire Now</button>
           </div>
         </div>
-        <p class="price-note">Prices are starting rates for the standard package. Final quote depends on your modules and features. GST extra as applicable.</p>
+        <p class="price-note">Prices are starting rates for the standard package. Final quote depends on your modules and features.</p>
       </div>
     </section>
 
@@ -731,6 +778,31 @@
         <div class="demo-frame">
           <div class="win-bar"><i></i><i></i><i></i><b id="demoUrl">demo.sarfaraztechsolutions / retail-pos</b></div>
           <div id="demo-workspace" class="demo-box" role="tabpanel" aria-live="polite"></div>
+        </div>
+      </div>
+    </section>
+
+    <section id="bizdemo" style="border-top:1px solid var(--line)">
+      <div class="container">
+        <div class="section-title">
+          <h2>Aapke Business ka ERP + Android App Demo</h2>
+          <p>Apna business chuno. Uske hisaab se ERP aur customer app ka demo badal jata hai. Click karke try karo.</p>
+        </div>
+        <div class="bd-chips" id="bdChips" role="group" aria-label="Choose your business type"></div>
+        <div class="bd-grid">
+          <div class="demo-frame">
+            <div class="win-bar"><i></i><i></i><i></i><b id="bdUrl">demo.sarfaraztechsolutions / erp</b></div>
+            <div id="bdErp" class="demo-box" aria-live="polite"></div>
+          </div>
+          <div class="bd-side">
+            <div class="bd-label">Customer Android App</div>
+            <div id="bdPhone" class="bd-phone" aria-live="polite"></div>
+          </div>
+        </div>
+        <p class="demo-hint" style="text-align:center">Ye sample data wala demo hai. Aapke business ke naam, items aur rates ke saath banaya jata hai.</p>
+        <div class="bd-cta">
+          <button type="button" class="btn btn-primary" data-pick="Custom Software / Web Portal" data-type="Other / Custom Business">Get ERP Quote</button>
+          <button type="button" class="btn btn-outline" data-pick="Custom Android App (APK)" data-type="Other / Custom Business">Get Android App Quote</button>
         </div>
       </div>
     </section>
@@ -757,35 +829,47 @@
           </div>
         </div>
 
-        <h3 class="cr-sub">Monthly Packages</h3>
-        <div class="grid-3 pkgs">
+        <h3 class="cr-sub">Monthly Packages <span class="launch">Launch rates</span></h3>
+        <div class="pkgs">
           <div class="card pkg">
             <span class="tag">Starter</span>
-            <div class="pkg-price">₹3,499<small>/ month</small></div>
-            <ul><li>10 social posts (about ₹350 each)</li><li>Captions &amp; hashtags</li><li>Your logo &amp; brand colours</li></ul>
+            <div class="pkg-price">₹499<small>/ month</small></div>
+            <div class="pkg-per">about ₹50 per post</div>
+            <ul><li>10 social posts</li><li>Captions &amp; hashtags</li><li>Your logo &amp; brand colours</li></ul>
             <button type="button" class="btn btn-outline btn-sm" data-pick="Brand Creatives (Posters, Posts, Ad Videos)" data-type="Other / Custom Business">Get a Quote</button>
           </div>
           <div class="card pkg pkg-hl">
             <span class="tag">Growth &bull; Popular</span>
-            <div class="pkg-price">₹7,499<small>/ month</small></div>
-            <ul><li>20 social posts</li><li>2 ad videos / reels</li><li>Monthly content calendar</li></ul>
+            <div class="pkg-price">₹1,999<small>/ month</small></div>
+            <div class="pkg-per">about ₹50 per item</div>
+            <ul><li>30 posts &amp; posters</li><li>10 ad videos / reels</li><li>Monthly content calendar</li></ul>
             <button type="button" class="btn btn-primary btn-sm" data-pick="Brand Creatives (Posters, Posts, Ad Videos)" data-type="Other / Custom Business">Get a Quote</button>
           </div>
           <div class="card pkg">
-            <span class="tag">Premium</span>
-            <div class="pkg-price">₹14,999<small>/ month</small></div>
-            <ul><li>30 posts &amp; posters</li><li>4 ad videos / reels</li><li>Brand kit &amp; content plan</li></ul>
+            <span class="tag">Business</span>
+            <div class="pkg-price">₹4,999<small>/ month</small></div>
+            <div class="pkg-per">about ₹55 per item</div>
+            <ul><li>60 posters &amp; posts</li><li>30 reels / ad videos</li><li>Captions, hashtags &amp; calendar</li></ul>
+            <button type="button" class="btn btn-outline btn-sm" data-pick="Brand Creatives (Posters, Posts, Ad Videos)" data-type="Other / Custom Business">Get a Quote</button>
+          </div>
+          <div class="card pkg">
+            <span class="tag">Scale</span>
+            <div class="pkg-price">₹9,999<small>/ month</small></div>
+            <div class="pkg-per">about ₹45 per item</div>
+            <ul><li>120 posters &amp; posts</li><li>100 reels (about 3 a day)</li><li>Weekly batch delivery</li></ul>
             <button type="button" class="btn btn-outline btn-sm" data-pick="Brand Creatives (Posters, Posts, Ad Videos)" data-type="Other / Custom Business">Get a Quote</button>
           </div>
         </div>
+        <p class="price-note">Launch rates for our first clients. Bade volume (100+ reels) ke liye timeline aur formats ke hisaab se final quote milta hai.</p>
+
         <h3 class="cr-sub">Single Items</h3>
         <div class="rates">
-          <div class="rate"><span>Social post</span><b>₹399</b></div>
-          <div class="rate"><span>Poster / flyer</span><b>₹599</b></div>
-          <div class="rate"><span>Ad video / reel (15-30 sec)</span><b>₹1,499</b></div>
-          <div class="rate"><span>Logo &amp; brand kit</span><b>₹2,999</b></div>
+          <div class="rate"><span>Social post</span><b>₹49</b></div>
+          <div class="rate"><span>Poster / flyer</span><b>₹49</b></div>
+          <div class="rate"><span>Ad video / reel (15-30 sec)</span><b>₹199</b></div>
+          <div class="rate"><span>Logo &amp; brand kit</span><b>₹599</b></div>
         </div>
-        <p class="price-note">Starting rates (per item) for standard work, with 2 rounds of changes. GST extra as applicable. Final quote depends on formats, language and volume.</p>
+        <p class="price-note">Launch rates per item, with 2 rounds of changes. Monthly packages mein har item sasta padta hai.</p>
 
         <div class="reel-box">
           <div class="reel-video">
@@ -807,6 +891,7 @@
           <button type="button" class="tab-btn active" data-f="all" aria-pressed="true">All</button>
           <button type="button" class="tab-btn" data-f="poster" aria-pressed="false">Posters</button>
           <button type="button" class="tab-btn" data-f="post" aria-pressed="false">Social Posts</button>
+          <button type="button" class="tab-btn" data-f="biz" aria-pressed="false">By Business</button>
         </div>
         <div class="gallery" id="gallery">
           <button type="button" class="g-item" data-cat="poster" data-src="portfolio/poster-main.jpg" data-cap="Brand launch poster"><img src="portfolio/poster-main.jpg" width="720" height="900" loading="lazy" alt="Brand launch poster for custom software services" /></button>
@@ -821,8 +906,29 @@
           <button type="button" class="g-item" data-cat="post" data-src="portfolio/school-2.jpg" data-cap="School panel: modules post"><img src="portfolio/school-2.jpg" width="720" height="720" loading="lazy" alt="Social post listing school panel modules" /></button>
           <button type="button" class="g-item" data-cat="post" data-src="portfolio/android-1.jpg" data-cap="Android app: cover post"><img src="portfolio/android-1.jpg" width="720" height="720" loading="lazy" alt="Social post for custom Android app" /></button>
           <button type="button" class="g-item" data-cat="post" data-src="portfolio/android-2.jpg" data-cap="Android app: features post"><img src="portfolio/android-2.jpg" width="720" height="720" loading="lazy" alt="Social post listing Android app features" /></button>
+          <button type="button" class="g-item" data-cat="biz" data-src="portfolio/biz-fashion.jpg" data-cap="Fashion & Garments: festive sale poster"><img src="portfolio/biz-fashion.jpg" width="720" height="900" loading="lazy" alt="Sample Fashion & Garments: festive sale poster by Sarfaraz Tech Solutions" /></button>
+          <button type="button" class="g-item" data-cat="biz" data-src="portfolio/biz-sweets.jpg" data-cap="Sweets & Mithai: gift box poster"><img src="portfolio/biz-sweets.jpg" width="720" height="900" loading="lazy" alt="Sample Sweets & Mithai: gift box poster by Sarfaraz Tech Solutions" /></button>
+          <button type="button" class="g-item" data-cat="biz" data-src="portfolio/biz-hotel.jpg" data-cap="Hotels & Restaurants: weekend stay offer"><img src="portfolio/biz-hotel.jpg" width="720" height="900" loading="lazy" alt="Sample Hotels & Restaurants: weekend stay offer by Sarfaraz Tech Solutions" /></button>
+          <button type="button" class="g-item" data-cat="biz" data-src="portfolio/biz-jewellery.jpg" data-cap="Jewellery: wedding gold sale poster"><img src="portfolio/biz-jewellery.jpg" width="720" height="900" loading="lazy" alt="Sample Jewellery: wedding gold sale poster by Sarfaraz Tech Solutions" /></button>
+          <button type="button" class="g-item" data-cat="biz" data-src="portfolio/biz-salon.jpg" data-cap="Salon & Beauty: bridal package poster"><img src="portfolio/biz-salon.jpg" width="720" height="900" loading="lazy" alt="Sample Salon & Beauty: bridal package poster by Sarfaraz Tech Solutions" /></button>
+          <button type="button" class="g-item" data-cat="biz" data-src="portfolio/biz-gym.jpg" data-cap="Gym & Fitness: join now poster"><img src="portfolio/biz-gym.jpg" width="720" height="900" loading="lazy" alt="Sample Gym & Fitness: join now poster by Sarfaraz Tech Solutions" /></button>
+          <button type="button" class="g-item" data-cat="biz" data-src="portfolio/biz-coaching.jpg" data-cap="Coaching: admission open poster"><img src="portfolio/biz-coaching.jpg" width="720" height="900" loading="lazy" alt="Sample Coaching: admission open poster by Sarfaraz Tech Solutions" /></button>
+          <button type="button" class="g-item" data-cat="biz" data-src="portfolio/biz-kirana.jpg" data-cap="Kirana & Grocery: ration offer poster"><img src="portfolio/biz-kirana.jpg" width="720" height="900" loading="lazy" alt="Sample Kirana & Grocery: ration offer poster by Sarfaraz Tech Solutions" /></button>
+          <button type="button" class="g-item" data-cat="biz" data-src="portfolio/biz-medical.jpg" data-cap="Medical Store: health care offer poster"><img src="portfolio/biz-medical.jpg" width="720" height="900" loading="lazy" alt="Sample Medical Store: health care offer poster by Sarfaraz Tech Solutions" /></button>
+          <button type="button" class="g-item" data-cat="biz" data-src="portfolio/biz-cosmetics.jpg" data-cap="Cosmetics: buy 1 get 1 poster"><img src="portfolio/biz-cosmetics.jpg" width="720" height="900" loading="lazy" alt="Sample Cosmetics: buy 1 get 1 poster by Sarfaraz Tech Solutions" /></button>
+          <button type="button" class="g-item" data-cat="biz" data-src="portfolio/biz-electrical.jpg" data-cap="Electricals: mega sale poster"><img src="portfolio/biz-electrical.jpg" width="720" height="900" loading="lazy" alt="Sample Electricals: mega sale poster by Sarfaraz Tech Solutions" /></button>
+          <button type="button" class="g-item" data-cat="biz" data-src="portfolio/biz-mobile.jpg" data-cap="Mobile phones: festival offer poster"><img src="portfolio/biz-mobile.jpg" width="720" height="900" loading="lazy" alt="Sample Mobile phones: festival offer poster by Sarfaraz Tech Solutions" /></button>
+          <button type="button" class="g-item" data-cat="biz" data-src="portfolio/biz-furniture.jpg" data-cap="Furniture: home makeover sale poster"><img src="portfolio/biz-furniture.jpg" width="720" height="900" loading="lazy" alt="Sample Furniture: home makeover sale poster by Sarfaraz Tech Solutions" /></button>
+          <button type="button" class="g-item" data-cat="biz" data-src="portfolio/biz-bakery.jpg" data-cap="Bakery & Cafe: fresh cake poster"><img src="portfolio/biz-bakery.jpg" width="720" height="900" loading="lazy" alt="Sample Bakery & Cafe: fresh cake poster by Sarfaraz Tech Solutions" /></button>
+          <button type="button" class="g-item" data-cat="biz" data-src="portfolio/biz-realestate.jpg" data-cap="Real Estate: plots and homes poster"><img src="portfolio/biz-realestate.jpg" width="720" height="900" loading="lazy" alt="Sample Real Estate: plots and homes poster by Sarfaraz Tech Solutions" /></button>
+          <button type="button" class="g-item" data-cat="biz" data-src="portfolio/biz-restaurant.jpg" data-cap="Restaurant: family thali offer poster"><img src="portfolio/biz-restaurant.jpg" width="720" height="900" loading="lazy" alt="Sample Restaurant: family thali offer poster by Sarfaraz Tech Solutions" /></button>
+          <button type="button" class="g-item" data-cat="biz" data-src="portfolio/biz-tailor.jpg" data-cap="Tailor & Boutique: custom stitching poster"><img src="portfolio/biz-tailor.jpg" width="720" height="900" loading="lazy" alt="Sample Tailor & Boutique: custom stitching poster by Sarfaraz Tech Solutions" /></button>
+          <button type="button" class="g-item" data-cat="biz" data-src="portfolio/biz-tiles.jpg" data-cap="Tiles & Sanitary: floor offer poster"><img src="portfolio/biz-tiles.jpg" width="720" height="900" loading="lazy" alt="Sample Tiles & Sanitary: floor offer poster by Sarfaraz Tech Solutions" /></button>
+          <button type="button" class="g-item" data-cat="biz" data-src="portfolio/biz-school.jpg" data-cap="School: admissions open poster"><img src="portfolio/biz-school.jpg" width="720" height="900" loading="lazy" alt="Sample School: admissions open poster by Sarfaraz Tech Solutions" /></button>
+          <button type="button" class="g-item" data-cat="biz" data-src="portfolio/biz-travel.jpg" data-cap="Travel & Tours: holiday packages poster"><img src="portfolio/biz-travel.jpg" width="720" height="900" loading="lazy" alt="Sample Travel & Tours: holiday packages poster by Sarfaraz Tech Solutions" /></button>
+          <button type="button" class="g-item" data-cat="biz" data-src="portfolio/biz-footwear.jpg" data-cap="Footwear: big sale poster"><img src="portfolio/biz-footwear.jpg" width="720" height="900" loading="lazy" alt="Sample Footwear: big sale poster by Sarfaraz Tech Solutions" /></button>
         </div>
-        <p class="price-note">Ye hamare apne brand ke creatives hain. Aur samples dekhne ke liye <a href="#" data-wa="Hello Sarfaraz Tech Solutions, mujhe ad video aur poster ke aur samples dekhne hain.">WhatsApp par poochein &rarr;</a></p>
+        <p class="price-note">Software wale posts hamare apne brand ke hain. "By Business" wale posters sample designs hain (demo brand names ke saath): fashion, sweets, hotel, jewellery, salon, gym, coaching, kirana, medical, cosmetics, electrical, mobile, furniture, bakery, real estate, restaurant, tailor, tiles, school, travel aur footwear. Aapke business ka sample free banate hain. Aur samples dekhne ke liye <a href="#" data-wa="Hello Sarfaraz Tech Solutions, mujhe ad video aur poster ke aur samples dekhne hain.">WhatsApp par poochein &rarr;</a></p>
       </div>
     </section>
 
@@ -871,7 +977,7 @@
         <div class="section-title"><h2>Frequently Asked Questions</h2></div>
         <div class="faq">
           <details><summary>Software banane mein kitna time lagta hai?</summary><p>Requirement ke hisaab se alag hota hai. Quote ke saath hum estimated delivery time bata dete hain.</p></details>
-          <details><summary>Price kitna hoga?</summary><p>School Panel ₹10,000 se, Retail POS ₹8,000 se, Hospital HMS ₹25,000 se, Company ERP ₹30,000 se aur Android App ₹15,000 se shuru hota hai. Final price aapke modules aur features par depend karta hai; requirement bhejein, hum clear quote dete hain.</p></details>
+          <details><summary>Price kitna hoga?</summary><p>School Panel ₹10,000 se, Retail POS ₹8,000 se, Hospital HMS ₹25,000 se, Company ERP ₹30,000 se aur Android App ₹15,000 se shuru hota hai. Creatives: post ₹49, poster ₹49, reel ₹199 se, aur monthly packages ₹499 se. Final price aapke modules aur features par depend karta hai; requirement bhejein, hum clear quote dete hain.</p></details>
           <details><summary>Kya Android app bhi milega?</summary><p>Haan. Web panel ke saath aapke naam aur logo wala branded Android APK bhi banaya ja sakta hai.</p></details>
           <details><summary>Kya aap kisi bhi brand ke liye poster, post aur ad video banate hain?</summary><p>Haan. Aapke logo, colours aur offer ke hisaab se posters, social media posts aur 15-30 second ke ad videos/reels banaye jate hain. Quote aapke volume aur formats par depend karta hai.</p></details>
           <details><summary>Setup aur training milti hai?</summary><p>Haan, setup aur aapki team ki training shuru mein di jati hai, uske baad support bhi.</p></details>
@@ -1109,7 +1215,7 @@
       gtag("js", new Date());
       gtag("config", GA_MEASUREMENT_ID);
     }
-    function track(name, params) { try { if (window.gtag) window.gtag("event", name, params || {}); } catch (e) { /* ignore */ } }
+    function track(name, params) { try { if (window.gtag) { window.gtag("event", name, params || {}); } else { window.dataLayer = window.dataLayer || []; window.dataLayer.push(Object.assign({ event: name }, params || {})); } } catch (e) { /* ignore */ } }
 
     /* ---------- WhatsApp links ---------- */
     function waLink(text) { return "https://wa.me/" + WHATSAPP_NUMBER + "?text=" + encodeURIComponent(text); }
@@ -1201,6 +1307,154 @@
         return '<div class="bar"><span class="bv">' + (fmt ? fmt(v) : v) + '</span><i style="height:' + Math.max(6, (v / max) * 100) + '%"></i><span class="bl">' + labels[i] + "</span></div>";
       }).join("") + "</div>";
     }
+
+    /* ---------- Business-wise ERP + App demo ---------- */
+    const BD = [
+      { k: "fashion", n: "Fashion & Garments", c: "#c2185b", app: "Urban Threads", il: "Garments", off: "Festive Sale: flat 50% off",
+        items: "Cotton Kurti|799|24;Denim Jeans|1299|9;Formal Shirt|999|31;Silk Saree|2499|7;Kids Frock|599|18;Printed T-Shirt|449|40",
+        sp: "Alterations|Customer,Item|Neha S.,Kurti hem;Rahul K.,Shirt fit;Pooja M.,Saree fall|Pending,Ready" },
+      { k: "sweets", n: "Sweets & Mithai", c: "#d84315", app: "Mithas House", il: "Mithai", off: "Diwali gift box Rs.499",
+        items: "Kaju Katli 1kg|850|14;Gulab Jamun 1kg|420|22;Rasgulla 1kg|380|8;Samosa plate|40|60;Gift Box|599|30;Motichoor Laddu 1kg|360|16",
+        sp: "Festival Orders|Customer,Order|Anil G.,5kg laddu;Sunita D.,20 gift boxes;Imran A.,3kg katli|Pending,Packed" },
+      { k: "hotel", n: "Hotels & Restaurants", c: "#1a3a6b", app: "Grand Sankalp", il: "Rooms & Menu", off: "Weekend stay from Rs.999",
+        items: "Deluxe Room|1999|6;Standard Room|1299|9;Suite|3499|3;Breakfast|199|50;Dinner Buffet|499|40;Laundry|150|30",
+        sp: "Room Bookings|Guest,Room|Rakesh V.,Deluxe 101;Meena T.,Suite 301;Arif H.,Standard 204|Booked,Checked-in" },
+      { k: "jewellery", n: "Jewellery", c: "#8d6e00", app: "Swarna Mahal", il: "Ornaments", off: "Wedding sale: 0% making",
+        items: "Gold Ring 22K|18500|12;Gold Chain|42000|5;Earrings|9800|14;Silver Anklet|2200|25;Bangles Set|56000|4;Pendant|7600|9",
+        sp: "Gold Savings Scheme|Customer,Plan|Kavita R.,Rs.2000/mo;Suresh P.,Rs.5000/mo;Anita J.,Rs.1000/mo|Due,Paid" },
+      { k: "salon", n: "Salon & Beauty", c: "#7b1fa2", app: "Glow Studio", il: "Services", off: "Bridal package Rs.4999",
+        items: "Haircut|250|99;Facial|800|99;Hair Spa|1200|99;Bridal Makeup|8000|99;Manicure|500|99;Threading|60|99",
+        sp: "Appointments|Client,Service|Simran K.,Facial 4 PM;Ritu S.,Hair Spa 5 PM;Neha P.,Makeup 6 PM|Booked,Done" },
+      { k: "gym", n: "Gym & Fitness", c: "#2e7d32", app: "Iron Pulse Gym", il: "Plans", off: "Join now Rs.999/month",
+        items: "Monthly Plan|999|99;Quarterly Plan|2499|99;Yearly Plan|7999|99;Personal Trainer|3000|8;Diet Plan|799|99;Protein Supplement|1800|11",
+        sp: "Memberships|Member,Plan|Vikram S.,Quarterly;Aman T.,Monthly;Deepak R.,Yearly|Renew due,Active" },
+      { k: "coaching", n: "Coaching Institute", c: "#1e4fa3", app: "Bright Path Academy", il: "Batches", off: "Admission open 2027",
+        items: "Class 10 Maths|1500|30;JEE Foundation|2500|20;NEET Biology|2200|25;Class 12 Physics|1800|28;English Speaking|1000|35;Test Series|600|99",
+        sp: "Fee Collection|Student,Batch|Aman K.,Class 10;Neha S.,NEET;Rohit Y.,JEE|Due,Paid" },
+      { k: "kirana", n: "Kirana & Grocery", c: "#1b7a45", app: "Apni Dukaan Mart", il: "Products", off: "Free home delivery",
+        items: "Atta 10kg|420|40;Basmati Rice 5kg|420|30;Sunflower Oil 1L|145|60;Toor Dal 1kg|160|9;Sugar 1kg|48|80;Tea 250g|110|7",
+        sp: "Udhaar Ledger|Customer,Amount|Ramesh ji,Rs.1,250;Shanti Devi,Rs.480;Mohd. Salim,Rs.2,100|Pending,Cleared" },
+      { k: "medical", n: "Medical Store", c: "#00796b", app: "Life Care Medical", il: "Medicines", off: "Flat 20% off on medicines",
+        items: "Paracetamol Strip|30|120;Cough Syrup|95|18;Vitamin C|120|9;Antacid Gel|45|40;BP Test Strip|220|14;Bandage Roll|60|50",
+        sp: "Expiry Alerts|Medicine,Expiry|Cough Syrup,Dec 2026;Vitamin C,Jan 2027;Antacid Gel,Feb 2027|Near expiry,Returned" },
+      { k: "cosmetics", n: "Cosmetics", c: "#c2185b", app: "Rose & Glow", il: "Products", off: "Buy 1 Get 1 on lipsticks",
+        items: "Face Wash|249|45;Lipstick|399|30;Moisturizer|499|22;Kajal|149|60;Perfume|899|12;Sunscreen|349|9",
+        sp: "Loyalty Points|Customer,Points|Pooja M.,420 pts;Kiran S.,1,150 pts;Riya A.,90 pts|Active,Redeemed" },
+      { k: "electrical", n: "Electricals", c: "#b88a00", app: "Power Point Electric", il: "Products", off: "LED bulb Rs.99",
+        items: "LED Bulb 9W|99|120;Ceiling Fan|1599|14;Switch Board|220|35;Wire 90m|1650|10;MCB 32A|180|28;Extension Board|350|22",
+        sp: "Installation Jobs|Customer,Job|Mr. Gupta,Fan fitting;Mrs. Sinha,Wiring 2 rooms;Shop 14,MCB change|Pending,Done" },
+      { k: "mobile", n: "Mobile Phones", c: "#1565c0", app: "Mobile Zone", il: "Phones & Accessories", off: "EMI from Rs.999",
+        items: "Redmi 12|11999|8;Samsung M14|12999|6;Back Cover|199|70;Charger 20W|599|25;Earbuds|999|18;Screen Guard|149|90",
+        sp: "Repair Jobs|Customer,Device|Sandeep,Redmi screen;Ayesha,Samsung battery;Raju,Charging port|Received,Delivered" },
+      { k: "furniture", n: "Furniture", c: "#8d5524", app: "Home Nest Furniture", il: "Furniture", off: "Upto 40% off",
+        items: "3-Seater Sofa|18999|5;Double Bed|14999|7;Dining Set|12999|4;Wardrobe|11999|6;Study Table|3999|14;Office Chair|3499|20",
+        sp: "Delivery Schedule|Customer,Item|Mr. Verma,Sofa;Mrs. Jha,Double Bed;Mr. Khan,Wardrobe|Scheduled,Delivered" },
+      { k: "bakery", n: "Bakery & Cafe", c: "#ad1457", app: "Sweet Crumbs", il: "Menu", off: "Cakes from Rs.349",
+        items: "Chocolate Cake 1kg|699|8;Pastry|60|40;Brownie|80|35;Bread Loaf|40|50;Coffee|90|99;Cookies Box|249|20",
+        sp: "Cake Orders|Customer,Cake|Mrs. Rao,Birthday 2kg;Mr. Das,Anniversary 1kg;Ritika,Choco truffle|Baking,Delivered" },
+      { k: "realestate", n: "Real Estate", c: "#0f6e50", app: "Green Valley Estate", il: "Properties", off: "Plots from Rs.5 Lakh",
+        items: "Plot A-12 (1200 sqft)|650000|3;2BHK Flat|2800000|5;3BHK Flat|3900000|2;Plot B-07 (1500 sqft)|820000|4;Shop Space|1500000|2;Villa|6500000|1",
+        sp: "Site Visits|Lead,Property|Mr. Anand,Plot A-12;Mrs. Roy,2BHK Flat;Mr. Pillai,Villa|Scheduled,Visited" },
+      { k: "restaurant", n: "Restaurant", c: "#bf360c", app: "Spice Junction", il: "Menu", off: "Family thali Rs.149",
+        items: "Veg Thali|149|40;Chicken Biryani|220|25;Paneer Butter Masala|240|30;Butter Naan|30|90;Cold Drink|40|60;Gulab Jamun|90|45",
+        sp: "Table Reservations|Guest,Table|Mr. Saxena,Table 4 (6 pax);Mrs. Dutta,Table 2 (4 pax);Arjun,Table 7 (2 pax)|Reserved,Seated" },
+      { k: "tailor", n: "Tailor & Boutique", c: "#6a1b5a", app: "Style Stitch Boutique", il: "Stitching", off: "Stitching from Rs.299",
+        items: "Shirt Stitching|400|99;Blouse|350|99;Suit (3 pc)|1800|99;Lehenga|3500|99;Alteration|100|99;Pant|450|99",
+        sp: "Stitching Orders|Customer,Garment|Pooja M.,Blouse;Rahul K.,Suit;Anita J.,Lehenga|Cutting,Ready" },
+      { k: "tiles", n: "Tiles & Sanitary", c: "#2c4f8c", app: "Mahadev Tiles", il: "Products", off: "Floor tiles from Rs.29/sqft",
+        items: "Floor Tile (box)|750|60;Wall Tile (box)|520|45;Wash Basin|1800|12;Tap Set|650|30;Toilet Seat|4500|8;Cement Bag|380|9",
+        sp: "Site Quotes|Customer,Area|Mr. Tiwari,900 sqft;Mrs. Bose,450 sqft;Mr. Ali,1200 sqft|Quoted,Won" },
+      { k: "school", n: "School", c: "#b3333f", app: "Little Stars School", il: "Fees & Items", off: "Admissions open",
+        items: "Admission Fee|5000|99;Monthly Fee|1500|99;Transport Fee|800|99;Books Set|2200|40;Uniform|1200|28;Exam Fee|300|99",
+        sp: "Admissions|Student,Class|Aarav S.,Nursery;Diya P.,Class 3;Kabir K.,Class 6|Applied,Admitted" },
+      { k: "footwear", n: "Footwear", c: "#c2571a", app: "Step Up Footwear", il: "Footwear", off: "Shoes from Rs.499",
+        items: "Sports Shoes|1299|18;Formal Shoes|1599|12;Leather Sandal|699|25;Kids Shoes|599|30;Slippers|249|60;Sneakers|1799|9",
+        sp: "Exchange & Returns|Customer,Item|Rohit S.,Sports Shoes size 9;Neha K.,Sandal size 6;Imran A.,Formal size 8|Requested,Done" },
+      { k: "travel", n: "Travel & Tours", c: "#0a6aa8", app: "Wander Way Travels", il: "Packages", off: "Holiday packages from Rs.4999",
+        items: "Goa 3N/4D|8999|12;Manali Package|11999|8;Flight Booking|4500|99;Hotel Stay|1800|40;Visa Help|2500|99;Cab Rental|2200|15",
+        sp: "Bookings|Traveler,Trip|Mr. Mehta,Goa;Mrs. Kapoor,Manali;Rahul & Co,Cab|Enquiry,Confirmed" }
+    ];
+    BD.forEach(function (b) {
+      b.items = b.items.split(";").map(function (s) { const p = s.split("|"); return { n: p[0], p: +p[1], s: +p[2] }; });
+      const q = b.sp.split("|"); b.spl = q[0]; b.sph = q[1].split(","); b.sps = q[3].split(",");
+      b.spr = q[2].split(";").map(function (r) { return r.split(","); });
+    });
+    const bd = { k: "fashion", m: "dash", pt: "home", bill: {}, cart: {}, stock: {}, st: {}, n: 2041 };
+    function bdB() { return BD.filter(function (b) { return b.k === bd.k; })[0]; }
+    function bdStk(b) { if (!bd.stock[b.k]) bd.stock[b.k] = b.items.map(function (i) { return i.s; }); return bd.stock[b.k]; }
+    function bdSt(b) { if (!bd.st[b.k]) bd.st[b.k] = b.spr.map(function (_, i) { return i % 2; }); return bd.st[b.k]; }
+    function bdRs(n) { return "₹" + Number(n).toLocaleString("en-IN"); }
+    function bdPick(k) { bd.k = k; bd.m = "dash"; bd.pt = "home"; bd.bill = {}; bd.cart = {}; bdRender(); }
+    function bdMod(m) { bd.m = m; bdRender(); }
+    function bdPt(t) { bd.pt = t; bdRender(); }
+    function bdAdd(i) { bd.bill[i] = (bd.bill[i] || 0) + 1; bdRender(); }
+    function bdSub(i) { if (bd.bill[i] > 1) bd.bill[i]--; else delete bd.bill[i]; bdRender(); }
+    function bdPAdd(i) { bd.cart[i] = (bd.cart[i] || 0) + 1; bdRender(); toast("Added to cart"); }
+    function bdPSub(i) { if (bd.cart[i] > 1) bd.cart[i]--; else delete bd.cart[i]; bdRender(); }
+    function bdGen() {
+      const b = bdB(), s = bdStk(b); let t = 0;
+      Object.keys(bd.bill).forEach(function (i) { t += b.items[i].p * bd.bill[i]; s[i] = Math.max(0, s[i] - bd.bill[i]); });
+      if (!t) { toast("Pehle items add karo"); return; }
+      bd.n++; bd.bill = {}; bdRender(); toast("Bill BILL-" + bd.n + " generated: " + bdRs(t));
+    }
+    function bdStock(i, d) { const s = bdStk(bdB()); s[i] = Math.max(0, s[i] + d); bdRender(); }
+    function bdSpec(i) { const s = bdSt(bdB()); s[i] = s[i] ? 0 : 1; bdRender(); toast("Status updated"); }
+    function bdOrder() { if (!Object.keys(bd.cart).length) { toast("Cart khaali hai"); return; } bd.cart = {}; bdRender(); toast("Order sent on WhatsApp (demo)"); }
+    function bdSeed(b) { let h = 0; for (let i = 0; i < b.k.length; i++) h = (h * 31 + b.k.charCodeAt(i)) % 97; return h; }
+    function bdErp(b) {
+      const s = bdStk(b), seed = bdSeed(b), mods = [["dash", "Dashboard"], ["items", b.il], ["bill", "Billing"], ["cust", "Customers"], ["spec", b.spl]];
+      let body = "";
+      if (bd.m === "dash") {
+        const avg = b.items.reduce(function (a, i) { return a + i.p; }, 0) / b.items.length, base = Math.round(avg * (6 + seed % 5) / 10) * 10;
+        const days = [0.7, 0.85, 0.6, 1, 0.9, 1.25, 1.1].map(function (f, i) { return Math.round(base * f * (1 + ((seed + i * 7) % 5) / 20)); });
+        const low = s.filter(function (v) { return v <= 10; }).length;
+        body = metrics([["Today's Sales", bdRs(days[6])], ["Bills Today", String(12 + seed % 20)], ["Low Stock Items", String(low)]]) +
+          '<div class="sub-title">Last 7 days sales</div>' + bars(days, ["Mon", "Tue", "Wed", "Thu", "Fri", "Sat", "Sun"], function (v) { return v >= 1000 ? Math.round(v / 100) / 10 + "k" : v; });
+      } else if (bd.m === "items") {
+        body = '<div class="sub-title">' + b.il + " &amp; stock</div>" + b.items.map(function (it, i) {
+          return '<div class="bd-row"><span><b>' + it.n + "</b><br><small>" + bdRs(it.p) + " &middot; Stock " + s[i] + (s[i] <= 10 ? '<span class="bd-low">LOW</span>' : "") + '</small></span><span><button class="bd-mini" aria-label="Decrease stock" onclick="bdStock(' + i + ',-1)">&minus;</button> <button class="bd-mini" aria-label="Increase stock" onclick="bdStock(' + i + ',1)">+</button></span></div>';
+        }).join("");
+      } else if (bd.m === "bill") {
+        const ks = Object.keys(bd.bill); let tot = 0;
+        body = '<div class="sub-title">Quick billing: item par click karo</div><div class="demo-actions">' + b.items.map(function (it, i) { return '<button type="button" class="bd-mini" onclick="bdAdd(' + i + ')">+ ' + it.n + "</button>"; }).join("") + "</div>" +
+          (ks.length ? ks.map(function (i) { const it = b.items[i], q = bd.bill[i]; tot += it.p * q; return '<div class="bd-row"><span>' + it.n + " &times; " + q + '</span><span>' + bdRs(it.p * q) + ' <button class="bd-mini" aria-label="Remove one" onclick="bdSub(' + i + ')">&minus;</button></span></div>'; }).join("") + '<div class="bd-total"><span>Total</span><span>' + bdRs(tot) + '</span></div>' : '<p class="demo-hint">Abhi koi item nahi. Upar se add karo.</p>') +
+          '<button type="button" class="btn btn-primary btn-sm" onclick="bdGen()">Generate Bill</button>';
+      } else if (bd.m === "cust") {
+        const nm = ["Rakesh Verma", "Meena Tiwari", "Arif Hussain", "Kavita Rao", "Sandeep Singh"];
+        body = '<div class="sub-title">Customers &amp; repeat visits</div>' + nm.map(function (c, i) { const v = 3 + (seed + i * 5) % 14; return '<div class="bd-row"><span><b>' + c + "</b><br><small>" + v + " visits</small></span><span>" + bdRs(Math.round(v * (b.items[i % b.items.length].p) * 0.8)) + "</span></div>"; }).join("");
+      } else {
+        const st = bdSt(b);
+        body = '<div class="sub-title">' + b.spl + " (status badalne ke liye click karo)</div>" + b.spr.map(function (r, i) {
+          return '<div class="bd-row"><span><b>' + r[0] + "</b><br><small>" + b.sph[1] + ": " + r[1] + '</small></span><button type="button" class="bd-st ' + (st[i] ? "b" : "a") + '" onclick="bdSpec(' + i + ')">' + b.sps[st[i]] + "</button></div>";
+        }).join("");
+      }
+      return '<div class="demo-header"><h3>' + b.app + " ERP</h3><span class=\"tag\">" + b.n + '</span></div><div class="app"><nav class="app-nav" aria-label="Demo modules">' +
+        mods.map(function (m) { return '<button type="button" class="' + (m[0] === bd.m ? "on" : "") + '" onclick="bdMod(\'' + m[0] + '\')">' + m[1] + "</button>"; }).join("") + '</nav><div class="app-main">' + body + "</div></div>";
+    }
+    function bdPhone(b) {
+      const c = b.c; let body = "", tot = 0;
+      if (bd.pt === "home") {
+        body = '<div class="bd-ph-banner" style="background:' + c + '">' + b.off + "<small>Aaj hi order karo</small></div>" + '<div class="bd-ph-grid">' + b.items.map(function (it, i) {
+          return '<div class="bd-ph-card"><b>' + it.n + "</b>" + bdRs(it.p) + '<button style="background:' + c + '" onclick="bdPAdd(' + i + ')">Add</button></div>';
+        }).join("") + "</div>";
+      } else if (bd.pt === "cart") {
+        const ks = Object.keys(bd.cart);
+        body = ks.length ? ks.map(function (i) { const it = b.items[i], q = bd.cart[i]; tot += it.p * q; return '<div class="bd-ph-line"><span>' + it.n + " &times; " + q + '</span><span>' + bdRs(it.p * q) + ' <button class="bd-mini" aria-label="Remove one" onclick="bdPSub(' + i + ')">&minus;</button></span></div>'; }).join("") + '<div class="bd-total"><span>Total</span><span>' + bdRs(tot) + '</span></div><button class="bd-ph-order" style="background:' + c + '" onclick="bdOrder()">Order on WhatsApp</button>' : '<p class="demo-hint">Cart khaali hai. Home se items add karo.</p>';
+      } else {
+        body = '<div class="bd-coupon" style="--bdc:' + c + '"><b>FIRST10</b>Pehle order par 10% off</div><div class="bd-coupon" style="--bdc:' + c + '"><b>FREEDEL</b>' + bdRs(999) + ' se upar free delivery</div><div class="bd-coupon" style="--bdc:' + c + '"><b>Push notifications</b>Naye offers seedha customer ke phone par</div>';
+      }
+      const n = Object.keys(bd.cart).length;
+      return '<div class="bd-ph-top" style="background:' + c + '">' + b.app + "<small>" + b.n + '</small></div><div class="bd-ph-body">' + body + '</div><div class="bd-ph-nav" style="--bdc:' + c + '">' +
+        [["home", "Home"], ["cart", "Cart" + (n ? " (" + n + ")" : "")], ["offers", "Offers"]].map(function (t) { return '<button type="button" class="' + (bd.pt === t[0] ? "on" : "") + '" onclick="bdPt(\'' + t[0] + '\')">' + t[1] + "</button>"; }).join("") + "</div>";
+    }
+    function bdRender() {
+      const b = bdB();
+      document.getElementById("bdChips").innerHTML = BD.map(function (x) { return '<button type="button" class="tab-btn' + (x.k === bd.k ? " active" : "") + '" aria-pressed="' + (x.k === bd.k) + '" onclick="bdPick(\'' + x.k + '\')">' + x.n + "</button>"; }).join("");
+      document.getElementById("bdErp").innerHTML = bdErp(b);
+      document.getElementById("bdPhone").innerHTML = bdPhone(b);
+      document.getElementById("bdUrl").textContent = "demo.sarfaraztechsolutions / " + b.k + "-erp";
+    }
+    bdRender();
 
     /* ---------- Retail POS ---------- */
     const pos = {
@@ -1510,10 +1764,10 @@
         mods: ["Branded splash & icon", "Login & roles", "Push notifications", "Order tracking", "Live sync with web panel", "WhatsApp share"] },
       { name: "Custom Software / Web Portal", type: "Other / Custom Business", price: 0, desc: "Built around your workflow",
         mods: ["Admin panel", "Customer portal", "Reports & export", "User roles", "Online payments info", "Integrations"] },
-      { name: "Brand Creatives (Posters, Posts, Ad Videos)", type: "Other / Custom Business", price: 399, priceTxt: "Posts from ₹399, posters from ₹599, ad videos from ₹1,499", badge: "From ₹399 / post", desc: "Posters, posts, reels and ad videos",
+      { name: "Brand Creatives (Posters, Posts, Ad Videos)", type: "Other / Custom Business", price: 49, priceTxt: "Posts and posters from ₹49, reels from ₹199, monthly packages from ₹499", badge: "From ₹49 / post", desc: "Posters, posts, reels and ad videos",
         mods: ["Social media posts", "Posters & flyers", "Ad video / reel (15-30 sec)", "Festival & offer designs", "Captions & hashtags", "Logo & brand kit"],
         adds: ["Hindi + English versions", "Editable source files", "Monthly content calendar", "Posting & scheduling help"],
-        volLabel: "Volume", volLegend: "How many creatives?", volOpts: ["1-5 designs / videos", "6-15 designs / videos", "16-30 designs / videos", "Monthly package"] }
+        volLabel: "Volume", volLegend: "How many creatives?", volOpts: ["1-10 designs / videos", "10-30 per month", "30-90 per month", "120+ posters and 100 reels per month"] }
     ];
     const DEFAULT_VOL = ["1-2 users", "3-5 users", "6-15 users", "15+ users"];
     const ADDONS = ["Android app (APK)", "WhatsApp bill/alert integration", "Multi-branch support", "Data migration from Excel", "Staff training", "Annual maintenance"];
@@ -1561,7 +1815,7 @@
     function updateEst() {
       const s = SERVICES[svcIndex]; if (!s) return;
       document.getElementById("estBox").innerHTML = esc(s.name) + " &mdash; " + priceText(s) +
-        "<small>Final quote depends on your modules and extras. GST extra as applicable. We will confirm it after a short call.</small>";
+        "<small>Final quote depends on your modules and extras. We will confirm it after a short call.</small>";
     }
     function composeDetails() {
       const s = SERVICES[svcIndex]; if (!s) return "";
@@ -1733,7 +1987,7 @@
         showStep(1);
         showStatus("ok",
           "<strong>Request received!</strong> Your Request ID: <strong>" + escapeHtml(out.requestId || "-") + "</strong>. " +
-          "A confirmation email has been sent to you. Our team will contact you shortly." +
+          (out.emailSent === false ? "We could not send the confirmation email, but your request is saved and our team will call or WhatsApp you shortly. Please note your Request ID." : "A confirmation email has been sent to you. Our team will contact you shortly.") +
           waButton("Also send on WhatsApp for a faster reply", data, out.requestId));
       } catch (err) {
         const msg = err && err.name === "AbortError" ? "The request timed out." : (err && err.message) || "Something went wrong.";
