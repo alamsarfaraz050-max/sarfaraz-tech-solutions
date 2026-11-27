@@ -1,4 +1,4 @@
 User-agent: *
 Allow: /
 
-Sitemap: https://alamsarfaraz050-max.github.io/sarfaraz-tech-solutions/sitemap.xml
+Sitemap: https://sarfaraztechsolutions.in/sitemap.xml
