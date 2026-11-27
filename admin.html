@@ -1,0 +1,310 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<meta name="robots" content="noindex, nofollow" />
+<title>Admin | Sarfaraz Tech Solutions</title>
+<style>
+  :root { --navy:#0b1f4a; --blue:#1456d6; --soft:#eef4ff; --line:#dde5f1; --muted:#52617d; --bg:#f4f7fc; --green:#128c4a; --red:#c0392b; --amber:#b9770e; }
+  * { box-sizing: border-box; }
+  body { margin:0; font-family: Inter, system-ui, -apple-system, "Segoe UI", Roboto, sans-serif; background:var(--bg); color:var(--navy); font-size:15px; }
+  button, input, select, textarea { font:inherit; }
+  .hide { display:none !important; }
+  /* login */
+  .login { min-height:100vh; display:flex; align-items:center; justify-content:center; padding:20px; }
+  .login-box { background:#fff; border:1px solid var(--line); border-radius:16px; padding:28px; width:100%; max-width:380px; box-shadow:0 12px 40px rgba(11,31,74,.12); }
+  .login-box h1 { margin:0 0 4px; font-size:1.3rem; }
+  .login-box p { margin:0 0 18px; color:var(--muted); font-size:.9rem; }
+  label { display:block; font-weight:600; font-size:.85rem; margin:12px 0 5px; }
+  input[type=text], input[type=password], input[type=date], input[type=search], input[type=number], select, textarea { width:100%; padding:10px 12px; border:1px solid var(--line); border-radius:10px; background:#fff; color:var(--navy); }
+  textarea { resize:vertical; min-height:70px; }
+  .btn { border:0; border-radius:10px; padding:10px 16px; font-weight:700; cursor:pointer; background:var(--blue); color:#fff; text-decoration:none; display:inline-block; font-size:.9rem; }
+  .btn:hover { filter:brightness(.95); }
+  .btn.out { background:#fff; color:var(--blue); border:1px solid var(--line); }
+  .btn.wa { background:var(--green); }
+  .btn.sm { padding:7px 12px; font-size:.82rem; }
+  .btn:disabled { opacity:.6; cursor:wait; }
+  .err { color:var(--red); font-size:.88rem; min-height:1.2em; margin:10px 0 0; }
+  /* top bar */
+  .top { background:var(--navy); color:#fff; padding:12px 18px; display:flex; align-items:center; justify-content:space-between; gap:10px; position:sticky; top:0; z-index:20; }
+  .top b { font-size:1rem; letter-spacing:.3px; }
+  .top small { opacity:.75; margin-left:8px; }
+  .top .btn { background:rgba(255,255,255,.14); }
+  .wrap { max-width:1200px; margin:0 auto; padding:16px; }
+  .tiles { display:grid; grid-template-columns:repeat(auto-fit,minmax(130px,1fr)); gap:10px; margin-bottom:14px; }
+  .tile { background:#fff; border:1px solid var(--line); border-radius:12px; padding:12px 14px; cursor:pointer; }
+  .tile.on { border-color:var(--blue); box-shadow:0 0 0 2px rgba(20,86,214,.15); }
+  .tile span { display:block; color:var(--muted); font-size:.78rem; font-weight:600; }
+  .tile b { font-size:1.5rem; }
+  .tabs { display:flex; gap:8px; margin:6px 0 12px; }
+  .tabs button { background:#fff; border:1px solid var(--line); border-radius:999px; padding:8px 16px; font-weight:700; cursor:pointer; color:var(--muted); }
+  .tabs button.on { background:var(--blue); border-color:var(--blue); color:#fff; }
+  .bar { display:flex; gap:8px; flex-wrap:wrap; margin-bottom:12px; align-items:center; }
+  .bar input[type=search] { flex:1; min-width:180px; }
+  .bar select { width:auto; }
+  .list { display:grid; gap:10px; }
+  .row { background:#fff; border:1px solid var(--line); border-radius:12px; padding:12px 14px; display:grid; grid-template-columns:1fr auto; gap:4px 12px; cursor:pointer; }
+  .row:hover { border-color:var(--blue); }
+  .row .nm { font-weight:700; }
+  .row .meta { color:var(--muted); font-size:.84rem; }
+  .row .svc { font-size:.86rem; grid-column:1 / -1; }
+  .pill { display:inline-block; padding:3px 10px; border-radius:999px; font-size:.75rem; font-weight:700; background:var(--soft); color:var(--blue); white-space:nowrap; height:fit-content; }
+  .pill.s-New { background:#fff2d6; color:var(--amber); }
+  .pill.s-Contacted { background:#e6f0ff; color:var(--blue); }
+  .pill.s-Quote { background:#efe6ff; color:#6b34c9; }
+  .pill.s-Follow { background:#ffe9d6; color:#c25a00; }
+  .pill.s-Won { background:#dcf5e6; color:var(--green); }
+  .pill.s-Lost { background:#fde4e1; color:var(--red); }
+  .due { color:var(--red); font-weight:700; font-size:.8rem; }
+  .empty { text-align:center; color:var(--muted); padding:40px 10px; background:#fff; border:1px dashed var(--line); border-radius:12px; }
+  /* detail drawer */
+  .drawer-bg { position:fixed; inset:0; background:rgba(11,31,74,.45); z-index:50; display:flex; justify-content:flex-end; }
+  .drawer { background:#fff; width:100%; max-width:480px; height:100%; overflow-y:auto; padding:18px; }
+  .drawer h2 { margin:0 0 2px; font-size:1.2rem; }
+  .kv { display:grid; grid-template-columns:110px 1fr; gap:6px 10px; margin:14px 0; font-size:.9rem; }
+  .kv dt { color:var(--muted); font-weight:600; }
+  .kv dd { margin:0; word-break:break-word; white-space:pre-wrap; }
+  .acts { display:flex; gap:8px; flex-wrap:wrap; margin:12px 0; }
+  .chips { display:flex; gap:6px; flex-wrap:wrap; }
+  .chips button { border:1px solid var(--line); background:#fff; border-radius:999px; padding:6px 12px; font-weight:700; font-size:.82rem; cursor:pointer; color:var(--navy); }
+  .chips button.on { background:var(--blue); border-color:var(--blue); color:#fff; }
+  .two { display:grid; grid-template-columns:1fr 1fr; gap:10px; }
+  .toast { position:fixed; left:50%; bottom:24px; transform:translateX(-50%); background:var(--navy); color:#fff; padding:10px 18px; border-radius:10px; z-index:80; font-size:.9rem; }
+  /* chats */
+  .chat-msgs { display:grid; gap:6px; margin:12px 0; }
+  .cq, .ca { padding:8px 12px; border-radius:10px; font-size:.88rem; max-width:92%; white-space:pre-wrap; word-break:break-word; }
+  .cq { background:var(--blue); color:#fff; justify-self:end; }
+  .ca { background:#f0f3f9; justify-self:start; }
+  .ct { font-size:.72rem; color:var(--muted); }
+  @media (max-width:560px) { .two { grid-template-columns:1fr; } .kv { grid-template-columns:90px 1fr; } .top small { display:none; } }
+</style>
+</head>
+<body>
+
+<div class="login" id="loginView">
+  <form class="login-box" id="loginForm">
+    <h1>Admin Login</h1>
+    <p>Sarfaraz Tech Solutions: requests, clients and chats.</p>
+    <label for="pw">Password</label>
+    <input type="password" id="pw" autocomplete="current-password" required />
+    <p class="err" id="loginErr" role="alert"></p>
+    <button class="btn" type="submit" id="loginBtn" style="width:100%">Log in</button>
+  </form>
+</div>
+
+<div id="appView" class="hide">
+  <div class="top">
+    <div><b>SARFARAZ TECH SOLUTIONS</b><small>Admin</small></div>
+    <div style="display:flex;gap:8px"><button class="btn sm" id="refreshBtn" type="button">Refresh</button><button class="btn sm" id="logoutBtn" type="button">Log out</button></div>
+  </div>
+  <div class="wrap">
+    <div class="tiles" id="tiles"></div>
+    <div class="tabs"><button type="button" id="tabLeads" class="on">Requests</button><button type="button" id="tabChats">Chats</button></div>
+
+    <div id="leadsView">
+      <div class="bar">
+        <input type="search" id="q" placeholder="Search name, phone, business, service..." aria-label="Search" />
+        <select id="stSel" aria-label="Status filter"></select>
+        <button class="btn out sm" id="csvBtn" type="button">Export CSV</button>
+      </div>
+      <div class="list" id="leadList"></div>
+    </div>
+
+    <div id="chatsView" class="hide">
+      <div class="bar">
+        <input type="search" id="cq" placeholder="Search chats or phone..." aria-label="Search chats" />
+        <select id="cfSel" aria-label="Chat filter"><option value="">All chats</option><option value="phone">With phone number</option></select>
+      </div>
+      <div class="list" id="chatList"></div>
+    </div>
+  </div>
+</div>
+
+<div class="drawer-bg hide" id="drawerBg"><div class="drawer" id="drawer"></div></div>
+<div class="toast hide" id="toast"></div>
+
+<script>
+(function () {
+  "use strict";
+  var API = "https://script.google.com/macros/s/AKfycbxpHjJ-aNevHuTMzTej3Q1zlDf2tL6hMUolsrce90AGeq_PtOysxR2CcUokRT9InVk8bA/exec";
+  var WA_NUM = "919135041918";
+  var STATUSES = ["New", "Contacted", "Quote Sent", "Follow-up", "Won", "Lost"];
+  var CHAT_ST = ["", "New - call back", "Called", "Closed"];
+  var token = "", leads = [], chats = [], filterStatus = "", tab = "leads";
+  var $ = function (id) { return document.getElementById(id); };
+  function esc(s) { return String(s == null ? "" : s).replace(/[&<>"']/g, function (c) { return { "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;", "'": "&#39;" }[c]; }); }
+  function sk(s) { return "s-" + String(s).split(/[ -]/)[0]; }
+  function today() { var d = new Date(); return d.getFullYear() + "-" + ("0" + (d.getMonth() + 1)).slice(-2) + "-" + ("0" + d.getDate()).slice(-2); }
+  function toast(m) { var t = $("toast"); t.textContent = m; t.classList.remove("hide"); clearTimeout(toast.h); toast.h = setTimeout(function () { t.classList.add("hide"); }, 2500); }
+  try { token = sessionStorage.getItem("sts_adm") || ""; } catch (e) {}
+
+  function call(body) {
+    body.token = token;
+    return fetch(API, { method: "POST", headers: { "Content-Type": "text/plain;charset=utf-8" }, body: JSON.stringify(Object.assign({ type: "admin" }, body)) })
+      .then(function (r) { return r.json(); })
+      .then(function (j) { if (j && j.auth === false) { logout(true); throw new Error(j.error || "Session expired"); } return j; });
+  }
+
+  /* ---- login ---- */
+  $("loginForm").addEventListener("submit", function (e) {
+    e.preventDefault(); var b = $("loginBtn"); b.disabled = true; b.textContent = "Checking..."; $("loginErr").textContent = "";
+    fetch(API, { method: "POST", headers: { "Content-Type": "text/plain;charset=utf-8" }, body: JSON.stringify({ type: "admin", action: "login", password: $("pw").value }) })
+      .then(function (r) { return r.json(); })
+      .then(function (j) {
+        if (!j.ok) { $("loginErr").textContent = j.error || "Could not log in."; return; }
+        token = j.token; try { sessionStorage.setItem("sts_adm", token); } catch (e) {}
+        $("pw").value = ""; start();
+      })
+      .catch(function () { $("loginErr").textContent = "Could not reach the server. Check your internet and try again."; })
+      .then(function () { b.disabled = false; b.textContent = "Log in"; });
+  });
+  function logout(silent) {
+    if (!silent && token) { fetch(API, { method: "POST", headers: { "Content-Type": "text/plain;charset=utf-8" }, body: JSON.stringify({ type: "admin", action: "logout", token: token }) }).catch(function () {}); }
+    token = ""; try { sessionStorage.removeItem("sts_adm"); } catch (e) {}
+    $("appView").classList.add("hide"); $("loginView").classList.remove("hide"); closeDrawer();
+    if (silent) $("loginErr").textContent = "Session expired. Please log in again.";
+  }
+  $("logoutBtn").addEventListener("click", function () { logout(false); });
+
+  function start() {
+    $("loginView").classList.add("hide"); $("appView").classList.remove("hide");
+    var o = '<option value="">All statuses</option>'; STATUSES.forEach(function (s) { o += '<option>' + esc(s) + '</option>'; }); $("stSel").innerHTML = o;
+    load();
+  }
+  function load() {
+    var b = $("refreshBtn"); b.disabled = true; b.textContent = "Loading...";
+    Promise.all([call({ action: "list" }), call({ action: "chats" })]).then(function (r) {
+      if (!r[0].ok) { toast(r[0].error || "Could not load"); return; }
+      leads = (r[0].leads || []).reverse(); chats = r[1].ok ? (r[1].chats || []) : [];
+      renderAll();
+    }).catch(function (e) { toast(e.message || "Could not load. Try Refresh."); })
+      .then(function () { b.disabled = false; b.textContent = "Refresh"; });
+  }
+  $("refreshBtn").addEventListener("click", load);
+
+  /* ---- render ---- */
+  function renderAll() { renderTiles(); renderLeads(); renderChats(); }
+  function count(st) { return leads.filter(function (l) { return l.status === st; }).length; }
+  function renderTiles() {
+    var due = leads.filter(function (l) { return l.followup && l.followup <= today() && l.status !== "Won" && l.status !== "Lost"; }).length;
+    var t = [["", "All requests", leads.length], ["New", "New", count("New")], ["Follow-up", "Follow-up", count("Follow-up")], ["Quote Sent", "Quote sent", count("Quote Sent")], ["Won", "Won", count("Won")], ["Lost", "Lost", count("Lost")]];
+    var h = ""; t.forEach(function (x) { h += '<div class="tile' + (filterStatus === x[0] && tab === "leads" ? " on" : "") + '" data-st="' + esc(x[0]) + '"><span>' + x[1] + '</span><b>' + x[2] + '</b></div>'; });
+    h += '<div class="tile" data-due="1"><span>Follow-up due</span><b style="color:' + (due ? "var(--red)" : "inherit") + '">' + due + '</b></div>';
+    $("tiles").innerHTML = h;
+  }
+  $("tiles").addEventListener("click", function (e) {
+    var t = e.target.closest(".tile"); if (!t) return; setTab("leads");
+    if (t.hasAttribute("data-due")) { filterStatus = "__due"; $("stSel").value = ""; } else { filterStatus = t.getAttribute("data-st"); $("stSel").value = filterStatus; }
+    renderTiles(); renderLeads();
+  });
+  $("stSel").addEventListener("change", function () { filterStatus = $("stSel").value; renderTiles(); renderLeads(); });
+  $("q").addEventListener("input", renderLeads);
+
+  function leadMatch(l) {
+    if (filterStatus === "__due") { if (!(l.followup && l.followup <= today() && l.status !== "Won" && l.status !== "Lost")) return false; }
+    else if (filterStatus && l.status !== filterStatus) return false;
+    var q = $("q").value.trim().toLowerCase(); if (!q) return true;
+    return (l.name + " " + l.phone + " " + l.email + " " + l.biz + " " + l.service + " " + l.id + " " + l.details).toLowerCase().indexOf(q) > -1;
+  }
+  function renderLeads() {
+    var arr = leads.filter(leadMatch), h = "";
+    arr.forEach(function (l) {
+      var due = l.followup && l.followup <= today() && l.status !== "Won" && l.status !== "Lost";
+      h += '<div class="row" data-id="' + esc(l.id) + '" tabindex="0"><div><div class="nm">' + esc(l.name) + '</div><div class="meta">' + esc(l.phone) + ' &middot; ' + esc(l.biz) + ' &middot; ' + esc(l.ts) + '</div></div>' +
+        '<div><span class="pill ' + sk(l.status) + '">' + esc(l.status) + '</span></div><div class="svc">' + esc(l.service) + (l.followup ? ' &middot; Follow-up: ' + esc(l.followup) : '') + (due ? ' <span class="due">DUE</span>' : '') + (l.amount ? ' &middot; Quote: &#8377;' + esc(l.amount) : '') + '</div></div>';
+    });
+    $("leadList").innerHTML = h || '<div class="empty">No requests found.</div>';
+  }
+  $("leadList").addEventListener("click", function (e) { var r = e.target.closest(".row"); if (r) openLead(r.getAttribute("data-id")); });
+  $("leadList").addEventListener("keydown", function (e) { if (e.key === "Enter") { var r = e.target.closest(".row"); if (r) openLead(r.getAttribute("data-id")); } });
+
+  /* ---- lead drawer ---- */
+  function digits(p) { return String(p || "").replace(/\D/g, "").replace(/^91(?=\d{10}$)/, ""); }
+  function openLead(id) {
+    var l = leads.filter(function (x) { return x.id === id; })[0]; if (!l) return;
+    var ph = digits(l.phone), cur = l.status;
+    var chips = ""; STATUSES.forEach(function (s) { chips += '<button type="button" data-s="' + esc(s) + '" class="' + (s === cur ? "on" : "") + '">' + esc(s) + '</button>'; });
+    var msg = "Hello " + l.name + ", this is Sarfaraz from Sarfaraz Tech Solutions. Thank you for your request (" + l.id + "). ";
+    $("drawer").innerHTML = '<div style="display:flex;justify-content:space-between;align-items:start"><div><h2>' + esc(l.name) + '</h2><div class="ct">' + esc(l.id) + ' &middot; ' + esc(l.ts) + '</div></div><button class="btn out sm" id="dClose" type="button">Close</button></div>' +
+      '<div class="acts">' + (/^\d{10}$/.test(ph) ? '<a class="btn wa sm" target="_blank" rel="noopener" href="https://wa.me/91' + ph + '?text=' + encodeURIComponent(msg) + '">WhatsApp</a><a class="btn out sm" href="tel:+91' + ph + '">Call</a>' : '') + (l.email ? '<a class="btn out sm" href="mailto:' + esc(l.email) + '">Email</a>' : '') + '</div>' +
+      '<dl class="kv"><dt>Phone</dt><dd>' + esc(l.phone) + '</dd><dt>Email</dt><dd>' + esc(l.email) + '</dd><dt>Business</dt><dd>' + esc(l.biz) + '</dd><dt>Service</dt><dd>' + esc(l.service) + '</dd><dt>Details</dt><dd>' + esc(l.details) + '</dd>' + (l.mail ? '<dt>Email sent</dt><dd>' + esc(l.mail) + '</dd>' : '') + '</dl>' +
+      '<label>Status</label><div class="chips" id="dChips">' + chips + '</div>' +
+      '<div class="two"><div><label for="dFu">Follow-up date</label><input type="date" id="dFu" value="' + esc(l.followup) + '" /></div><div><label for="dAmt">Quoted amount (&#8377;)</label><input type="text" inputmode="numeric" id="dAmt" value="' + esc(l.amount) + '" /></div></div>' +
+      '<label for="dNotes">Notes</label><textarea id="dNotes" maxlength="1000">' + esc(l.notes) + '</textarea>' +
+      '<p class="err" id="dErr"></p><button class="btn" id="dSave" type="button" style="width:100%">Save changes</button>';
+    $("drawerBg").classList.remove("hide");
+    $("dClose").onclick = closeDrawer;
+    $("dChips").onclick = function (e) { var b = e.target.closest("button"); if (!b) return; cur = b.getAttribute("data-s"); [].forEach.call($("dChips").children, function (c) { c.classList.toggle("on", c === b); }); };
+    $("dSave").onclick = function () {
+      var b = $("dSave"); b.disabled = true; b.textContent = "Saving...";
+      call({ action: "update", id: l.id, status: cur, followup: $("dFu").value, amount: $("dAmt").value, notes: $("dNotes").value }).then(function (j) {
+        if (!j.ok) { $("dErr").textContent = j.error || "Could not save."; return; }
+        l.status = cur; l.followup = $("dFu").value; l.amount = $("dAmt").value.replace(/[^0-9.]/g, ""); l.notes = $("dNotes").value;
+        renderAll(); closeDrawer(); toast("Saved");
+      }).catch(function (e) { $("dErr").textContent = e.message || "Could not save."; }).then(function () { b.disabled = false; b.textContent = "Save changes"; });
+    };
+  }
+  function closeDrawer() { $("drawerBg").classList.add("hide"); }
+  $("drawerBg").addEventListener("click", function (e) { if (e.target === $("drawerBg")) closeDrawer(); });
+  document.addEventListener("keydown", function (e) { if (e.key === "Escape") closeDrawer(); });
+
+  /* ---- chats ---- */
+  function sessions() {
+    var map = {}, order = [];
+    chats.forEach(function (c) { if (!map[c.sid]) { map[c.sid] = { sid: c.sid, msgs: [], phone: "", ts: c.ts, lang: c.lang }; order.push(c.sid); } var s = map[c.sid]; s.msgs.push(c); if (c.phone) s.phone = c.phone; s.last = c.ts; });
+    return order.map(function (k) { return map[k]; }).reverse();
+  }
+  function renderChats() {
+    var q = $("cq").value.trim().toLowerCase(), f = $("cfSel").value, h = "";
+    sessions().filter(function (s) {
+      if (f === "phone" && !s.phone) return false;
+      if (!q) return true; return (s.phone + " " + s.msgs.map(function (m) { return m.q + " " + m.a; }).join(" ")).toLowerCase().indexOf(q) > -1;
+    }).forEach(function (s) {
+      var st = ""; s.msgs.forEach(function (m) { if (m.status) st = m.status; });
+      h += '<div class="row" data-sid="' + esc(s.sid) + '" tabindex="0"><div><div class="nm">' + esc(s.msgs[0].q.slice(0, 80)) + '</div><div class="meta">' + esc(s.ts) + ' &middot; ' + s.msgs.length + ' message(s)' + (s.phone ? ' &middot; Phone: <b>' + esc(s.phone) + '</b>' : '') + '</div></div><div>' + (st ? '<span class="pill">' + esc(st) + '</span>' : '') + '</div></div>';
+    });
+    $("chatList").innerHTML = h || '<div class="empty">No chats yet.</div>';
+  }
+  $("cq").addEventListener("input", renderChats); $("cfSel").addEventListener("change", renderChats);
+  $("chatList").addEventListener("click", function (e) { var r = e.target.closest(".row"); if (r) openChat(r.getAttribute("data-sid")); });
+  $("chatList").addEventListener("keydown", function (e) { if (e.key === "Enter") { var r = e.target.closest(".row"); if (r) openChat(r.getAttribute("data-sid")); } });
+  function openChat(sid) {
+    var s = sessions().filter(function (x) { return x.sid === sid; })[0]; if (!s) return;
+    var rowObj = s.msgs.filter(function (m) { return m.phone; })[0] || s.msgs[s.msgs.length - 1], cur = rowObj.status || "";
+    var msgs = ""; s.msgs.forEach(function (m) { msgs += '<div class="ct">' + esc(m.ts) + ' &middot; ' + esc(m.topic) + '</div><div class="cq">' + esc(m.q) + '</div><div class="ca">' + esc(m.a) + '</div>'; });
+    var chips = ""; CHAT_ST.forEach(function (x) { chips += '<button type="button" data-s="' + esc(x) + '" class="' + (x === cur ? "on" : "") + '">' + esc(x || "None") + '</button>'; });
+    var ph = digits(s.phone);
+    $("drawer").innerHTML = '<div style="display:flex;justify-content:space-between;align-items:start"><div><h2>Chat</h2><div class="ct">' + esc(s.sid) + ' &middot; ' + esc(s.lang) + '</div></div><button class="btn out sm" id="dClose" type="button">Close</button></div>' +
+      (/^\d{10}$/.test(ph) ? '<div class="acts"><a class="btn wa sm" target="_blank" rel="noopener" href="https://wa.me/91' + ph + '?text=' + encodeURIComponent("Hello, this is Sarfaraz from Sarfaraz Tech Solutions. You chatted with us on our website. How can I help?") + '">WhatsApp ' + esc(ph) + '</a><a class="btn out sm" href="tel:+91' + ph + '">Call</a></div>' : '') +
+      '<div class="chat-msgs">' + msgs + '</div><label>Follow-up status</label><div class="chips" id="dChips">' + chips + '</div><label for="dNotes">Notes</label><textarea id="dNotes" maxlength="500">' + esc(rowObj.notes) + '</textarea><p class="err" id="dErr"></p><button class="btn" id="dSave" type="button" style="width:100%">Save</button>';
+    $("drawerBg").classList.remove("hide"); $("dClose").onclick = closeDrawer;
+    $("dChips").onclick = function (e) { var b = e.target.closest("button"); if (!b) return; cur = b.getAttribute("data-s"); [].forEach.call($("dChips").children, function (c) { c.classList.toggle("on", c === b); }); };
+    $("dSave").onclick = function () {
+      var b = $("dSave"); b.disabled = true;
+      call({ action: "chatUpdate", row: rowObj.row, sid: rowObj.sid, status: cur, notes: $("dNotes").value }).then(function (j) {
+        if (!j.ok) { $("dErr").textContent = j.error || "Could not save."; return; }
+        rowObj.status = cur; rowObj.notes = $("dNotes").value; renderChats(); closeDrawer(); toast("Saved");
+      }).catch(function (e) { $("dErr").textContent = e.message || "Could not save."; }).then(function () { b.disabled = false; });
+    };
+  }
+
+  /* ---- tabs, csv ---- */
+  function setTab(t) {
+    tab = t; $("leadsView").classList.toggle("hide", t !== "leads"); $("chatsView").classList.toggle("hide", t !== "chats");
+    $("tabLeads").classList.toggle("on", t === "leads"); $("tabChats").classList.toggle("on", t === "chats"); renderTiles();
+  }
+  $("tabLeads").addEventListener("click", function () { setTab("leads"); }); $("tabChats").addEventListener("click", function () { setTab("chats"); });
+  $("csvBtn").addEventListener("click", function () {
+    var cols = ["id", "ts", "name", "phone", "email", "biz", "service", "status", "followup", "amount", "notes", "details"];
+    function cell(v) { v = String(v == null ? "" : v).replace(/"/g, '""'); if (/^[=+\-@]/.test(v)) v = "'" + v; return '"' + v + '"'; }
+    var out = [cols.join(",")]; leads.filter(leadMatch).forEach(function (l) { out.push(cols.map(function (c) { return cell(l[c]); }).join(",")); });
+    var a = document.createElement("a"); a.href = URL.createObjectURL(new Blob(["﻿" + out.join("\n")], { type: "text/csv;charset=utf-8" })); a.download = "STS-requests-" + today() + ".csv"; document.body.appendChild(a); a.click(); a.remove();
+  });
+
+  if (token) { start(); }
+  setInterval(function () { if (token && !document.hidden && $("drawerBg").classList.contains("hide")) load(); }, 120000);
+})();
+</script>
+</body>
+</html>
