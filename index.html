@@ -38,6 +38,7 @@
     "description": "Custom software, ERP, POS billing, hospital and school management systems and branded Android apps.",
     "areaServed": "IN",
     "telephone": "+91-9135041918",
+    "image": "https://sarfaraztechsolutions.in/portfolio/sarfaraz.jpg",
     "founder": { "@type": "Person", "name": "Sarfaraz" },
     "address": { "@type": "PostalAddress", "addressLocality": "New Delhi", "addressRegion": "Delhi", "postalCode": "110086", "addressCountry": "IN" },
     "email": "alamsarfaraz050@gmail.com"
@@ -174,6 +175,13 @@
     .brand:hover { color: var(--navy); }
     .brand small { display: block; font-size: .68rem; font-weight: 600; color: var(--primary); letter-spacing: 1.6px; line-height: 1.1; }
     .brand-name { line-height: 1.15; }
+    header .container { max-width: 1280px; }
+    .nav { gap: 12px; }
+    .brand-name { white-space: nowrap; font-size: .98rem; }
+    .nav-links .btn { white-space: nowrap; }
+    @media (max-width: 1000px) { .nav-links a.link { display: none; } }
+    @media (max-width: 560px) { .brand-name { white-space: normal; font-size: .9rem; } }
+    @media (max-width: 1180px) and (min-width: 561px) { .brand small { display: none; } .nav-links a.link { padding: 8px 6px; font-size: .86rem; } }
     .nav-links { display: flex; gap: 6px; align-items: center; }
     .nav-links a.link { color: var(--ink); font-weight: 600; font-size: .92rem; padding: 8px 9px; border-radius: 8px; white-space: nowrap; }
     .nav-links a.link:hover { background: var(--primary-soft); color: var(--primary); }
@@ -222,14 +230,16 @@
     .preview-note { font-size: .72rem; color: var(--muted); text-align: center; }
 
     /* ---------- About ---------- */
-    .about { max-width: 760px; margin: 0 auto; text-align: center; }
+    .about { display: grid; grid-template-columns: 260px 1fr; gap: 40px; align-items: center; max-width: 900px; margin: 0 auto; }
+    .about-photo { width: 100%; aspect-ratio: 4/5; object-fit: cover; border-radius: 20px; border: 1px solid var(--line); box-shadow: var(--shadow); display: block; background: #eef4ff; }
+    @media (max-width: 720px) { .about { grid-template-columns: 1fr; gap: 22px; } .about-photo { max-width: 220px; margin: 0 auto; } }
     .about h2 { font-size: clamp(1.6rem, 3vw, 2.1rem); color: var(--navy); letter-spacing: -.015em; margin: 12px 0 4px; font-weight: 800; }
     .about .role { color: var(--primary); font-weight: 700; margin-bottom: 14px; }
     .about p { color: var(--muted); margin-bottom: 12px; }
-    .about-facts { display: flex; flex-wrap: wrap; justify-content: center; gap: 8px 18px; margin: 16px 0 22px; padding: 0; list-style: none; color: var(--ink); font-weight: 600; font-size: .93rem; }
+    .about-facts { display: flex; flex-wrap: wrap; justify-content: flex-start; gap: 8px 18px; margin: 16px 0 22px; padding: 0; list-style: none; color: var(--ink); font-weight: 600; font-size: .93rem; }
     .about-facts li { display: inline-flex; align-items: center; gap: 6px; }
     .about-facts svg { color: var(--ok); flex: none; }
-    .about .hero-actions { margin-top: 4px; justify-content: center; }
+    .about .hero-actions { margin-top: 4px; justify-content: flex-start; }
 
     /* ---------- Sections ---------- */
     section { padding: 72px 0; }
@@ -404,6 +414,42 @@
     footer .brand small { color: #8fb4ff; }
     footer a { color: #c8d4ee; }
     footer a:hover { color: #fff; }
+
+
+    /* ---- language switch ---- */
+    .lang-sel { font: inherit; font-size: .85rem; font-weight: 600; color: var(--ink); background: #fff; border: 1px solid var(--line); border-radius: 8px; padding: 7px 8px; max-width: 120px; cursor: pointer; }
+    body > .skiptranslate, iframe.skiptranslate, .goog-te-banner-frame { display: none !important; }
+    body { top: 0 !important; }
+    #google_translate_element { display: none; }
+    .goog-tooltip, .goog-tooltip:hover { display: none !important; }
+    .goog-text-highlight { background: none !important; box-shadow: none !important; }
+    /* ---- chat assistant ---- */
+    .chat-fab { position: fixed; right: 18px; bottom: 84px; z-index: 55; display: flex; align-items: center; gap: 8px; background: var(--primary); color: #fff; border: 0; font: inherit; font-weight: 700; padding: 13px 20px; border-radius: 999px; box-shadow: 0 8px 22px rgba(0,0,0,.25); cursor: pointer; }
+    .chat-fab:hover { background: #1346c4; }
+    .chat { position: fixed; right: 18px; bottom: 84px; z-index: 70; width: 360px; max-width: calc(100vw - 24px); height: 500px; max-height: calc(100vh - 110px); background: #fff; border-radius: 16px; box-shadow: 0 18px 50px rgba(15,31,61,.28); display: none; flex-direction: column; overflow: hidden; border: 1px solid var(--line); }
+    .chat { padding: 0; }
+    .chat.open { display: flex; }
+    .chat-h { background: var(--primary); color: #fff; padding: 12px 14px; display: flex; align-items: center; justify-content: space-between; gap: 8px; }
+    .chat-h b { display: block; font-size: 1rem; }
+    .chat-h small { opacity: .85; font-size: .75rem; }
+    .chat-h button { background: rgba(255,255,255,.18); border: 0; color: #fff; width: 32px; height: 32px; border-radius: 50%; font-size: 1.2rem; cursor: pointer; }
+    .chat-log { flex: 1; overflow-y: auto; padding: 12px; background: #f5f7fb; display: flex; flex-direction: column; gap: 8px; }
+    .cm { max-width: 88%; padding: 9px 12px; border-radius: 12px; font-size: .92rem; line-height: 1.45; word-wrap: break-word; }
+    .cm.bot { background: #fff; border: 1px solid var(--line); align-self: flex-start; color: var(--ink); }
+    .cm.me { background: var(--primary); color: #fff; align-self: flex-end; }
+    .cm a { color: var(--primary); font-weight: 600; text-decoration: underline; }
+    .cm ul { margin: 4px 0 0 16px; padding: 0; }
+    .chat-chips { display: flex; flex-wrap: wrap; gap: 6px; padding: 8px 12px 0; background: #fff; }
+    .chat-chips button { font: inherit; font-size: .8rem; font-weight: 600; background: var(--primary-soft); color: var(--primary); border: 0; border-radius: 999px; padding: 6px 11px; cursor: pointer; }
+    .chat-f { display: flex; gap: 8px; padding: 10px 12px 6px; background: #fff; }
+    .chat-f input { flex: 1; min-width: 0; font: inherit; font-size: 16px; padding: 10px 12px; border: 1px solid var(--line); border-radius: 10px; }
+    .chat-f button { font: inherit; font-weight: 700; background: var(--primary); color: #fff; border: 0; border-radius: 10px; padding: 0 16px; cursor: pointer; }
+    .chat-fine { margin: 0; padding: 0 12px 10px; font-size: .7rem; color: var(--muted, #5b6785); background: #fff; }
+    @media (max-width: 560px) {
+      .chat-fab { bottom: 84px; right: 12px; padding: 12px 16px; }
+      .chat { right: 0; left: 0; bottom: 0; width: 100%; max-width: 100%; height: 78vh; border-radius: 16px 16px 0 0; }
+      .lang-sel { max-width: 92px; width: 92px; font-size: .78rem; padding: 6px 2px; }
+    }
 
     .wa-float {
       position: fixed; right: 18px; bottom: 18px; z-index: 50; display: flex; align-items: center; gap: 8px;
@@ -627,7 +673,92 @@
     @media (max-width: 560px) { .pkgs { grid-template-columns: 1fr; } }
     .pkg-price { font-size: 1.9rem; font-weight: 800; color: var(--navy); line-height: 1; }
     .pkg-price small { font-size: .85rem; font-weight: 600; color: var(--muted); margin-left: 6px; }
-    /* ---------- Plan selection ---------- */
+    /* ---------- Plan list (recharge-style accordion) ---------- */
+    .plan-list { display: grid; gap: 14px; max-width: 920px; margin: 0 auto; }
+    .plan-row { background: #fff; border: 1.5px solid var(--line); border-radius: 16px; box-shadow: var(--shadow); overflow: hidden; scroll-margin-top: 92px; transition: border-color .15s, box-shadow .15s; }
+    .plan-row:hover { border-color: #b9cdf3; }
+    .plan-row.sel { border-color: var(--primary); }
+    .plan-row.open { border-color: var(--primary); box-shadow: 0 10px 30px rgba(20, 86, 214, .18); }
+    .plan-head { width: 100%; display: grid; grid-template-columns: auto 1fr auto auto; align-items: center; gap: 16px; padding: 18px 20px; background: none; border: 0; font: inherit; color: inherit; text-align: left; cursor: pointer; }
+    .plan-head:focus-visible { outline: 3px solid #9bbcf7; outline-offset: -3px; border-radius: 14px; }
+    .plan-radio { width: 22px; height: 22px; border-radius: 50%; border: 2px solid #b8c6df; display: grid; place-items: center; transition: border-color .15s; }
+    .plan-radio::after { content: ""; width: 10px; height: 10px; border-radius: 50%; background: var(--primary); transform: scale(0); transition: transform .15s; }
+    .plan-row.sel .plan-radio { border-color: var(--primary); }
+    .plan-row.sel .plan-radio::after { transform: scale(1); }
+    .plan-mid b { display: block; font-size: 1.1rem; color: var(--navy); font-weight: 800; }
+    .plan-mid small { color: var(--muted); font-weight: 600; font-size: .9rem; }
+    .plan-badge { display: inline-block; margin-left: 8px; padding: 2px 10px; border-radius: 999px; background: #fff4d6; color: #7a4a00; border: 1px solid #f3d37a; font-size: .7rem; font-weight: 800; letter-spacing: .02em; vertical-align: middle; }
+    .plan-price { text-align: right; }
+    .plan-price strong { display: block; font-size: 1.6rem; line-height: 1.1; color: var(--navy); font-weight: 800; }
+    .plan-price span { color: var(--muted); font-size: .82rem; font-weight: 600; }
+    .plan-chev { width: 10px; height: 10px; border-right: 2.5px solid var(--muted); border-bottom: 2.5px solid var(--muted); transform: rotate(45deg); transition: transform .25s; margin: 0 4px 3px; }
+    .plan-row.open .plan-chev { transform: rotate(-135deg); margin-bottom: -3px; }
+    .plan-body { display: grid; grid-template-rows: 0fr; transition: grid-template-rows .28s ease; }
+    .plan-row.open .plan-body { grid-template-rows: 1fr; }
+    .plan-body > div { overflow: hidden; min-height: 0; }
+    .plan-row:not(.open) .plan-body > div { visibility: hidden; }
+    .plan-in { margin: 0 20px; padding: 18px 0 22px; border-top: 1px dashed var(--line); }
+    .pd-best { color: var(--muted); margin-bottom: 16px; font-weight: 500; }
+    @media (prefers-reduced-motion: reduce) { .plan-body, .plan-chev { transition: none; } }
+    @media (max-width: 560px) {
+      .plan-head { gap: 12px; padding: 16px 14px; }
+      .plan-price strong { font-size: 1.35rem; }
+      .plan-in { margin: 0 14px; }
+      .plan-badge { display: block; margin: 4px 0 0; width: max-content; }
+      .plan-mid .ev, .plan-price .pper { display: none; }
+      .plan-mid small { font-size: .85rem; }
+    }
+    /* ---------- Pricing ---------- */
+    .cr-cta { display: flex; align-items: center; justify-content: center; gap: 14px; flex-wrap: wrap; margin: 34px 0 6px; color: var(--muted); font-weight: 600; }
+    .ptabs { display: flex; gap: 6px; justify-content: center; flex-wrap: wrap; margin: 0 auto 28px; padding: 6px; background: var(--bg); border: 1px solid var(--line); border-radius: 999px; width: max-content; max-width: 100%; }
+    .ptab { padding: 11px 22px; border: 0; border-radius: 999px; background: transparent; font: inherit; font-weight: 700; color: var(--muted); cursor: pointer; }
+    .ptab.on { background: var(--primary); color: #fff; box-shadow: 0 4px 12px rgba(20, 86, 214, .3); }
+    .ptab:focus-visible { outline: 3px solid #9bbcf7; outline-offset: 2px; }
+    .ppanel { max-width: 920px; margin: 0 auto; }
+    .ppanel[hidden] { display: none; }
+    .pr-lead { text-align: center; color: var(--muted); margin: -4px 0 16px; }
+    .pr-extras { text-align: center; color: var(--muted); font-size: .92rem; margin-top: 10px; }
+    .pr-table { display: grid; gap: 12px; }
+    .pr-row { display: grid; grid-template-columns: 1fr auto auto; align-items: center; gap: 18px; background: #fff; border: 1px solid var(--line); border-radius: 14px; padding: 16px 20px; box-shadow: var(--shadow); }
+    .pr-n b { display: block; color: var(--navy); font-size: 1.05rem; font-weight: 800; }
+    .pr-n span { color: var(--muted); font-size: .92rem; }
+    .pr-p { text-align: right; font-weight: 800; color: var(--navy); font-size: 1.2rem; white-space: nowrap; }
+    .pr-p small { display: block; color: var(--muted); font-weight: 600; font-size: .72rem; text-transform: uppercase; letter-spacing: .4px; }
+    .pr-p s { color: var(--muted); font-weight: 600; font-size: .9rem; }
+    .pr-cards { display: grid; grid-template-columns: repeat(auto-fit, minmax(270px, 1fr)); gap: 20px; }
+    .pr-cards .card h3 { margin: 10px 0 6px; }
+    .pr-cards .card p { color: var(--muted); }
+    .pr-list { list-style: none; display: grid; gap: 8px; margin: 14px 0; }
+    .pr-list li { font-size: .93rem; font-weight: 600; padding-left: 22px; position: relative; }
+    .pr-list li::before { content: ""; position: absolute; left: 0; top: .45em; width: 10px; height: 6px; border-left: 2.5px solid var(--ok); border-bottom: 2.5px solid var(--ok); transform: rotate(-45deg); }
+    .pr-q { font-size: .88rem; margin-bottom: 14px; }
+    .pr-foot { display: flex; justify-content: center; gap: 12px; flex-wrap: wrap; margin-top: 32px; }
+    @media (max-width: 640px) {
+      .ptabs { border-radius: 16px; width: 100%; }
+      .ptab { flex: 1 1 100%; padding: 12px 14px; }
+      .pr-row { grid-template-columns: 1fr auto; padding: 16px; }
+      .pr-row .btn { grid-column: 1 / -1; }
+      .pr-p { text-align: right; }
+    }
+    /* ---------- Quick request dialog ---------- */
+    dialog.req { padding: 0; max-width: 500px; width: calc(100% - 24px); max-height: calc(100vh - 24px); overflow: auto; border-radius: 18px; box-shadow: 0 24px 60px rgba(11, 31, 74, .35); }
+    dialog.req::backdrop { background: rgba(11, 31, 74, .55); }
+    .req form { padding: 22px 22px 20px; }
+    .req-head { display: flex; justify-content: space-between; align-items: flex-start; gap: 12px; margin-bottom: 12px; }
+    .req-head h3 { font-size: 1.25rem; color: var(--navy); font-weight: 800; }
+    .req-x { width: 36px; height: 36px; border-radius: 50%; border: 1px solid var(--line); background: #fff; font-size: 1.3rem; line-height: 1; cursor: pointer; color: var(--muted); flex: none; }
+    .req-sum { background: var(--primary-soft); border: 1px solid #cfe0fb; border-radius: 12px; padding: 12px 14px; margin-bottom: 14px; color: var(--navy); font-size: .93rem; }
+    .req-sum strong { display: block; font-size: 1rem; margin-bottom: 2px; }
+    .req .form-group { margin-bottom: 12px; }
+    .req-err { color: #9c1d2b; font-weight: 600; font-size: .9rem; min-height: 1.2em; margin: 4px 0 8px; }
+    .req-fine { color: var(--muted); font-size: .85rem; margin-top: 12px; text-align: center; }
+    .req-more { background: none; border: 0; color: var(--primary); font: inherit; font-weight: 700; cursor: pointer; text-decoration: underline; padding: 0; }
+    .req .btn-block { width: 100%; justify-content: center; }
+    .req-done { text-align: center; padding: 8px 0 4px; }
+    .req-done .tick { width: 56px; height: 56px; border-radius: 50%; background: var(--ok-soft); color: var(--ok); display: grid; place-items: center; margin: 0 auto 12px; font-size: 1.8rem; font-weight: 800; }
+    .req-done .btn { margin-top: 10px; }
+    @media (max-width: 560px) { dialog.req { margin: auto 0 0; width: 100%; max-width: 100%; border-radius: 18px 18px 0 0; max-height: 94vh; } }
+    /* ---------- Plan selection (old card styles) ---------- */
     .pkg.sel-card { cursor: pointer; transition: border-color .15s, box-shadow .15s, transform .15s, background .15s; }
     .pkg.sel-card:hover { transform: translateY(-2px); }
     .pkg.sel-card:focus-visible { outline: 3px solid #9bbcf7; outline-offset: 2px; }
@@ -690,16 +821,17 @@
           <polygon points="50,4 90,27 90,73 50,96 10,73 10,27" fill="#0b1f4a" stroke="#1456d6" stroke-width="6" stroke-linejoin="round"/>
           <text x="50" y="62" text-anchor="middle" font-family="Inter, Arial, sans-serif" font-weight="900" font-size="31" fill="#ffffff">STS</text>
         </svg>
-        <div class="brand-name">SARFARAZ TECH SOLUTIONS<small>CUSTOM SOFTWARE &amp; APPS</small></div>
+        <div class="brand-name" translate="no">SARFARAZ TECH SOLUTIONS<small>CUSTOM SOFTWARE &amp; APPS</small></div>
       </a>
       <nav class="nav-links" aria-label="Main">
         <a class="link" href="#services">Services</a>
         <a class="link" href="#demos">Live Demos</a>
         <a class="link" href="#bizdemo">Business Demo</a>
         <a class="link" href="#creatives">Creatives</a>
-        <a class="link" href="#process">Process</a>
+        <a class="link" href="#pricing">Pricing</a>
         <a class="link" href="#about">About</a>
         <a class="link" href="#faq">FAQ</a>
+        <select class="lang-sel" id="langSel" aria-label="Language" translate="no"><option value="en">English</option><option value="hi">हिन्दी</option><option value="ur">اردو</option><option value="bn">বাংলা</option><option value="pa">ਪੰਜਾਬੀ</option><option value="gu">ગુજરાતી</option><option value="mr">मराठी</option><option value="ta">தமிழ்</option><option value="te">తెలుగు</option></select>
         <a href="#inquiry" class="btn btn-primary btn-sm">Get Free Quote</a>
       </nav>
     </div>
@@ -803,6 +935,27 @@
             <div class="price">Quote as per need</div>
             <div class="card-btns"><button type="button" class="btn btn-outline btn-sm" data-pick="Custom Software / Web Portal" data-type="Other / Custom Business">Inquire Now</button><button type="button" class="btn btn-primary btn-sm" onclick="goDemo('biz')">Business Demos</button></div>
           </div>
+          <div class="card service">
+            <div class="icon"><svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M17 21v-2a4 4 0 00-4-4H5a4 4 0 00-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 00-3-3.87M16 3.13a4 4 0 010 7.75"/></svg></div>
+            <h3>Political Party &amp; Organisation</h3>
+            <p>ERP for members, volunteers, ward teams, events and grievances, plus an Android app, campaign posters and reels.</p>
+            <div class="price">Quote as per need</div>
+            <div class="card-btns"><button type="button" class="btn btn-outline btn-sm" data-pick="Political Party / Organisation Package" data-type="Political Party / Leader">Inquire Now</button><button type="button" class="btn btn-primary btn-sm" onclick="goBiz('party')">Live Demo</button></div>
+          </div>
+          <div class="card service">
+            <div class="icon"><svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="5" width="18" height="14" rx="2"/><path d="M3 7l9 6 9-6"/></svg></div>
+            <h3>Bulk &amp; Promotional Emails</h3>
+            <p>Designed email campaigns for your offers and announcements, sent with sender details and an unsubscribe link, with a delivery and click report.</p>
+            <div class="price">Quote as per list size</div>
+            <div class="card-btns"><button type="button" class="btn btn-outline btn-sm" data-pick="Bulk &amp; Promotional Email Campaigns" data-type="Other / Custom Business">Inquire Now</button><button type="button" class="btn btn-primary btn-sm" onclick="goPricing('special')">See Details</button></div>
+          </div>
+          <div class="card service">
+            <div class="icon"><svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="18" height="18" rx="3"/><circle cx="8.5" cy="9" r="1.5"/><path d="M21 15l-5-5L5 21"/></svg></div>
+            <h3>Posters, Posts &amp; Reels</h3>
+            <p>Social posts, offer posters and 15-30 second ad reels in your brand style, with captions and hashtags. Monthly plans available.</p>
+            <div class="price"><small>Posts from</small>₹49</div>
+            <div class="card-btns"><button type="button" class="btn btn-outline btn-sm" data-pick="Brand Creatives (Posters, Posts, Ad Videos)" data-type="Other / Custom Business">Inquire Now</button><button type="button" class="btn btn-primary btn-sm" onclick="goPricing('creatives')">See Plans</button></div>
+          </div>
         </div>
         <p class="price-note">Prices are starting rates for the standard package. Final quote depends on your modules and features. <a href="#bizdemo" style="color:var(--primary);font-weight:700">See the ERP + app demo for your business</a></p>
       </div>
@@ -875,49 +1028,7 @@
           </div>
         </div>
 
-        <h3 class="cr-sub">Monthly Packages <span class="launch">Launch rates</span></h3>
-        <div class="pkgs" role="radiogroup" aria-label="Choose a monthly plan">
-          <div class="card pkg sel-card" role="radio" aria-checked="false" tabindex="0" data-plan="Starter">
-            <span class="tag">Starter</span>
-            <div class="pkg-price">₹499<small>/ month</small></div>
-            <div class="pkg-per">about ₹50 per post</div>
-            <ul><li>10 social posts</li><li>Captions &amp; hashtags</li><li>Your logo &amp; brand colours</li></ul>
-            <span class="btn btn-outline btn-sm pick" aria-hidden="true">Select Plan</span>
-          </div>
-          <div class="card pkg sel-card pkg-hl" role="radio" aria-checked="false" tabindex="0" data-plan="Growth">
-            <span class="tag">Growth &bull; Popular</span>
-            <div class="pkg-price">₹1,999<small>/ month</small></div>
-            <div class="pkg-per">about ₹50 per item</div>
-            <ul><li>30 posts &amp; posters</li><li>10 ad videos / reels</li><li>Monthly content calendar</li></ul>
-            <span class="btn btn-outline btn-sm pick" aria-hidden="true">Select Plan</span>
-          </div>
-          <div class="card pkg sel-card" role="radio" aria-checked="false" tabindex="0" data-plan="Business">
-            <span class="tag">Business</span>
-            <div class="pkg-price">₹4,999<small>/ month</small></div>
-            <div class="pkg-per">about ₹55 per item</div>
-            <ul><li>60 posters &amp; posts</li><li>30 reels / ad videos</li><li>Captions, hashtags &amp; calendar</li></ul>
-            <span class="btn btn-outline btn-sm pick" aria-hidden="true">Select Plan</span>
-          </div>
-          <div class="card pkg sel-card" role="radio" aria-checked="false" tabindex="0" data-plan="Scale">
-            <span class="tag">Scale</span>
-            <div class="pkg-price">₹9,999<small>/ month</small></div>
-            <div class="pkg-per">about ₹45 per item</div>
-            <ul><li>120 posters &amp; posts</li><li>100 reels (about 3 a day)</li><li>Weekly batch delivery</li></ul>
-            <span class="btn btn-outline btn-sm pick" aria-hidden="true">Select Plan</span>
-          </div>
-        </div>
-        <p class="pick-hint">Tap a plan to see exactly what you get and request it.</p>
-        <div class="card" id="planDetail" aria-live="polite"></div>
-        <p class="price-note">Launch rates for our first clients. For large volumes (100+ reels), the final quote depends on timeline and formats. We make a free sample for your business before you start.</p>
-
-        <h3 class="cr-sub">Single Items</h3>
-        <div class="rates">
-          <button type="button" class="rate" data-item="Social post (₹49)"><span>Social post</span><b>₹49</b></button>
-          <button type="button" class="rate" data-item="Poster / flyer (₹49)"><span>Poster / flyer</span><b>₹49</b></button>
-          <button type="button" class="rate" data-item="Ad video / reel (15-30 sec) (₹199)"><span>Ad video / reel (15-30 sec)</span><b>₹199</b></button>
-          <button type="button" class="rate" data-item="Logo & brand kit (₹599)"><span>Logo &amp; brand kit</span><b>₹599</b></button>
-        </div>
-        <p class="price-note">Launch rates per item, with 2 rounds of changes. Tap any item to order it. Monthly packages lower the cost per item.</p>
+        <div class="cr-cta"><a class="btn btn-primary" href="#pricing" onclick="goPricing('creatives');return false;">See Plans &amp; Rates</a><span>Monthly plans from ₹499. Posts and posters from ₹49, reels from ₹199.</span></div>
 
         <div class="reel-box">
           <div class="reel-video">
@@ -942,6 +1053,8 @@
           <button type="button" class="tab-btn" data-f="biz" aria-pressed="false">By Business</button>
         </div>
         <div class="gallery" id="gallery">
+          <button type="button" class="g-item" data-cat="poster" data-src="portfolio/card-wedding.jpg" data-cap="Wedding card (sample design, example names)"><img src="portfolio/card-wedding.jpg" width="720" height="900" loading="lazy" alt="Sample wedding invitation card design by Sarfaraz Tech Solutions" /></button>
+          <button type="button" class="g-item" data-cat="poster" data-src="portfolio/card-invite.jpg" data-cap="Birthday / event invitation (sample design)"><img src="portfolio/card-invite.jpg" width="720" height="900" loading="lazy" alt="Sample birthday invitation card design by Sarfaraz Tech Solutions" /></button>
           <button type="button" class="g-item" data-cat="poster" data-src="portfolio/poster-main.jpg" data-cap="Brand launch poster"><img src="portfolio/poster-main.jpg" width="720" height="900" loading="lazy" alt="Brand launch poster for custom software services" /></button>
           <button type="button" class="g-item" data-cat="poster" data-src="portfolio/poster-playschool.jpg" data-cap="Mobile app advertisement poster"><img src="portfolio/poster-playschool.jpg" width="720" height="900" loading="lazy" alt="Mobile app advertisement poster for a play school" /></button>
           <button type="button" class="g-item" data-cat="poster" data-src="portfolio/poster-custom.jpg" data-cap="Service enquiry poster"><img src="portfolio/poster-custom.jpg" width="720" height="900" loading="lazy" alt="Service enquiry poster" /></button>
@@ -975,8 +1088,92 @@
           <button type="button" class="g-item" data-cat="biz" data-src="portfolio/biz-school.jpg" data-cap="School: admissions open poster"><img src="portfolio/biz-school.jpg" width="720" height="900" loading="lazy" alt="Sample School: admissions open poster by Sarfaraz Tech Solutions" /></button>
           <button type="button" class="g-item" data-cat="biz" data-src="portfolio/biz-travel.jpg" data-cap="Travel & Tours: holiday packages poster"><img src="portfolio/biz-travel.jpg" width="720" height="900" loading="lazy" alt="Sample Travel & Tours: holiday packages poster by Sarfaraz Tech Solutions" /></button>
           <button type="button" class="g-item" data-cat="biz" data-src="portfolio/biz-footwear.jpg" data-cap="Footwear: big sale poster"><img src="portfolio/biz-footwear.jpg" width="720" height="900" loading="lazy" alt="Sample Footwear: big sale poster by Sarfaraz Tech Solutions" /></button>
+          <button type="button" class="g-item" data-cat="biz" data-src="portfolio/biz-party.jpg" data-cap="Political Party / Leader: ward campaign poster (generic sample)"><img src="portfolio/biz-party.jpg" width="720" height="900" loading="lazy" alt="Sample Political Party / Leader: ward campaign poster (generic sample) by Sarfaraz Tech Solutions" /></button>
         </div>
-        <p class="price-note">The software posters are our own brand's work. The "By Business" posters are sample designs with demo brand names: fashion, sweets, hotel, jewellery, salon, gym, coaching, grocery, medical, cosmetics, electrical, mobile, furniture, bakery, real estate, restaurant, tailor, tiles, school, travel and footwear. We create a free sample for your business. <a href="#" data-wa="Hello Sarfaraz Tech Solutions, I would like to see more ad video and poster samples.">Ask us on WhatsApp &rarr;</a></p>
+        <p class="price-note">The software posters are our own brand's work. The "By Business" posters are sample designs with demo brand names: fashion, sweets, hotel, jewellery, salon, gym, coaching, grocery, medical, cosmetics, electrical, mobile, furniture, bakery, real estate, restaurant, tailor, tiles, school, travel, footwear and political party (a generic sample, no real party or leader). We create a free sample for your business. <a href="#" data-wa="Hello Sarfaraz Tech Solutions, I would like to see more ad video and poster samples.">Ask us on WhatsApp &rarr;</a></p>
+      </div>
+    </section>
+
+    <section id="pricing" style="border-top:1px solid var(--line)">
+      <div class="container">
+        <div class="section-title">
+          <h2>Simple, Clear Pricing</h2>
+          <p>Choose a category, pick what you need and send your request in one minute. The final amount is always confirmed in writing before you pay.</p>
+        </div>
+        <div class="ptabs" role="tablist" aria-label="Pricing categories">
+          <button type="button" role="tab" class="ptab on" id="pt-creatives" data-tab="creatives" aria-selected="true" aria-controls="pp-creatives">Posters, Posts &amp; Reels</button>
+          <button type="button" role="tab" class="ptab" id="pt-software" data-tab="software" aria-selected="false" aria-controls="pp-software" tabindex="-1">Software &amp; Apps</button>
+          <button type="button" role="tab" class="ptab" id="pt-special" data-tab="special" aria-selected="false" aria-controls="pp-special" tabindex="-1">Bulk Email &amp; Special</button>
+        </div>
+
+        <div id="pp-creatives" class="ppanel" role="tabpanel" aria-labelledby="pt-creatives">
+          <h3 class="cr-sub">Monthly Plans <span class="launch">Launch rates</span></h3>
+          <p class="pr-lead">Best value: a fixed number of posts and reels every month, made in your brand style.</p>
+          <div class="plan-list" id="planList" role="radiogroup" aria-label="Choose a monthly plan"></div>
+          <p class="pick-hint">Tap a plan to see what is included, then request it.</p>
+          <h3 class="cr-sub">Single Items</h3>
+          <p class="pr-lead">Need just one design? Order it on its own.</p>
+          <div class="rates">
+            <button type="button" class="rate" data-item="Social post (₹49)"><span>Social post</span><b>₹49</b></button>
+            <button type="button" class="rate" data-item="Poster / flyer (₹49)"><span>Poster / flyer</span><b>₹49</b></button>
+            <button type="button" class="rate" data-item="Ad video / reel (15-30 sec) (₹199)"><span>Ad video / reel (15-30 sec)</span><b>₹199</b></button>
+            <button type="button" class="rate" data-item="Logo & brand kit (₹599)"><span>Logo &amp; brand kit</span><b>₹599</b></button>
+            <button type="button" class="rate" data-item="Wedding card (₹99)"><span>Wedding card</span><b>₹99</b></button>
+            <button type="button" class="rate" data-item="Birthday / event invitation (₹49)"><span>Birthday / event invitation</span><b>₹49</b></button>
+            <button type="button" class="rate" data-item="Visiting card (₹49)"><span>Visiting card</span><b>₹49</b></button>
+          </div>
+
+          <p class="price-note">Launch rates per item, with 2 rounds of changes. Tap any item to order it. Monthly plans lower the cost per item. We make a free sample for your business before you start.</p>
+          <p class="pr-extras"><b>Extras on request:</b> Hindi + English versions &bull; Editable source files &bull; Posting &amp; scheduling help</p>
+        </div>
+
+        <div id="pp-software" class="ppanel" role="tabpanel" aria-labelledby="pt-software" hidden>
+          <div class="pr-table">
+          <div class="pr-row"><div class="pr-n"><b>Hospital &amp; Clinic HMS</b><span>OPD/IPD, token queue, patient records, bed tracking, pharmacy &amp; lab billing</span></div><div class="pr-p"><small>Starting</small>₹25,000</div><button type="button" class="btn btn-outline btn-sm" data-pick="Hospital &amp; Clinic Management System" data-type="Hospital / Clinic">Get Quote</button></div>
+          <div class="pr-row"><div class="pr-n"><b>Shop &amp; Retail POS</b><span>GST billing, barcode, stock, customer dues, sales reports</span></div><div class="pr-p"><small>Starting</small>₹8,000</div><button type="button" class="btn btn-outline btn-sm" data-pick="Shop &amp; Retail Billing Software" data-type="Shop / Retail Store">Get Quote</button></div>
+          <div class="pr-row"><div class="pr-n"><b>Company ERP &amp; Accounts</b><span>Inventory, purchase, sales, party ledger, GST reports, HR</span></div><div class="pr-p"><small>Starting</small>₹30,000</div><button type="button" class="btn btn-outline btn-sm" data-pick="Company ERP &amp; Accounts" data-type="Company / Office / Factory">Get Quote</button></div>
+          <div class="pr-row"><div class="pr-n"><b>School &amp; Coaching Panel</b><span>Attendance, fee receipts, results, parent alerts, admissions</span></div><div class="pr-p"><small>Starting</small><s>₹11,999</s> ₹10,000</div><button type="button" class="btn btn-outline btn-sm" data-pick="School &amp; Coaching Management System" data-type="School / College / Coaching">Get Quote</button></div>
+          <div class="pr-row"><div class="pr-n"><b>Custom Android App (APK)</b><span>Your name and logo, login, notifications, live sync with web panel</span></div><div class="pr-p"><small>Starting</small>₹15,000</div><button type="button" class="btn btn-outline btn-sm" data-pick="Custom Android App (APK)" data-type="Other / Custom Business">Get Quote</button></div>
+          <div class="pr-row"><div class="pr-n"><b>Political Party &amp; Organisation</b><span>ERP for members, ward teams, events and grievances, plus app, posters and reels</span></div><div class="pr-p">Quote as per need</div><button type="button" class="btn btn-outline btn-sm" data-pick="Political Party / Organisation Package" data-type="Political Party / Leader">Get Quote</button></div>
+          <div class="pr-row"><div class="pr-n"><b>Tailor-Made Software</b><span>Anything built around your own workflow</span></div><div class="pr-p">Quote as per need</div><button type="button" class="btn btn-outline btn-sm" data-pick="Custom Software / Web Portal" data-type="Other / Custom Business">Get Quote</button></div>
+          </div>
+          <p class="price-note">Every software package includes setup, training and WhatsApp support. These are starting rates for the standard package; the final quote depends on the modules you choose. <a href="#demos" style="color:var(--primary);font-weight:700">Try the live demos first</a></p>
+        </div>
+
+        <div id="pp-special" class="ppanel" role="tabpanel" aria-labelledby="pt-special" hidden>
+          <div class="pr-cards">
+            <div class="card">
+              <span class="tag">Custom quote</span>
+              <h3>Bulk &amp; Promotional Emails</h3>
+              <p>Reach customers and businesses with a professionally designed email campaign.</p>
+              <ul class="pr-list"><li>Designed HTML email in your brand style</li><li>Contact list clean-up</li><li>Scheduled sending</li><li>Sender details and unsubscribe link included</li><li>Delivery and click report</li></ul>
+              <p class="pr-q">Price depends on the list size and the number of campaigns.</p>
+              <button type="button" class="btn btn-primary btn-sm" data-pick="Bulk &amp; Promotional Email Campaigns" data-type="Other / Custom Business">Get an Email Quote</button>
+            </div>
+            <div class="card">
+              <span class="tag">Quote as per need</span>
+              <h3>Political Party &amp; Organisation</h3>
+              <p>One team for your software and your campaign material.</p>
+              <ul class="pr-list"><li>ERP: members, volunteers, ward teams, events, grievances, receipts</li><li>Android app for members and citizens</li><li>Campaign posters, posts and reels</li><li>Live demo available</li></ul>
+              <p class="pr-q">We build tools and creatives only. Content follows election rules.</p>
+              <div class="card-btns"><button type="button" class="btn btn-primary btn-sm" data-pick="Political Party / Organisation Package" data-type="Political Party / Leader">Get a Quote</button><button type="button" class="btn btn-outline btn-sm" onclick="goBiz('party')">See Live Demo</button></div>
+            </div>
+            <div class="card">
+              <span class="tag">Quote as per need</span>
+              <h3>Tailor-Made Software</h3>
+              <p>Tell us how your team works and we build a web or mobile system around it.</p>
+              <ul class="pr-list"><li>Admin panel and user roles</li><li>Customer portal</li><li>Reports and export</li><li>Integrations</li></ul>
+              <p class="pr-q">Fixed quote after a short call.</p>
+              <button type="button" class="btn btn-primary btn-sm" data-pick="Custom Software / Web Portal" data-type="Other / Custom Business">Get a Quote</button>
+            </div>
+          </div>
+        </div>
+
+        <div class="pr-foot">
+          <a class="btn btn-primary" href="STS-Rate-Card.pdf" target="_blank" rel="noopener" download>Download Rate Card (PDF)</a>
+          <a class="btn btn-wa" href="#" data-wa="Hello Sarfaraz Tech Solutions, I have a question about your pricing.">Ask on WhatsApp</a>
+          <button type="button" class="btn btn-outline" id="prChat">Chat with us</button>
+        </div>
       </div>
     </section>
 
@@ -998,6 +1195,7 @@
     <section id="about">
       <div class="container">
         <div class="about">
+          <img class="about-photo" src="portfolio/sarfaraz.jpg" width="480" height="600" alt="Sarfaraz, founder of Sarfaraz Tech Solutions, New Delhi" loading="lazy" decoding="async" />
           <div>
             <span class="eyebrow">About Us</span>
             <h2>Hi, I&rsquo;m Sarfaraz</h2>
@@ -1184,7 +1382,7 @@
         <div class="foot-about">
           <a class="brand" href="#top">
             <svg width="38" height="38" viewBox="0 0 100 100" aria-hidden="true"><polygon points="50,4 90,27 90,73 50,96 10,73 10,27" fill="#0b1f4a" stroke="#5b8def" stroke-width="6" stroke-linejoin="round"/><text x="50" y="62" text-anchor="middle" font-family="Inter, Arial, sans-serif" font-weight="900" font-size="31" fill="#ffffff">STS</text></svg>
-            <div class="brand-name">SARFARAZ TECH SOLUTIONS<small>CUSTOM SOFTWARE &amp; APPS</small></div>
+            <div class="brand-name" translate="no">SARFARAZ TECH SOLUTIONS<small>CUSTOM SOFTWARE &amp; APPS</small></div>
           </a>
           <p>Custom software, ERP, POS billing and branded Android apps for hospitals, schools, shops, malls and companies across India.</p>
           <div class="social">
@@ -1253,6 +1451,40 @@
     <span>WhatsApp</span>
   </a>
 
+
+  <div id="google_translate_element" translate="no"></div>
+  <button type="button" class="chat-fab" id="chatFab" aria-haspopup="dialog" aria-controls="chatPanel">
+    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M21 15a2 2 0 01-2 2H7l-4 4V5a2 2 0 012-2h14a2 2 0 012 2z"/></svg>
+    <span>Chat with us</span>
+  </button>
+  <section class="chat" id="chatPanel" role="dialog" aria-label="Chat assistant">
+    <div class="chat-h"><div><b>Sarfaraz Tech Solutions</b><small>Automated assistant &middot; replies instantly</small></div><button type="button" id="chatX" aria-label="Close chat">&times;</button></div>
+    <div class="chat-log" id="chatLog" aria-live="polite"></div>
+    <div class="chat-chips" id="chatChips"></div>
+    <form class="chat-f" id="chatForm" autocomplete="off"><input id="chatIn" type="text" maxlength="300" placeholder="Type your question..." aria-label="Your question" /><button type="submit">Send</button></form>
+    <p class="chat-fine">Automated assistant. Chats are saved to improve our service. Please do not share passwords or card details.</p>
+  </section>
+
+  <dialog id="reqDialog" class="req" aria-labelledby="reqTitle">
+    <form id="reqForm" novalidate>
+      <div class="req-head"><h3 id="reqTitle">Request this plan</h3><button type="button" class="req-x" id="reqClose" aria-label="Close">&times;</button></div>
+      <div id="reqBody">
+        <div class="req-sum" id="reqSum"></div>
+        <div class="form-group"><label for="reqPlan">Plan</label><select id="reqPlan"></select></div>
+        <div class="form-group"><label for="reqName">Your name *</label><input type="text" id="reqName" autocomplete="name" maxlength="80" /></div>
+        <div class="form-group"><label for="reqPhone">Mobile / WhatsApp number *</label><input type="tel" id="reqPhone" inputmode="numeric" autocomplete="tel" maxlength="14" placeholder="10-digit mobile number" /></div>
+        <div class="form-group"><label for="reqEmail">Email *</label><input type="email" id="reqEmail" autocomplete="email" maxlength="120" /></div>
+        <div class="form-group"><label for="reqBiz">Your business type *</label><select id="reqBiz"></select></div>
+        <div class="form-group"><label for="reqNote">Anything else we should know? (optional)</label><textarea id="reqNote" rows="2" maxlength="300"></textarea></div>
+        <div class="hp" aria-hidden="true"><label for="reqWeb">Website</label><input type="text" id="reqWeb" tabindex="-1" autocomplete="off" /></div>
+        <p class="req-err" id="reqErr" role="alert"></p>
+        <button type="submit" class="btn btn-primary btn-block" id="reqSend">Send Request</button>
+        <p class="req-fine">We will call or WhatsApp you shortly. A free sample is made before you start.<br /><button type="button" class="req-more" id="reqMore">Need more options? Use the detailed form</button></p>
+      </div>
+      <div id="reqDone" class="req-done" hidden></div>
+    </form>
+  </dialog>
+
   <dialog id="lightbox" aria-label="Creative preview">
     <img id="lbImg" alt="" />
     <div class="lb-bar"><span id="lbCap"></span><button type="button" class="btn btn-outline btn-sm" id="lbClose">Close</button></div>
@@ -1262,7 +1494,7 @@
   <dialog id="privacyDialog">
     <h3>Privacy Note</h3>
     <p>The details you submit (name, phone, email, business type, requirement) are used only to contact you about your request.</p>
-    <p>We do not sell or share your information. To have your data deleted, email us and mention your Request ID.</p>
+    <p>Messages typed in the chat assistant are saved along with the automatic reply so we can follow up and improve. Do not share passwords or card details there. We do not sell or share your information. To have your data deleted, email us and mention your Request ID.</p>
     <button type="button" class="btn btn-primary btn-sm" id="privacyClose">Close</button>
   </dialog>
 
@@ -1317,7 +1549,7 @@
     (function () {
       const items = document.querySelectorAll("#gallery .g-item"), lb = document.getElementById("lightbox"); let lbCur = null;
       function lbShut() { if (lb.close) lb.close(); else lb.removeAttribute("open"); }
-      document.getElementById("lbEnq").addEventListener("click", function () { const cap = lbCur ? lbCur.getAttribute("data-cap") : ""; lbShut(); quoteFor("Brand Creatives (Posters, Posts, Ad Videos)", "Creative enquiry: " + cap); });
+      document.getElementById("lbEnq").addEventListener("click", function () { const cap = lbCur ? lbCur.getAttribute("data-cap") : ""; lbShut(); openReq({ plan: PLAN_UNSURE, note: "Creative enquiry: " + cap }); });
       document.getElementById("lbDemo").addEventListener("click", function () { const m = lbCur && lbCur.getAttribute("data-src").match(/biz-([a-z]+)\.jpg/); lbShut(); if (m) goBiz(m[1]); });
       document.querySelectorAll(".filters [data-f]").forEach(function (b) {
         b.addEventListener("click", function () {
@@ -1457,7 +1689,11 @@
         sp: "Exchange & Returns|Customer,Item|Rohit S.,Sports Shoes size 9;Neha K.,Sandal size 6;Imran A.,Formal size 8|Requested,Done" },
       { k: "travel", n: "Travel & Tours", c: "#0a6aa8", app: "Wander Way Travels", il: "Packages", off: "Holiday packages from Rs.4999",
         items: "Goa 3N/4D|8999|12;Manali Package|11999|8;Flight Booking|4500|99;Hotel Stay|1800|40;Visa Help|2500|99;Cab Rental|2200|15",
-        sp: "Bookings|Traveler,Trip|Mr. Mehta,Goa;Mrs. Kapoor,Manali;Rahul & Co,Cab|Enquiry,Confirmed" }
+        sp: "Bookings|Traveler,Trip|Mr. Mehta,Goa;Mrs. Kapoor,Manali;Rahul & Co,Cab|Enquiry,Confirmed" },
+      { k: "party", n: "Political Party / Leader", c: "#1a2f7a", app: "Jan Sampark", il: "Party Store & Material", off: "Join the team: become a member",
+        L: { bill: "Receipts", cust: "Members", m1: "Donations Today", m2: "Receipts Today", m3: "Low Stock Items", chart: "Last 7 days donations", billT: "Quick receipt: click an item to add it", custT: "Members &amp; activity", visit: "events attended", cta: "Become a member" },
+        items: "Membership Card|100|500;Volunteer T-Shirt|250|120;Party Flag|60|300;Cap|40|200;Campaign Badge|20|500;Receipt Book|150|8",
+        sp: "Jan Samasya (Grievances)|Citizen,Issue|Ramesh Ji Ward 4,Streetlight;Sunita D. Ward 7,Water supply;Imran A. Ward 2,Road repair|Open,Resolved" }
     ];
     BD.forEach(function (b) {
       b.items = b.items.split(";").map(function (s) { const p = s.split("|"); return { n: p[0], p: +p[1], s: +p[2] }; });
@@ -1487,26 +1723,26 @@
     function bdOrder() { if (!Object.keys(bd.cart).length) { toast("Your cart is empty"); return; } bd.cart = {}; bdRender(); toast("Order sent on WhatsApp (demo)"); }
     function bdSeed(b) { let h = 0; for (let i = 0; i < b.k.length; i++) h = (h * 31 + b.k.charCodeAt(i)) % 97; return h; }
     function bdErp(b) {
-      const s = bdStk(b), seed = bdSeed(b), mods = [["dash", "Dashboard"], ["items", b.il], ["bill", "Billing"], ["cust", "Customers"], ["spec", b.spl]];
+      const s = bdStk(b), seed = bdSeed(b), L = b.L || {}, mods = [["dash", "Dashboard"], ["items", b.il], ["bill", L.bill || "Billing"], ["cust", L.cust || "Customers"], ["spec", b.spl]];
       let body = "";
       if (bd.m === "dash") {
         const avg = b.items.reduce(function (a, i) { return a + i.p; }, 0) / b.items.length, base = Math.round(avg * (6 + seed % 5) / 10) * 10;
         const days = [0.7, 0.85, 0.6, 1, 0.9, 1.25, 1.1].map(function (f, i) { return Math.round(base * f * (1 + ((seed + i * 7) % 5) / 20)); });
         const low = s.filter(function (v) { return v <= 10; }).length;
-        body = metrics([["Today's Sales", bdRs(days[6])], ["Bills Today", String(12 + seed % 20)], ["Low Stock Items", String(low)]]) +
-          '<div class="sub-title">Last 7 days sales</div>' + bars(days, ["Mon", "Tue", "Wed", "Thu", "Fri", "Sat", "Sun"], function (v) { return v >= 1000 ? Math.round(v / 100) / 10 + "k" : v; });
+        body = metrics([[L.m1 || "Today's Sales", bdRs(days[6])], [L.m2 || "Bills Today", String(12 + seed % 20)], [L.m3 || "Low Stock Items", String(low)]]) +
+          '<div class="sub-title">' + (L.chart || "Last 7 days sales") + '</div>' + bars(days, ["Mon", "Tue", "Wed", "Thu", "Fri", "Sat", "Sun"], function (v) { return v >= 1000 ? Math.round(v / 100) / 10 + "k" : v; });
       } else if (bd.m === "items") {
         body = '<div class="sub-title">' + b.il + " &amp; stock</div>" + b.items.map(function (it, i) {
           return '<div class="bd-row"><span><b>' + it.n + "</b><br><small>" + bdRs(it.p) + " &middot; Stock " + s[i] + (s[i] <= 10 ? '<span class="bd-low">LOW</span>' : "") + '</small></span><span><button class="bd-mini" aria-label="Decrease stock" onclick="bdStock(' + i + ',-1)">&minus;</button> <button class="bd-mini" aria-label="Increase stock" onclick="bdStock(' + i + ',1)">+</button></span></div>';
         }).join("");
       } else if (bd.m === "bill") {
         const ks = Object.keys(bd.bill); let tot = 0;
-        body = '<div class="sub-title">Quick billing: click an item to add it</div><div class="demo-actions">' + b.items.map(function (it, i) { return '<button type="button" class="bd-mini" onclick="bdAdd(' + i + ')">+ ' + it.n + "</button>"; }).join("") + "</div>" +
+        body = '<div class="sub-title">' + (L.billT || "Quick billing: click an item to add it") + '</div><div class="demo-actions">' + b.items.map(function (it, i) { return '<button type="button" class="bd-mini" onclick="bdAdd(' + i + ')">+ ' + it.n + "</button>"; }).join("") + "</div>" +
           (ks.length ? ks.map(function (i) { const it = b.items[i], q = bd.bill[i]; tot += it.p * q; return '<div class="bd-row"><span>' + it.n + " &times; " + q + '</span><span>' + bdRs(it.p * q) + ' <button class="bd-mini" aria-label="Remove one" onclick="bdSub(' + i + ')">&minus;</button></span></div>'; }).join("") + '<div class="bd-total"><span>Total</span><span>' + bdRs(tot) + '</span></div>' : '<p class="demo-hint">No items yet. Add items from above.</p>') +
           '<button type="button" class="btn btn-primary btn-sm" onclick="bdGen()">Generate Bill</button>';
       } else if (bd.m === "cust") {
         const nm = ["Rakesh Verma", "Meena Tiwari", "Arif Hussain", "Kavita Rao", "Sandeep Singh"];
-        body = '<div class="sub-title">Customers &amp; repeat visits</div>' + nm.map(function (c, i) { const v = 3 + (seed + i * 5) % 14; return '<div class="bd-row"><span><b>' + c + "</b><br><small>" + v + " visits</small></span><span>" + bdRs(Math.round(v * (b.items[i % b.items.length].p) * 0.8)) + "</span></div>"; }).join("");
+        body = '<div class="sub-title">' + (L.custT || "Customers &amp; repeat visits") + '</div>' + nm.map(function (c, i) { const v = 3 + (seed + i * 5) % 14; return '<div class="bd-row"><span><b>' + c + "</b><br><small>" + v + " " + (L.visit || "visits") + "</small></span><span>" + bdRs(Math.round(v * (b.items[i % b.items.length].p) * 0.8)) + "</span></div>"; }).join("");
       } else {
         const st = bdSt(b);
         body = '<div class="sub-title">' + b.spl + " (click a status to change it)</div>" + b.spr.map(function (r, i) {
@@ -1519,7 +1755,7 @@
     function bdPhone(b) {
       const c = b.c; let body = "", tot = 0;
       if (bd.pt === "home") {
-        body = '<div class="bd-ph-banner" style="background:' + c + '">' + b.off + "<small>Order today</small></div>" + '<div class="bd-ph-grid">' + b.items.map(function (it, i) {
+        body = '<div class="bd-ph-banner" style="background:' + c + '">' + b.off + "<small>" + ((b.L && b.L.cta) || "Order today") + "</small></div>" + '<div class="bd-ph-grid">' + b.items.map(function (it, i) {
           return '<div class="bd-ph-card"><b>' + it.n + "</b>" + bdRs(it.p) + '<button style="background:' + c + '" onclick="bdPAdd(' + i + ')">Add</button></div>';
         }).join("") + "</div>";
       } else if (bd.pt === "cart") {
@@ -1857,7 +2093,7 @@
     ];
     PLANS.forEach(function (p) { p.opt = p.k + " - \u20b9" + p.price.toLocaleString("en-IN") + "/month (" + p.short + ")"; });
     const PLAN_OPTS = PLANS.map(function (p) { return p.opt; }).concat([PLAN_SINGLE, PLAN_UNSURE]);
-    let planSel = "Growth", planChosen = false;
+    let planSel = "Growth", planChosen = false, planOpen = null;
 
     const SERVICES = [
       { name: "Hospital & Clinic Management System", type: "Hospital / Clinic", price: 25000, desc: "OPD, IPD, pharmacy, lab",
@@ -1872,6 +2108,10 @@
         mods: ["Branded splash & icon", "Login & roles", "Push notifications", "Order tracking", "Live sync with web panel", "WhatsApp share"] },
       { name: "Custom Software / Web Portal", type: "Other / Custom Business", price: 0, desc: "Built around your workflow",
         mods: ["Admin panel", "Customer portal", "Reports & export", "User roles", "Online payments info", "Integrations"] },
+      { name: "Political Party / Organisation Package", type: "Political Party / Leader", price: 0, desc: "ERP, Android app, posters and reels",
+        mods: ["Member & volunteer management", "Ward / booth team tracking", "Events & rally planner", "Grievance (Jan Samasya) tracker", "Donation receipts & reports", "Campaign posters & reels"] },
+      { name: "Bulk & Promotional Email Campaigns", type: "Other / Custom Business", price: 0, desc: "Designed email campaigns with reports",
+        mods: ["Email design (HTML template)", "Contact list clean-up", "Scheduling & sending", "Unsubscribe handling", "Delivery & click report"] },
       { name: "Brand Creatives (Posters, Posts, Ad Videos)", type: "Other / Custom Business", price: 49, priceTxt: "Posts and posters from ₹49, reels from ₹199, monthly packages from ₹499", badge: "From ₹49 / post", desc: "Posters, posts, reels and ad videos",
         mods: ["Social media posts", "Posters & flyers", "Ad video / reel (15-30 sec)", "Festival & offer designs", "Captions & hashtags", "Logo & brand kit"],
         adds: ["Hindi + English versions", "Editable source files", "Monthly content calendar", "Posting & scheduling help"],
@@ -1909,7 +2149,7 @@
       }).join("");
       const volSel = document.getElementById("users"), prev = volSel.value, opts = s.volOpts || DEFAULT_VOL;
       document.getElementById("usersLabel").textContent = s.volLegend || "Number of users";
-      volSel.innerHTML = opts.map(function (o) { return "<option>" + o + "</option>"; }).join("");
+      volSel.innerHTML = opts.map(function (o) { return '<option value="' + esc(o) + '">' + esc(o) + "</option>"; }).join("");
       if (opts.indexOf(prev) >= 0) volSel.value = prev; else if (s.biz) volSel.value = planChosen ? planOpt(planSel) : PLAN_UNSURE;
       document.getElementById("addGrid").innerHTML = (s.adds || ADDONS).map(function (m) {
         return '<label class="opt"><input type="checkbox" data-grp="add" value="' + esc(m) + '"' + (addsChecked[m] ? " checked" : "") + "> " + esc(m) + "</label>";
@@ -2014,7 +2254,7 @@
     function planPriceText() {
       const v = document.getElementById("users").value, p = planCur();
       if (p) return p.k + " plan: " + inr(p.price) + " / month (" + p.short + ")";
-      if (v === PLAN_SINGLE) return "Single items: posts and posters \u20b949, reels \u20b9199, logo & brand kit \u20b9599";
+      if (v === PLAN_SINGLE) return "Single items: posts, posters and invitations from \u20b949, wedding card \u20b999, reels \u20b9199, logo & brand kit \u20b9599";
       return "Monthly plans from \u20b9499";
     }
     function planIncludes() {
@@ -2026,7 +2266,7 @@
     function setupBiz(s) {
       const w = document.getElementById("bizWrap"); w.hidden = !s.biz; if (!s.biz) return;
       const sel = document.getElementById("bizSel");
-      if (!sel.options.length) sel.innerHTML = '<option value="">Select your business type</option>' + BD.map(function (b) { return "<option>" + esc(b.n) + "</option>"; }).join("") + "<option>Other / Custom Business</option>";
+      if (!sel.options.length) sel.innerHTML = '<option value="">Select your business type</option>' + BD.map(function (b) { return '<option value="' + esc(b.n) + '">' + esc(b.n) + "</option>"; }).join("") + '<option value="Other / Custom Business">Other / Custom Business</option>';
       syncBiz();
     }
     function syncBiz() { const s = SERVICES[svcIndex]; if (s && s.biz) form.elements["businessType"].value = document.getElementById("bizSel").value || s.type; }
@@ -2037,67 +2277,140 @@
       updateEst();
     });
 
-    function paintPlan() {
-      const p = PLANS.filter(function (x) { return x.k === planSel; })[0] || PLANS[1];
-      document.querySelectorAll(".pkg.sel-card").forEach(function (c) {
-        const on = c.getAttribute("data-plan") === p.k;
-        c.setAttribute("aria-checked", on ? "true" : "false");
-        const b = c.querySelector(".pick"); if (b) { b.textContent = on ? "Selected \u2713" : "Select Plan"; b.className = "btn btn-sm pick " + (on ? "btn-primary" : "btn-outline"); }
-      });
+    function renderPlans() {
       const li = function (a) { return a.map(function (x) { return "<li>" + esc(x) + "</li>"; }).join(""); };
-      const wa = WHATSAPP_NUMBER ? waLink("Hello Sarfaraz Tech Solutions, I want the " + p.k + " plan (" + inr(p.price) + "/month): " + p.get.join(", ") + ". My business is: ___ .") : "";
-      document.getElementById("planDetail").innerHTML =
-        '<div class="pd-head"><div><span class="tag">' + esc(p.k) + " plan" + (p.k === "Growth" ? " &bull; Popular" : "") + "</span><h3>What you get in the " + esc(p.k) + " plan</h3><p>Best for: " + esc(p.best) + '</p></div>' +
-        '<div class="pd-price"><strong>' + inr(p.price) + "</strong><span>per month &bull; " + esc(p.per) + "</span></div></div>" +
-        '<div class="pd-cols"><div class="pd-col"><h4>Your monthly deliverables</h4><ul>' + li(p.get) + "</ul></div>" +
-        '<div class="pd-col"><h4>What we do for you</h4><ul>' + li(PLAN_WORK) + "</ul></div>" +
-        '<div class="pd-col"><h4>What we need from you</h4><ul>' + li(PLAN_NEED) + "</ul></div></div>" +
-        '<p class="pd-note">' + esc(PLAN_NOT) + "</p>" +
-        '<div class="pd-cta"><button type="button" class="btn btn-primary" id="pdRequest">Request the ' + esc(p.k) + " Plan &rarr;</button>" +
-        (wa ? '<a class="btn btn-wa" href="' + wa + '" target="_blank" rel="noopener" id="pdWa">Ask on WhatsApp</a>' : "") + "</div>";
+      document.getElementById("planList").innerHTML = PLANS.map(function (p) {
+        const wa = WHATSAPP_NUMBER ? waLink("Hello Sarfaraz Tech Solutions, I want the " + p.k + " plan (" + inr(p.price) + "/month): " + p.get.join(", ") + ". My business is: ___ .") : "";
+        return '<div class="plan-row" id="plan-' + p.k + '" data-plan="' + p.k + '">' +
+          '<button type="button" class="plan-head" data-plan="' + p.k + '" role="radio" aria-checked="false" aria-expanded="false" aria-controls="pb-' + p.k + '">' +
+          '<span class="plan-radio" aria-hidden="true"></span>' +
+          '<span class="plan-mid"><b>' + esc(p.k) + (p.k === "Growth" ? '<span class="plan-badge">Most popular</span>' : "") + "</b><small>" + esc(p.short) + '<span class="ev"> every month</span></small></span>' +
+          '<span class="plan-price"><strong>' + inr(p.price) + "</strong><span>per month<span class=\"pper\"> &bull; " + esc(p.per) + "</span></span></span>" +
+          '<span class="plan-chev" aria-hidden="true"></span></button>' +
+          '<div class="plan-body" id="pb-' + p.k + '"><div><div class="plan-in">' +
+          '<p class="pd-best"><b>Best for:</b> ' + esc(p.best) + "</p>" +
+          '<div class="pd-cols"><div class="pd-col"><h4>Your monthly deliverables</h4><ul>' + li(p.get) + "</ul></div>" +
+          '<div class="pd-col"><h4>What we do for you</h4><ul>' + li(PLAN_WORK) + "</ul></div>" +
+          '<div class="pd-col"><h4>What we need from you</h4><ul>' + li(PLAN_NEED) + "</ul></div></div>" +
+          '<p class="pd-note">' + esc(PLAN_NOT) + "</p>" +
+          '<div class="pd-cta"><button type="button" class="btn btn-primary pd-request" data-plan="' + p.k + '">Select &amp; Request the ' + esc(p.k) + " Plan &rarr;</button>" +
+          (wa ? '<a class="btn btn-wa pd-wa" href="' + wa + '" target="_blank" rel="noopener">Ask on WhatsApp</a>' : "") +
+          "</div></div></div></div></div>";
+      }).join("");
     }
-    function selectPlan(k, fromUser) {
-      planSel = k; paintPlan();
-      if (fromUser) {
-        track("plan_select", { plan: k });
-        if (window.innerWidth <= 860) { const d = document.getElementById("planDetail"); if (d) d.scrollIntoView({ behavior: "smooth", block: "start" }); }
-      }
+    function paintPlan() {
+      document.querySelectorAll("#planList .plan-row").forEach(function (r) {
+        const k = r.getAttribute("data-plan"), open = planOpen === k, sel = planChosen && planSel === k;
+        r.classList.toggle("open", open); r.classList.toggle("sel", sel);
+        const h = r.querySelector(".plan-head"); h.setAttribute("aria-expanded", open ? "true" : "false"); h.setAttribute("aria-checked", sel ? "true" : "false");
+      });
     }
+    function togglePlan(k) {
+      const wasOpen = planOpen === k && planChosen;
+      if (wasOpen) { planOpen = null; paintPlan(); return; }
+      planSel = k; planChosen = true; planOpen = k; paintPlan();
+      track("plan_select", { plan: k });
+      const row = document.getElementById("plan-" + k);
+      if (row) setTimeout(function () { row.scrollIntoView({ behavior: "smooth", block: "start" }); }, 60);
+    }
+    /* ---------- Quick request dialog (opens in place, no scrolling) ---------- */
+    const reqDlg = document.getElementById("reqDialog"), reqSel = document.getElementById("reqPlan"), reqBiz = document.getElementById("reqBiz");
+    reqSel.innerHTML = PLAN_OPTS.map(function (x) { return '<option value="' + esc(x) + '">' + esc(x) + "</option>"; }).join("");
+    reqBiz.innerHTML = '<option value="">Select your business type</option>' + BD.map(function (b) { return '<option value="' + esc(b.n) + '">' + esc(b.n) + "</option>"; }).join("") + '<option value="Other / Custom Business">Other / Custom Business</option>';
+    function reqPlanObj() { return PLANS.filter(function (x) { return x.opt === reqSel.value; })[0] || null; }
+    function reqRefresh() {
+      const p = reqPlanObj(), sum = document.getElementById("reqSum"), ttl = document.getElementById("reqTitle");
+      if (p) { ttl.textContent = "Request the " + p.k + " Plan"; sum.innerHTML = "<strong>" + esc(p.k) + " plan: " + inr(p.price) + " / month</strong>" + esc(p.get.join(" • ")); }
+      else if (reqSel.value === PLAN_SINGLE) { ttl.textContent = "Order single items"; sum.innerHTML = "<strong>Pay per item</strong>Posts, posters, invitations and visiting cards from ₹49, wedding card ₹99, reels ₹199, logo & brand kit ₹599. Tell us the items below."; }
+      else { ttl.textContent = "Get a plan suggestion"; sum.innerHTML = "<strong>Not sure yet?</strong>Tell us about your business and we will suggest the best plan."; }
+    }
+    function openReq(o) {
+      o = o || {};
+      reqSel.value = o.plan || PLAN_UNSURE;
+      document.getElementById("reqNote").value = o.note || "";
+      document.getElementById("reqErr").textContent = "";
+      document.getElementById("reqBody").hidden = false; document.getElementById("reqDone").hidden = true;
+      reqRefresh();
+      if (reqDlg.showModal) { if (!reqDlg.open) reqDlg.showModal(); } else reqDlg.setAttribute("open", "");
+      setTimeout(function () { document.getElementById("reqName").focus(); }, 60);
+      track("request_open", { plan: reqSel.value });
+    }
+    function reqShut() { if (reqDlg.close) reqDlg.close(); else reqDlg.removeAttribute("open"); }
+    reqSel.addEventListener("change", reqRefresh);
+    document.getElementById("reqClose").addEventListener("click", reqShut);
+    reqDlg.addEventListener("click", function (e) { if (e.target === reqDlg) reqShut(); });
+    document.getElementById("reqMore").addEventListener("click", function () { reqShut(); wizPick("Brand Creatives (Posters, Posts, Ad Videos)"); });
+    document.getElementById("reqForm").addEventListener("submit", async function (e) {
+      e.preventDefault();
+      const err = document.getElementById("reqErr"), btn = document.getElementById("reqSend");
+      const d = { name: document.getElementById("reqName").value.trim(), phone: normalizePhone(document.getElementById("reqPhone").value), email: document.getElementById("reqEmail").value.trim(), biz: reqBiz.value, note: document.getElementById("reqNote").value.trim(), web: document.getElementById("reqWeb").value };
+      if (d.name.length < 2) { err.textContent = "Please enter your name."; document.getElementById("reqName").focus(); return; }
+      if (!/^[6-9]\d{9}$/.test(d.phone)) { err.textContent = "Please enter a valid 10-digit mobile number."; document.getElementById("reqPhone").focus(); return; }
+      if (!/^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/.test(d.email)) { err.textContent = "Please enter a valid email address."; document.getElementById("reqEmail").focus(); return; }
+      if (!d.biz) { err.textContent = "Please select your business type."; reqBiz.focus(); return; }
+      err.textContent = "";
+      const p = reqPlanObj(), planTxt = p ? p.opt : reqSel.value;
+      const details = "Plan: " + planTxt + (p ? " | Includes: " + p.get.join(", ") : "") + " | Business: " + d.biz + (d.note ? " | Note: " + d.note : "") + " | Sent from the plan request box";
+      const data = { name: d.name, phone: d.phone, email: d.email, businessType: d.biz, service: "Brand Creatives (Posters, Posts, Ad Videos)", details: details.slice(0, 990), website: d.web };
+      if (d.web) { reqShut(); return; }
+      if (Date.now() - lastSubmit < COOLDOWN_MS) { err.textContent = "Please wait a few seconds before sending again."; return; }
+      const waText = "Hello Sarfaraz Tech Solutions,\nI want: " + planTxt + "\nName: " + d.name + "\nBusiness: " + d.biz + "\nPhone: " + d.phone;
+      if (!isConfigured) { err.innerHTML = 'The online form is being set up. <a href="' + waLink(waText) + '" target="_blank" rel="noopener">Send on WhatsApp</a>'; return; }
+      btn.disabled = true; btn.textContent = "Sending...";
+      const controller = new AbortController(), timer = setTimeout(function () { controller.abort(); }, 25000);
+      try {
+        const res = await fetch(APPS_SCRIPT_WEB_APP_URL, { method: "POST", headers: { "Content-Type": "text/plain;charset=utf-8" }, body: JSON.stringify(data), signal: controller.signal });
+        const out = await res.json();
+        if (!out || !out.ok) throw new Error((out && out.error) || "Server error");
+        lastSubmit = Date.now(); track("generate_lead", { service: data.service, plan: planTxt, source: "plan_dialog" });
+        document.getElementById("reqBody").hidden = true;
+        const done = document.getElementById("reqDone"); done.hidden = false;
+        document.getElementById("reqTitle").textContent = "Request received";
+        done.innerHTML = '<div class="tick">✓</div><h3>Thank you, ' + esc(d.name) + '!</h3><p>Your Request ID: <strong>' + esc(out.requestId || "-") + "</strong></p><p>" +
+          (out.emailSent === false ? "Your request is saved. We will call or WhatsApp you shortly." : "A confirmation email is on its way. We will call or WhatsApp you shortly.") + '</p>' +
+          '<a class="btn btn-wa btn-block" target="_blank" rel="noopener" href="' + waLink(waText + "\nRequest ID: " + (out.requestId || "")) + '">Also message us on WhatsApp</a><button type="button" class="btn btn-outline btn-block" id="reqOk">Close</button>';
+        document.getElementById("reqOk").addEventListener("click", reqShut);
+        ["reqName", "reqPhone", "reqEmail", "reqNote"].forEach(function (id) { document.getElementById(id).value = ""; }); reqBiz.value = "";
+      } catch (ex) {
+        err.innerHTML = esc(ex && ex.name === "AbortError" ? "The request timed out." : (ex && ex.message) || "Something went wrong.") + ' Please try again or <a href="' + waLink(waText) + '" target="_blank" rel="noopener">send it on WhatsApp</a>.';
+      } finally { clearTimeout(timer); btn.disabled = false; btn.textContent = "Send Request"; }
+    });
     function requestPlan(k) {
-      const i = SERVICES.findIndex(function (x) { return x.biz; }); if (i < 0) return;
       const p = PLANS.filter(function (x) { return x.k === k; })[0]; if (!p) return;
-      planSel = k; planChosen = true;
-      SERVICES[i].mods.forEach(function (m) { modsChecked[m] = p.mods.indexOf(m) >= 0; });
-      chooseService(i);
-      document.getElementById("users").value = p.opt;
-      paintPlan(); updateEst(); saveDraft();
-      goStep(2, document.getElementById("modGrid").querySelector("input"));
-      const card = document.getElementById("inquiryForm"); if (card) { card.classList.remove("flash"); void card.offsetWidth; card.classList.add("flash"); }
-      toast("Selected: " + p.k + " plan (" + inr(p.price) + "/month). Check your details and click Next.");
-      track("plan_request", { plan: k });
+      planSel = k; planChosen = true; planOpen = k; paintPlan();
+      openReq({ plan: p.opt }); track("plan_request", { plan: k });
     }
-    function orderItem(label) {
-      const i = SERVICES.findIndex(function (x) { return x.biz; }); if (i < 0) return;
-      quoteFor(SERVICES[i].name, "Single item: " + label);
-      document.getElementById("users").value = PLAN_SINGLE; updateEst(); saveDraft();
-      track("single_item_order", { item: label });
+    function orderItem(label) { openReq({ plan: PLAN_SINGLE, note: "Single item: " + label }); track("single_item_order", { item: label }); }
+
+    /* ---------- Pricing tabs ---------- */
+    function setPTab(name) {
+      document.querySelectorAll(".ptab").forEach(function (t) { const on = t.getAttribute("data-tab") === name; t.classList.toggle("on", on); t.setAttribute("aria-selected", on ? "true" : "false"); t.tabIndex = on ? 0 : -1; });
+      document.querySelectorAll(".ppanel").forEach(function (p) { p.hidden = p.id !== "pp-" + name; });
     }
-    document.querySelectorAll(".pkg.sel-card").forEach(function (c) {
-      c.addEventListener("click", function () { selectPlan(c.getAttribute("data-plan"), true); });
-      c.addEventListener("keydown", function (e) {
-        if (e.key === "Enter" || e.key === " ") { e.preventDefault(); selectPlan(c.getAttribute("data-plan"), true); }
-        else if (e.key === "ArrowRight" || e.key === "ArrowDown" || e.key === "ArrowLeft" || e.key === "ArrowUp") {
-          const all = Array.prototype.slice.call(document.querySelectorAll(".pkg.sel-card")), j = all.indexOf(c);
-          const n = all[(j + (e.key === "ArrowRight" || e.key === "ArrowDown" ? 1 : all.length - 1)) % all.length]; e.preventDefault(); n.focus(); selectPlan(n.getAttribute("data-plan"), false);
-        }
+    function goPricing(name) { setPTab(name || "creatives"); const t = document.getElementById("pricing"); if (t) t.scrollIntoView({ behavior: "smooth", block: "start" }); }
+    document.querySelectorAll(".ptab").forEach(function (t) {
+      t.addEventListener("click", function () { setPTab(t.getAttribute("data-tab")); });
+      t.addEventListener("keydown", function (e) {
+        if (e.key !== "ArrowRight" && e.key !== "ArrowLeft") return;
+        const all = Array.prototype.slice.call(document.querySelectorAll(".ptab")), j = all.indexOf(t), n = all[(j + (e.key === "ArrowRight" ? 1 : all.length - 1)) % all.length];
+        e.preventDefault(); setPTab(n.getAttribute("data-tab")); n.focus();
       });
     });
-    document.getElementById("planDetail").addEventListener("click", function (e) {
-      if (e.target.closest("#pdRequest")) requestPlan(planSel);
-      else if (e.target.closest("#pdWa")) track("whatsapp_click");
+
+    document.getElementById("planList").addEventListener("click", function (e) {
+      const req = e.target.closest(".pd-request"), head = e.target.closest(".plan-head");
+      if (req) requestPlan(req.getAttribute("data-plan"));
+      else if (e.target.closest(".pd-wa")) track("whatsapp_click");
+      else if (head) togglePlan(head.getAttribute("data-plan"));
+    });
+    document.getElementById("planList").addEventListener("keydown", function (e) {
+      const head = e.target.closest && e.target.closest(".plan-head"); if (!head) return;
+      if (e.key !== "ArrowDown" && e.key !== "ArrowUp") return;
+      const all = Array.prototype.slice.call(document.querySelectorAll("#planList .plan-head")), j = all.indexOf(head);
+      e.preventDefault(); all[(j + (e.key === "ArrowDown" ? 1 : all.length - 1)) % all.length].focus();
     });
     document.querySelectorAll("button.rate[data-item]").forEach(function (b) { b.addEventListener("click", function () { orderItem(b.getAttribute("data-item")); }); });
-    paintPlan();
+    renderPlans(); paintPlan();
 
     /* Draft autosave (browser only, never blocks the form) */
     const DRAFT_KEY = "sts_quote_draft_v1";
@@ -2207,7 +2520,7 @@
         clearDraft();
         form.reset();
         document.getElementById("reqCount").textContent = "0";
-        planChosen = false; svcIndex = -1; Object.keys(modsChecked).forEach(function (k) { delete modsChecked[k]; }); Object.keys(addsChecked).forEach(function (k) { delete addsChecked[k]; });
+        planChosen = false; planOpen = null; paintPlan(); svcIndex = -1; Object.keys(modsChecked).forEach(function (k) { delete modsChecked[k]; }); Object.keys(addsChecked).forEach(function (k) { delete addsChecked[k]; });
         document.querySelectorAll("#svcGrid .svc").forEach(function (b) { b.setAttribute("aria-checked", "false"); });
         showStep(1);
         showStatus("ok",
@@ -2223,6 +2536,114 @@
         submitBtn.textContent = "Submit Requirement Request";
       }
     });
+
+
+    /* ===== Language switch (Google Translate, loaded only when needed) ===== */
+    (function () {
+      var sel = document.getElementById("langSel");
+      document.querySelectorAll("select option:not([value])").forEach(function (o) { o.setAttribute("value", o.textContent.trim()); });
+      function getLang() { var m = document.cookie.match(/(?:^|;\s*)googtrans=\/en\/([a-z-]+)/); return m ? m[1] : "en"; }
+      function setCk(v, exp) {
+        var base = "googtrans=" + v + "; path=/" + (exp ? "; expires=Thu, 01 Jan 1970 00:00:00 GMT" : "");
+        document.cookie = base;
+        var h = location.hostname; if (h.indexOf(".") > -1) { document.cookie = base + "; domain=" + h; document.cookie = base + "; domain=." + h.replace(/^www\./, ""); }
+      }
+      var cur = getLang();
+      sel.value = cur;
+      window.gtInit = function () {
+        try { new google.translate.TranslateElement({ pageLanguage: "en", includedLanguages: "hi,ur,bn,pa,gu,mr,ta,te", autoDisplay: false }, "google_translate_element"); } catch (e) { /* ignore */ }
+      };
+      if (cur !== "en") {
+        document.documentElement.lang = cur;
+        var sc = document.createElement("script"); sc.async = true; sc.src = "https://translate.google.com/translate_a/element.js?cb=gtInit"; sc.onerror = function () { /* offline: stay in English */ };
+        document.head.appendChild(sc);
+      }
+      sel.addEventListener("change", function () {
+        var v = sel.value;
+        track("language_change", { language: v });
+        if (v === "en") { setCk("/en/en", true); } else { setCk("/en/" + v, false); }
+        location.reload();
+      });
+    })();
+
+    /* ===== Chat assistant ===== */
+    (function () {
+      var fab = document.getElementById("chatFab"), panel = document.getElementById("chatPanel"), logEl = document.getElementById("chatLog"),
+          chipsEl = document.getElementById("chatChips"), form = document.getElementById("chatForm"), inp = document.getElementById("chatIn");
+      var sid = ""; try { sid = sessionStorage.getItem("sts_sid") || ""; } catch (e) {}
+      if (!sid) { sid = "C" + Date.now().toString(36) + Math.random().toString(36).slice(2, 7); try { sessionStorage.setItem("sts_sid", sid); } catch (e) {} }
+      var sent = 0, MAXLOG = 40, started = false, phoneGiven = "";
+      var G = function (t) { return '<a href="' + waLink(t) + '" target="_blank" rel="noopener">WhatsApp us</a>'; };
+      var KB = [
+        { id: "greet", kw: ["hi", "hello", "hey", "namaste", "namaskar", "hii", "good morning", "good evening"], a: "Hello! I can help with prices, demos and how it works. What would you like to know?" },
+        { id: "price", kw: ["price", "prices", "pricing", "rate", "rates", "cost", "charges", "kitna", "kitne", "paisa", "paise", "fees", "fee", "budget", "kimat", "daam"], a: "Our starting rates:<ul><li>Post / Poster: &#8377;49 each</li><li>Reel / ad video: &#8377;199</li><li>Logo &amp; brand kit: &#8377;599</li><li>Wedding card: &#8377;99, birthday/event invitation or visiting card: &#8377;49</li><li>Monthly plans: &#8377;499 to &#8377;9,999</li><li>Software: from &#8377;8,000 (shop POS) to &#8377;30,000 (ERP)</li></ul>See everything in <a href=\"#pricing\" data-go>Pricing</a>. The final amount is always confirmed in writing before you pay." },
+        { id: "software", kw: ["software", "erp", "pos", "billing", "hms", "hospital", "clinic", "school", "coaching", "inventory", "stock", "accounts", "gst", "retail", "shop software"], a: "Software starting rates:<ul><li>Hospital / Clinic HMS: &#8377;25,000</li><li>Shop &amp; Retail POS: &#8377;8,000</li><li>Company ERP &amp; Accounts: &#8377;30,000</li><li>School &amp; Coaching panel: &#8377;10,000</li></ul>Try it first in the <a href=\"#bizdemo\" data-go>live business demo</a>, then <a href=\"#inquiry\" data-go>request a quote</a>." },
+        { id: "android", kw: ["android", "apk", "mobile app", "app", "application", "playstore", "play store"], a: "A custom Android app (your name, logo, login, notifications, live sync with the web panel) starts at &#8377;15,000. See the app in the <a href=\"#bizdemo\" data-go>business demo</a>." },
+        { id: "creatives", kw: ["poster", "posters", "post", "posts", "reel", "reels", "video", "videos", "logo", "creative", "creatives", "design", "instagram", "social media", "branding", "brand kit", "banner", "wedding", "shaadi", "card", "cards", "invitation", "invite", "birthday", "visiting", "nimantran"], a: "Creatives: Post &#8377;49, Poster &#8377;49, Wedding card &#8377;99, Birthday/event invitation &#8377;49, Visiting card &#8377;49, Reel/ad video &#8377;199, Logo &amp; brand kit &#8377;599. Monthly plans bundle posts, videos, captions and a content calendar. <a href=\"#pricing\" data-go>See plans</a> or look at <a href=\"#creatives\" data-go>sample work</a>." },
+        { id: "plan", kw: ["plan", "plans", "monthly", "starter", "growth", "business plan", "scale", "package", "packages", "subscription"], a: "Monthly plans: Starter &#8377;499, Growth &#8377;1,999, Business &#8377;4,999, Scale &#8377;9,999. Open <a href=\"#pricing\" data-go>Pricing</a>, tap a plan to see what is included and send your request right there." },
+        { id: "demo", kw: ["demo", "sample", "trial", "try", "dikhao", "dikha", "example", "preview", "live"], a: "You can try everything first: <a href=\"#demos\" data-go>Live Demos</a> and the <a href=\"#bizdemo\" data-go>business ERP + app demo</a> (22 business types). Demo screens use sample data." },
+        { id: "email", kw: ["bulk", "email", "emails", "mail", "mailer", "newsletter", "promotional", "promotion", "email marketing", "campaign"], a: "Yes, we run bulk and promotional email campaigns: designed HTML email, contact-list clean-up, scheduled sending, sender details and an unsubscribe link, plus a delivery and click report. Price depends on list size and number of campaigns. <a href=\"#pricing\" data-go>Request an email quote</a>." },
+        { id: "political", kw: ["political", "party", "politics", "leader", "neta", "election", "chunav", "campaign poster", "ward", "mla", "councillor", "ngo", "organisation", "organization"], a: "Yes, we build tools and creatives for political parties and organisations: member/volunteer ERP, events, grievance tracking, an Android app, posters and reels. See the <a href=\"#bizdemo\" data-go>live demo</a> (choose Political Party / Leader). We make tools and creatives only; content must follow election rules." },
+        { id: "time", kw: ["time", "timeline", "days", "delivery", "kitne din", "kab", "how long", "deadline", "urgent", "fast", "jaldi", "duration"], a: "Posters and posts are usually ready within 24 to 48 hours. Software depends on the modules chosen, normally a few weeks after we agree on the scope. We confirm the timeline in writing with your quote." },
+        { id: "payment", kw: ["payment", "pay", "advance", "upi", "invoice", "refund", "paytm", "gpay", "installment", "emi", "bill"], a: "We confirm the amount in writing first. For larger projects we usually work with a part advance and the balance on delivery. Payment details are shared only after you agree to the quote." },
+        { id: "support", kw: ["support", "help", "problem", "issue", "training", "maintenance", "after", "service", "update", "changes"], a: "Every software package includes setup, training and WhatsApp support. " + "Tell us what you need and we will help." },
+        { id: "contact", kw: ["contact", "call", "phone", "number", "whatsapp", "talk", "speak", "baat", "email id", "address", "location", "office", "delhi", "where"], a: "Sarfaraz Tech Solutions, New Delhi 110086. WhatsApp / call: 9135041918. Email: alamsarfaraz050@gmail.com. " },
+        { id: "about", kw: ["who", "about", "sarfaraz", "owner", "company", "experience", "trust", "genuine", "real", "safe"], a: "I am the automated assistant of Sarfaraz Tech Solutions, New Delhi. We build custom software, Android apps and brand creatives for small businesses. See the <a href=\"#about\" data-go>About</a> section." },
+        { id: "custom", kw: ["custom", "tailor", "special", "different", "own", "specific", "requirement", "customise", "customize", "website"], a: "Yes, we build around your own workflow. Describe it in the <a href=\"#inquiry\" data-go>quote form</a> and we will send a fixed quote after a short call." },
+        { id: "lang", kw: ["language", "hindi", "urdu", "translate", "translation", "english", "bhasha"], a: "Use the language selector at the top of the page to view the site in Hindi, Urdu, Bengali, Punjabi, Gujarati, Marathi, Tamil or Telugu. Translation is automatic. You can also write to me in Hindi or English." },
+        { id: "thanks", kw: ["thanks", "thank", "thankyou", "shukriya", "dhanyavad", "ok", "okay", "theek", "bye"], a: "You are welcome! If you want a call back, type your 10-digit mobile number here." }
+      ];
+      var FALL = "I am not sure about that one. You can type your 10-digit mobile number and we will call you back, or ";
+      function norm(t) { return " " + t.toLowerCase().replace(/[^a-z0-9ऀ-ॿ ]+/g, " ").replace(/\s+/g, " ").trim() + " "; }
+      function score(t, e) { var sc = 0; e.kw.forEach(function (k) { var hit = k.indexOf(" ") > -1 ? t.indexOf(" " + k) > -1 : (k.length <= 3 ? t.indexOf(" " + k + " ") > -1 : t.indexOf(" " + k) > -1); if (hit) sc += k.length > 3 ? 2 : 1; }); return sc; }
+      function plain(h) { var d = document.createElement("div"); d.innerHTML = h; return (d.textContent || "").replace(/\s+/g, " ").trim(); }
+      function add(cls, html, isText) { var d = document.createElement("div"); d.className = "cm " + cls; if (isText) d.textContent = html; else d.innerHTML = html; logEl.appendChild(d); logEl.scrollTop = logEl.scrollHeight; }
+      function log(q, a, intent, extra) {
+        if (sent >= MAXLOG) return; sent++;
+        if (!isConfigured) return;
+        var body = { type: "chat", sid: sid, lang: document.documentElement.lang || "en", page: location.hash || "/", q: q.slice(0, 500), a: plain(a).slice(0, 800), intent: intent };
+        if (extra) { for (var k in extra) body[k] = extra[k]; }
+        try { fetch(APPS_SCRIPT_WEB_APP_URL, { method: "POST", headers: { "Content-Type": "text/plain;charset=utf-8" }, body: JSON.stringify(body), keepalive: true, mode: "no-cors" }).catch(function () {}); } catch (e) {}
+      }
+      function reply(q) {
+        var digits = q.replace(/[\s\-+().]/g, "").replace(/^(91|0)(?=\d{10}$)/, "");
+        var out, intent, extra = null;
+        if (/^[6-9]\d{9}$/.test(digits)) {
+          phoneGiven = digits; intent = "callback"; extra = { phone: digits };
+          out = "Thank you! We have noted " + digits + " and will call or WhatsApp you shortly. You can also " + G("Hello Sarfaraz Tech Solutions, I chatted on your website and need help.") + " now.";
+        } else {
+          var t = norm(q), best = null, bs = 0;
+          KB.forEach(function (e) { var sc = score(t, e); if (sc > bs) { bs = sc; best = e; } });
+          if (best) { intent = best.id; out = best.a; if (intent === "contact") out += G("Hello Sarfaraz Tech Solutions, I have a question."); }
+          else { intent = "fallback"; out = FALL + G("Hello Sarfaraz Tech Solutions, I have a question: " + q.slice(0, 120)) + "."; }
+        }
+        return { out: out, intent: intent, extra: extra };
+      }
+      function ask(q) {
+        q = (q || "").trim(); if (!q) return;
+        add("me", q, true);
+        var r = reply(q);
+        setTimeout(function () { add("bot", r.out); log(q, r.out, r.intent, r.extra); }, 350);
+        track("chat_message", { intent: r.intent });
+      }
+      function chips() {
+        var c = [["Prices", "What are your prices?"], ["Live demo", "Show me a demo"], ["Software", "Tell me about software"], ["Posters & reels", "posters and reels rates"], ["Bulk email", "bulk email service"], ["Talk to a person", "I want to talk to someone"]];
+        chipsEl.innerHTML = ""; c.forEach(function (x) { var b = document.createElement("button"); b.type = "button"; b.textContent = x[0]; b.addEventListener("click", function () { ask(x[1]); }); chipsEl.appendChild(b); });
+      }
+      function open() {
+        panel.classList.add("open"); fab.style.display = "none";
+        if (!started) { started = true; chips(); add("bot", "Hello! I am the automated assistant of Sarfaraz Tech Solutions. Ask me about prices, demos, software, posters or bulk email. To get a call back, type your mobile number."); }
+        setTimeout(function () { inp.focus(); }, 50); track("chat_open");
+      }
+      function close() { panel.classList.remove("open"); fab.style.display = ""; }
+      fab.addEventListener("click", open);
+      document.getElementById("chatX").addEventListener("click", close);
+      var pc = document.getElementById("prChat"); if (pc) pc.addEventListener("click", open);
+      form.addEventListener("submit", function (e) { e.preventDefault(); var v = inp.value; inp.value = ""; ask(v); });
+      logEl.addEventListener("click", function (e) { var a = e.target.closest && e.target.closest("a[data-go]"); if (a) { close(); } });
+      document.addEventListener("keydown", function (e) { if (e.key === "Escape" && panel.classList.contains("open")) close(); });
+      window.openChat = open;
+    })();
 
     buildServiceGrid();
     loadDraft();
