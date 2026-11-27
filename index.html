@@ -230,9 +230,9 @@
     .preview-note { font-size: .72rem; color: var(--muted); text-align: center; }
 
     /* ---------- About ---------- */
-    .about { display: grid; grid-template-columns: 260px 1fr; gap: 40px; align-items: center; max-width: 900px; margin: 0 auto; }
-    .about-photo { width: 100%; aspect-ratio: 4/5; object-fit: cover; border-radius: 20px; border: 1px solid var(--line); box-shadow: var(--shadow); display: block; background: #eef4ff; }
-    @media (max-width: 720px) { .about { grid-template-columns: 1fr; gap: 22px; } .about-photo { max-width: 220px; margin: 0 auto; } }
+    .about { display: grid; grid-template-columns: 170px 1fr; gap: 36px; align-items: center; max-width: 900px; margin: 0 auto; }
+    .about-photo { width: 170px; height: 170px; aspect-ratio: 1/1; object-fit: cover; object-position: 50% 18%; border-radius: 50%; border: 1px solid var(--line); box-shadow: var(--shadow); display: block; background: #eef4ff; }
+    @media (max-width: 720px) { .about { grid-template-columns: 1fr; gap: 22px; } .about-photo { width: 140px; height: 140px; margin: 0 auto; } .about { text-align: center; } .about-facts { justify-content: center; } }
     .about h2 { font-size: clamp(1.6rem, 3vw, 2.1rem); color: var(--navy); letter-spacing: -.015em; margin: 12px 0 4px; font-weight: 800; }
     .about .role { color: var(--primary); font-weight: 700; margin-bottom: 14px; }
     .about p { color: var(--muted); margin-bottom: 12px; }
@@ -655,9 +655,11 @@
     .pkg .btn { justify-self: start; }
     .pkg-hl { border: 2px solid var(--primary); box-shadow: 0 8px 26px rgba(20, 86, 214, .14); }
     .filters { display: flex; gap: 8px; justify-content: center; flex-wrap: wrap; margin-bottom: 20px; }
-    .gallery { columns: 4 220px; column-gap: 14px; }
-    .g-item { display: block; width: 100%; margin: 0 0 14px; padding: 0; border: 1px solid var(--line); border-radius: 12px; overflow: hidden; background: #fff; cursor: zoom-in; break-inside: avoid; box-shadow: var(--shadow); }
-    .g-item img { display: block; width: 100%; height: auto; transition: transform .25s; }
+    .gallery { display: grid; grid-template-columns: repeat(4, 1fr); gap: 14px; }
+    @media (max-width: 900px) { .gallery { grid-template-columns: repeat(3, 1fr); } }
+    @media (max-width: 560px) { .gallery { grid-template-columns: repeat(2, 1fr); gap: 10px; } }
+    .g-item { display: block; width: 100%; aspect-ratio: 4 / 5; margin: 0; padding: 0; border: 1px solid var(--line); border-radius: 12px; overflow: hidden; background: #0b1f4a; cursor: zoom-in; box-shadow: var(--shadow); }
+    .g-item img { display: block; width: 100%; height: 100%; object-fit: contain; transition: transform .25s; }
     .g-item:hover img { transform: scale(1.03); }
     .g-item[hidden] { display: none; }
     #lightbox { max-width: min(92vw, 640px); padding: 14px; }
@@ -721,6 +723,7 @@
     .pr-table { display: grid; gap: 12px; }
     .pr-row { display: grid; grid-template-columns: 1fr auto auto; align-items: center; gap: 18px; background: #fff; border: 1px solid var(--line); border-radius: 14px; padding: 16px 20px; box-shadow: var(--shadow); }
     .pr-n b { display: block; color: var(--navy); font-size: 1.05rem; font-weight: 800; }
+    .plan-price .pper { display: none; }
     .pr-n span { color: var(--muted); font-size: .92rem; }
     .pr-p { text-align: right; font-weight: 800; color: var(--navy); font-size: 1.2rem; white-space: nowrap; }
     .pr-p small { display: block; color: var(--muted); font-weight: 600; font-size: .72rem; text-transform: uppercase; letter-spacing: .4px; }
@@ -898,63 +901,63 @@
             <h3>Hospital &amp; Clinic HMS</h3>
             <p>OPD/IPD registration, token queue, patient records, bed tracking, and integrated pharmacy &amp; lab billing.</p>
             <div class="price"><small>Starting</small>₹25,000</div>
-            <div class="card-btns"><button type="button" class="btn btn-outline btn-sm" data-pick="Hospital & Clinic Management System" data-type="Hospital / Clinic">Inquire Now</button><button type="button" class="btn btn-primary btn-sm" onclick="goDemo('hms')">Live Demo</button></div>
+            <div class="card-btns"><button type="button" class="btn btn-outline btn-sm" data-inq="hms">Inquire Now</button><button type="button" class="btn btn-primary btn-sm" onclick="goDemo('hms')">Live Demo</button></div>
           </div>
           <div class="card service">
             <div class="icon"><svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="9" cy="20" r="1.4"/><circle cx="18" cy="20" r="1.4"/><path d="M2 3h3l2.6 12.2a1 1 0 001 .8h8.8a1 1 0 001-.8L20 7H6"/></svg></div>
             <h3>Retail &amp; Mall POS</h3>
             <p>Fast multi-counter checkout, GST/Non-GST invoicing, barcode/item stock sync, and daily profit analytics.</p>
             <div class="price"><small>Starting</small>₹8,000</div>
-            <div class="card-btns"><button type="button" class="btn btn-outline btn-sm" data-pick="Shop & Retail Billing Software" data-type="Shop / Retail Store">Inquire Now</button><button type="button" class="btn btn-primary btn-sm" onclick="goDemo('pos')">Live Demo</button></div>
+            <div class="card-btns"><button type="button" class="btn btn-outline btn-sm" data-inq="pos">Inquire Now</button><button type="button" class="btn btn-primary btn-sm" onclick="goDemo('pos')">Live Demo</button></div>
           </div>
           <div class="card service">
             <div class="icon"><svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 21h18M5 21V7l7-4 7 4v14M9 21v-5h6v5M9 10h.01M15 10h.01M9 13h.01M15 13h.01"/></svg></div>
             <h3>Company ERP &amp; Accounts</h3>
             <p>Unified inventory, purchase orders, sales ledgers, party balances, and real-time operational reporting.</p>
             <div class="price"><small>Starting</small>₹30,000</div>
-            <div class="card-btns"><button type="button" class="btn btn-outline btn-sm" data-pick="Company ERP & Accounts" data-type="Company / Office / Factory">Inquire Now</button><button type="button" class="btn btn-primary btn-sm" onclick="goDemo('erp')">Live Demo</button></div>
+            <div class="card-btns"><button type="button" class="btn btn-outline btn-sm" data-inq="erp">Inquire Now</button><button type="button" class="btn btn-primary btn-sm" onclick="goDemo('erp')">Live Demo</button></div>
           </div>
           <div class="card service">
             <div class="icon"><svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M2 9l10-5 10 5-10 5L2 9z"/><path d="M6 11.5V16c0 1.4 2.7 3 6 3s6-1.6 6-3v-4.5"/></svg></div>
             <h3>School &amp; Coaching Panel</h3>
             <p>Student profiles, quick attendance, fee receipts, pending dues alerts, and institute progress reports.</p>
             <div class="price"><small>Starting</small><s>₹11,999</s>₹10,000</div>
-            <div class="card-btns"><button type="button" class="btn btn-outline btn-sm" data-pick="School & Coaching Management System" data-type="School / College / Coaching">Inquire Now</button><button type="button" class="btn btn-primary btn-sm" onclick="goDemo('school')">Live Demo</button></div>
+            <div class="card-btns"><button type="button" class="btn btn-outline btn-sm" data-inq="school">Inquire Now</button><button type="button" class="btn btn-primary btn-sm" onclick="goDemo('school')">Live Demo</button></div>
           </div>
           <div class="card service">
             <div class="icon"><svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="6" y="2" width="12" height="20" rx="3"/><path d="M11 18h2"/></svg></div>
             <h3>Custom Android Apps (APK)</h3>
             <p>Branded Android applications with your business name, logo, live data sync, and custom workflow screens.</p>
             <div class="price"><small>Starting</small>₹15,000</div>
-            <div class="card-btns"><button type="button" class="btn btn-outline btn-sm" data-pick="Custom Android App (APK)" data-type="Other / Custom Business">Inquire Now</button><button type="button" class="btn btn-primary btn-sm" onclick="goDemo('apk')">Live Demo</button></div>
+            <div class="card-btns"><button type="button" class="btn btn-outline btn-sm" data-inq="apk">Inquire Now</button><button type="button" class="btn btn-primary btn-sm" onclick="goDemo('apk')">Live Demo</button></div>
           </div>
           <div class="card service">
             <div class="icon"><svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M8 6l-6 6 6 6M16 6l6 6-6 6M14 4l-4 16"/></svg></div>
             <h3>Tailor-Made Workflows</h3>
             <p>Need something unique? Tell us how your team works and we build a custom web or mobile system around it.</p>
             <div class="price">Quote as per need</div>
-            <div class="card-btns"><button type="button" class="btn btn-outline btn-sm" data-pick="Custom Software / Web Portal" data-type="Other / Custom Business">Inquire Now</button><button type="button" class="btn btn-primary btn-sm" onclick="goDemo('biz')">Business Demos</button></div>
+            <div class="card-btns"><button type="button" class="btn btn-outline btn-sm" data-inq="custom">Inquire Now</button><button type="button" class="btn btn-primary btn-sm" onclick="goDemo('biz')">Business Demos</button></div>
           </div>
           <div class="card service">
             <div class="icon"><svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M17 21v-2a4 4 0 00-4-4H5a4 4 0 00-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 00-3-3.87M16 3.13a4 4 0 010 7.75"/></svg></div>
             <h3>Political Party &amp; Organisation</h3>
             <p>ERP for members, volunteers, ward teams, events and grievances, plus an Android app, campaign posters and reels.</p>
             <div class="price">Quote as per need</div>
-            <div class="card-btns"><button type="button" class="btn btn-outline btn-sm" data-pick="Political Party / Organisation Package" data-type="Political Party / Leader">Inquire Now</button><button type="button" class="btn btn-primary btn-sm" onclick="goBiz('party')">Live Demo</button></div>
+            <div class="card-btns"><button type="button" class="btn btn-outline btn-sm" data-inq="party">Inquire Now</button><button type="button" class="btn btn-primary btn-sm" onclick="goBiz('party')">Live Demo</button></div>
           </div>
           <div class="card service">
             <div class="icon"><svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="5" width="18" height="14" rx="2"/><path d="M3 7l9 6 9-6"/></svg></div>
             <h3>Bulk &amp; Promotional Emails</h3>
             <p>Designed email campaigns for your offers and announcements, sent with sender details and an unsubscribe link, with a delivery and click report.</p>
             <div class="price">Quote as per list size</div>
-            <div class="card-btns"><button type="button" class="btn btn-outline btn-sm" data-pick="Bulk &amp; Promotional Email Campaigns" data-type="Other / Custom Business">Inquire Now</button><button type="button" class="btn btn-primary btn-sm" onclick="goPricing('special')">See Details</button></div>
+            <div class="card-btns"><button type="button" class="btn btn-outline btn-sm" data-inq="email">Inquire Now</button><button type="button" class="btn btn-primary btn-sm" onclick="goPricing('special')">See Details</button></div>
           </div>
           <div class="card service">
             <div class="icon"><svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="18" height="18" rx="3"/><circle cx="8.5" cy="9" r="1.5"/><path d="M21 15l-5-5L5 21"/></svg></div>
             <h3>Posters, Posts &amp; Reels</h3>
             <p>Social posts, offer posters and 15-30 second ad reels in your brand style, with captions and hashtags. Monthly plans available.</p>
             <div class="price"><small>Posts from</small>₹49</div>
-            <div class="card-btns"><button type="button" class="btn btn-outline btn-sm" data-pick="Brand Creatives (Posters, Posts, Ad Videos)" data-type="Other / Custom Business">Inquire Now</button><button type="button" class="btn btn-primary btn-sm" onclick="goPricing('creatives')">See Plans</button></div>
+            <div class="card-btns"><button type="button" class="btn btn-outline btn-sm" data-inq="creatives">Inquire Now</button><button type="button" class="btn btn-primary btn-sm" onclick="goPricing('creatives')">See Plans</button></div>
           </div>
         </div>
         <p class="price-note">Prices are starting rates for the standard package. Final quote depends on your modules and features. <a href="#bizdemo" style="color:var(--primary);font-weight:700">See the ERP + app demo for your business</a></p>
@@ -1098,7 +1101,7 @@
       <div class="container">
         <div class="section-title">
           <h2>Simple, Clear Pricing</h2>
-          <p>Choose a category, pick what you need and send your request in one minute. The final amount is always confirmed in writing before you pay.</p>
+          <p>Launch rates. The final amount is confirmed in writing before you pay.</p>
         </div>
         <div class="ptabs" role="tablist" aria-label="Pricing categories">
           <button type="button" role="tab" class="ptab on" id="pt-creatives" data-tab="creatives" aria-selected="true" aria-controls="pp-creatives">Posters, Posts &amp; Reels</button>
@@ -1108,11 +1111,9 @@
 
         <div id="pp-creatives" class="ppanel" role="tabpanel" aria-labelledby="pt-creatives">
           <h3 class="cr-sub">Monthly Plans <span class="launch">Launch rates</span></h3>
-          <p class="pr-lead">Best value: a fixed number of posts and reels every month, made in your brand style.</p>
           <div class="plan-list" id="planList" role="radiogroup" aria-label="Choose a monthly plan"></div>
-          <p class="pick-hint">Tap a plan to see what is included, then request it.</p>
+          <p class="pick-hint">Tap a plan to see what is included.</p>
           <h3 class="cr-sub">Single Items</h3>
-          <p class="pr-lead">Need just one design? Order it on its own.</p>
           <div class="rates">
             <button type="button" class="rate" data-item="Social post (₹49)"><span>Social post</span><b>₹49</b></button>
             <button type="button" class="rate" data-item="Poster / flyer (₹49)"><span>Poster / flyer</span><b>₹49</b></button>
@@ -1123,56 +1124,50 @@
             <button type="button" class="rate" data-item="Visiting card (₹49)"><span>Visiting card</span><b>₹49</b></button>
           </div>
 
-          <p class="price-note">Launch rates per item, with 2 rounds of changes. Tap any item to order it. Monthly plans lower the cost per item. We make a free sample for your business before you start.</p>
-          <p class="pr-extras"><b>Extras on request:</b> Hindi + English versions &bull; Editable source files &bull; Posting &amp; scheduling help</p>
+          <p class="price-note">Per item, with 2 rounds of changes. A free sample is made before you start.</p>
         </div>
 
         <div id="pp-software" class="ppanel" role="tabpanel" aria-labelledby="pt-software" hidden>
           <div class="pr-table">
-          <div class="pr-row"><div class="pr-n"><b>Hospital &amp; Clinic HMS</b><span>OPD/IPD, token queue, patient records, bed tracking, pharmacy &amp; lab billing</span></div><div class="pr-p"><small>Starting</small>₹25,000</div><button type="button" class="btn btn-outline btn-sm" data-pick="Hospital &amp; Clinic Management System" data-type="Hospital / Clinic">Get Quote</button></div>
-          <div class="pr-row"><div class="pr-n"><b>Shop &amp; Retail POS</b><span>GST billing, barcode, stock, customer dues, sales reports</span></div><div class="pr-p"><small>Starting</small>₹8,000</div><button type="button" class="btn btn-outline btn-sm" data-pick="Shop &amp; Retail Billing Software" data-type="Shop / Retail Store">Get Quote</button></div>
-          <div class="pr-row"><div class="pr-n"><b>Company ERP &amp; Accounts</b><span>Inventory, purchase, sales, party ledger, GST reports, HR</span></div><div class="pr-p"><small>Starting</small>₹30,000</div><button type="button" class="btn btn-outline btn-sm" data-pick="Company ERP &amp; Accounts" data-type="Company / Office / Factory">Get Quote</button></div>
-          <div class="pr-row"><div class="pr-n"><b>School &amp; Coaching Panel</b><span>Attendance, fee receipts, results, parent alerts, admissions</span></div><div class="pr-p"><small>Starting</small><s>₹11,999</s> ₹10,000</div><button type="button" class="btn btn-outline btn-sm" data-pick="School &amp; Coaching Management System" data-type="School / College / Coaching">Get Quote</button></div>
-          <div class="pr-row"><div class="pr-n"><b>Custom Android App (APK)</b><span>Your name and logo, login, notifications, live sync with web panel</span></div><div class="pr-p"><small>Starting</small>₹15,000</div><button type="button" class="btn btn-outline btn-sm" data-pick="Custom Android App (APK)" data-type="Other / Custom Business">Get Quote</button></div>
-          <div class="pr-row"><div class="pr-n"><b>Political Party &amp; Organisation</b><span>ERP for members, ward teams, events and grievances, plus app, posters and reels</span></div><div class="pr-p">Quote as per need</div><button type="button" class="btn btn-outline btn-sm" data-pick="Political Party / Organisation Package" data-type="Political Party / Leader">Get Quote</button></div>
-          <div class="pr-row"><div class="pr-n"><b>Tailor-Made Software</b><span>Anything built around your own workflow</span></div><div class="pr-p">Quote as per need</div><button type="button" class="btn btn-outline btn-sm" data-pick="Custom Software / Web Portal" data-type="Other / Custom Business">Get Quote</button></div>
+          <div class="pr-row"><div class="pr-n"><b>Hospital &amp; Clinic HMS</b></div><div class="pr-p"><small>Starting</small>₹25,000</div><button type="button" class="btn btn-outline btn-sm" data-pick="Hospital &amp; Clinic Management System" data-type="Hospital / Clinic">Get Quote</button></div>
+          <div class="pr-row"><div class="pr-n"><b>Shop &amp; Retail POS</b></div><div class="pr-p"><small>Starting</small>₹8,000</div><button type="button" class="btn btn-outline btn-sm" data-pick="Shop &amp; Retail Billing Software" data-type="Shop / Retail Store">Get Quote</button></div>
+          <div class="pr-row"><div class="pr-n"><b>Company ERP &amp; Accounts</b></div><div class="pr-p"><small>Starting</small>₹30,000</div><button type="button" class="btn btn-outline btn-sm" data-pick="Company ERP &amp; Accounts" data-type="Company / Office / Factory">Get Quote</button></div>
+          <div class="pr-row"><div class="pr-n"><b>School &amp; Coaching Panel</b></div><div class="pr-p"><small>Starting</small><s>₹11,999</s> ₹10,000</div><button type="button" class="btn btn-outline btn-sm" data-pick="School &amp; Coaching Management System" data-type="School / College / Coaching">Get Quote</button></div>
+          <div class="pr-row"><div class="pr-n"><b>Custom Android App (APK)</b></div><div class="pr-p"><small>Starting</small>₹15,000</div><button type="button" class="btn btn-outline btn-sm" data-pick="Custom Android App (APK)" data-type="Other / Custom Business">Get Quote</button></div>
+          <div class="pr-row"><div class="pr-n"><b>Political Party &amp; Organisation</b></div><div class="pr-p">Quote as per need</div><button type="button" class="btn btn-outline btn-sm" data-pick="Political Party / Organisation Package" data-type="Political Party / Leader">Get Quote</button></div>
+          <div class="pr-row"><div class="pr-n"><b>Tailor-Made Software</b></div><div class="pr-p">Quote as per need</div><button type="button" class="btn btn-outline btn-sm" data-pick="Custom Software / Web Portal" data-type="Other / Custom Business">Get Quote</button></div>
           </div>
-          <p class="price-note">Every software package includes setup, training and WhatsApp support. These are starting rates for the standard package; the final quote depends on the modules you choose. <a href="#demos" style="color:var(--primary);font-weight:700">Try the live demos first</a></p>
+          <p class="price-note">Starting rates. Setup, training and WhatsApp support included. <a href="#demos" style="color:var(--primary);font-weight:700">Try the live demos first</a></p>
         </div>
 
         <div id="pp-special" class="ppanel" role="tabpanel" aria-labelledby="pt-special" hidden>
-          <div class="pr-cards">
-            <div class="card">
-              <span class="tag">Custom quote</span>
-              <h3>Bulk &amp; Promotional Emails</h3>
-              <p>Reach customers and businesses with a professionally designed email campaign.</p>
-              <ul class="pr-list"><li>Designed HTML email in your brand style</li><li>Contact list clean-up</li><li>Scheduled sending</li><li>Sender details and unsubscribe link included</li><li>Delivery and click report</li></ul>
-              <p class="pr-q">Price depends on the list size and the number of campaigns.</p>
-              <button type="button" class="btn btn-primary btn-sm" data-pick="Bulk &amp; Promotional Email Campaigns" data-type="Other / Custom Business">Get an Email Quote</button>
-            </div>
-            <div class="card">
-              <span class="tag">Quote as per need</span>
-              <h3>Political Party &amp; Organisation</h3>
-              <p>One team for your software and your campaign material.</p>
-              <ul class="pr-list"><li>ERP: members, volunteers, ward teams, events, grievances, receipts</li><li>Android app for members and citizens</li><li>Campaign posters, posts and reels</li><li>Live demo available</li></ul>
-              <p class="pr-q">We build tools and creatives only. Content follows election rules.</p>
-              <div class="card-btns"><button type="button" class="btn btn-primary btn-sm" data-pick="Political Party / Organisation Package" data-type="Political Party / Leader">Get a Quote</button><button type="button" class="btn btn-outline btn-sm" onclick="goBiz('party')">See Live Demo</button></div>
-            </div>
-            <div class="card">
-              <span class="tag">Quote as per need</span>
-              <h3>Tailor-Made Software</h3>
-              <p>Tell us how your team works and we build a web or mobile system around it.</p>
-              <ul class="pr-list"><li>Admin panel and user roles</li><li>Customer portal</li><li>Reports and export</li><li>Integrations</li></ul>
-              <p class="pr-q">Fixed quote after a short call.</p>
-              <button type="button" class="btn btn-primary btn-sm" data-pick="Custom Software / Web Portal" data-type="Other / Custom Business">Get a Quote</button>
-            </div>
+          <div class="pr-table">
+          <div class="pr-row"><div class="pr-n"><b>Bulk &amp; Promotional Emails</b></div><div class="pr-p">By list size</div><button type="button" class="btn btn-outline btn-sm" data-pick="Bulk &amp; Promotional Email Campaigns" data-type="Other / Custom Business">Get Quote</button></div>
+          <div class="pr-row"><div class="pr-n"><b>Political Party &amp; Organisation</b></div><div class="pr-p">Quote as per need</div><button type="button" class="btn btn-outline btn-sm" data-pick="Political Party / Organisation Package" data-type="Political Party / Leader">Get Quote</button></div>
+          <div class="pr-row"><div class="pr-n"><b>Tailor-Made Software</b></div><div class="pr-p">Quote as per need</div><button type="button" class="btn btn-outline btn-sm" data-pick="Custom Software / Web Portal" data-type="Other / Custom Business">Get Quote</button></div>
           </div>
+          <p class="price-note">Bulk email is sent with sender details and an unsubscribe link. Political work covers tools and creatives only; content follows election rules.</p>
         </div>
 
         <div class="pr-foot">
           <a class="btn btn-primary" href="STS-Rate-Card.pdf" target="_blank" rel="noopener" download>Download Rate Card (PDF)</a>
           <a class="btn btn-wa" href="#" data-wa="Hello Sarfaraz Tech Solutions, I have a question about your pricing.">Ask on WhatsApp</a>
           <button type="button" class="btn btn-outline" id="prChat">Chat with us</button>
+        </div>
+      </div>
+    </section>
+
+    <section id="process" class="alt">
+      <div class="container">
+        <div class="section-title">
+          <h2>Your Custom System in 4 Simple Steps</h2>
+          <p>Clear process, no surprises.</p>
+        </div>
+        <div class="steps">
+          <div class="step"><div class="num-badge">1</div><h3>Share Your Requirement</h3><p>Fill in the form or tell us on WhatsApp what you need.</p></div>
+          <div class="step"><div class="num-badge">2</div><h3>Demo &amp; Quote</h3><p>We understand your workflow, then share a demo and a clear plan and price.</p></div>
+          <div class="step"><div class="num-badge">3</div><h3>We Build It</h3><p>The software or app is built with your modules, logo and business rules.</p></div>
+          <div class="step"><div class="num-badge">4</div><h3>Setup &amp; Support</h3><p>Web panel, Android APK, team training and post-setup support.</p></div>
         </div>
       </div>
     </section>
@@ -1189,6 +1184,18 @@
           <div class="card"><div class="icon"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 2"/></svg></div><h3>Setup &amp; Training</h3><p>Installation, data setup and team training are provided at the start.</p></div>
           <div class="card"><div class="icon"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 12a8 8 0 01-11.6 7.1L4 20l1-4.6A8 8 0 1121 12z"/></svg></div><h3>Direct Developer Support</h3><p>Talk to the developer directly on WhatsApp, with no call centre in between.</p></div>
         </div>
+      </div>
+    </section>
+
+
+
+    <section id="compare">
+      <div class="container">
+        <div class="section-title">
+          <h2>Custom Software vs Readymade Software</h2>
+          <p>Why more businesses are choosing systems built around their own needs.</p>
+        </div>
+        <div class="cmp"><table class="rt"><thead><tr><th></th><th class="us">Sarfaraz Tech Solutions</th><th>Readymade software</th></tr></thead><tbody><tr><td data-label="">Fit with your workflow</td><td class="us" data-label="Sarfaraz Tech Solutions"><span class="yes">Built exactly for you</span></td><td data-label="Readymade software"><span class="no">You adjust to the software</span></td></tr><tr><td data-label="">Features you pay for</td><td class="us" data-label="Sarfaraz Tech Solutions"><span class="yes">Only what you need</span></td><td data-label="Readymade software"><span class="no">Bundle with unused modules</span></td></tr><tr><td data-label="">Branded Android app</td><td class="us" data-label="Sarfaraz Tech Solutions"><span class="yes">Your name &amp; logo</span></td><td data-label="Readymade software"><span class="no">Generic or extra cost</span></td></tr><tr><td data-label="">Changes &amp; new features</td><td class="us" data-label="Sarfaraz Tech Solutions"><span class="yes">Direct from the developer</span></td><td data-label="Readymade software"><span class="no">Ticket queue, limited options</span></td></tr><tr><td data-label="">Setup &amp; training</td><td class="us" data-label="Sarfaraz Tech Solutions"><span class="yes">Included</span></td><td data-label="Readymade software"><span class="no">Often paid separately</span></td></tr><tr><td data-label="">Support</td><td class="us" data-label="Sarfaraz Tech Solutions"><span class="yes">Direct WhatsApp support</span></td><td data-label="Readymade software"><span class="no">Call-centre / email</span></td></tr></tbody></table></div>
       </div>
     </section>
 
@@ -1216,37 +1223,12 @@
       </div>
     </section>
 
-    <section id="process" class="alt">
-      <div class="container">
-        <div class="section-title">
-          <h2>Your Custom System in 4 Simple Steps</h2>
-          <p>Clear process, no surprises.</p>
-        </div>
-        <div class="steps">
-          <div class="step"><div class="num-badge">1</div><h3>Share Your Requirement</h3><p>Fill in the form or tell us on WhatsApp what you need.</p></div>
-          <div class="step"><div class="num-badge">2</div><h3>Demo &amp; Quote</h3><p>We understand your workflow, then share a demo and a clear plan and price.</p></div>
-          <div class="step"><div class="num-badge">3</div><h3>We Build It</h3><p>The software or app is built with your modules, logo and business rules.</p></div>
-          <div class="step"><div class="num-badge">4</div><h3>Setup &amp; Support</h3><p>Web panel, Android APK, team training and post-setup support.</p></div>
-        </div>
-      </div>
-    </section>
-
-    <section id="compare">
-      <div class="container">
-        <div class="section-title">
-          <h2>Custom Software vs Readymade Software</h2>
-          <p>Why more businesses are choosing systems built around their own needs.</p>
-        </div>
-        <div class="cmp"><table class="rt"><thead><tr><th></th><th class="us">Sarfaraz Tech Solutions</th><th>Readymade software</th></tr></thead><tbody><tr><td data-label="">Fit with your workflow</td><td class="us" data-label="Sarfaraz Tech Solutions"><span class="yes">Built exactly for you</span></td><td data-label="Readymade software"><span class="no">You adjust to the software</span></td></tr><tr><td data-label="">Features you pay for</td><td class="us" data-label="Sarfaraz Tech Solutions"><span class="yes">Only what you need</span></td><td data-label="Readymade software"><span class="no">Bundle with unused modules</span></td></tr><tr><td data-label="">Branded Android app</td><td class="us" data-label="Sarfaraz Tech Solutions"><span class="yes">Your name &amp; logo</span></td><td data-label="Readymade software"><span class="no">Generic or extra cost</span></td></tr><tr><td data-label="">Changes &amp; new features</td><td class="us" data-label="Sarfaraz Tech Solutions"><span class="yes">Direct from the developer</span></td><td data-label="Readymade software"><span class="no">Ticket queue, limited options</span></td></tr><tr><td data-label="">Setup &amp; training</td><td class="us" data-label="Sarfaraz Tech Solutions"><span class="yes">Included</span></td><td data-label="Readymade software"><span class="no">Often paid separately</span></td></tr><tr><td data-label="">Support</td><td class="us" data-label="Sarfaraz Tech Solutions"><span class="yes">Direct WhatsApp support</span></td><td data-label="Readymade software"><span class="no">Call-centre / email</span></td></tr></tbody></table></div>
-      </div>
-    </section>
-
     <section id="faq" class="alt">
       <div class="container">
         <div class="section-title"><h2>Frequently Asked Questions</h2></div>
         <div class="faq">
           <details><summary>How long does it take to build the software?</summary><p>It depends on your requirements. We share an estimated delivery time along with the quote.</p></details>
-          <details><summary>What is included in the monthly creative plans?</summary><p>Starter (₹499): 10 posts. Growth (₹1,999): 30 posts and posters plus 10 reels. Business (₹4,999): 60 posters and posts plus 30 reels. Scale (₹9,999): 120 posters and 100 reels. Every plan includes captions, hashtags, your logo and brand colours, and a free sample first. Tap a plan in the Creatives section to see the full details and request it.</p></details>
+          <details><summary>What is included in the monthly creative plans?</summary><p>Starter (₹499): 10 posts plus 5 reels. Growth (₹1,999): 30 posts and posters plus 10 reels. Business (₹4,999): 60 posters and posts plus 30 reels. Scale (₹9,999): 120 posters and 100 reels. Every plan includes captions, hashtags, your logo and brand colours, and a free sample first. Tap a plan in the Creatives section to see the full details and request it.</p></details>
           <details><summary>What will it cost?</summary><p>Prices start at ₹10,000 for the School Panel, ₹8,000 for Retail POS, ₹25,000 for Hospital HMS, ₹30,000 for Company ERP and ₹15,000 for an Android App. Creatives: posts from ₹49, posters from ₹49, reels from ₹199, and monthly packages from ₹499. The final price depends on your modules and features; share your requirement and we will send a clear quote.</p></details>
           <details><summary>Do you also build Android apps?</summary><p>Yes. Along with the web panel, we can build a branded Android APK with your name and logo.</p></details>
           <details><summary>Do you create posters, posts and ad videos for any brand?</summary><p>Yes. We create posters, social media posts and 15-30 second ad videos and reels based on your logo, colours and offer. The quote depends on your volume and formats.</p></details>
@@ -2078,9 +2060,9 @@
     const PLAN_NEED = ["Your logo (or add our Logo & Brand Kit for \u20b9599)", "Brand colours, if you have them", "Your offers, products and prices", "Photos of your shop or products (optional)", "Phone number and address to show on the posts"];
     const PLAN_NOT = "Not included: ad budget for boosting posts, and photo or video shoots. Posting and scheduling help is available as an extra. These are launch rates for our first clients.";
     const PLANS = [
-      { k: "Starter", price: 499, per: "about \u20b950 per post", short: "10 posts", best: "Shops and small businesses that are just starting on Instagram or Facebook.",
-        get: ["10 social posts every month", "Captions & hashtags for every post", "Your logo & brand colours", "Ready-to-post image files"],
-        mods: ["Social media posts", "Captions & hashtags"] },
+      { k: "Starter", price: 499, per: "about \u20b933 per item", short: "10 posts + 5 reels", best: "Shops and small businesses that are just starting on Instagram or Facebook.",
+        get: ["10 social posts every month", "5 reels / short ad videos (15-30 sec)", "Captions & hashtags for every item", "Your logo & brand colours", "Ready-to-post files"],
+        mods: ["Social media posts", "Ad video / reel (15-30 sec)", "Captions & hashtags"] },
       { k: "Growth", price: 1999, per: "about \u20b950 per item", short: "30 posts + 10 reels", best: "Businesses that want regular posts plus reels to bring in new customers.",
         get: ["30 posts & posters every month", "10 ad videos / reels (15-30 sec)", "Captions & hashtags for every item", "Monthly content calendar", "Your logo & brand colours"],
         mods: ["Social media posts", "Posters & flyers", "Ad video / reel (15-30 sec)", "Captions & hashtags"] },
@@ -2580,7 +2562,7 @@
         { id: "software", kw: ["software", "erp", "pos", "billing", "hms", "hospital", "clinic", "school", "coaching", "inventory", "stock", "accounts", "gst", "retail", "shop software"], a: "Software starting rates:<ul><li>Hospital / Clinic HMS: &#8377;25,000</li><li>Shop &amp; Retail POS: &#8377;8,000</li><li>Company ERP &amp; Accounts: &#8377;30,000</li><li>School &amp; Coaching panel: &#8377;10,000</li></ul>Try it first in the <a href=\"#bizdemo\" data-go>live business demo</a>, then <a href=\"#inquiry\" data-go>request a quote</a>." },
         { id: "android", kw: ["android", "apk", "mobile app", "app", "application", "playstore", "play store"], a: "A custom Android app (your name, logo, login, notifications, live sync with the web panel) starts at &#8377;15,000. See the app in the <a href=\"#bizdemo\" data-go>business demo</a>." },
         { id: "creatives", kw: ["poster", "posters", "post", "posts", "reel", "reels", "video", "videos", "logo", "creative", "creatives", "design", "instagram", "social media", "branding", "brand kit", "banner", "wedding", "shaadi", "card", "cards", "invitation", "invite", "birthday", "visiting", "nimantran"], a: "Creatives: Post &#8377;49, Poster &#8377;49, Wedding card &#8377;99, Birthday/event invitation &#8377;49, Visiting card &#8377;49, Reel/ad video &#8377;199, Logo &amp; brand kit &#8377;599. Monthly plans bundle posts, videos, captions and a content calendar. <a href=\"#pricing\" data-go>See plans</a> or look at <a href=\"#creatives\" data-go>sample work</a>." },
-        { id: "plan", kw: ["plan", "plans", "monthly", "starter", "growth", "business plan", "scale", "package", "packages", "subscription"], a: "Monthly plans: Starter &#8377;499, Growth &#8377;1,999, Business &#8377;4,999, Scale &#8377;9,999. Open <a href=\"#pricing\" data-go>Pricing</a>, tap a plan to see what is included and send your request right there." },
+        { id: "plan", kw: ["plan", "plans", "monthly", "starter", "growth", "business plan", "scale", "package", "packages", "subscription"], a: "Monthly plans: Starter &#8377;499 (10 posts + 5 reels), Growth &#8377;1,999, Business &#8377;4,999, Scale &#8377;9,999. Open <a href=\"#pricing\" data-go>Pricing</a>, tap a plan to see what is included and send your request right there." },
         { id: "demo", kw: ["demo", "sample", "trial", "try", "dikhao", "dikha", "example", "preview", "live"], a: "You can try everything first: <a href=\"#demos\" data-go>Live Demos</a> and the <a href=\"#bizdemo\" data-go>business ERP + app demo</a> (22 business types). Demo screens use sample data." },
         { id: "email", kw: ["bulk", "email", "emails", "mail", "mailer", "newsletter", "promotional", "promotion", "email marketing", "campaign"], a: "Yes, we run bulk and promotional email campaigns: designed HTML email, contact-list clean-up, scheduled sending, sender details and an unsubscribe link, plus a delivery and click report. Price depends on list size and number of campaigns. <a href=\"#pricing\" data-go>Request an email quote</a>." },
         { id: "political", kw: ["political", "party", "politics", "leader", "neta", "election", "chunav", "campaign poster", "ward", "mla", "councillor", "ngo", "organisation", "organization"], a: "Yes, we build tools and creatives for political parties and organisations: member/volunteer ERP, events, grievance tracking, an Android app, posters and reels. See the <a href=\"#bizdemo\" data-go>live demo</a> (choose Political Party / Leader). We make tools and creatives only; content must follow election rules." },
@@ -2597,7 +2579,7 @@
       function norm(t) { return " " + t.toLowerCase().replace(/[^a-z0-9ऀ-ॿ ]+/g, " ").replace(/\s+/g, " ").trim() + " "; }
       function score(t, e) { var sc = 0; e.kw.forEach(function (k) { var hit = k.indexOf(" ") > -1 ? t.indexOf(" " + k) > -1 : (k.length <= 3 ? t.indexOf(" " + k + " ") > -1 : t.indexOf(" " + k) > -1); if (hit) sc += k.length > 3 ? 2 : 1; }); return sc; }
       function plain(h) { var d = document.createElement("div"); d.innerHTML = h; return (d.textContent || "").replace(/\s+/g, " ").trim(); }
-      function add(cls, html, isText) { var d = document.createElement("div"); d.className = "cm " + cls; if (isText) d.textContent = html; else d.innerHTML = html; logEl.appendChild(d); logEl.scrollTop = logEl.scrollHeight; }
+      function add(cls, html, isText) { var d = document.createElement("div"); d.className = "cm " + cls; if (isText) d.textContent = html; else d.innerHTML = html; logEl.appendChild(d); logEl.scrollTop = cls === "bot" && d.offsetHeight > logEl.clientHeight * 0.6 ? Math.max(0, d.offsetTop - logEl.offsetTop - 8) : logEl.scrollHeight; }
       function log(q, a, intent, extra) {
         if (sent >= MAXLOG) return; sent++;
         if (!isConfigured) return;
@@ -2636,13 +2618,41 @@
         setTimeout(function () { inp.focus(); }, 50); track("chat_open");
       }
       function close() { panel.classList.remove("open"); fab.style.display = ""; }
+
+      var SVC = {
+        hms: { n: "Hospital & Clinic Management (HMS)", price: "from &#8377;25,000", inc: ["OPD / IPD and token queue", "Patient records and bed tracking", "Pharmacy and lab billing", "Reports for the owner"], pick: "Hospital & Clinic Management System", demo: function () { goDemo("hms"); } },
+        pos: { n: "Shop & Retail Billing (POS)", price: "from &#8377;8,000", inc: ["GST billing and barcode", "Stock and low-stock alerts", "Customer dues", "Daily sales reports"], pick: "Shop & Retail Billing Software", demo: function () { goDemo("pos"); } },
+        erp: { n: "Company ERP & Accounts", price: "from &#8377;30,000", inc: ["Inventory, purchase and sales", "Party ledger and GST reports", "Staff / HR", "Owner dashboard"], pick: "Company ERP & Accounts", demo: function () { goDemo("erp"); } },
+        school: { n: "School & Coaching Panel", price: "from &#8377;10,000", inc: ["Admissions and attendance", "Fee receipts", "Results and report cards", "Parent alerts"], pick: "School & Coaching Management System", demo: function () { goDemo("school"); } },
+        apk: { n: "Custom Android App (APK)", price: "from &#8377;15,000", inc: ["Your app name and logo", "Login and notifications", "Live sync with your web panel", "Ready to install APK"], pick: "Custom Android App (APK)", demo: function () { goDemo("apk"); } },
+        custom: { n: "Tailor-Made Software", price: "quote as per need", inc: ["Admin panel and user roles", "Customer portal", "Reports and export", "Integrations"], pick: "Custom Software / Web Portal", demo: function () { goDemo("biz"); } },
+        party: { n: "Political Party & Organisation", price: "quote as per need", inc: ["ERP for members, ward teams, events and grievances", "Android app for members", "Campaign posters, posts and reels"], pick: "Political Party / Organisation Package", demo: function () { goBiz("party"); } },
+        email: { n: "Bulk & Promotional Emails", price: "by list size", inc: ["Designed HTML email", "List clean-up and scheduled sending", "Sender details and unsubscribe link", "Delivery and click report"], pick: "Bulk & Promotional Email Campaigns", demo: function () { goPricing("special"); } },
+        creatives: { n: "Posters, Posts & Reels", price: "posts &#8377;49, reels &#8377;199, plans from &#8377;499", inc: ["Single items or monthly plans", "Captions and hashtags", "Your logo and brand colours", "Free sample first"], pick: "Brand Creatives (Posters, Posts, Ad Videos)", demo: function () { goPricing("creatives"); } }
+      };
+      function inquire(k) {
+        var v = SVC[k]; if (!v) return;
+        var q = "Inquiry: " + v.n;
+        add("me", q, true);
+        var out = "<b>" + v.n + "</b><br>Price: " + v.price + "<ul>" + v.inc.map(function (x) { return "<li>" + x + "</li>"; }).join("") + "</ul>" +
+          '<a href="#" data-act="quote" data-k="' + k + '">Get a quote</a> &middot; <a href="#" data-act="demo" data-k="' + k + '">See live demo</a> &middot; ' + G("Hello Sarfaraz Tech Solutions, I want to know more about " + v.n + ".") +
+          "<br>Want to know anything else? Just type your question, or leave your mobile number for a call back.";
+        setTimeout(function () { add("bot", out); log(q, out, "inquiry_" + k); }, 350);
+        track("chat_inquiry", { service: k });
+      }
+      logEl.addEventListener("click", function (e) {
+        var a = e.target.closest && e.target.closest("a[data-act]"); if (!a) return;
+        e.preventDefault(); var v = SVC[a.getAttribute("data-k")]; if (!v) return; close();
+        if (a.getAttribute("data-act") === "quote") { wizPick(v.pick); } else { v.demo(); }
+      });
+      document.querySelectorAll("[data-inq]").forEach(function (b) { b.addEventListener("click", function () { open(); inquire(b.getAttribute("data-inq")); }); });
       fab.addEventListener("click", open);
       document.getElementById("chatX").addEventListener("click", close);
       var pc = document.getElementById("prChat"); if (pc) pc.addEventListener("click", open);
       form.addEventListener("submit", function (e) { e.preventDefault(); var v = inp.value; inp.value = ""; ask(v); });
       logEl.addEventListener("click", function (e) { var a = e.target.closest && e.target.closest("a[data-go]"); if (a) { close(); } });
       document.addEventListener("keydown", function (e) { if (e.key === "Escape" && panel.classList.contains("open")) close(); });
-      window.openChat = open;
+      window.openChat = function (k) { open(); if (typeof k === "string") inquire(k); };
     })();
 
     buildServiceGrid();

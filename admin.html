@@ -4,139 +4,264 @@
 <meta charset="utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <meta name="robots" content="noindex, nofollow" />
-<title>Admin | Sarfaraz Tech Solutions</title>
+<meta name="theme-color" content="#0b1f4a" />
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Cpolygon points='50,4 90,27 90,73 50,96 10,73 10,27' fill='%230b1f4a' stroke='%231456d6' stroke-width='6'/%3E%3Ctext x='50' y='62' text-anchor='middle' font-family='Arial' font-weight='900' font-size='31' fill='white'%3ESTS%3C/text%3E%3C/svg%3E" />
+<title>Admin Console | Sarfaraz Tech Solutions</title>
 <style>
-  :root { --navy:#0b1f4a; --blue:#1456d6; --soft:#eef4ff; --line:#dde5f1; --muted:#52617d; --bg:#f4f7fc; --green:#128c4a; --red:#c0392b; --amber:#b9770e; }
-  * { box-sizing: border-box; }
-  body { margin:0; font-family: Inter, system-ui, -apple-system, "Segoe UI", Roboto, sans-serif; background:var(--bg); color:var(--navy); font-size:15px; }
-  button, input, select, textarea { font:inherit; }
+  :root { --navy:#0b1f4a; --navy2:#10306b; --blue:#1456d6; --soft:#eef4ff; --line:#e2e8f2; --muted:#5b6b88; --bg:#f3f6fb; --green:#128c4a; --red:#c0392b; --amber:#b9770e; --shadow:0 1px 2px rgba(11,31,74,.06),0 6px 20px rgba(11,31,74,.06); }
+  * { box-sizing:border-box; }
+  html,body { height:100%; }
+  body { margin:0; font-family:Inter,system-ui,-apple-system,"Segoe UI",Roboto,Helvetica,Arial,sans-serif; background:var(--bg); color:var(--navy); font-size:14.5px; line-height:1.45; -webkit-font-smoothing:antialiased; }
+  button,input,select,textarea { font:inherit; color:inherit; }
   .hide { display:none !important; }
-  /* login */
-  .login { min-height:100vh; display:flex; align-items:center; justify-content:center; padding:20px; }
-  .login-box { background:#fff; border:1px solid var(--line); border-radius:16px; padding:28px; width:100%; max-width:380px; box-shadow:0 12px 40px rgba(11,31,74,.12); }
-  .login-box h1 { margin:0 0 4px; font-size:1.3rem; }
-  .login-box p { margin:0 0 18px; color:var(--muted); font-size:.9rem; }
-  label { display:block; font-weight:600; font-size:.85rem; margin:12px 0 5px; }
-  input[type=text], input[type=password], input[type=date], input[type=search], input[type=number], select, textarea { width:100%; padding:10px 12px; border:1px solid var(--line); border-radius:10px; background:#fff; color:var(--navy); }
-  textarea { resize:vertical; min-height:70px; }
-  .btn { border:0; border-radius:10px; padding:10px 16px; font-weight:700; cursor:pointer; background:var(--blue); color:#fff; text-decoration:none; display:inline-block; font-size:.9rem; }
-  .btn:hover { filter:brightness(.95); }
-  .btn.out { background:#fff; color:var(--blue); border:1px solid var(--line); }
+  svg { width:18px; height:18px; stroke:currentColor; fill:none; stroke-width:2; stroke-linecap:round; stroke-linejoin:round; flex:none; }
+  .logo { width:40px; height:40px; flex:none; }
+  /* ============ login ============ */
+  .login { min-height:100vh; display:grid; grid-template-columns:1.05fr 1fr; }
+  .l-side { background:linear-gradient(155deg,var(--navy) 0%,var(--navy2) 100%); color:#fff; padding:48px; display:flex; flex-direction:column; justify-content:space-between; position:relative; overflow:hidden; }
+  .l-side::after { content:""; position:absolute; right:-120px; bottom:-120px; width:380px; height:380px; border-radius:50%; background:rgba(91,141,239,.16); }
+  .l-brand { display:flex; align-items:center; gap:12px; font-weight:800; letter-spacing:.4px; font-size:1.05rem; }
+  .l-brand small { display:block; font-weight:600; font-size:.66rem; letter-spacing:1.6px; color:#9fb6ec; }
+  .l-side h2 { font-size:2rem; line-height:1.2; margin:0 0 12px; letter-spacing:-.01em; }
+  .l-side p { color:#b9c8ee; max-width:380px; margin:0; }
+  .l-points { list-style:none; padding:0; margin:26px 0 0; display:grid; gap:12px; color:#dbe5fb; font-weight:600; }
+  .l-points li { display:flex; align-items:center; gap:10px; }
+  .l-points svg { color:#6fb3ff; }
+  .l-foot { font-size:.8rem; color:#8fa6d9; position:relative; z-index:1; }
+  .l-main { display:flex; align-items:center; justify-content:center; padding:32px; background:#fff; }
+  .l-form { width:100%; max-width:360px; }
+  .l-logo { display:flex; flex-direction:column; align-items:center; text-align:center; gap:12px; margin-bottom:22px; }
+  .l-logo b { display:block; font-size:1.2rem; letter-spacing:.5px; line-height:1.15; }
+  .l-logo small { display:block; font-size:.68rem; letter-spacing:1.8px; color:#1456d6; font-weight:700; margin-top:4px; }
+  .l-title { text-align:center; margin:0 0 22px; padding-top:18px; border-top:1px solid var(--line); }
+  .l-title h1 { margin:0 0 4px; font-size:1.35rem; letter-spacing:.2px; }
+  .l-title p { margin:0; color:var(--muted); font-size:.9rem; }
+  .l-form h1 { margin:0 0 6px; font-size:1.6rem; letter-spacing:-.01em; }
+  .l-form > p { margin:0 0 24px; color:var(--muted); }
+  label { display:block; font-weight:600; font-size:.82rem; margin:14px 0 6px; color:#26365a; }
+  input[type=text],input[type=password],input[type=date],input[type=search],select,textarea { width:100%; padding:11px 13px; border:1px solid var(--line); border-radius:10px; background:#fff; outline:none; transition:border-color .15s, box-shadow .15s; }
+  input:focus,select:focus,textarea:focus { border-color:var(--blue); box-shadow:0 0 0 3px rgba(20,86,214,.14); }
+  textarea { resize:vertical; min-height:84px; }
+  .pwrap { position:relative; }
+  .pwrap input { padding-right:64px; }
+  .pwrap button { position:absolute; right:6px; top:50%; transform:translateY(-50%); border:0; background:none; color:var(--blue); font-weight:700; font-size:.8rem; padding:8px; cursor:pointer; }
+  .btn { display:inline-flex; align-items:center; justify-content:center; gap:8px; border:0; border-radius:10px; padding:10px 16px; font-weight:700; cursor:pointer; background:var(--blue); color:#fff; text-decoration:none; font-size:.88rem; transition:filter .15s,background .15s; }
+  .btn:hover { filter:brightness(.94); }
+  .btn.out { background:#fff; color:var(--navy); border:1px solid var(--line); }
+  .btn.out:hover { background:var(--soft); filter:none; }
   .btn.wa { background:var(--green); }
-  .btn.sm { padding:7px 12px; font-size:.82rem; }
+  .btn.sm { padding:8px 13px; font-size:.82rem; }
+  .btn.block { width:100%; padding:12px 16px; margin-top:20px; font-size:.95rem; }
   .btn:disabled { opacity:.6; cursor:wait; }
-  .err { color:var(--red); font-size:.88rem; min-height:1.2em; margin:10px 0 0; }
-  /* top bar */
-  .top { background:var(--navy); color:#fff; padding:12px 18px; display:flex; align-items:center; justify-content:space-between; gap:10px; position:sticky; top:0; z-index:20; }
-  .top b { font-size:1rem; letter-spacing:.3px; }
-  .top small { opacity:.75; margin-left:8px; }
-  .top .btn { background:rgba(255,255,255,.14); }
-  .wrap { max-width:1200px; margin:0 auto; padding:16px; }
-  .tiles { display:grid; grid-template-columns:repeat(auto-fit,minmax(130px,1fr)); gap:10px; margin-bottom:14px; }
-  .tile { background:#fff; border:1px solid var(--line); border-radius:12px; padding:12px 14px; cursor:pointer; }
-  .tile.on { border-color:var(--blue); box-shadow:0 0 0 2px rgba(20,86,214,.15); }
-  .tile span { display:block; color:var(--muted); font-size:.78rem; font-weight:600; }
-  .tile b { font-size:1.5rem; }
-  .tabs { display:flex; gap:8px; margin:6px 0 12px; }
-  .tabs button { background:#fff; border:1px solid var(--line); border-radius:999px; padding:8px 16px; font-weight:700; cursor:pointer; color:var(--muted); }
-  .tabs button.on { background:var(--blue); border-color:var(--blue); color:#fff; }
-  .bar { display:flex; gap:8px; flex-wrap:wrap; margin-bottom:12px; align-items:center; }
-  .bar input[type=search] { flex:1; min-width:180px; }
-  .bar select { width:auto; }
-  .list { display:grid; gap:10px; }
-  .row { background:#fff; border:1px solid var(--line); border-radius:12px; padding:12px 14px; display:grid; grid-template-columns:1fr auto; gap:4px 12px; cursor:pointer; }
-  .row:hover { border-color:var(--blue); }
-  .row .nm { font-weight:700; }
-  .row .meta { color:var(--muted); font-size:.84rem; }
-  .row .svc { font-size:.86rem; grid-column:1 / -1; }
-  .pill { display:inline-block; padding:3px 10px; border-radius:999px; font-size:.75rem; font-weight:700; background:var(--soft); color:var(--blue); white-space:nowrap; height:fit-content; }
-  .pill.s-New { background:#fff2d6; color:var(--amber); }
-  .pill.s-Contacted { background:#e6f0ff; color:var(--blue); }
-  .pill.s-Quote { background:#efe6ff; color:#6b34c9; }
-  .pill.s-Follow { background:#ffe9d6; color:#c25a00; }
-  .pill.s-Won { background:#dcf5e6; color:var(--green); }
-  .pill.s-Lost { background:#fde4e1; color:var(--red); }
-  .due { color:var(--red); font-weight:700; font-size:.8rem; }
-  .empty { text-align:center; color:var(--muted); padding:40px 10px; background:#fff; border:1px dashed var(--line); border-radius:12px; }
-  /* detail drawer */
-  .drawer-bg { position:fixed; inset:0; background:rgba(11,31,74,.45); z-index:50; display:flex; justify-content:flex-end; }
-  .drawer { background:#fff; width:100%; max-width:480px; height:100%; overflow-y:auto; padding:18px; }
-  .drawer h2 { margin:0 0 2px; font-size:1.2rem; }
-  .kv { display:grid; grid-template-columns:110px 1fr; gap:6px 10px; margin:14px 0; font-size:.9rem; }
+  .err { color:var(--red); font-size:.86rem; min-height:1.3em; margin:12px 0 0; }
+  .secure { display:flex; align-items:center; gap:8px; margin-top:22px; color:var(--muted); font-size:.8rem; }
+  /* ============ app shell ============ */
+  .app { display:grid; grid-template-columns:232px 1fr; min-height:100vh; }
+  .side { background:var(--navy); color:#c9d6f5; display:flex; flex-direction:column; padding:18px 14px; position:sticky; top:0; height:100vh; }
+  .s-brand { display:flex; align-items:center; gap:10px; color:#fff; font-weight:800; font-size:.92rem; letter-spacing:.3px; padding:4px 8px 20px; border-bottom:1px solid rgba(255,255,255,.1); margin-bottom:14px; line-height:1.15; }
+  .s-brand small { display:block; font-weight:600; font-size:.62rem; letter-spacing:1.4px; color:#8fa6d9; }
+  .nav { display:grid; gap:4px; }
+  .nav button { display:flex; align-items:center; gap:11px; padding:11px 12px; border:0; background:none; color:#c9d6f5; border-radius:10px; font-weight:600; cursor:pointer; text-align:left; width:100%; }
+  .nav button:hover { background:rgba(255,255,255,.07); }
+  .nav button.on { background:var(--blue); color:#fff; }
+  .nav .cnt { margin-left:auto; background:#fff; color:var(--navy); border-radius:999px; font-size:.72rem; font-weight:800; padding:1px 8px; }
+  .s-foot { margin-top:auto; display:grid; gap:4px; }
+  .s-foot button { display:flex; align-items:center; gap:11px; padding:11px 12px; border:0; background:none; color:#c9d6f5; border-radius:10px; font-weight:600; cursor:pointer; width:100%; text-align:left; }
+  .s-foot button:hover { background:rgba(255,255,255,.07); }
+  .main { padding:26px 30px 60px; min-width:0; }
+  .head { display:flex; align-items:center; justify-content:space-between; gap:12px; margin-bottom:20px; flex-wrap:wrap; }
+  .head h1 { margin:0; font-size:1.5rem; letter-spacing:-.01em; }
+  .head small { display:block; color:var(--muted); font-weight:500; font-size:.82rem; margin-top:2px; }
+  .tiles { display:grid; grid-template-columns:repeat(auto-fit,minmax(112px,1fr)); gap:10px; margin-bottom:20px; }
+  .tile { background:#fff; border:1px solid var(--line); border-radius:14px; padding:14px 16px; cursor:pointer; text-align:left; box-shadow:var(--shadow); position:relative; transition:transform .12s, border-color .15s; }
+  .tile:hover { transform:translateY(-1px); border-color:#c8d6ef; }
+  .tile.on { border-color:var(--blue); box-shadow:0 0 0 3px rgba(20,86,214,.12); }
+  .tile span { display:block; color:var(--muted); font-size:.76rem; font-weight:700; text-transform:uppercase; letter-spacing:.5px; }
+  .tile b { display:block; font-size:1.7rem; margin-top:2px; line-height:1.2; }
+  .tile i { position:absolute; right:14px; top:14px; width:9px; height:9px; border-radius:50%; }
+  .card { background:#fff; border:1px solid var(--line); border-radius:14px; box-shadow:var(--shadow); overflow:hidden; }
+  .toolbar { display:flex; gap:10px; padding:14px; border-bottom:1px solid var(--line); flex-wrap:wrap; align-items:center; }
+  .toolbar .sw { position:relative; flex:1; min-width:200px; }
+  .toolbar .sw svg { position:absolute; left:12px; top:50%; transform:translateY(-50%); color:#8a98b4; }
+  .toolbar input[type=search] { padding-left:38px; }
+  .toolbar select { width:auto; min-width:150px; }
+  table { width:100%; border-collapse:collapse; }
+  th { text-align:left; font-size:.72rem; text-transform:uppercase; letter-spacing:.6px; color:var(--muted); font-weight:700; padding:11px 16px; background:#f8faff; border-bottom:1px solid var(--line); white-space:nowrap; }
+  td { padding:13px 16px; border-bottom:1px solid #edf1f8; vertical-align:middle; }
+  tbody tr { cursor:pointer; }
+  tbody tr:hover td { background:#f8faff; }
+  tbody tr:last-child td { border-bottom:0; }
+  .who { display:flex; align-items:center; gap:12px; min-width:0; }
+  .av { width:38px; height:38px; border-radius:50%; background:var(--soft); color:var(--blue); font-weight:800; display:flex; align-items:center; justify-content:center; flex:none; }
+  .who b { display:block; font-weight:700; }
+  .sub { color:var(--muted); font-size:.82rem; }
+  .pill { display:inline-block; padding:4px 11px; border-radius:999px; font-size:.75rem; font-weight:700; background:var(--soft); color:var(--blue); white-space:nowrap; }
+  .s-New { background:#fff2d6; color:var(--amber); }
+  .s-Contacted { background:#e3eeff; color:var(--blue); }
+  .s-Quote { background:#efe6ff; color:#6b34c9; }
+  .s-Follow { background:#ffe9d6; color:#c25a00; }
+  .s-Won { background:#dcf5e6; color:var(--green); }
+  .s-Lost { background:#fde4e1; color:var(--red); }
+  .due { color:var(--red); font-weight:700; font-size:.74rem; margin-left:6px; }
+  .empty { text-align:center; color:var(--muted); padding:56px 16px; }
+  .empty svg { width:34px; height:34px; color:#b4c0d8; margin-bottom:8px; }
+  /* drawer */
+  .dbg { position:fixed; inset:0; background:rgba(11,31,74,.5); z-index:60; display:flex; justify-content:flex-end; backdrop-filter:blur(2px); }
+  .drawer { background:#fff; width:100%; max-width:500px; height:100%; overflow-y:auto; box-shadow:-12px 0 40px rgba(11,31,74,.25); display:flex; flex-direction:column; }
+  .d-head { padding:20px 22px 16px; border-bottom:1px solid var(--line); display:flex; gap:14px; align-items:flex-start; position:sticky; top:0; background:#fff; z-index:2; }
+  .d-head .av { width:46px; height:46px; font-size:1.1rem; }
+  .d-head h2 { margin:0; font-size:1.15rem; }
+  .d-body { padding:18px 22px 28px; }
+  .x { margin-left:auto; border:1px solid var(--line); background:#fff; width:34px; height:34px; border-radius:9px; cursor:pointer; display:flex; align-items:center; justify-content:center; }
+  .x:hover { background:var(--soft); }
+  .acts { display:flex; gap:8px; flex-wrap:wrap; margin-bottom:18px; }
+  .sec { font-size:.72rem; text-transform:uppercase; letter-spacing:.7px; color:var(--muted); font-weight:800; margin:20px 0 8px; }
+  .kv { display:grid; grid-template-columns:104px 1fr; gap:9px 12px; margin:0; font-size:.9rem; background:#f8faff; border:1px solid var(--line); border-radius:12px; padding:14px; }
   .kv dt { color:var(--muted); font-weight:600; }
   .kv dd { margin:0; word-break:break-word; white-space:pre-wrap; }
-  .acts { display:flex; gap:8px; flex-wrap:wrap; margin:12px 0; }
-  .chips { display:flex; gap:6px; flex-wrap:wrap; }
-  .chips button { border:1px solid var(--line); background:#fff; border-radius:999px; padding:6px 12px; font-weight:700; font-size:.82rem; cursor:pointer; color:var(--navy); }
+  .chips { display:flex; gap:7px; flex-wrap:wrap; }
+  .chips button { border:1px solid var(--line); background:#fff; border-radius:999px; padding:7px 13px; font-weight:700; font-size:.8rem; cursor:pointer; }
+  .chips button:hover { background:var(--soft); }
   .chips button.on { background:var(--blue); border-color:var(--blue); color:#fff; }
-  .two { display:grid; grid-template-columns:1fr 1fr; gap:10px; }
-  .toast { position:fixed; left:50%; bottom:24px; transform:translateX(-50%); background:var(--navy); color:#fff; padding:10px 18px; border-radius:10px; z-index:80; font-size:.9rem; }
-  /* chats */
-  .chat-msgs { display:grid; gap:6px; margin:12px 0; }
-  .cq, .ca { padding:8px 12px; border-radius:10px; font-size:.88rem; max-width:92%; white-space:pre-wrap; word-break:break-word; }
-  .cq { background:var(--blue); color:#fff; justify-self:end; }
-  .ca { background:#f0f3f9; justify-self:start; }
-  .ct { font-size:.72rem; color:var(--muted); }
-  @media (max-width:560px) { .two { grid-template-columns:1fr; } .kv { grid-template-columns:90px 1fr; } .top small { display:none; } }
+  .two { display:grid; grid-template-columns:1fr 1fr; gap:12px; }
+  .d-foot { padding:14px 22px; border-top:1px solid var(--line); position:sticky; bottom:0; background:#fff; }
+  .d-foot .err { margin:0 0 8px; min-height:0; }
+  .toast { position:fixed; left:50%; bottom:26px; transform:translateX(-50%); background:var(--navy); color:#fff; padding:11px 20px; border-radius:10px; z-index:90; font-weight:600; box-shadow:0 10px 30px rgba(11,31,74,.3); }
+  /* chat bubbles */
+  .msgs { display:grid; gap:6px; }
+  .cq,.ca { padding:9px 13px; border-radius:12px; font-size:.88rem; max-width:90%; white-space:pre-wrap; word-break:break-word; }
+  .cq { background:var(--blue); color:#fff; justify-self:end; border-bottom-right-radius:4px; }
+  .ca { background:#eef2f9; justify-self:start; border-bottom-left-radius:4px; }
+  .ct { font-size:.72rem; color:var(--muted); margin-top:6px; }
+  .qa { padding:16px 18px; border-bottom:1px solid #edf1f8; }
+  .qa:last-child { border-bottom:0; }
+  .qa-top { display:flex; gap:8px; align-items:center; flex-wrap:wrap; margin-bottom:8px; color:var(--muted); font-size:.78rem; }
+  .qa-q,.qa-a { display:flex; gap:10px; margin-top:6px; }
+  .qa-q span,.qa-a span { flex:none; width:24px; height:24px; border-radius:50%; font-size:.72rem; font-weight:800; display:flex; align-items:center; justify-content:center; }
+  .qa-q span { background:var(--blue); color:#fff; } .qa-a span { background:#e3e9f5; color:var(--navy); }
+  .qa-q p,.qa-a p { margin:0; white-space:pre-wrap; word-break:break-word; }
+  .qa-q p { font-weight:700; } .qa-a p { color:#33435f; }
+  .miss { background:#fde4e1; color:var(--red); }
+  /* ============ responsive ============ */
+  @media (max-width:960px) {
+    .login { grid-template-columns:1fr; } .l-side { display:none; }
+    .app { grid-template-columns:1fr; }
+    .side { position:static; height:auto; flex-direction:row; align-items:center; padding:10px 12px; gap:8px; }
+    .s-brand { border:0; margin:0; padding:0 8px 0 0; } .s-brand span { display:none; }
+    .nav { grid-auto-flow:column; } .nav button { padding:9px 12px; } .s-foot { margin:0 0 0 auto; } .s-foot button span { display:none; }
+    .main { padding:18px 14px 50px; }
+    table, thead, tbody, tr, td { display:block; } thead { display:none; }
+    tr { padding:12px 14px; border-bottom:1px solid #edf1f8; display:grid; grid-template-columns:1fr auto; gap:6px 10px; }
+    td { padding:0; border:0; } td[data-h] { display:none; } td.c-st { grid-column:2; grid-row:1; } td.c-meta { grid-column:1 / -1; color:var(--muted); font-size:.84rem; display:block !important; }
+    .two { grid-template-columns:1fr; }
+  }
+  @media (max-width:480px) {
+    .side { padding:8px 10px; gap:4px; } .s-brand { padding-right:2px; } .s-brand svg { width:30px !important; height:30px !important; }
+    .nav button { padding:8px 9px; gap:6px; font-size:.86rem; } .nav button svg { display:none; } .nav button { font-size:.8rem; } .nav .cnt { display:none; } .s-foot button { padding:8px; }
+  }
 </style>
 </head>
 <body>
 
+<!-- ================= LOGIN ================= -->
 <div class="login" id="loginView">
-  <form class="login-box" id="loginForm">
-    <h1>Admin Login</h1>
-    <p>Sarfaraz Tech Solutions: requests, clients and chats.</p>
-    <label for="pw">Password</label>
-    <input type="password" id="pw" autocomplete="current-password" required />
-    <p class="err" id="loginErr" role="alert"></p>
-    <button class="btn" type="submit" id="loginBtn" style="width:100%">Log in</button>
-  </form>
+  <aside class="l-side">
+    <div class="l-brand"><svg class="logo" width="40" height="40" viewBox="0 0 100 100" aria-hidden="true" style="stroke:none;width:40px;height:40px"><polygon points="50,4 90,27 90,73 50,96 10,73 10,27" fill="#0b1f4a" stroke="#5b8def" stroke-width="6" stroke-linejoin="round" style="stroke:#5b8def;stroke-width:6"/><text x="50" y="62" text-anchor="middle" font-family="Inter, Arial, sans-serif" font-weight="900" font-size="31" fill="#ffffff" style="stroke:none">STS</text></svg><div>SARFARAZ TECH SOLUTIONS<small>ADMIN CONSOLE</small></div></div>
+    <div style="position:relative;z-index:1">
+      <h2>Manage every request<br />in one place.</h2>
+      <p>See who contacted you, what they need, and move each client from first enquiry to a closed deal.</p>
+      <ul class="l-points">
+        <li><svg viewBox="0 0 24 24"><path d="M20 6L9 17l-5-5"/></svg>Client requests with live status</li>
+        <li><svg viewBox="0 0 24 24"><path d="M20 6L9 17l-5-5"/></svg>Follow-up dates and quote amounts</li>
+        <li><svg viewBox="0 0 24 24"><path d="M20 6L9 17l-5-5"/></svg>Website chat questions and answers</li>
+      </ul>
+    </div>
+    <div class="l-foot">sarfaraztechsolutions.in &middot; Private area</div>
+  </aside>
+  <main class="l-main">
+    <form class="l-form" id="loginForm">
+      <div class="l-logo"><svg class="logo" width="64" height="64" viewBox="0 0 100 100" aria-hidden="true" style="stroke:none;width:64px;height:64px"><polygon points="50,4 90,27 90,73 50,96 10,73 10,27" fill="#0b1f4a" stroke="#1456d6" stroke-width="6" stroke-linejoin="round" style="stroke:#1456d6;stroke-width:6"/><text x="50" y="62" text-anchor="middle" font-family="Inter, Arial, sans-serif" font-weight="900" font-size="31" fill="#ffffff" style="stroke:none">STS</text></svg><div><b>SARFARAZ TECH SOLUTIONS</b><small>CUSTOM SOFTWARE &amp; APPS</small></div></div>
+      <div class="l-title"><h1>Admin Login</h1><p>Sign in to manage requests, clients and chats.</p></div>
+      <label for="pw">Password</label>
+      <div class="pwrap"><input type="password" id="pw" autocomplete="current-password" required autofocus /><button type="button" id="pwShow" aria-label="Show password">Show</button></div>
+      <p class="err" id="loginErr" role="alert"></p>
+      <button class="btn block" type="submit" id="loginBtn">Sign in</button>
+      <div class="secure"><svg viewBox="0 0 24 24"><rect x="4" y="11" width="16" height="10" rx="2"/><path d="M8 11V7a4 4 0 018 0v4"/></svg>Secure area. Access is limited to the owner.</div>
+    </form>
+  </main>
 </div>
 
-<div id="appView" class="hide">
-  <div class="top">
-    <div><b>SARFARAZ TECH SOLUTIONS</b><small>Admin</small></div>
-    <div style="display:flex;gap:8px"><button class="btn sm" id="refreshBtn" type="button">Refresh</button><button class="btn sm" id="logoutBtn" type="button">Log out</button></div>
-  </div>
-  <div class="wrap">
-    <div class="tiles" id="tiles"></div>
-    <div class="tabs"><button type="button" id="tabLeads" class="on">Requests</button><button type="button" id="tabChats">Chats</button></div>
-
-    <div id="leadsView">
-      <div class="bar">
-        <input type="search" id="q" placeholder="Search name, phone, business, service..." aria-label="Search" />
-        <select id="stSel" aria-label="Status filter"></select>
-        <button class="btn out sm" id="csvBtn" type="button">Export CSV</button>
-      </div>
-      <div class="list" id="leadList"></div>
+<!-- ================= APP ================= -->
+<div class="app hide" id="appView">
+  <aside class="side">
+    <div class="s-brand"><svg class="logo" width="34" height="34" viewBox="0 0 100 100" aria-hidden="true" style="stroke:none;width:34px;height:34px"><polygon points="50,4 90,27 90,73 50,96 10,73 10,27" fill="#0b1f4a" stroke="#5b8def" stroke-width="6" stroke-linejoin="round" style="stroke:#5b8def;stroke-width:6"/><text x="50" y="62" text-anchor="middle" font-family="Inter, Arial, sans-serif" font-weight="900" font-size="31" fill="#ffffff" style="stroke:none">STS</text></svg><span>SARFARAZ TECH<small>ADMIN CONSOLE</small></span></div>
+    <nav class="nav" aria-label="Sections">
+      <button type="button" id="tabLeads" class="on"><svg viewBox="0 0 24 24"><path d="M9 11l3 3L22 4"/><path d="M21 12v7a2 2 0 01-2 2H5a2 2 0 01-2-2V5a2 2 0 012-2h11"/></svg>Requests<span class="cnt" id="cntNew">0</span></button>
+      <button type="button" id="tabChats"><svg viewBox="0 0 24 24"><path d="M21 15a2 2 0 01-2 2H7l-4 4V5a2 2 0 012-2h14a2 2 0 012 2z"/></svg>Chats<span class="cnt" id="cntChat">0</span></button>
+      <button type="button" id="tabQa"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><path d="M9.1 9a3 3 0 015.8 1c0 2-3 3-3 3"/><path d="M12 17h.01"/></svg>Q &amp; A Log<span class="cnt" id="cntQa">0</span></button>
+    </nav>
+    <div class="s-foot">
+      <button type="button" id="refreshBtn"><svg viewBox="0 0 24 24"><path d="M23 4v6h-6"/><path d="M20.5 15a9 9 0 11-2.1-9.4L23 10"/></svg><span>Refresh</span></button>
+      <button type="button" id="logoutBtn"><svg viewBox="0 0 24 24"><path d="M9 21H5a2 2 0 01-2-2V5a2 2 0 012-2h4"/><path d="M16 17l5-5-5-5"/><path d="M21 12H9"/></svg><span>Sign out</span></button>
     </div>
+  </aside>
 
-    <div id="chatsView" class="hide">
-      <div class="bar">
-        <input type="search" id="cq" placeholder="Search chats or phone..." aria-label="Search chats" />
+  <main class="main">
+    <div class="head"><div><h1 id="pageTitle">Requests</h1><small id="pageSub"></small></div><button class="btn out sm" id="csvBtn" type="button"><svg viewBox="0 0 24 24"><path d="M21 15v4a2 2 0 01-2 2H5a2 2 0 01-2-2v-4"/><path d="M7 10l5 5 5-5"/><path d="M12 15V3"/></svg>Export CSV</button></div>
+    <div class="tiles" id="tiles"></div>
+
+    <section class="card" id="leadsView">
+      <div class="toolbar">
+        <div class="sw"><svg viewBox="0 0 24 24"><circle cx="11" cy="11" r="7"/><path d="M21 21l-4.3-4.3"/></svg><input type="search" id="q" placeholder="Search name, phone, business or service" aria-label="Search requests" /></div>
+        <select id="stSel" aria-label="Status filter"></select>
+      </div>
+      <table>
+        <thead><tr><th>Client</th><th>Phone</th><th>Service</th><th>Status</th><th>Follow-up</th><th>Quote</th></tr></thead>
+        <tbody id="leadBody"></tbody>
+      </table>
+    </section>
+
+    <section class="card hide" id="chatsView">
+      <div class="toolbar">
+        <div class="sw"><svg viewBox="0 0 24 24"><circle cx="11" cy="11" r="7"/><path d="M21 21l-4.3-4.3"/></svg><input type="search" id="cq" placeholder="Search chats or phone" aria-label="Search chats" /></div>
         <select id="cfSel" aria-label="Chat filter"><option value="">All chats</option><option value="phone">With phone number</option></select>
       </div>
-      <div class="list" id="chatList"></div>
-    </div>
-  </div>
+      <table>
+        <thead><tr><th>First question</th><th>Phone</th><th>Messages</th><th>Last activity</th><th>Follow-up</th></tr></thead>
+        <tbody id="chatBody"></tbody>
+      </table>
+    </section>
+
+    <section class="card hide" id="qaView">
+      <div class="toolbar">
+        <div class="sw"><svg viewBox="0 0 24 24"><circle cx="11" cy="11" r="7"/><path d="M21 21l-4.3-4.3"/></svg><input type="search" id="qaQ" placeholder="Search questions or answers" aria-label="Search questions and answers" /></div>
+        <select id="qaTopic" aria-label="Topic filter"></select>
+      </div>
+      <div id="qaList"></div>
+    </section>
+  </main>
 </div>
 
-<div class="drawer-bg hide" id="drawerBg"><div class="drawer" id="drawer"></div></div>
-<div class="toast hide" id="toast"></div>
+<div class="dbg hide" id="drawerBg"><aside class="drawer" id="drawer" role="dialog" aria-modal="true"></aside></div>
+<div class="toast hide" id="toast" role="status"></div>
 
 <script>
 (function () {
   "use strict";
   var API = "https://script.google.com/macros/s/AKfycbxpHjJ-aNevHuTMzTej3Q1zlDf2tL6hMUolsrce90AGeq_PtOysxR2CcUokRT9InVk8bA/exec";
-  var WA_NUM = "919135041918";
   var STATUSES = ["New", "Contacted", "Quote Sent", "Follow-up", "Won", "Lost"];
   var CHAT_ST = ["", "New - call back", "Called", "Closed"];
   var token = "", leads = [], chats = [], filterStatus = "", tab = "leads";
   var $ = function (id) { return document.getElementById(id); };
+  var ICON_X = '<svg viewBox="0 0 24 24"><path d="M18 6L6 18M6 6l12 12"/></svg>';
+  var ICON_EMPTY = '<svg viewBox="0 0 24 24"><path d="M22 12h-6l-2 3h-4l-2-3H2"/><path d="M5.5 5.1L2 12v6a2 2 0 002 2h16a2 2 0 002-2v-6l-3.5-6.9A2 2 0 0016.8 4H7.2a2 2 0 00-1.7 1.1z"/></svg>';
   function esc(s) { return String(s == null ? "" : s).replace(/[&<>"']/g, function (c) { return { "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;", "'": "&#39;" }[c]; }); }
   function sk(s) { return "s-" + String(s).split(/[ -]/)[0]; }
+  function ini(n) { var p = String(n || "?").trim().split(/\s+/); return esc(((p[0] || "?").charAt(0) + (p.length > 1 ? p[p.length - 1].charAt(0) : "")).toUpperCase()); }
   function today() { var d = new Date(); return d.getFullYear() + "-" + ("0" + (d.getMonth() + 1)).slice(-2) + "-" + ("0" + d.getDate()).slice(-2); }
-  function toast(m) { var t = $("toast"); t.textContent = m; t.classList.remove("hide"); clearTimeout(toast.h); toast.h = setTimeout(function () { t.classList.add("hide"); }, 2500); }
+  function toast(m) { var t = $("toast"); t.textContent = m; t.classList.remove("hide"); clearTimeout(toast.h); toast.h = setTimeout(function () { t.classList.add("hide"); }, 2400); }
+  function digits(p) { return String(p || "").replace(/\D/g, "").replace(/^91(?=\d{10}$)/, ""); }
+  function isDue(l) { return l.followup && l.followup <= today() && l.status !== "Won" && l.status !== "Lost"; }
   try { token = sessionStorage.getItem("sts_adm") || ""; } catch (e) {}
 
   function call(body) {
@@ -147,23 +272,24 @@
   }
 
   /* ---- login ---- */
+  $("pwShow").addEventListener("click", function () { var i = $("pw"), s = i.type === "password"; i.type = s ? "text" : "password"; this.textContent = s ? "Hide" : "Show"; });
   $("loginForm").addEventListener("submit", function (e) {
-    e.preventDefault(); var b = $("loginBtn"); b.disabled = true; b.textContent = "Checking..."; $("loginErr").textContent = "";
+    e.preventDefault(); var b = $("loginBtn"); b.disabled = true; b.textContent = "Signing in..."; $("loginErr").textContent = "";
     fetch(API, { method: "POST", headers: { "Content-Type": "text/plain;charset=utf-8" }, body: JSON.stringify({ type: "admin", action: "login", password: $("pw").value }) })
       .then(function (r) { return r.json(); })
       .then(function (j) {
-        if (!j.ok) { $("loginErr").textContent = j.error || "Could not log in."; return; }
-        token = j.token; try { sessionStorage.setItem("sts_adm", token); } catch (e) {}
+        if (!j.ok) { $("loginErr").textContent = j.error || "Could not sign in."; return; }
+        token = j.token; try { sessionStorage.setItem("sts_adm", token); } catch (e2) {}
         $("pw").value = ""; start();
       })
       .catch(function () { $("loginErr").textContent = "Could not reach the server. Check your internet and try again."; })
-      .then(function () { b.disabled = false; b.textContent = "Log in"; });
+      .then(function () { b.disabled = false; b.textContent = "Sign in"; });
   });
   function logout(silent) {
     if (!silent && token) { fetch(API, { method: "POST", headers: { "Content-Type": "text/plain;charset=utf-8" }, body: JSON.stringify({ type: "admin", action: "logout", token: token }) }).catch(function () {}); }
     token = ""; try { sessionStorage.removeItem("sts_adm"); } catch (e) {}
     $("appView").classList.add("hide"); $("loginView").classList.remove("hide"); closeDrawer();
-    if (silent) $("loginErr").textContent = "Session expired. Please log in again.";
+    $("loginErr").textContent = silent ? "Your session expired. Please sign in again." : "";
   }
   $("logoutBtn").addEventListener("click", function () { logout(false); });
 
@@ -173,68 +299,74 @@
     load();
   }
   function load() {
-    var b = $("refreshBtn"); b.disabled = true; b.textContent = "Loading...";
+    var b = $("refreshBtn"); b.disabled = true;
     Promise.all([call({ action: "list" }), call({ action: "chats" })]).then(function (r) {
       if (!r[0].ok) { toast(r[0].error || "Could not load"); return; }
       leads = (r[0].leads || []).reverse(); chats = r[1].ok ? (r[1].chats || []) : [];
       renderAll();
-    }).catch(function (e) { toast(e.message || "Could not load. Try Refresh."); })
-      .then(function () { b.disabled = false; b.textContent = "Refresh"; });
+    }).catch(function (e) { toast(e.message || "Could not load. Try Refresh."); }).then(function () { b.disabled = false; });
   }
-  $("refreshBtn").addEventListener("click", load);
+  $("refreshBtn").addEventListener("click", function () { load(); toast("Refreshing..."); });
 
   /* ---- render ---- */
-  function renderAll() { renderTiles(); renderLeads(); renderChats(); }
+  function renderAll() {
+    $("cntNew").textContent = leads.filter(function (l) { return l.status === "New"; }).length;
+    $("cntChat").textContent = sessions().length; $("cntQa").textContent = chats.length;
+    renderTiles(); renderLeads(); renderChats(); renderQa(); heading();
+  }
+  function heading() {
+    if (tab === "leads") { $("pageTitle").textContent = "Requests"; $("pageSub").textContent = leads.length + " total, newest first"; }
+    else if (tab === "qa") { $("pageTitle").textContent = "Questions & Answers"; $("pageSub").textContent = chats.length + " questions asked on the website, with the automatic reply given"; }
+    else { $("pageTitle").textContent = "Website chats"; $("pageSub").textContent = sessions().length + " conversations from the chat assistant"; }
+    $("csvBtn").classList.toggle("hide", tab === "chats");
+  }
   function count(st) { return leads.filter(function (l) { return l.status === st; }).length; }
   function renderTiles() {
-    var due = leads.filter(function (l) { return l.followup && l.followup <= today() && l.status !== "Won" && l.status !== "Lost"; }).length;
-    var t = [["", "All requests", leads.length], ["New", "New", count("New")], ["Follow-up", "Follow-up", count("Follow-up")], ["Quote Sent", "Quote sent", count("Quote Sent")], ["Won", "Won", count("Won")], ["Lost", "Lost", count("Lost")]];
-    var h = ""; t.forEach(function (x) { h += '<div class="tile' + (filterStatus === x[0] && tab === "leads" ? " on" : "") + '" data-st="' + esc(x[0]) + '"><span>' + x[1] + '</span><b>' + x[2] + '</b></div>'; });
-    h += '<div class="tile" data-due="1"><span>Follow-up due</span><b style="color:' + (due ? "var(--red)" : "inherit") + '">' + due + '</b></div>';
+    if (tab !== "leads") { $("tiles").innerHTML = ""; return; }
+    var due = leads.filter(isDue).length;
+    var t = [["", "All", leads.length, ""], ["New", "New", count("New"), "#e0a21b"], ["Follow-up", "Follow-up", count("Follow-up"), "#d9731a"], ["Quote Sent", "Quote sent", count("Quote Sent"), "#7a45d6"], ["Won", "Won", count("Won"), "#128c4a"], ["Lost", "Lost", count("Lost"), "#c0392b"], ["__due", "Due today", due, "#c0392b"]];
+    var h = ""; t.forEach(function (x) { h += '<button type="button" class="tile' + (filterStatus === x[0] ? " on" : "") + '" data-st="' + esc(x[0]) + '"><span>' + x[1] + '</span><b>' + x[2] + '</b>' + (x[3] ? '<i style="background:' + x[3] + '"></i>' : "") + '</button>'; });
     $("tiles").innerHTML = h;
   }
   $("tiles").addEventListener("click", function (e) {
-    var t = e.target.closest(".tile"); if (!t) return; setTab("leads");
-    if (t.hasAttribute("data-due")) { filterStatus = "__due"; $("stSel").value = ""; } else { filterStatus = t.getAttribute("data-st"); $("stSel").value = filterStatus; }
-    renderTiles(); renderLeads();
+    var t = e.target.closest(".tile"); if (!t) return;
+    filterStatus = t.getAttribute("data-st"); $("stSel").value = filterStatus === "__due" ? "" : filterStatus; renderTiles(); renderLeads();
   });
   $("stSel").addEventListener("change", function () { filterStatus = $("stSel").value; renderTiles(); renderLeads(); });
   $("q").addEventListener("input", renderLeads);
-
   function leadMatch(l) {
-    if (filterStatus === "__due") { if (!(l.followup && l.followup <= today() && l.status !== "Won" && l.status !== "Lost")) return false; }
-    else if (filterStatus && l.status !== filterStatus) return false;
+    if (filterStatus === "__due") { if (!isDue(l)) return false; } else if (filterStatus && l.status !== filterStatus) return false;
     var q = $("q").value.trim().toLowerCase(); if (!q) return true;
     return (l.name + " " + l.phone + " " + l.email + " " + l.biz + " " + l.service + " " + l.id + " " + l.details).toLowerCase().indexOf(q) > -1;
   }
   function renderLeads() {
-    var arr = leads.filter(leadMatch), h = "";
-    arr.forEach(function (l) {
-      var due = l.followup && l.followup <= today() && l.status !== "Won" && l.status !== "Lost";
-      h += '<div class="row" data-id="' + esc(l.id) + '" tabindex="0"><div><div class="nm">' + esc(l.name) + '</div><div class="meta">' + esc(l.phone) + ' &middot; ' + esc(l.biz) + ' &middot; ' + esc(l.ts) + '</div></div>' +
-        '<div><span class="pill ' + sk(l.status) + '">' + esc(l.status) + '</span></div><div class="svc">' + esc(l.service) + (l.followup ? ' &middot; Follow-up: ' + esc(l.followup) : '') + (due ? ' <span class="due">DUE</span>' : '') + (l.amount ? ' &middot; Quote: &#8377;' + esc(l.amount) : '') + '</div></div>';
+    var h = ""; leads.filter(leadMatch).forEach(function (l) {
+      h += '<tr data-id="' + esc(l.id) + '" tabindex="0"><td><div class="who"><span class="av">' + ini(l.name) + '</span><div><b>' + esc(l.name) + '</b><span class="sub">' + esc(l.biz) + '</span></div></div></td>' +
+        '<td data-h="Phone">' + esc(l.phone) + '</td><td data-h="Service">' + esc(l.service) + '<div class="sub">' + esc(l.ts) + '</div></td>' +
+        '<td class="c-st"><span class="pill ' + sk(l.status) + '">' + esc(l.status) + '</span></td>' +
+        '<td data-h="Follow-up">' + (l.followup ? esc(l.followup) : '<span class="sub">-</span>') + (isDue(l) ? '<span class="due">DUE</span>' : '') + '</td>' +
+        '<td data-h="Quote">' + (l.amount ? '&#8377;' + esc(l.amount) : '<span class="sub">-</span>') + '</td>' +
+        '<td class="c-meta" style="display:none">' + esc(l.phone) + ' &middot; ' + esc(l.service) + (l.followup ? ' &middot; Follow-up ' + esc(l.followup) : '') + (isDue(l) ? ' <span class="due">DUE</span>' : '') + '</td></tr>';
     });
-    $("leadList").innerHTML = h || '<div class="empty">No requests found.</div>';
+    $("leadBody").innerHTML = h || '<tr><td colspan="6"><div class="empty">' + ICON_EMPTY + '<div>No requests found</div></div></td></tr>';
   }
-  $("leadList").addEventListener("click", function (e) { var r = e.target.closest(".row"); if (r) openLead(r.getAttribute("data-id")); });
-  $("leadList").addEventListener("keydown", function (e) { if (e.key === "Enter") { var r = e.target.closest(".row"); if (r) openLead(r.getAttribute("data-id")); } });
+  $("leadBody").addEventListener("click", function (e) { var r = e.target.closest("tr[data-id]"); if (r) openLead(r.getAttribute("data-id")); });
+  $("leadBody").addEventListener("keydown", function (e) { if (e.key === "Enter") { var r = e.target.closest("tr[data-id]"); if (r) openLead(r.getAttribute("data-id")); } });
 
   /* ---- lead drawer ---- */
-  function digits(p) { return String(p || "").replace(/\D/g, "").replace(/^91(?=\d{10}$)/, ""); }
   function openLead(id) {
     var l = leads.filter(function (x) { return x.id === id; })[0]; if (!l) return;
-    var ph = digits(l.phone), cur = l.status;
-    var chips = ""; STATUSES.forEach(function (s) { chips += '<button type="button" data-s="' + esc(s) + '" class="' + (s === cur ? "on" : "") + '">' + esc(s) + '</button>'; });
+    var ph = digits(l.phone), cur = l.status, chips = "";
+    STATUSES.forEach(function (s) { chips += '<button type="button" data-s="' + esc(s) + '" class="' + (s === cur ? "on" : "") + '">' + esc(s) + '</button>'; });
     var msg = "Hello " + l.name + ", this is Sarfaraz from Sarfaraz Tech Solutions. Thank you for your request (" + l.id + "). ";
-    $("drawer").innerHTML = '<div style="display:flex;justify-content:space-between;align-items:start"><div><h2>' + esc(l.name) + '</h2><div class="ct">' + esc(l.id) + ' &middot; ' + esc(l.ts) + '</div></div><button class="btn out sm" id="dClose" type="button">Close</button></div>' +
-      '<div class="acts">' + (/^\d{10}$/.test(ph) ? '<a class="btn wa sm" target="_blank" rel="noopener" href="https://wa.me/91' + ph + '?text=' + encodeURIComponent(msg) + '">WhatsApp</a><a class="btn out sm" href="tel:+91' + ph + '">Call</a>' : '') + (l.email ? '<a class="btn out sm" href="mailto:' + esc(l.email) + '">Email</a>' : '') + '</div>' +
-      '<dl class="kv"><dt>Phone</dt><dd>' + esc(l.phone) + '</dd><dt>Email</dt><dd>' + esc(l.email) + '</dd><dt>Business</dt><dd>' + esc(l.biz) + '</dd><dt>Service</dt><dd>' + esc(l.service) + '</dd><dt>Details</dt><dd>' + esc(l.details) + '</dd>' + (l.mail ? '<dt>Email sent</dt><dd>' + esc(l.mail) + '</dd>' : '') + '</dl>' +
-      '<label>Status</label><div class="chips" id="dChips">' + chips + '</div>' +
-      '<div class="two"><div><label for="dFu">Follow-up date</label><input type="date" id="dFu" value="' + esc(l.followup) + '" /></div><div><label for="dAmt">Quoted amount (&#8377;)</label><input type="text" inputmode="numeric" id="dAmt" value="' + esc(l.amount) + '" /></div></div>' +
-      '<label for="dNotes">Notes</label><textarea id="dNotes" maxlength="1000">' + esc(l.notes) + '</textarea>' +
-      '<p class="err" id="dErr"></p><button class="btn" id="dSave" type="button" style="width:100%">Save changes</button>';
-    $("drawerBg").classList.remove("hide");
-    $("dClose").onclick = closeDrawer;
+    $("drawer").innerHTML = '<div class="d-head"><span class="av">' + ini(l.name) + '</span><div><h2>' + esc(l.name) + '</h2><div class="sub">' + esc(l.id) + ' &middot; ' + esc(l.ts) + '</div></div><button class="x" id="dClose" type="button" aria-label="Close">' + ICON_X + '</button></div>' +
+      '<div class="d-body"><div class="acts">' + (/^\d{10}$/.test(ph) ? '<a class="btn wa sm" target="_blank" rel="noopener" href="https://wa.me/91' + ph + '?text=' + encodeURIComponent(msg) + '">WhatsApp</a><a class="btn out sm" href="tel:+91' + ph + '">Call</a>' : '') + (l.email ? '<a class="btn out sm" href="mailto:' + esc(l.email) + '">Email</a>' : '') + '</div>' +
+      '<div class="sec" style="margin-top:0">Request</div><dl class="kv"><dt>Phone</dt><dd>' + esc(l.phone) + '</dd><dt>Email</dt><dd>' + esc(l.email) + '</dd><dt>Business</dt><dd>' + esc(l.biz) + '</dd><dt>Service</dt><dd>' + esc(l.service) + '</dd><dt>Details</dt><dd>' + esc(l.details) + '</dd>' + (l.mail ? '<dt>Email sent</dt><dd>' + esc(l.mail) + '</dd>' : '') + '</dl>' +
+      '<div class="sec">Status</div><div class="chips" id="dChips">' + chips + '</div>' +
+      '<div class="sec">Follow-up</div><div class="two"><div><label for="dFu" style="margin-top:0">Follow-up date</label><input type="date" id="dFu" value="' + esc(l.followup) + '" /></div><div><label for="dAmt" style="margin-top:0">Quoted amount (&#8377;)</label><input type="text" inputmode="numeric" id="dAmt" value="' + esc(l.amount) + '" /></div></div>' +
+      '<div class="sec">Notes</div><textarea id="dNotes" maxlength="1000" placeholder="Call summary, what was promised...">' + esc(l.notes) + '</textarea></div>' +
+      '<div class="d-foot"><p class="err" id="dErr"></p><button class="btn block" style="margin-top:0" id="dSave" type="button">Save changes</button></div>';
+    $("drawerBg").classList.remove("hide"); $("dClose").onclick = closeDrawer;
     $("dChips").onclick = function (e) { var b = e.target.closest("button"); if (!b) return; cur = b.getAttribute("data-s"); [].forEach.call($("dChips").children, function (c) { c.classList.toggle("on", c === b); }); };
     $("dSave").onclick = function () {
       var b = $("dSave"); b.disabled = true; b.textContent = "Saving...";
@@ -255,29 +387,34 @@
     chats.forEach(function (c) { if (!map[c.sid]) { map[c.sid] = { sid: c.sid, msgs: [], phone: "", ts: c.ts, lang: c.lang }; order.push(c.sid); } var s = map[c.sid]; s.msgs.push(c); if (c.phone) s.phone = c.phone; s.last = c.ts; });
     return order.map(function (k) { return map[k]; }).reverse();
   }
+  function sessStatus(s) { var st = ""; s.msgs.forEach(function (m) { if (m.status) st = m.status; }); return st; }
   function renderChats() {
     var q = $("cq").value.trim().toLowerCase(), f = $("cfSel").value, h = "";
     sessions().filter(function (s) {
       if (f === "phone" && !s.phone) return false;
-      if (!q) return true; return (s.phone + " " + s.msgs.map(function (m) { return m.q + " " + m.a; }).join(" ")).toLowerCase().indexOf(q) > -1;
+      return !q || (s.phone + " " + s.msgs.map(function (m) { return m.q + " " + m.a; }).join(" ")).toLowerCase().indexOf(q) > -1;
     }).forEach(function (s) {
-      var st = ""; s.msgs.forEach(function (m) { if (m.status) st = m.status; });
-      h += '<div class="row" data-sid="' + esc(s.sid) + '" tabindex="0"><div><div class="nm">' + esc(s.msgs[0].q.slice(0, 80)) + '</div><div class="meta">' + esc(s.ts) + ' &middot; ' + s.msgs.length + ' message(s)' + (s.phone ? ' &middot; Phone: <b>' + esc(s.phone) + '</b>' : '') + '</div></div><div>' + (st ? '<span class="pill">' + esc(st) + '</span>' : '') + '</div></div>';
+      var st = sessStatus(s);
+      h += '<tr data-sid="' + esc(s.sid) + '" tabindex="0"><td><div class="who"><span class="av">?</span><div><b>' + esc(s.msgs[0].q.slice(0, 70)) + '</b><span class="sub">' + esc(s.msgs[0].topic) + '</span></div></div></td>' +
+        '<td data-h="Phone">' + (s.phone ? '<b>' + esc(s.phone) + '</b>' : '<span class="sub">-</span>') + '</td><td data-h="Messages">' + s.msgs.length + '</td><td data-h="Last">' + esc(s.last) + '</td>' +
+        '<td class="c-st">' + (st ? '<span class="pill ' + (st === "New - call back" ? "s-New" : st === "Called" ? "s-Contacted" : "s-Won") + '">' + esc(st) + '</span>' : '<span class="sub">-</span>') + '</td>' +
+        '<td class="c-meta" style="display:none">' + esc(s.last) + ' &middot; ' + s.msgs.length + ' message(s)' + (s.phone ? ' &middot; ' + esc(s.phone) : '') + '</td></tr>';
     });
-    $("chatList").innerHTML = h || '<div class="empty">No chats yet.</div>';
+    $("chatBody").innerHTML = h || '<tr><td colspan="5"><div class="empty">' + ICON_EMPTY + '<div>No chats yet</div></div></td></tr>';
   }
   $("cq").addEventListener("input", renderChats); $("cfSel").addEventListener("change", renderChats);
-  $("chatList").addEventListener("click", function (e) { var r = e.target.closest(".row"); if (r) openChat(r.getAttribute("data-sid")); });
-  $("chatList").addEventListener("keydown", function (e) { if (e.key === "Enter") { var r = e.target.closest(".row"); if (r) openChat(r.getAttribute("data-sid")); } });
+  $("chatBody").addEventListener("click", function (e) { var r = e.target.closest("tr[data-sid]"); if (r) openChat(r.getAttribute("data-sid")); });
+  $("chatBody").addEventListener("keydown", function (e) { if (e.key === "Enter") { var r = e.target.closest("tr[data-sid]"); if (r) openChat(r.getAttribute("data-sid")); } });
   function openChat(sid) {
     var s = sessions().filter(function (x) { return x.sid === sid; })[0]; if (!s) return;
-    var rowObj = s.msgs.filter(function (m) { return m.phone; })[0] || s.msgs[s.msgs.length - 1], cur = rowObj.status || "";
-    var msgs = ""; s.msgs.forEach(function (m) { msgs += '<div class="ct">' + esc(m.ts) + ' &middot; ' + esc(m.topic) + '</div><div class="cq">' + esc(m.q) + '</div><div class="ca">' + esc(m.a) + '</div>'; });
-    var chips = ""; CHAT_ST.forEach(function (x) { chips += '<button type="button" data-s="' + esc(x) + '" class="' + (x === cur ? "on" : "") + '">' + esc(x || "None") + '</button>'; });
-    var ph = digits(s.phone);
-    $("drawer").innerHTML = '<div style="display:flex;justify-content:space-between;align-items:start"><div><h2>Chat</h2><div class="ct">' + esc(s.sid) + ' &middot; ' + esc(s.lang) + '</div></div><button class="btn out sm" id="dClose" type="button">Close</button></div>' +
-      (/^\d{10}$/.test(ph) ? '<div class="acts"><a class="btn wa sm" target="_blank" rel="noopener" href="https://wa.me/91' + ph + '?text=' + encodeURIComponent("Hello, this is Sarfaraz from Sarfaraz Tech Solutions. You chatted with us on our website. How can I help?") + '">WhatsApp ' + esc(ph) + '</a><a class="btn out sm" href="tel:+91' + ph + '">Call</a></div>' : '') +
-      '<div class="chat-msgs">' + msgs + '</div><label>Follow-up status</label><div class="chips" id="dChips">' + chips + '</div><label for="dNotes">Notes</label><textarea id="dNotes" maxlength="500">' + esc(rowObj.notes) + '</textarea><p class="err" id="dErr"></p><button class="btn" id="dSave" type="button" style="width:100%">Save</button>';
+    var rowObj = s.msgs.filter(function (m) { return m.phone; })[0] || s.msgs[s.msgs.length - 1], cur = rowObj.status || "", msgs = "", chips = "", ph = digits(s.phone);
+    s.msgs.forEach(function (m) { msgs += '<div class="ct">' + esc(m.ts) + ' &middot; ' + esc(m.topic) + '</div><div class="cq">' + esc(m.q) + '</div><div class="ca">' + esc(m.a) + '</div>'; });
+    CHAT_ST.forEach(function (x) { chips += '<button type="button" data-s="' + esc(x) + '" class="' + (x === cur ? "on" : "") + '">' + esc(x || "None") + '</button>'; });
+    $("drawer").innerHTML = '<div class="d-head"><span class="av">?</span><div><h2>Website visitor</h2><div class="sub">' + esc(s.ts) + ' &middot; ' + esc(s.lang) + '</div></div><button class="x" id="dClose" type="button" aria-label="Close">' + ICON_X + '</button></div>' +
+      '<div class="d-body">' + (/^\d{10}$/.test(ph) ? '<div class="acts"><a class="btn wa sm" target="_blank" rel="noopener" href="https://wa.me/91' + ph + '?text=' + encodeURIComponent("Hello, this is Sarfaraz from Sarfaraz Tech Solutions. You chatted with us on our website. How can I help?") + '">WhatsApp ' + esc(ph) + '</a><a class="btn out sm" href="tel:+91' + ph + '">Call</a></div>' : '') +
+      '<div class="sec" style="margin-top:0">Conversation</div><div class="msgs">' + msgs + '</div>' +
+      '<div class="sec">Follow-up status</div><div class="chips" id="dChips">' + chips + '</div><div class="sec">Notes</div><textarea id="dNotes" maxlength="500">' + esc(rowObj.notes) + '</textarea></div>' +
+      '<div class="d-foot"><p class="err" id="dErr"></p><button class="btn block" style="margin-top:0" id="dSave" type="button">Save</button></div>';
     $("drawerBg").classList.remove("hide"); $("dClose").onclick = closeDrawer;
     $("dChips").onclick = function (e) { var b = e.target.closest("button"); if (!b) return; cur = b.getAttribute("data-s"); [].forEach.call($("dChips").children, function (c) { c.classList.toggle("on", c === b); }); };
     $("dSave").onclick = function () {
@@ -289,13 +426,39 @@
     };
   }
 
+  /* ---- questions & answers ---- */
+  var TOPICS = { price: "Prices", software: "Software", android: "Android app", creatives: "Posters & reels", plan: "Monthly plans", demo: "Demo", email: "Bulk email", political: "Political", time: "Timeline", payment: "Payment", support: "Support", contact: "Contact", about: "About", custom: "Custom", lang: "Language", thanks: "Thanks", greet: "Greeting", callback: "Call-back request", fallback: "Not understood" };
+  function topicName(t) { t = String(t || ""); return t.indexOf("inquiry_") === 0 ? "Inquire Now: " + t.slice(8) : (TOPICS[t] || t || "Other"); }
+  function qaFiltered() {
+    var q = $("qaQ").value.trim().toLowerCase(), f = $("qaTopic").value;
+    return chats.slice().reverse().filter(function (c) { if (f && c.topic !== f) return false; return !q || (c.q + " " + c.a + " " + c.phone).toLowerCase().indexOf(q) > -1; });
+  }
+  function renderQa() {
+    var sel = $("qaTopic"), keep = sel.value, seen = {}, o = '<option value="">All topics</option>';
+    chats.forEach(function (c) { seen[c.topic] = 1; });
+    Object.keys(seen).sort().forEach(function (t) { o += '<option value="' + esc(t) + '">' + esc(topicName(t)) + '</option>'; });
+    sel.innerHTML = o; sel.value = seen[keep] ? keep : "";
+    var h = ""; qaFiltered().forEach(function (c) {
+      h += '<div class="qa"><div class="qa-top"><span>' + esc(c.ts) + '</span><span class="pill ' + (c.topic === "fallback" ? "miss" : "") + '">' + esc(topicName(c.topic)) + '</span>' + (c.phone ? '<span class="pill s-Won">Phone: ' + esc(c.phone) + '</span>' : '') + '<span>Visitor ' + esc(String(c.sid).slice(-5)) + '</span></div>' +
+        '<div class="qa-q"><span>Q</span><p>' + esc(c.q) + '</p></div><div class="qa-a"><span>A</span><p>' + esc(c.a) + '</p></div></div>';
+    });
+    $("qaList").innerHTML = h || '<div class="empty">' + ICON_EMPTY + '<div>No questions yet</div></div>';
+  }
+  $("qaQ").addEventListener("input", renderQa); $("qaTopic").addEventListener("change", renderQa);
+
   /* ---- tabs, csv ---- */
   function setTab(t) {
-    tab = t; $("leadsView").classList.toggle("hide", t !== "leads"); $("chatsView").classList.toggle("hide", t !== "chats");
-    $("tabLeads").classList.toggle("on", t === "leads"); $("tabChats").classList.toggle("on", t === "chats"); renderTiles();
+    tab = t; $("leadsView").classList.toggle("hide", t !== "leads"); $("chatsView").classList.toggle("hide", t !== "chats"); $("qaView").classList.toggle("hide", t !== "qa");
+    $("tabLeads").classList.toggle("on", t === "leads"); $("tabChats").classList.toggle("on", t === "chats"); $("tabQa").classList.toggle("on", t === "qa"); renderTiles(); heading();
   }
-  $("tabLeads").addEventListener("click", function () { setTab("leads"); }); $("tabChats").addEventListener("click", function () { setTab("chats"); });
+  $("tabLeads").addEventListener("click", function () { setTab("leads"); }); $("tabChats").addEventListener("click", function () { setTab("chats"); }); $("tabQa").addEventListener("click", function () { setTab("qa"); });
   $("csvBtn").addEventListener("click", function () {
+    if (tab === "qa") {
+      var qc = ["ts", "sid", "topic", "q", "a", "phone"], qo = [qc.join(",")];
+      function qcell(v) { v = String(v == null ? "" : v).replace(/"/g, '""'); if (/^[=+\-@]/.test(v)) v = "'" + v; return '"' + v + '"'; }
+      qaFiltered().forEach(function (c) { qo.push(qc.map(function (k) { return qcell(c[k]); }).join(",")); });
+      var qa = document.createElement("a"); qa.href = URL.createObjectURL(new Blob(["\ufeff" + qo.join("\n")], { type: "text/csv;charset=utf-8" })); qa.download = "STS-questions-answers-" + today() + ".csv"; document.body.appendChild(qa); qa.click(); qa.remove(); return;
+    }
     var cols = ["id", "ts", "name", "phone", "email", "biz", "service", "status", "followup", "amount", "notes", "details"];
     function cell(v) { v = String(v == null ? "" : v).replace(/"/g, '""'); if (/^[=+\-@]/.test(v)) v = "'" + v; return '"' + v + '"'; }
     var out = [cols.join(",")]; leads.filter(leadMatch).forEach(function (l) { out.push(cols.map(function (c) { return cell(l[c]); }).join(",")); });
