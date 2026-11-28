@@ -2570,67 +2570,224 @@
           chipsEl = document.getElementById("chatChips"), form = document.getElementById("chatForm"), inp = document.getElementById("chatIn");
       var sid = ""; try { sid = sessionStorage.getItem("sts_sid") || ""; } catch (e) {}
       if (!sid) { sid = "C" + Date.now().toString(36) + Math.random().toString(36).slice(2, 7); try { sessionStorage.setItem("sts_sid", sid); } catch (e) {} }
-      var sent = 0, MAXLOG = 40, started = false, phoneGiven = "";
-      var G = function (t) { return '<a href="' + waLink(t) + '" target="_blank" rel="noopener">WhatsApp us</a>'; };
+      var sent = 0, MAXLOG = 40, started = false, phoneGiven = "", pref = "", lastLang = "en", lastId = "", chipLang = "";
+      var WA_LBL = { en: "WhatsApp us", hi: "व्हाट्सऐप करें", hn: "WhatsApp karein" };
+      var WA_IN = { en: "WhatsApp us", hi: "व्हाट्सऐप", hn: "WhatsApp" };
+      var G = function (t, l, inl) { return '<a href="' + waLink(t) + '" target="_blank" rel="noopener">' + (inl ? WA_IN : WA_LBL)[l || "en"] + '</a>'; };
+      var P = '<a href="#pricing" data-go>', D = '<a href="#demos" data-go>', B = '<a href="#bizdemo" data-go>', Q = '<a href="#inquiry" data-go>', C = '<a href="#creatives" data-go>', AB = '<a href="#about" data-go>', E = "</a>";
       var KB = [
-        { id: "greet", kw: ["hi", "hello", "hey", "namaste", "namaskar", "hii", "good morning", "good evening"], a: "Hello! I can help with prices, demos and how it works. What would you like to know?" },
-        { id: "price", kw: ["price", "prices", "pricing", "rate", "rates", "cost", "charges", "kitna", "kitne", "paisa", "paise", "fees", "fee", "budget", "kimat", "daam"], a: "Our starting rates:<ul><li>Post / Poster: &#8377;49 each</li><li>Reel / ad video: &#8377;199</li><li>Logo &amp; brand kit: &#8377;599</li><li>Wedding card: &#8377;99, birthday/event invitation or visiting card: &#8377;49</li><li>Monthly plans: &#8377;499 to &#8377;9,999</li><li>Software: from &#8377;8,000 (shop POS) to &#8377;30,000 (ERP)</li></ul>See everything in <a href=\"#pricing\" data-go>Pricing</a>. The final amount is always confirmed in writing before you pay." },
-        { id: "software", kw: ["software", "erp", "pos", "billing", "hms", "hospital", "clinic", "school", "coaching", "inventory", "stock", "accounts", "gst", "retail", "shop software"], a: "Software starting rates:<ul><li>Hospital / Clinic HMS: &#8377;25,000</li><li>Shop &amp; Retail POS: &#8377;8,000</li><li>Company ERP &amp; Accounts: &#8377;30,000</li><li>School &amp; Coaching panel: &#8377;10,000</li></ul>Try it first in the <a href=\"#bizdemo\" data-go>live business demo</a>, then <a href=\"#inquiry\" data-go>request a quote</a>." },
-        { id: "android", kw: ["android", "apk", "mobile app", "app", "application", "playstore", "play store"], a: "A custom Android app (your name, logo, login, notifications, live sync with the web panel) starts at &#8377;15,000. See the app in the <a href=\"#bizdemo\" data-go>business demo</a>." },
-        { id: "creatives", kw: ["poster", "posters", "post", "posts", "reel", "reels", "video", "videos", "logo", "creative", "creatives", "design", "instagram", "social media", "branding", "brand kit", "banner", "wedding", "shaadi", "card", "cards", "invitation", "invite", "birthday", "visiting", "nimantran"], a: "Creatives: Post &#8377;49, Poster &#8377;49, Wedding card &#8377;99, Birthday/event invitation &#8377;49, Visiting card &#8377;49, Reel/ad video &#8377;199, Logo &amp; brand kit &#8377;599. Monthly plans bundle posts, videos, captions and a content calendar. <a href=\"#pricing\" data-go>See plans</a> or look at <a href=\"#creatives\" data-go>sample work</a>." },
-        { id: "plan", kw: ["plan", "plans", "monthly", "starter", "growth", "business plan", "scale", "package", "packages", "subscription"], a: "Monthly plans: Starter &#8377;499 (10 posts + 5 reels), Growth &#8377;1,999, Business &#8377;4,999, Scale &#8377;9,999. Open <a href=\"#pricing\" data-go>Pricing</a>, tap a plan to see what is included and send your request right there." },
-        { id: "demo", kw: ["demo", "sample", "trial", "try", "dikhao", "dikha", "example", "preview", "live"], a: "You can try everything first: <a href=\"#demos\" data-go>Live Demos</a> and the <a href=\"#bizdemo\" data-go>business ERP + app demo</a> (22 business types). Demo screens use sample data." },
-        { id: "email", kw: ["bulk", "email", "emails", "mail", "mailer", "newsletter", "promotional", "promotion", "email marketing", "campaign"], a: "Yes, we run bulk and promotional email campaigns: designed HTML email, contact-list clean-up, scheduled sending, sender details and an unsubscribe link, plus a delivery and click report. Price depends on list size and number of campaigns. <a href=\"#pricing\" data-go>Request an email quote</a>." },
-        { id: "political", kw: ["political", "party", "politics", "leader", "neta", "election", "chunav", "campaign poster", "ward", "mla", "councillor", "ngo", "organisation", "organization"], a: "Yes, we build tools and creatives for political parties and organisations: member/volunteer ERP, events, grievance tracking, an Android app, posters and reels. See the <a href=\"#bizdemo\" data-go>live demo</a> (choose Political Party / Leader). We make tools and creatives only; content must follow election rules." },
-        { id: "time", kw: ["time", "timeline", "days", "delivery", "kitne din", "kab", "how long", "deadline", "urgent", "fast", "jaldi", "duration"], a: "Posters and posts are usually ready within 24 to 48 hours. Software depends on the modules chosen, normally a few weeks after we agree on the scope. We confirm the timeline in writing with your quote." },
-        { id: "payment", kw: ["payment", "pay", "advance", "upi", "invoice", "refund", "paytm", "gpay", "installment", "emi", "bill"], a: "We confirm the amount in writing first. For larger projects we usually work with a part advance and the balance on delivery. Payment details are shared only after you agree to the quote." },
-        { id: "support", kw: ["support", "help", "problem", "issue", "training", "maintenance", "after", "service", "update", "changes"], a: "Every software package includes setup, training and WhatsApp support. " + "Tell us what you need and we will help." },
-        { id: "contact", kw: ["contact", "call", "phone", "number", "whatsapp", "talk", "speak", "baat", "email id", "address", "location", "office", "delhi", "where"], a: "Sarfaraz Tech Solutions, New Delhi 110086. WhatsApp / call: 9135041918. Email: alamsarfaraz050@gmail.com. " },
-        { id: "about", kw: ["who", "about", "sarfaraz", "owner", "company", "experience", "trust", "genuine", "real", "safe"], a: "I am the automated assistant of Sarfaraz Tech Solutions, New Delhi. We build custom software, Android apps and brand creatives for small businesses. See the <a href=\"#about\" data-go>About</a> section." },
-        { id: "custom", kw: ["custom", "tailor", "special", "different", "own", "specific", "requirement", "customise", "customize", "website"], a: "Yes, we build around your own workflow. Describe it in the <a href=\"#inquiry\" data-go>quote form</a> and we will send a fixed quote after a short call." },
-        { id: "lang", kw: ["language", "hindi", "urdu", "translate", "translation", "english", "bhasha"], a: "Use the language selector at the top of the page to view the site in Hindi, Urdu, Bengali, Punjabi, Gujarati, Marathi, Tamil or Telugu. Translation is automatic. You can also write to me in Hindi or English." },
-        { id: "thanks", kw: ["thanks", "thank", "thankyou", "shukriya", "dhanyavad", "ok", "okay", "theek", "bye"], a: "You are welcome! If you want a call back, type your 10-digit mobile number here." }
+        { id: "greet", kw: ["hi", "hello", "hey", "hii", "hiii", "namaste", "namaskar", "good morning", "good evening", "good afternoon", "नमस्ते", "नमस्कार", "हेलो", "हैलो", "प्रणाम", "salam", "assalamualaikum", "adaab"],
+          a: { en: "Hello! I can help with prices, demos and how it works. What would you like to know?",
+               hi: "नमस्ते! मैं कीमत, डेमो और काम करने के तरीक़े के बारे में आपकी मदद कर सकता हूँ। आप क्या जानना चाहते हैं?",
+               hn: "Namaste! Main prices, demo aur kaam karne ke tareeke ke baare mein aapki madad kar sakta hoon. Aap kya jaanna chahte hain?" } },
+        { id: "smalltalk", kw: ["how are you", "kaise ho", "kaisa ho", "kaise hain", "kya haal", "aap kaise", "कैसे हो", "कैसे हैं", "क्या हाल", "आप कैसे"],
+          a: { en: "I am doing well, thank you! How can I help you today?", hi: "मैं ठीक हूँ, धन्यवाद! बताइए, आज मैं आपकी क्या मदद कर सकता हूँ?", hn: "Main theek hoon, dhanyavad! Bataiye, aaj main aapki kya madad kar sakta hoon?" } },
+        { id: "human", kw: ["call me", "call back", "callback", "call karo", "call kar", "baat karni", "baat karna", "baat kar", "baat", "talk to", "speak to", "talk", "speak", "someone", "human", "insaan", "बात करनी", "बात करना", "बात कर", "बात", "कॉल करो", "कॉल कर", "इंसान"],
+          a: { en: "Sure! Type your 10-digit mobile number here and we will call you back, or %WA% to chat with a person.",
+               hi: "जी ज़रूर! यहाँ अपना 10 अंकों का मोबाइल नंबर लिखिए, हम आपको कॉल करेंगे, या किसी व्यक्ति से बात करने के लिए %WA%।",
+               hn: "Ji zaroor! Yahan apna 10 digit ka mobile number likhein, hum aapko call karenge, ya kisi insaan se baat karne ke liye %WA%." } },
+        { id: "overview", kw: ["what do you do", "what can you do", "what you offer", "services", "what services", "kya karte", "kya kar sakte", "kya kaam", "kya services", "kya milta", "kya milega", "kaun kaun", "क्या करते", "क्या कर सकते", "क्या काम", "सेवाएं", "सेवाएँ", "सर्विसेज", "क्या मिलता", "क्या मिलेगा"],
+          a: { en: "We offer:<ul><li>Custom software: hospital, shop POS, ERP, school (from &#8377;8,000)</li><li>Android apps (from &#8377;15,000)</li><li>Posters, posts, reels, wedding cards and logos (from &#8377;49)</li><li>Bulk promotional emails</li><li>Political party and organisation packages</li></ul>Ask me about any of these for details, or see " + P + "Pricing" + E + ".",
+               hi: "हम ये सेवाएँ देते हैं:<ul><li>कस्टम सॉफ़्टवेयर: अस्पताल, दुकान POS, ERP, स्कूल (₹8,000 से)</li><li>एंड्रॉयड ऐप (₹15,000 से)</li><li>पोस्टर, पोस्ट, रील, शादी के कार्ड और लोगो (₹49 से)</li><li>बल्क प्रमोशनल ईमेल</li><li>राजनीतिक दल और संगठनों के लिए पैकेज</li></ul>किसी के बारे में पूछिए, या " + P + "Pricing" + E + " देखिए।",
+               hn: "Hum ye services dete hain:<ul><li>Custom software: hospital, shop POS, ERP, school (₹8,000 se)</li><li>Android apps (₹15,000 se)</li><li>Poster, post, reel, wedding card aur logo (₹49 se)</li><li>Bulk promotional emails</li><li>Political party aur organisation packages</li></ul>Kisi ke baare mein poochiye, ya " + P + "Pricing" + E + " dekhiye." } },
+        { id: "howit", kw: ["how it works", "how does", "process", "steps", "get started", "kaise kaam", "kaise hota", "kaise milega", "kaise order", "kaise shuru", "order", "start", "कैसे काम", "कैसे होता", "कैसे मिलेगा", "कैसे शुरू", "शुरू", "प्रक्रिया"],
+          a: { en: "How it works:<ol><li>Tell us what you need (form, chat or WhatsApp).</li><li>We send a fixed quote in writing (a free sample first for creatives).</li><li>You approve; for bigger projects a part advance starts the work.</li><li>We deliver, train you and support you after delivery.</li></ol>" + Q + "Start with the form" + E + ".",
+               hi: "काम कैसे होता है:<ol><li>आप बताइए कि क्या चाहिए (फ़ॉर्म, चैट या व्हाट्सऐप से)।</li><li>हम लिखित में तय कोटेशन भेजते हैं (क्रिएटिव्स में पहले मुफ़्त सैंपल)।</li><li>आप मंज़ूरी देते हैं; बड़े प्रोजेक्ट में कुछ एडवांस से काम शुरू होता है।</li><li>हम डिलीवरी, ट्रेनिंग और बाद में सपोर्ट देते हैं।</li></ol>" + Q + "फ़ॉर्म से शुरू करें" + E + "।",
+               hn: "Kaam kaise hota hai:<ol><li>Aap bataiye kya chahiye (form, chat ya WhatsApp se).</li><li>Hum likhit mein fixed quote bhejte hain (creatives mein pehle free sample).</li><li>Aap approve karte hain; bade projects mein part advance se kaam shuru hota hai.</li><li>Hum delivery, training aur baad mein support dete hain.</li></ol>" + Q + "Form se shuru karein" + E + "." } },
+        { id: "price", kw: ["price", "prices", "pricing", "rate", "rates", "cost", "charges", "charge", "kitna", "kitne", "kitni", "paisa", "paise", "fees", "fee", "budget", "kimat", "daam", "rupaye", "कीमत", "कीमतें", "दाम", "रेट", "कितना", "कितने", "कितनी", "खर्च", "फीस", "पैसे", "शुल्क", "मूल्य", "रुपये", "बजट"],
+          a: { en: "Our starting rates:<ul><li>Post / Poster: &#8377;49 each</li><li>Reel / ad video: &#8377;199</li><li>Logo &amp; brand kit: &#8377;599</li><li>Wedding card: &#8377;99, birthday/event invitation or visiting card: &#8377;49</li><li>Monthly plans: &#8377;499 to &#8377;9,999</li><li>Software: from &#8377;8,000 (shop POS) to &#8377;30,000 (ERP)</li></ul>See everything in " + P + "Pricing" + E + ". The final amount is always confirmed in writing before you pay.",
+               hi: "हमारी शुरुआती दरें:<ul><li>पोस्ट / पोस्टर: ₹49 प्रति</li><li>रील / विज्ञापन वीडियो: ₹199</li><li>लोगो और ब्रांड किट: ₹599</li><li>शादी का कार्ड: ₹99, जन्मदिन/इवेंट इनविटेशन या विज़िटिंग कार्ड: ₹49</li><li>मासिक प्लान: ₹499 से ₹9,999</li><li>सॉफ़्टवेयर: ₹8,000 (दुकान POS) से ₹30,000 (ERP) तक</li></ul>सब कुछ " + P + "Pricing" + E + " में देखिए। भुगतान से पहले अंतिम रक़म हमेशा लिखित में पक्की की जाती है।",
+               hn: "Hamare shuruaati rates:<ul><li>Post / Poster: &#8377;49 each</li><li>Reel / ad video: &#8377;199</li><li>Logo &amp; brand kit: &#8377;599</li><li>Wedding card: &#8377;99, birthday/event invitation ya visiting card: &#8377;49</li><li>Monthly plans: &#8377;499 se &#8377;9,999</li><li>Software: &#8377;8,000 (shop POS) se &#8377;30,000 (ERP) tak</li></ul>Sab kuch " + P + "Pricing" + E + " mein dekhiye. Payment se pehle final amount hamesha likhit mein confirm hota hai." } },
+        { id: "hms", kw: ["hospital", "hospitals", "clinic", "clinics", "hms", "opd", "ipd", "doctor", "doctors", "patient", "patients", "pharmacy", "nursing home", "अस्पताल", "हॉस्पिटल", "क्लिनिक", "डॉक्टर", "मरीज"],
+          a: { en: "Hospital &amp; Clinic Management (HMS): from &#8377;25,000. Includes OPD / IPD and token queue, patient records, bed tracking, pharmacy and lab billing, and owner reports. Try the " + B + "live demo" + E + ", then " + Q + "request a quote" + E + ".",
+               hi: "अस्पताल और क्लिनिक मैनेजमेंट सिस्टम (HMS): ₹25,000 से शुरू। इसमें OPD/IPD और टोकन कतार, मरीज़ों का रिकॉर्ड, बेड ट्रैकिंग, फ़ार्मेसी और लैब बिलिंग तथा मालिक के लिए रिपोर्ट शामिल हैं। पहले " + B + "लाइव डेमो" + E + " देखिए, फिर " + Q + "कोटेशन माँगिए" + E + "।",
+               hn: "Hospital aur Clinic Management System (HMS): &#8377;25,000 se shuru. Isme OPD/IPD aur token queue, patient records, bed tracking, pharmacy aur lab billing, aur owner ke liye reports shamil hain. Pehle " + B + "live demo" + E + " dekhiye, phir " + Q + "quote maangiye" + E + "." } },
+        { id: "pos", kw: ["pos", "billing", "retail", "shop", "store", "dukaan", "dukan", "gst", "inventory", "stock", "barcode", "kirana", "supermarket", "दुकान", "बिलिंग", "जीएसटी", "स्टॉक", "बारकोड", "किराना"],
+          a: { en: "Shop &amp; Retail Billing (POS): from &#8377;8,000. GST billing and barcode, stock with low-stock alerts, customer dues and daily sales reports. Try the " + B + "demo" + E + ", then " + Q + "request a quote" + E + ".",
+               hi: "दुकान और रिटेल बिलिंग (POS): ₹8,000 से शुरू। GST बिलिंग और बारकोड, स्टॉक व कम-स्टॉक अलर्ट, ग्राहकों का बकाया (उधार) और रोज़ की बिक्री रिपोर्ट। " + B + "डेमो" + E + " देखिए, फिर " + Q + "कोटेशन माँगिए" + E + "।",
+               hn: "Dukaan aur Retail Billing (POS): &#8377;8,000 se shuru. GST billing aur barcode, stock aur low-stock alert, customer ka udhaar (dues) aur daily sales report. " + B + "Demo" + E + " dekhiye, phir " + Q + "quote maangiye" + E + "." } },
+        { id: "erp", kw: ["erp", "accounts", "accounting", "ledger", "hisab", "company", "factory", "manufacturing", "ईआरपी", "हिसाब", "कंपनी", "फैक्ट्री", "अकाउंट", "अकाउंट्स", "दफ्तर"],
+          a: { en: "Company ERP &amp; Accounts: from &#8377;30,000. Inventory, purchase and sales, party ledger and GST reports, staff / HR and an owner dashboard. Try the " + B + "demo" + E + ", then " + Q + "request a quote" + E + ".",
+               hi: "कंपनी ERP और अकाउंट्स: ₹30,000 से शुरू। इन्वेंटरी, ख़रीद-बिक्री, पार्टी लेजर और GST रिपोर्ट, स्टाफ/HR और मालिक का डैशबोर्ड। " + B + "डेमो" + E + " देखिए, फिर " + Q + "कोटेशन माँगिए" + E + "।",
+               hn: "Company ERP aur Accounts: &#8377;30,000 se shuru. Inventory, purchase-sales, party ledger aur GST reports, staff/HR aur owner dashboard. " + B + "Demo" + E + " dekhiye, phir " + Q + "quote maangiye" + E + "." } },
+        { id: "school", kw: ["school", "schools", "coaching", "institute", "tuition", "student", "students", "college", "स्कूल", "कोचिंग", "विद्यालय", "कॉलेज", "छात्र", "ट्यूशन"],
+          a: { en: "School &amp; Coaching panel: from &#8377;10,000. Admissions and attendance, fee receipts, results and report cards, parent alerts. Try the " + B + "demo" + E + ", then " + Q + "request a quote" + E + ".",
+               hi: "स्कूल और कोचिंग पैनल: ₹10,000 से शुरू। एडमिशन और उपस्थिति, फ़ीस रसीद, रिज़ल्ट और रिपोर्ट कार्ड, अभिभावकों को अलर्ट। " + B + "डेमो" + E + " देखिए, फिर " + Q + "कोटेशन माँगिए" + E + "।",
+               hn: "School aur Coaching panel: &#8377;10,000 se shuru. Admission aur attendance, fee receipt, result aur report card, parents ko alert. " + B + "Demo" + E + " dekhiye, phir " + Q + "quote maangiye" + E + "." } },
+        { id: "software", kw: ["software", "softwares", "system", "panel", "management", "सॉफ्टवेयर", "सॉफ़्टवेयर", "सिस्टम", "पैनल"],
+          a: { en: "Software starting rates:<ul><li>Hospital / Clinic HMS: &#8377;25,000</li><li>Shop &amp; Retail POS: &#8377;8,000</li><li>Company ERP &amp; Accounts: &#8377;30,000</li><li>School &amp; Coaching panel: &#8377;10,000</li></ul>Try it first in the " + B + "live business demo" + E + ", then " + Q + "request a quote" + E + ".",
+               hi: "सॉफ़्टवेयर की शुरुआती दरें:<ul><li>अस्पताल / क्लिनिक HMS: ₹25,000</li><li>दुकान और रिटेल POS: ₹8,000</li><li>कंपनी ERP और अकाउंट्स: ₹30,000</li><li>स्कूल और कोचिंग पैनल: ₹10,000</li></ul>पहले " + B + "लाइव बिज़नेस डेमो" + E + " में आज़माइए, फिर " + Q + "कोटेशन माँगिए" + E + "।",
+               hn: "Software ke shuruaati rates:<ul><li>Hospital / Clinic HMS: &#8377;25,000</li><li>Shop &amp; Retail POS: &#8377;8,000</li><li>Company ERP &amp; Accounts: &#8377;30,000</li><li>School &amp; Coaching panel: &#8377;10,000</li></ul>Pehle " + B + "live business demo" + E + " mein try kijiye, phir " + Q + "quote maangiye" + E + "." } },
+        { id: "android", kw: ["android", "apk", "mobile app", "app", "apps", "application", "playstore", "play store", "ऐप", "एप", "एंड्रॉयड", "एंड्रॉइड", "मोबाइल ऐप", "एप्लीकेशन"],
+          a: { en: "A custom Android app (your name, logo, login, notifications, live sync with the web panel) starts at &#8377;15,000. See the app in the " + B + "business demo" + E + ".",
+               hi: "कस्टम एंड्रॉयड ऐप (आपका नाम, लोगो, लॉगिन, नोटिफ़िकेशन, वेब पैनल से लाइव सिंक) ₹15,000 से शुरू होता है। ऐप को " + B + "बिज़नेस डेमो" + E + " में देखिए।",
+               hn: "Custom Android app (aapka naam, logo, login, notifications, web panel se live sync) &#8377;15,000 se shuru hota hai. App ko " + B + "business demo" + E + " mein dekhiye." } },
+        { id: "creatives", kw: ["poster", "posters", "post", "posts", "reel", "reels", "video", "videos", "logo", "creative", "creatives", "design", "instagram", "social media", "branding", "brand kit", "banner", "wedding", "shaadi", "card", "cards", "invitation", "invite", "birthday", "visiting", "nimantran", "पोस्टर", "पोस्ट", "रील", "रील्स", "वीडियो", "लोगो", "डिज़ाइन", "डिजाइन", "इंस्टाग्राम", "बैनर", "शादी", "कार्ड", "निमंत्रण", "इनविटेशन", "जन्मदिन", "बर्थडे", "विजिटिंग", "विज़िटिंग"],
+          a: { en: "Creatives: Post &#8377;49, Poster &#8377;49, Wedding card &#8377;99, Birthday/event invitation &#8377;49, Visiting card &#8377;49, Reel/ad video &#8377;199, Logo &amp; brand kit &#8377;599. Monthly plans bundle posts, videos, captions and a content calendar. " + P + "See plans" + E + " or look at " + C + "sample work" + E + ".",
+               hi: "क्रिएटिव्स: पोस्ट ₹49, पोस्टर ₹49, शादी का कार्ड ₹99, जन्मदिन/इवेंट इनविटेशन ₹49, विज़िटिंग कार्ड ₹49, रील/विज्ञापन वीडियो ₹199, लोगो और ब्रांड किट ₹599। मासिक प्लान में पोस्ट, वीडियो, कैप्शन और कंटेंट कैलेंडर मिलते हैं। " + P + "प्लान देखिए" + E + " या " + C + "सैंपल काम" + E + " देखिए।",
+               hn: "Creatives: Post &#8377;49, Poster &#8377;49, Wedding card &#8377;99, Birthday/event invitation &#8377;49, Visiting card &#8377;49, Reel/ad video &#8377;199, Logo &amp; brand kit &#8377;599. Monthly plans mein posts, videos, captions aur content calendar milte hain. " + P + "Plans dekhiye" + E + " ya " + C + "sample work" + E + " dekhiye." } },
+        { id: "plan", kw: ["plan", "plans", "monthly", "starter", "growth", "business plan", "scale", "package", "packages", "subscription", "प्लान", "मासिक", "महीने", "पैकेज", "सब्सक्रिप्शन"],
+          a: { en: "Monthly plans: Starter &#8377;499 (10 posts + 5 reels), Growth &#8377;1,999, Business &#8377;4,999, Scale &#8377;9,999. Open " + P + "Pricing" + E + ", tap a plan to see what is included and send your request right there.",
+               hi: "मासिक प्लान: Starter ₹499 (10 पोस्ट + 5 रील), Growth ₹1,999, Business ₹4,999, Scale ₹9,999। " + P + "Pricing" + E + " खोलिए, प्लान पर टैप करके देखिए उसमें क्या-क्या है और वहीं से अपनी रिक्वेस्ट भेज दीजिए।",
+               hn: "Monthly plans: Starter &#8377;499 (10 posts + 5 reels), Growth &#8377;1,999, Business &#8377;4,999, Scale &#8377;9,999. " + P + "Pricing" + E + " kholiye, plan par tap karke dekhiye usme kya-kya hai aur wahin se apni request bhej dijiye." } },
+        { id: "demo", kw: ["demo", "demos", "sample", "samples", "trial", "try", "dikhao", "dikha", "dikhaiye", "example", "preview", "live", "डेमो", "सैंपल", "नमूना", "दिखाओ", "दिखाइए", "दिखाएँ", "लाइव"],
+          a: { en: "You can try everything first: " + D + "Live Demos" + E + " and the " + B + "business ERP + app demo" + E + " (22 business types). Demo screens use sample data.",
+               hi: "आप पहले सब कुछ आज़मा सकते हैं: " + D + "लाइव डेमो" + E + " और " + B + "बिज़नेस ERP + ऐप डेमो" + E + " (22 तरह के बिज़नेस)। डेमो में सैंपल डेटा है।",
+               hn: "Aap pehle sab kuch try kar sakte hain: " + D + "Live Demos" + E + " aur " + B + "business ERP + app demo" + E + " (22 business types). Demo mein sample data hai." } },
+        { id: "email", kw: ["bulk email", "bulk", "email", "emails", "mail", "mailer", "newsletter", "promotional", "promotion", "email marketing", "campaign", "बल्क", "ईमेल", "मेल", "प्रमोशनल", "न्यूज़लेटर", "कैंपेन"],
+          a: { en: "Yes, we run bulk and promotional email campaigns: designed HTML email, contact-list clean-up, scheduled sending, sender details and an unsubscribe link, plus a delivery and click report. Price depends on list size and number of campaigns. " + P + "Request an email quote" + E + ".",
+               hi: "जी हाँ, हम बल्क और प्रमोशनल ईमेल कैंपेन चलाते हैं: डिज़ाइन किया हुआ HTML ईमेल, कॉन्टैक्ट लिस्ट की सफ़ाई, शेड्यूल्ड सेंडिंग, सेंडर की जानकारी और अनसब्सक्राइब लिंक, साथ में डिलीवरी और क्लिक रिपोर्ट। क़ीमत लिस्ट के साइज़ और कैंपेन की संख्या पर निर्भर करती है। " + P + "ईमेल कोटेशन माँगिए" + E + "।",
+               hn: "Ji haan, hum bulk aur promotional email campaign chalate hain: designed HTML email, contact list ki safai, scheduled sending, sender details aur unsubscribe link, saath mein delivery aur click report. Price list size aur campaigns ki sankhya par depend karta hai. " + P + "Email quote maangiye" + E + "." } },
+        { id: "political", kw: ["political", "party", "politics", "leader", "neta", "election", "chunav", "campaign poster", "ward", "mla", "councillor", "ngo", "organisation", "organization", "राजनीतिक", "राजनीति", "पार्टी", "नेता", "चुनाव", "विधायक", "पार्षद", "संगठन"],
+          a: { en: "Yes, we build tools and creatives for political parties and organisations: member/volunteer ERP, events, grievance tracking, an Android app, posters and reels. See the " + B + "live demo" + E + " (choose Political Party / Leader). We make tools and creatives only; content must follow election rules.",
+               hi: "जी हाँ, हम राजनीतिक दलों और संगठनों के लिए टूल और क्रिएटिव बनाते हैं: सदस्य/स्वयंसेवक ERP, कार्यक्रम, शिकायत ट्रैकिंग, एंड्रॉयड ऐप, पोस्टर और रील। " + B + "लाइव डेमो" + E + " देखिए (Political Party / Leader चुनिए)। हम केवल टूल और क्रिएटिव बनाते हैं; कंटेंट चुनाव के नियमों के अनुसार होना चाहिए।",
+               hn: "Ji haan, hum political parties aur organisations ke liye tools aur creatives banate hain: member/volunteer ERP, events, grievance tracking, Android app, posters aur reels. " + B + "Live demo" + E + " dekhiye (Political Party / Leader chuniye). Hum sirf tools aur creatives banate hain; content election rules ke anusaar hona chahiye." } },
+        { id: "time", kw: ["time", "timeline", "days", "delivery", "kitne din", "kab", "how long", "deadline", "urgent", "fast", "jaldi", "duration", "turnaround", "समय", "कितने दिन", "कब", "जल्दी", "डिलीवरी", "दिन"],
+          a: { en: "Posters and posts are usually ready within 24 to 48 hours. Software depends on the modules chosen, normally a few weeks after we agree on the scope. We confirm the timeline in writing with your quote.",
+               hi: "पोस्टर और पोस्ट आमतौर पर 24 से 48 घंटे में तैयार हो जाते हैं। सॉफ़्टवेयर चुने गए मॉड्यूल पर निर्भर करता है, स्कोप तय होने के बाद आमतौर पर कुछ हफ़्ते लगते हैं। समय-सीमा हम कोटेशन के साथ लिखित में बताते हैं।",
+               hn: "Posters aur posts aam taur par 24 se 48 ghante mein ready ho jate hain. Software chune gaye modules par depend karta hai, scope tay hone ke baad aam taur par kuch hafte lagte hain. Timeline hum quote ke saath likhit mein batate hain." } },
+        { id: "payment", kw: ["payment", "pay", "advance", "upi", "invoice", "refund", "paytm", "gpay", "phonepe", "installment", "emi", "भुगतान", "पेमेंट", "एडवांस", "यूपीआई", "रिफंड", "किस्त"],
+          a: { en: "We confirm the amount in writing first. For larger projects we usually work with a part advance and the balance on delivery. Payment details are shared only after you agree to the quote.",
+               hi: "हम पहले रक़म लिखित में पक्की करते हैं। बड़े प्रोजेक्ट में आमतौर पर कुछ एडवांस और बाक़ी रक़म डिलीवरी पर ली जाती है। भुगतान की जानकारी कोटेशन मंज़ूर होने के बाद ही साझा की जाती है।",
+               hn: "Hum pehle amount likhit mein confirm karte hain. Bade projects mein aam taur par part advance aur baaki delivery par liya jata hai. Payment details quote approve hone ke baad hi share ki jati hain." } },
+        { id: "support", kw: ["support", "help", "problem", "issue", "training", "maintenance", "after", "update", "changes", "madad", "samasya", "सहायता", "मदद", "समस्या", "ट्रेनिंग", "सपोर्ट"],
+          a: { en: "Every software package includes setup, training and WhatsApp support. Tell us what you need and we will help.",
+               hi: "हर सॉफ़्टवेयर पैकेज में सेटअप, ट्रेनिंग और व्हाट्सऐप सपोर्ट शामिल है। आपको क्या चाहिए बताइए, हम मदद करेंगे।",
+               hn: "Har software package mein setup, training aur WhatsApp support shamil hai. Aapko kya chahiye bataiye, hum madad karenge." } },
+        { id: "contact", kw: ["contact", "call", "phone", "number", "whatsapp", "email id", "address", "location", "office", "delhi", "where", "संपर्क", "कॉल", "फोन", "नंबर", "व्हाट्सऐप", "व्हाट्सएप", "पता", "दिल्ली", "कहाँ", "कहां", "kahan", "kaha"],
+          a: { en: "Sarfaraz Tech Solutions, New Delhi 110086. WhatsApp / call: 9135041918. Email: alamsarfaraz050@gmail.com. %WA%",
+               hi: "सरफ़राज़ टेक सॉल्यूशंस, नई दिल्ली 110086। व्हाट्सऐप / कॉल: 9135041918। ईमेल: alamsarfaraz050@gmail.com। %WA%",
+               hn: "Sarfaraz Tech Solutions, New Delhi 110086. WhatsApp / call: 9135041918. Email: alamsarfaraz050@gmail.com. %WA%" } },
+        { id: "about", kw: ["who are you", "who", "about", "sarfaraz", "owner", "experience", "trust", "genuine", "real", "safe", "fraud", "legit", "kaun", "bharosa", "कौन", "भरोसा", "भरोसेमंद", "अनुभव", "असली"],
+          a: { en: "I am the automated assistant of Sarfaraz Tech Solutions, New Delhi. We build custom software, Android apps and brand creatives for small businesses. See the " + AB + "About" + E + " section.",
+               hi: "मैं सरफ़राज़ टेक सॉल्यूशंस, नई दिल्ली का ऑटोमैटिक असिस्टेंट हूँ। हम छोटे कारोबारों के लिए कस्टम सॉफ़्टवेयर, एंड्रॉयड ऐप और ब्रांड क्रिएटिव्स बनाते हैं। " + AB + "About" + E + " सेक्शन देखिए।",
+               hn: "Main Sarfaraz Tech Solutions, New Delhi ka automatic assistant hoon. Hum chhote businesses ke liye custom software, Android apps aur brand creatives banate hain. " + AB + "About" + E + " section dekhiye." } },
+        { id: "custom", kw: ["custom", "tailor", "special", "different", "own", "specific", "requirement", "customise", "customize", "website", "कस्टम", "खास", "अपना", "वेबसाइट", "ज़रूरत", "जरूरत", "zaroorat", "jarurat"],
+          a: { en: "Yes, we build around your own workflow. Describe it in the " + Q + "quote form" + E + " and we will send a fixed quote after a short call.",
+               hi: "जी हाँ, हम आपके अपने वर्कफ़्लो के हिसाब से बनाते हैं। " + Q + "कोटेशन फ़ॉर्म" + E + " में बताइए, छोटी कॉल के बाद हम तय कोटेशन भेज देंगे।",
+               hn: "Ji haan, hum aapke apne workflow ke hisaab se banate hain. " + Q + "Quote form" + E + " mein bataiye, chhoti call ke baad hum fixed quote bhej denge." } },
+        { id: "lang", kw: ["language", "hindi", "urdu", "translate", "translation", "english", "bhasha", "हिंदी", "हिन्दी", "भाषा", "अनुवाद", "अंग्रेजी", "अंग्रेज़ी", "इंग्लिश"],
+          a: { en: "Use the language selector at the top of the page to view the site in Hindi, Urdu, Bengali, Punjabi, Gujarati, Marathi, Tamil or Telugu. Translation is automatic. You can also write to me in Hindi, Hinglish or English.",
+               hi: "आप मुझसे हिन्दी, Hinglish या अंग्रेज़ी में बात कर सकते हैं। पूरी वेबसाइट को हिन्दी, उर्दू, बंगाली, पंजाबी, गुजराती, मराठी, तमिल या तेलुगु में देखने के लिए पेज के ऊपर भाषा चुनिए।",
+               hn: "Aap mujhse Hindi, Hinglish ya English mein baat kar sakte hain. Poori website ko Hindi, Urdu, Bengali, Punjabi, Gujarati, Marathi, Tamil ya Telugu mein dekhne ke liye page ke upar language select kijiye." } },
+        { id: "thanks", kw: ["thanks", "thank", "thankyou", "shukriya", "dhanyavad", "ok", "okay", "theek", "thik", "bye", "धन्यवाद", "शुक्रिया", "ठीक", "अच्छा", "बाय"],
+          a: { en: "You are welcome! If you want a call back, type your 10-digit mobile number here.",
+               hi: "आपका स्वागत है! कॉल-बैक चाहिए तो यहाँ अपना 10 अंकों का मोबाइल नंबर लिख दीजिए।",
+               hn: "Aapka swagat hai! Call back chahiye to yahan apna 10 digit ka mobile number likh dijiye." } }
       ];
-      var FALL = "I am not sure about that one. You can type your 10-digit mobile number and we will call you back, or ";
-      function norm(t) { return " " + t.toLowerCase().replace(/[^a-z0-9ऀ-ॿ ]+/g, " ").replace(/\s+/g, " ").trim() + " "; }
-      function score(t, e) { var sc = 0; e.kw.forEach(function (k) { var hit = k.indexOf(" ") > -1 ? t.indexOf(" " + k) > -1 : (k.length <= 3 ? t.indexOf(" " + k + " ") > -1 : t.indexOf(" " + k) > -1); if (hit) sc += k.length > 3 ? 2 : 1; }); return sc; }
+      var BY = {}; KB.forEach(function (e) { BY[e.id] = e; });
+      var SERVICE_IDS = { hms: 1, pos: 1, erp: 1, school: 1, software: 1, android: 1, creatives: 1, plan: 1, email: 1, political: 1, custom: 1 };
+      var NOISE = { greet: 1, thanks: 1, lang: 1, smalltalk: 1 };
+      var HN = {}; ("kya kyu kyun kaise kaisa kaisi kitna kitne kitni hai hain ho hoga hogi karo kar karna karne karta karte karti sakte sakta sakti chahiye chahta chahte chahti mujhe mera meri mere hum humein hame aap aapka aapke aapki apka apki apke tum tumhare batao bataiye batana bataye dikhao dikhaiye dedo dena dijiye nahi nahin haan ji mein bhi aur wala wali wale liye lagega milega milta zaroorat jarurat sawal sawaal jankari jaankari madad namaste shukriya dhanyavad theek thik accha acha kuch abhi jaldi banao banwana banvana banana lena puchna poochna kab kahan kaha kaun konsa kaunsa kisi iska iski uska uski isme isko pe ka ki ke ko tha thi raha rahe rahi lagta lagti rupaye paise paisa baare baat bolo samjhao hona hota hote dukaan dukan chahiye sirf bas bahut thoda zyada kam").split(" ").forEach(function (w) { HN[w] = 1; });
+      function dn(s) { return s.replace(/़/g, "").replace(/ँ/g, "ं").replace(/न्(?=[कखगघचछजझटठडढतथदधपफबभ])/g, "ं"); }
+      KB.forEach(function (e) { var seen = {}; e.kw = e.kw.map(dn).filter(function (k) { if (seen[k]) return false; seen[k] = 1; return true; }); });
+      function norm(t) { return " " + dn(t.toLowerCase()).replace(/[^a-z0-9ऀ-ॿ ]+/g, " ").replace(/\s+/g, " ").trim() + " "; }
+      function score(t, e) { var sc = 0; e.kw.forEach(function (k) { var hit = k.indexOf(" ") > -1 ? t.indexOf(" " + k) > -1 : (k.length <= 3 ? t.indexOf(" " + k + " ") > -1 : t.indexOf(" " + k) > -1); if (hit) sc += k.indexOf(" ") > -1 ? 3 : (k.length > 3 ? 2 : 1); }); return sc; }
+      function lev(a, b) { var m = a.length, n = b.length, i, j, p = [], c; if (Math.abs(m - n) > 2) return 9; for (j = 0; j <= n; j++) p[j] = j; for (i = 1; i <= m; i++) { var prev = p[0]; p[0] = i; for (j = 1; j <= n; j++) { c = p[j]; p[j] = Math.min(p[j] + 1, p[j - 1] + 1, prev + (a.charAt(i - 1) === b.charAt(j - 1) ? 0 : 1)); prev = c; } } return p[n]; }
+      function fuzzy(t, e) { var toks = t.trim().split(" "), sc = 0; e.kw.forEach(function (k) { if (k.indexOf(" ") > -1 || k.length < 5 || /[^a-z]/.test(k)) return; for (var i = 0; i < toks.length; i++) { var w = toks[i]; if (w.length < 5 || /[^a-z]/.test(w)) continue; var d = lev(w, k); if (d > 0 && d <= (k.length >= 8 ? 2 : 1)) { sc = Math.max(sc, 2); break; } } }); return sc; }
       function plain(h) { var d = document.createElement("div"); d.innerHTML = h; return (d.textContent || "").replace(/\s+/g, " ").trim(); }
       function add(cls, html, isText) { var d = document.createElement("div"); d.className = "cm " + cls; if (isText) d.textContent = html; else d.innerHTML = html; logEl.appendChild(d); logEl.scrollTop = cls === "bot" && d.offsetHeight > logEl.clientHeight * 0.6 ? Math.max(0, d.offsetTop - logEl.offsetTop - 8) : logEl.scrollHeight; }
-      function log(q, a, intent, extra) {
+      function log(q, a, intent, extra, lg) {
         if (sent >= MAXLOG) return; sent++;
         if (!isConfigured) return;
-        var body = { type: "chat", sid: sid, lang: document.documentElement.lang || "en", page: location.hash || "/", q: q.slice(0, 500), a: plain(a).slice(0, 800), intent: intent };
+        var body = { type: "chat", sid: sid, lang: lg || "en", page: location.hash || "/", q: q.slice(0, 500), a: plain(a).slice(0, 800), intent: intent };
         if (extra) { for (var k in extra) body[k] = extra[k]; }
         try { fetch(APPS_SCRIPT_WEB_APP_URL, { method: "POST", headers: { "Content-Type": "text/plain;charset=utf-8" }, body: JSON.stringify(body), keepalive: true, mode: "no-cors" }).catch(function () {}); } catch (e) {}
       }
+
+      /* language of the visitor's message: Devanagari -> Hindi, Roman Hindi -> Hinglish, else English */
+      function pickLang(q, t) {
+        if (/(in english|english me|english mein|english mai|english please|इंग्लिश में|अंग्रेज़ी में|अंग्रेजी में|speak english)/i.test(q)) { pref = "en"; return { l: "en", explicit: true }; }
+        if (/(hindi|हिन्दी|हिंदी)\s*(me|mein|mai|mei|में|मे|bolo|bol|please|plz)|in hindi|speak hindi|hindi language|^\s*(hindi|हिन्दी|हिंदी)\s*[.!?।]*\s*$/i.test(q)) { pref = "hi"; return { l: "hi", explicit: true }; }
+        var toks = t.trim().split(" "), hn = 0; toks.forEach(function (w) { if (HN[w]) hn++; });
+        if (/[ऀ-ॿ]/.test(q)) return { l: "hi" };
+        if (hn >= 1) return { l: pref === "hi" ? "hi" : "hn" };
+        if (toks.length <= 1) return { l: pref || lastLang };
+        if (pref && toks.length <= 3) return { l: pref };
+        return { l: "en" };
+      }
+      var BUD = [
+        [49, { en: "The smallest item starts at &#8377;49 (a post, poster, birthday invitation or visiting card). Tell us what you need and we will suggest the best option.", hi: "सबसे छोटा काम ₹49 से शुरू होता है (पोस्ट, पोस्टर, जन्मदिन इनविटेशन या विज़िटिंग कार्ड)। आपको क्या चाहिए बताइए, हम सबसे सही विकल्प सुझाएँगे।", hn: "Sabse chhota kaam &#8377;49 se shuru hota hai (post, poster, birthday invitation ya visiting card). Aapko kya chahiye bataiye, hum sabse sahi option batayenge." }],
+        [199, { en: "That fits posts, posters, a visiting card or birthday invitation (&#8377;49 each) or a wedding card (&#8377;99). A reel is &#8377;199.", hi: "इसमें पोस्ट, पोस्टर, विज़िटिंग कार्ड या जन्मदिन इनविटेशन (₹49 प्रति) या शादी का कार्ड (₹99) आ जाते हैं। रील ₹199 की है।", hn: "Isme post, poster, visiting card ya birthday invitation (&#8377;49 each) ya wedding card (&#8377;99) aa jate hain. Reel &#8377;199 ki hai." }],
+        [499, { en: "That fits a reel (&#8377;199), a wedding card (&#8377;99) and several posts or posters (&#8377;49 each). The Starter plan (&#8377;499) is just above this.", hi: "इसमें एक रील (₹199), शादी का कार्ड (₹99) और कई पोस्ट या पोस्टर (₹49 प्रति) आ जाते हैं। Starter प्लान (₹499) इससे थोड़ा ऊपर है।", hn: "Isme ek reel (&#8377;199), wedding card (&#8377;99) aur kai post ya poster (&#8377;49 each) aa jate hain. Starter plan (&#8377;499) isse thoda upar hai." }],
+        [1999, { en: "The Starter plan (&#8377;499: 10 posts + 5 reels a month) fits well, or a logo &amp; brand kit (&#8377;599).", hi: "Starter प्लान (₹499: हर महीने 10 पोस्ट + 5 रील) अच्छा रहेगा, या लोगो और ब्रांड किट (₹599)।", hn: "Starter plan (&#8377;499: har mahine 10 posts + 5 reels) accha rahega, ya logo &amp; brand kit (&#8377;599)." }],
+        [8000, { en: "The Growth plan (&#8377;1,999: 30 posts + 10 reels) or Business (&#8377;4,999) fits, for regular social media. Software starts at &#8377;8,000.", hi: "रोज़ाना सोशल मीडिया के लिए Growth प्लान (₹1,999: 30 पोस्ट + 10 रील) या Business (₹4,999) ठीक रहेगा। सॉफ़्टवेयर ₹8,000 से शुरू होता है।", hn: "Regular social media ke liye Growth plan (&#8377;1,999: 30 posts + 10 reels) ya Business (&#8377;4,999) theek rahega. Software &#8377;8,000 se shuru hota hai." }],
+        [15000, { en: "That fits Shop POS (from &#8377;8,000) or a School / Coaching panel (from &#8377;10,000), or the Scale plan (&#8377;9,999) for creatives.", hi: "इसमें दुकान POS (₹8,000 से) या स्कूल / कोचिंग पैनल (₹10,000 से) आ जाता है, और क्रिएटिव्स के लिए Scale प्लान (₹9,999) भी।", hn: "Isme Shop POS (&#8377;8,000 se) ya School / Coaching panel (&#8377;10,000 se) aa jata hai, aur creatives ke liye Scale plan (&#8377;9,999) bhi." }],
+        [25000, { en: "That fits a custom Android app (from &#8377;15,000), School / Coaching panel (from &#8377;10,000) or Shop POS (from &#8377;8,000).", hi: "इसमें कस्टम एंड्रॉयड ऐप (₹15,000 से), स्कूल / कोचिंग पैनल (₹10,000 से) या दुकान POS (₹8,000 से) आ जाता है।", hn: "Isme custom Android app (&#8377;15,000 se), School / Coaching panel (&#8377;10,000 se) ya Shop POS (&#8377;8,000 se) aa jata hai." }],
+        [30000, { en: "That fits a Hospital / Clinic HMS (from &#8377;25,000) and everything cheaper, such as an Android app, POS or school panel.", hi: "इसमें अस्पताल / क्लिनिक HMS (₹25,000 से) और उससे सस्ते सभी, जैसे एंड्रॉयड ऐप, POS या स्कूल पैनल आ जाते हैं।", hn: "Isme Hospital / Clinic HMS (&#8377;25,000 se) aur usse sasta sab kuch, jaise Android app, POS ya school panel aa jata hai." }],
+        [1e12, { en: "That covers Company ERP (from &#8377;30,000) and everything else we offer. For political party or tailor-made software we quote as per need.", hi: "इसमें कंपनी ERP (₹30,000 से) और हमारी बाक़ी सभी सेवाएँ आ जाती हैं। राजनीतिक दल या टेलर-मेड सॉफ़्टवेयर का कोटेशन ज़रूरत के हिसाब से देते हैं।", hn: "Isme Company ERP (&#8377;30,000 se) aur hamari baaki sab services aa jati hain. Political party ya tailor-made software ka quote zaroorat ke hisaab se dete hain." }]
+      ];
+      var HEAD = { en: "For a budget of &#8377;", hi: "₹", hn: "&#8377;" };
+      function budgetAnswer(amt, l) {
+        var tier = BUD[BUD.length - 1][1]; for (var i = 0; i < BUD.length; i++) { if (amt < BUD[i][0]) { tier = BUD[i][1]; break; } }
+        var n = amt.toLocaleString("en-IN");
+        var pre = l === "en" ? "For a budget of &#8377;" + n + ": " : l === "hi" ? "₹" + n + " के बजट में: " : "&#8377;" + n + " ke budget mein: ";
+        return pre + tier[l];
+      }
+      var UI = {
+        sw: { en: "Sure, I will reply in English from now on.", hi: "जी ज़रूर, अब से मैं हिन्दी में जवाब दूँगा।", hn: "Ji zaroor, ab se main Hindi mein jawab dunga." },
+        ask: { en: "What would you like to know?", hi: "आप क्या जानना चाहते हैं?", hn: "Aap kya jaanna chahte hain?" },
+        ph: { en: "Type your question...", hi: "अपना सवाल लिखिए...", hn: "Apna sawal likhiye..." },
+        thx: { en: "Thank you! We have noted %N% and will call or WhatsApp you shortly. You can also %WA2% now.", hi: "धन्यवाद! हमने %N% नोट कर लिया है, हम जल्द ही आपको कॉल या व्हाट्सऐप करेंगे। आप अभी भी %WA2% कर सकते हैं।", hn: "Dhanyavad! Humne %N% note kar liya hai, hum jaldi hi aapko call ya WhatsApp karenge. Aap abhi bhi %WA2% kar sakte hain." },
+        fall: { en: "I am not sure about that one. You can ask about prices, demos, software, posters or bulk email, type your 10-digit mobile number for a call back, or %WA%.", hi: "इस बारे में मुझे पक्का नहीं पता। आप कीमत, डेमो, सॉफ़्टवेयर, पोस्टर या बल्क ईमेल के बारे में पूछ सकते हैं, कॉल-बैक के लिए अपना 10 अंकों का मोबाइल नंबर लिख सकते हैं, या %WA%।", hn: "Is baare mein mujhe pakka nahi pata. Aap price, demo, software, poster ya bulk email ke baare mein puch sakte hain, call back ke liye apna 10 digit ka mobile number likh sakte hain, ya %WA%." },
+        wa: { en: "Hello Sarfaraz Tech Solutions, I have a question", hi: "Hello Sarfaraz Tech Solutions, I have a question", hn: "Hello Sarfaraz Tech Solutions, I have a question" }
+      };
+      var CHIPS = {
+        en: [["Prices", "What are your prices?"], ["Live demo", "Show me a demo"], ["Software", "Tell me about software"], ["Posters & reels", "posters and reels rates"], ["Bulk email", "bulk email service"], ["Talk to a person", "I want to talk to someone"]],
+        hi: [["कीमत", "आपकी कीमतें क्या हैं?"], ["लाइव डेमो", "डेमो दिखाइए"], ["सॉफ़्टवेयर", "सॉफ़्टवेयर के बारे में बताइए"], ["पोस्टर और रील", "पोस्टर और रील के रेट"], ["बल्क ईमेल", "बल्क ईमेल सेवा"], ["बात करें", "मुझे किसी से बात करनी है"]],
+        hn: [["Prices", "Aapke prices kya hain?"], ["Live demo", "Demo dikhao"], ["Software", "Software ke baare mein batao"], ["Poster aur reel", "poster aur reel ke rate"], ["Bulk email", "bulk email service"], ["Baat karein", "mujhe kisi se baat karni hai"]]
+      };
+      function fill(s, l, extraTxt) { return s.replace(/%WA%/g, G(extraTxt || "Hello Sarfaraz Tech Solutions, I have a question.", l)); }
+
       function reply(q) {
-        var digits = q.replace(/[\s\-+().]/g, "").replace(/^(91|0)(?=\d{10}$)/, "");
-        var out, intent, extra = null;
-        if (/^[6-9]\d{9}$/.test(digits)) {
-          phoneGiven = digits; intent = "callback"; extra = { phone: digits };
-          out = "Thank you! We have noted " + digits + " and will call or WhatsApp you shortly. You can also " + G("Hello Sarfaraz Tech Solutions, I chatted on your website and need help.") + " now.";
+        var t = norm(q), pl = pickLang(q, t), l = pl.l, out, intent, extra = null, res = [], i;
+        var flat = q.replace(/(\d)[\s\-]+(?=\d)/g, "$1");
+        var pm = flat.match(/(?:^|\D)(?:\+?91|0)?([6-9]\d{9})(?!\d)/);
+        var am = flat.replace(/(\d),(?=\d)/g, "$1").match(/(?:^|\D)(\d{2,7})(?!\d)/);
+        var money = /₹|\brs\b|\binr\b|rupee|rupaye|रुपये|रु(?=\s|$)|budget|बजट|\bme\b|\bmein\b|\btak\b|ke andar|तक|में|within|under|upto|up to/i.test(q);
+        if (pm) {
+          phoneGiven = pm[1]; intent = "callback"; extra = { phone: pm[1] };
+          out = UI.thx[l].replace("%N%", pm[1]).replace("%WA2%", G("Hello Sarfaraz Tech Solutions, I chatted on your website and need help.", l, 1));
+        } else if (am && money && parseInt(am[1], 10) >= 100 && !/\b(business|demo|types)\b/.test(t) ) {
+          intent = "budget"; out = budgetAnswer(parseInt(am[1], 10), l) + "<br>" + P + { en: "See Pricing", hi: "Pricing देखिए", hn: "Pricing dekhiye" }[l] + E + ".";
         } else {
-          var t = norm(q), best = null, bs = 0;
-          KB.forEach(function (e) { var sc = score(t, e); if (sc > bs) { bs = sc; best = e; } });
-          if (best) { intent = best.id; out = best.a; if (intent === "contact") out += G("Hello Sarfaraz Tech Solutions, I have a question."); }
-          else { intent = "fallback"; out = FALL + G("Hello Sarfaraz Tech Solutions, I have a question: " + q.slice(0, 120)) + "."; }
+          KB.forEach(function (e) { var sc = score(t, e); if (sc > 0) res.push({ e: e, sc: sc }); });
+          if (!res.length) { KB.forEach(function (e) { var sc = fuzzy(t, e); if (sc > 0) res.push({ e: e, sc: sc }); }); }
+          if (res.length > 1) { var hasSpec = res.some(function (r) { return !NOISE[r.e.id] && r.e.id !== "price"; }); if (hasSpec) res = res.filter(function (r) { return r.e.id !== "price"; }); }
+          res.sort(function (a, b) { return b.sc - a.sc; });
+          var best = res[0] || null;
+          if (best && best.e.id === "price" && lastId && SERVICE_IDS[lastId] && /\s(iska|iski|iske|uska|uski|uske|this|it|that|इसका|इसकी|इसके|उसका|उसकी)\s/.test(t)) best = { e: BY[lastId], sc: best.sc };
+          if (best) {
+            var ids = [best.e.id], parts = [best.e.a[l]];
+            var s2 = res[1];
+            if (s2 && s2.e.id !== best.e.id && s2.sc >= Math.max(2, best.sc * 0.5) && !NOISE[s2.e.id] && !NOISE[best.e.id] && best.e.id !== "human" && s2.e.id !== "human" && best.e.id !== "contact" && s2.e.id !== "contact") { ids.push(s2.e.id); parts.push(s2.e.a[l]); }
+            intent = ids.join("+"); out = fill(parts.join("<br><br>"), l);
+            if (SERVICE_IDS[best.e.id]) lastId = best.e.id;
+            if (pl.explicit) { out = UI.sw[l] + (best.e.id === "lang" ? " " + UI.ask[l] : "<br>" + out); }
+          } else {
+            intent = "fallback"; out = pl.explicit ? UI.sw[l] + " " + UI.ask[l] : fill(UI.fall[l], l, UI.wa.en + ": " + q.slice(0, 120));
+            if (pl.explicit) intent = "lang";
+          }
         }
-        return { out: out, intent: intent, extra: extra };
+        lastLang = l;
+        return { out: out, intent: intent, extra: extra, lang: l };
+      }
+      function setChips(l) {
+        if (chipLang === l) return; chipLang = l;
+        chipsEl.innerHTML = ""; CHIPS[l].forEach(function (x) { var b = document.createElement("button"); b.type = "button"; b.textContent = x[0]; b.addEventListener("click", function () { ask(x[1]); }); chipsEl.appendChild(b); });
+        inp.placeholder = UI.ph[l];
       }
       function ask(q) {
         q = (q || "").trim(); if (!q) return;
         add("me", q, true);
         var r = reply(q);
-        setTimeout(function () { add("bot", r.out); log(q, r.out, r.intent, r.extra); }, 350);
-        track("chat_message", { intent: r.intent });
-      }
-      function chips() {
-        var c = [["Prices", "What are your prices?"], ["Live demo", "Show me a demo"], ["Software", "Tell me about software"], ["Posters & reels", "posters and reels rates"], ["Bulk email", "bulk email service"], ["Talk to a person", "I want to talk to someone"]];
-        chipsEl.innerHTML = ""; c.forEach(function (x) { var b = document.createElement("button"); b.type = "button"; b.textContent = x[0]; b.addEventListener("click", function () { ask(x[1]); }); chipsEl.appendChild(b); });
+        setChips(r.lang === "hn" ? "hn" : r.lang);
+        setTimeout(function () { add("bot", r.out); log(q, r.out, r.intent, r.extra, r.lang); }, 350);
+        track("chat_message", { intent: r.intent, language: r.lang });
       }
       function open() {
         panel.classList.add("open"); fab.style.display = "none";
-        if (!started) { started = true; chips(); add("bot", "Hello! I am the automated assistant of Sarfaraz Tech Solutions. Ask me about prices, demos, software, posters or bulk email. To get a call back, type your mobile number."); }
+        if (!started) { started = true; setChips("en"); add("bot", "Hello! I am the automated assistant of Sarfaraz Tech Solutions. Ask me about prices, demos, software, posters or bulk email. To get a call back, type your mobile number.<br>नमस्ते! आप हिन्दी या Hinglish में भी पूछ सकते हैं, मैं उसी भाषा में जवाब दूँगा।"); }
         setTimeout(function () { inp.focus(); }, 50); track("chat_open");
       }
       function close() { panel.classList.remove("open"); fab.style.display = ""; }
@@ -2646,14 +2803,25 @@
         email: { n: "Bulk & Promotional Emails", price: "by list size", inc: ["Designed HTML email", "List clean-up and scheduled sending", "Sender details and unsubscribe link", "Delivery and click report"], pick: "Bulk & Promotional Email Campaigns", demo: function () { goPricing("special"); } },
         creatives: { n: "Posters, Posts & Reels", price: "posts &#8377;49, reels &#8377;199, plans from &#8377;499", inc: ["Single items or monthly plans", "Captions and hashtags", "Your logo and brand colours", "Free sample first"], pick: "Brand Creatives (Posters, Posts, Ad Videos)", demo: function () { goPricing("creatives"); } }
       };
+      var KBMAP = { hms: "hms", pos: "pos", erp: "erp", school: "school", apk: "android", custom: "custom", party: "political", email: "email", creatives: "creatives" };
+      var ACT = { en: ["Get a quote", "See live demo", "Want to know anything else? Just type your question, or leave your mobile number for a call back."], hi: ["कोटेशन लें", "लाइव डेमो देखें", "और कुछ जानना है? बस अपना सवाल लिखिए, या कॉल-बैक के लिए मोबाइल नंबर छोड़िए।"], hn: ["Quote lein", "Live demo dekhein", "Aur kuch jaanna hai? Bas apna sawal likhiye, ya call back ke liye mobile number chhodiye."] };
       function inquire(k) {
         var v = SVC[k]; if (!v) return;
+        var l = pref || lastLang || "en";
         var q = "Inquiry: " + v.n;
         add("me", q, true);
-        var out = "<b>" + v.n + "</b><br>Price: " + v.price + "<ul>" + v.inc.map(function (x) { return "<li>" + x + "</li>"; }).join("") + "</ul>" +
-          '<a href="#" data-act="quote" data-k="' + k + '">Get a quote</a> &middot; <a href="#" data-act="demo" data-k="' + k + '">See live demo</a> &middot; ' + G("Hello Sarfaraz Tech Solutions, I want to know more about " + v.n + ".") +
-          "<br>Want to know anything else? Just type your question, or leave your mobile number for a call back.";
-        setTimeout(function () { add("bot", out); log(q, out, "inquiry_" + k); }, 350);
+        var out;
+        if (l === "en") {
+          out = "<b>" + v.n + "</b><br>Price: " + v.price + "<ul>" + v.inc.map(function (x) { return "<li>" + x + "</li>"; }).join("") + "</ul>" +
+            '<a href="#" data-act="quote" data-k="' + k + '">Get a quote</a> &middot; <a href="#" data-act="demo" data-k="' + k + '">See live demo</a> &middot; ' + G("Hello Sarfaraz Tech Solutions, I want to know more about " + v.n + ".") +
+            "<br>" + ACT.en[2];
+        } else {
+          out = "<b>" + v.n + "</b><br>" + BY[KBMAP[k]].a[l] + "<br>" +
+            '<a href="#" data-act="quote" data-k="' + k + '">' + ACT[l][0] + '</a> &middot; <a href="#" data-act="demo" data-k="' + k + '">' + ACT[l][1] + '</a> &middot; ' + G("Hello Sarfaraz Tech Solutions, I want to know more about " + v.n + ".", l) +
+            "<br>" + ACT[l][2];
+        }
+        setChips(l);
+        setTimeout(function () { add("bot", out); log(q, out, "inquiry_" + k, null, l); }, 350);
         track("chat_inquiry", { service: k });
       }
       logEl.addEventListener("click", function (e) {

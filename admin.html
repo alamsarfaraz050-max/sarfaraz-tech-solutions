@@ -146,6 +146,21 @@
   .qa-q p { font-weight:700; } .qa-a p { color:#33435f; }
   .miss { background:#fde4e1; color:var(--red); }
   /* ============ responsive ============ */
+  /* desktop: icon rail that slides open on hover (like a collapsible menu), closes when the mouse leaves */
+  @media (min-width:961px) {
+    .app { grid-template-columns:72px 1fr; }
+    .app > .main { grid-column:2; }
+    .side { position:fixed; left:0; top:0; bottom:0; width:72px; height:100vh; z-index:40; overflow:hidden; white-space:nowrap; transition:width .25s ease, box-shadow .25s ease; }
+    .side:hover, .side:has(:focus-visible) { width:236px; box-shadow:6px 0 28px rgba(8,20,55,.35); }
+    .side .s-brand > span, .side .nav .cnt, .side .nav .lbl, .side .s-foot span { opacity:0; transition:opacity .15s ease; }
+    .side:hover .s-brand > span, .side:hover .nav .cnt, .side:hover .nav .lbl, .side:hover .s-foot span, .side:has(:focus-visible) .s-brand > span, .side:has(:focus-visible) .nav .cnt, .side:has(:focus-visible) .nav .lbl, .side:has(:focus-visible) .s-foot span { opacity:1; transition-delay:.1s; }
+    .side .nav button, .side .s-foot button { overflow:hidden; }
+    .side .nav button svg, .side .s-foot button svg, .side .s-brand svg { flex:none; }
+    .nav button { position:relative; }
+    .nav button .cnt { flex:none; }
+    .side:not(:hover):not(:has(:focus-visible)) .nav .cnt { display:none; }
+    .side:not(:hover):not(:has(:focus-visible)) .nav button.has-new::after { content:""; position:absolute; top:5px; right:3px; width:9px; height:9px; border-radius:50%; background:#ff6b6b; border:2px solid var(--navy); }
+  }
   @media (max-width:960px) {
     .login { grid-template-columns:1fr; } .l-side { display:none; }
     .app { grid-template-columns:1fr; }
@@ -199,9 +214,9 @@
   <aside class="side">
     <div class="s-brand"><svg class="logo" width="34" height="34" viewBox="0 0 100 100" aria-hidden="true" style="stroke:none;width:34px;height:34px"><polygon points="50,4 90,27 90,73 50,96 10,73 10,27" fill="#0b1f4a" stroke="#5b8def" stroke-width="6" stroke-linejoin="round" style="stroke:#5b8def;stroke-width:6"/><text x="50" y="62" text-anchor="middle" font-family="Inter, Arial, sans-serif" font-weight="900" font-size="31" fill="#ffffff" style="stroke:none">STS</text></svg><span>SARFARAZ TECH<small>ADMIN CONSOLE</small></span></div>
     <nav class="nav" aria-label="Sections">
-      <button type="button" id="tabLeads" class="on"><svg viewBox="0 0 24 24"><path d="M9 11l3 3L22 4"/><path d="M21 12v7a2 2 0 01-2 2H5a2 2 0 01-2-2V5a2 2 0 012-2h11"/></svg>Requests<span class="cnt" id="cntNew">0</span></button>
-      <button type="button" id="tabChats"><svg viewBox="0 0 24 24"><path d="M21 15a2 2 0 01-2 2H7l-4 4V5a2 2 0 012-2h14a2 2 0 012 2z"/></svg>Chats<span class="cnt" id="cntChat">0</span></button>
-      <button type="button" id="tabQa"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><path d="M9.1 9a3 3 0 015.8 1c0 2-3 3-3 3"/><path d="M12 17h.01"/></svg>Q &amp; A Log<span class="cnt" id="cntQa">0</span></button>
+      <button type="button" id="tabLeads" class="on"><svg viewBox="0 0 24 24"><path d="M9 11l3 3L22 4"/><path d="M21 12v7a2 2 0 01-2 2H5a2 2 0 01-2-2V5a2 2 0 012-2h11"/></svg><span class="lbl">Requests</span><span class="cnt" id="cntNew">0</span></button>
+      <button type="button" id="tabChats"><svg viewBox="0 0 24 24"><path d="M21 15a2 2 0 01-2 2H7l-4 4V5a2 2 0 012-2h14a2 2 0 012 2z"/></svg><span class="lbl">Chats</span><span class="cnt" id="cntChat">0</span></button>
+      <button type="button" id="tabQa"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><path d="M9.1 9a3 3 0 015.8 1c0 2-3 3-3 3"/><path d="M12 17h.01"/></svg><span class="lbl">Q &amp; A Log</span><span class="cnt" id="cntQa">0</span></button>
     </nav>
     <div class="s-foot">
       <button type="button" id="refreshBtn"><svg viewBox="0 0 24 24"><path d="M23 4v6h-6"/><path d="M20.5 15a9 9 0 11-2.1-9.4L23 10"/></svg><span>Refresh</span></button>
@@ -315,6 +330,7 @@
   function renderAll() {
     $("cntNew").textContent = leads.filter(function (l) { return l.status === "New"; }).length;
     $("cntChat").textContent = sessions().length; $("cntQa").textContent = chats.length;
+    [["tabLeads","cntNew"],["tabChats","cntChat"],["tabQa","cntQa"]].forEach(function (p) { $(p[0]).classList.toggle("has-new", (parseInt($(p[1]).textContent, 10) || 0) > 0); });
     renderTiles(); renderLeads(); renderChats(); renderQa(); heading();
   }
   function heading() {
