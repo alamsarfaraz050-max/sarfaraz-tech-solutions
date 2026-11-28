@@ -710,23 +710,6 @@
       .plan-mid .ev, .plan-price .pper { display: none; }
       .plan-mid small { font-size: .85rem; }
     }
-    /* ---- prices only: compact rows ---- */
-    .plan-radio { display: none; }
-    .plan-head { grid-template-columns: 1fr auto auto; padding: 15px 18px; gap: 12px; }
-    .plan-mid b { font-size: 1.08rem; }
-    .plan-price { display: flex; align-items: baseline; gap: 5px; text-align: right; }
-    .plan-price strong { font-size: 1.3rem; }
-    .plan-price span { font-size: .8rem; color: var(--muted); font-weight: 600; }
-    .pick-hint { display: none; }
-    .cr-sub .launch { display: none; }
-    @media (max-width: 560px) {
-      #pricing .ptabs { display: flex; flex-wrap: nowrap; gap: 4px; padding: 4px; border-radius: 999px; width: 100%; margin-bottom: 18px; }
-      #pricing .ptab { flex: 1 1 0; padding: 10px 4px; font-size: .84rem; white-space: nowrap; }
-      .pr-row { grid-template-columns: 1fr auto; padding: 13px 14px; gap: 6px 10px; }
-      .pr-row .btn { grid-column: 1 / -1; }
-      .rate { padding: 12px 14px; }
-      .plan-head { padding: 14px; }
-    }
     /* ---------- Pricing ---------- */
     .cr-cta { display: flex; align-items: center; justify-content: center; gap: 14px; flex-wrap: wrap; margin: 34px 0 6px; color: var(--muted); font-weight: 600; }
     .ptabs { display: flex; gap: 6px; justify-content: center; flex-wrap: wrap; margin: 0 auto 28px; padding: 6px; background: var(--bg); border: 1px solid var(--line); border-radius: 999px; width: max-content; max-width: 100%; }
@@ -1117,12 +1100,13 @@
     <section id="pricing" style="border-top:1px solid var(--line)">
       <div class="container">
         <div class="section-title">
-          <h2>Simple, Clear Pricing</h2>
+          <h2>Pricing</h2>
+          <p>Launch rates. The final amount is confirmed in writing before you pay.</p>
         </div>
         <div class="ptabs" role="tablist" aria-label="Pricing categories">
-          <button type="button" role="tab" class="ptab on" id="pt-creatives" data-tab="creatives" aria-selected="true" aria-controls="pp-creatives">Creatives</button>
-          <button type="button" role="tab" class="ptab" id="pt-software" data-tab="software" aria-selected="false" aria-controls="pp-software" tabindex="-1">Software</button>
-          <button type="button" role="tab" class="ptab" id="pt-special" data-tab="special" aria-selected="false" aria-controls="pp-special" tabindex="-1">Email &amp; Special</button>
+          <button type="button" role="tab" class="ptab on" id="pt-creatives" data-tab="creatives" aria-selected="true" aria-controls="pp-creatives">Posters, Posts &amp; Reels</button>
+          <button type="button" role="tab" class="ptab" id="pt-software" data-tab="software" aria-selected="false" aria-controls="pp-software" tabindex="-1">Software &amp; Apps</button>
+          <button type="button" role="tab" class="ptab" id="pt-special" data-tab="special" aria-selected="false" aria-controls="pp-special" tabindex="-1">Bulk Email &amp; Special</button>
         </div>
 
         <div id="pp-creatives" class="ppanel" role="tabpanel" aria-labelledby="pt-creatives">
@@ -1145,22 +1129,22 @@
 
         <div id="pp-software" class="ppanel" role="tabpanel" aria-labelledby="pt-software" hidden>
           <div class="pr-table">
-          <div class="pr-row"><div class="pr-n"><b>Hospital &amp; Clinic HMS</b></div><div class="pr-p"><small>Starting</small>₹25,000</div><button type="button" class="btn btn-outline btn-sm" data-pick="Hospital &amp; Clinic Management System" data-type="Hospital / Clinic">Get Quote</button></div>
-          <div class="pr-row"><div class="pr-n"><b>Shop &amp; Retail POS</b></div><div class="pr-p"><small>Starting</small>₹8,000</div><button type="button" class="btn btn-outline btn-sm" data-pick="Shop &amp; Retail Billing Software" data-type="Shop / Retail Store">Get Quote</button></div>
-          <div class="pr-row"><div class="pr-n"><b>Company ERP &amp; Accounts</b></div><div class="pr-p"><small>Starting</small>₹30,000</div><button type="button" class="btn btn-outline btn-sm" data-pick="Company ERP &amp; Accounts" data-type="Company / Office / Factory">Get Quote</button></div>
-          <div class="pr-row"><div class="pr-n"><b>School &amp; Coaching Panel</b></div><div class="pr-p"><small>Starting</small><s>₹11,999</s> ₹10,000</div><button type="button" class="btn btn-outline btn-sm" data-pick="School &amp; Coaching Management System" data-type="School / College / Coaching">Get Quote</button></div>
-          <div class="pr-row"><div class="pr-n"><b>Custom Android App (APK)</b></div><div class="pr-p"><small>Starting</small>₹15,000</div><button type="button" class="btn btn-outline btn-sm" data-pick="Custom Android App (APK)" data-type="Other / Custom Business">Get Quote</button></div>
-          <div class="pr-row"><div class="pr-n"><b>Political Party &amp; Organisation</b></div><div class="pr-p">Quote as per need</div><button type="button" class="btn btn-outline btn-sm" data-pick="Political Party / Organisation Package" data-type="Political Party / Leader">Get Quote</button></div>
-          <div class="pr-row"><div class="pr-n"><b>Tailor-Made Software</b></div><div class="pr-p">Quote as per need</div><button type="button" class="btn btn-outline btn-sm" data-pick="Custom Software / Web Portal" data-type="Other / Custom Business">Get Quote</button></div>
+          <div class="pr-row"><div class="pr-n"><b>Hospital &amp; Clinic HMS</b></div><div class="pr-p"><small>Starting</small>₹25,000</div><button type="button" class="btn btn-outline btn-sm" data-quote="Hospital &amp; Clinic Management System" data-type="Hospital / Clinic">Get Quote</button></div>
+          <div class="pr-row"><div class="pr-n"><b>Shop &amp; Retail POS</b></div><div class="pr-p"><small>Starting</small>₹8,000</div><button type="button" class="btn btn-outline btn-sm" data-quote="Shop &amp; Retail Billing Software" data-type="Shop / Retail Store">Get Quote</button></div>
+          <div class="pr-row"><div class="pr-n"><b>Company ERP &amp; Accounts</b></div><div class="pr-p"><small>Starting</small>₹30,000</div><button type="button" class="btn btn-outline btn-sm" data-quote="Company ERP &amp; Accounts" data-type="Company / Office / Factory">Get Quote</button></div>
+          <div class="pr-row"><div class="pr-n"><b>School &amp; Coaching Panel</b></div><div class="pr-p"><small>Starting</small><s>₹11,999</s> ₹10,000</div><button type="button" class="btn btn-outline btn-sm" data-quote="School &amp; Coaching Management System" data-type="School / College / Coaching">Get Quote</button></div>
+          <div class="pr-row"><div class="pr-n"><b>Custom Android App (APK)</b></div><div class="pr-p"><small>Starting</small>₹15,000</div><button type="button" class="btn btn-outline btn-sm" data-quote="Custom Android App (APK)" data-type="Other / Custom Business">Get Quote</button></div>
+          <div class="pr-row"><div class="pr-n"><b>Political Party &amp; Organisation</b></div><div class="pr-p">Quote as per need</div><button type="button" class="btn btn-outline btn-sm" data-quote="Political Party / Organisation Package" data-type="Political Party / Leader">Get Quote</button></div>
+          <div class="pr-row"><div class="pr-n"><b>Tailor-Made Software</b></div><div class="pr-p">Quote as per need</div><button type="button" class="btn btn-outline btn-sm" data-quote="Custom Software / Web Portal" data-type="Other / Custom Business">Get Quote</button></div>
           </div>
           <p class="price-note">Starting rates. Setup, training and WhatsApp support included. <a href="#demos" style="color:var(--primary);font-weight:700">Try the live demos first</a></p>
         </div>
 
         <div id="pp-special" class="ppanel" role="tabpanel" aria-labelledby="pt-special" hidden>
           <div class="pr-table">
-          <div class="pr-row"><div class="pr-n"><b>Bulk &amp; Promotional Emails</b></div><div class="pr-p">By list size</div><button type="button" class="btn btn-outline btn-sm" data-pick="Bulk &amp; Promotional Email Campaigns" data-type="Other / Custom Business">Get Quote</button></div>
-          <div class="pr-row"><div class="pr-n"><b>Political Party &amp; Organisation</b></div><div class="pr-p">Quote as per need</div><button type="button" class="btn btn-outline btn-sm" data-pick="Political Party / Organisation Package" data-type="Political Party / Leader">Get Quote</button></div>
-          <div class="pr-row"><div class="pr-n"><b>Tailor-Made Software</b></div><div class="pr-p">Quote as per need</div><button type="button" class="btn btn-outline btn-sm" data-pick="Custom Software / Web Portal" data-type="Other / Custom Business">Get Quote</button></div>
+          <div class="pr-row"><div class="pr-n"><b>Bulk &amp; Promotional Emails</b></div><div class="pr-p">By list size</div><button type="button" class="btn btn-outline btn-sm" data-quote="Bulk &amp; Promotional Email Campaigns" data-type="Other / Custom Business">Get Quote</button></div>
+          <div class="pr-row"><div class="pr-n"><b>Political Party &amp; Organisation</b></div><div class="pr-p">Quote as per need</div><button type="button" class="btn btn-outline btn-sm" data-quote="Political Party / Organisation Package" data-type="Political Party / Leader">Get Quote</button></div>
+          <div class="pr-row"><div class="pr-n"><b>Tailor-Made Software</b></div><div class="pr-p">Quote as per need</div><button type="button" class="btn btn-outline btn-sm" data-quote="Custom Software / Web Portal" data-type="Other / Custom Business">Get Quote</button></div>
           </div>
           <p class="price-note">Bulk email is sent with sender details and an unsubscribe link. Political work covers tools and creatives only; content follows election rules.</p>
         </div>
@@ -1537,6 +1521,9 @@
     });
 
     /* ---------- Services -> open quote wizard at step 2 ---------- */
+    document.querySelectorAll("[data-quote]").forEach(function (btn) {
+      btn.addEventListener("click", function () { openReq({ service: btn.getAttribute("data-quote"), type: btn.getAttribute("data-type") }); });
+    });
     document.querySelectorAll("[data-pick]").forEach(function (btn) {
       btn.addEventListener("click", function () { wizPick(btn.getAttribute("data-pick")); });
     });
@@ -2282,8 +2269,8 @@
         return '<div class="plan-row" id="plan-' + p.k + '" data-plan="' + p.k + '">' +
           '<button type="button" class="plan-head" data-plan="' + p.k + '" role="radio" aria-checked="false" aria-expanded="false" aria-controls="pb-' + p.k + '">' +
           '<span class="plan-radio" aria-hidden="true"></span>' +
-          '<span class="plan-mid"><b>' + esc(p.k) + "</b></span>" +
-          '<span class="plan-price"><strong>' + inr(p.price) + "</strong><span>/ month</span></span>" +
+          '<span class="plan-mid"><b>' + esc(p.k) + (p.k === "Growth" ? '<span class="plan-badge">Most popular</span>' : "") + "</b><small>" + esc(p.short) + '<span class="ev"> every month</span></small></span>' +
+          '<span class="plan-price"><strong>' + inr(p.price) + "</strong><span>per month<span class=\"pper\"> &bull; " + esc(p.per) + "</span></span></span>" +
           '<span class="plan-chev" aria-hidden="true"></span></button>' +
           '<div class="plan-body" id="pb-' + p.k + '"><div><div class="plan-in">' +
           '<p class="pd-best"><b>Best for:</b> ' + esc(p.best) + "</p>" +
@@ -2314,30 +2301,39 @@
     /* ---------- Quick request dialog (opens in place, no scrolling) ---------- */
     const reqDlg = document.getElementById("reqDialog"), reqSel = document.getElementById("reqPlan"), reqBiz = document.getElementById("reqBiz");
     reqSel.innerHTML = PLAN_OPTS.map(function (x) { return '<option value="' + esc(x) + '">' + esc(x) + "</option>"; }).join("");
-    reqBiz.innerHTML = '<option value="">Select your business type</option>' + BD.map(function (b) { return '<option value="' + esc(b.n) + '">' + esc(b.n) + "</option>"; }).join("") + '<option value="Other / Custom Business">Other / Custom Business</option>';
+    reqBiz.innerHTML = '<option value="">Select your business type</option>' + BD.map(function (b) { return '<option value="' + esc(b.n) + '">' + esc(b.n) + "</option>"; }).join("") + '<option value="Hospital / Clinic">Hospital / Clinic</option><option value="Company / Office / Factory">Company / Office / Factory</option>' + '<option value="Other / Custom Business">Other / Custom Business</option>';
+    let reqSvc = null;
     function reqPlanObj() { return PLANS.filter(function (x) { return x.opt === reqSel.value; })[0] || null; }
     function reqRefresh() {
       const p = reqPlanObj(), sum = document.getElementById("reqSum"), ttl = document.getElementById("reqTitle");
+      if (reqSvc) { ttl.textContent = "Get a quote"; sum.innerHTML = "<strong>" + esc(reqSvc) + "</strong>Share your details and we will send a clear quote. A free demo can be arranged."; return; }
       if (p) { ttl.textContent = "Request the " + p.k + " Plan"; sum.innerHTML = "<strong>" + esc(p.k) + " plan: " + inr(p.price) + " / month</strong>" + esc(p.get.join(" • ")); }
       else if (reqSel.value === PLAN_SINGLE) { ttl.textContent = "Order single items"; sum.innerHTML = "<strong>Pay per item</strong>Posts, posters, invitations and visiting cards from ₹49, wedding card ₹99, reels ₹199, logo & brand kit ₹599. Tell us the items below."; }
       else { ttl.textContent = "Get a plan suggestion"; sum.innerHTML = "<strong>Not sure yet?</strong>Tell us about your business and we will suggest the best plan."; }
     }
     function openReq(o) {
       o = o || {};
+      reqSvc = o.service || null;
+      reqSel.closest(".form-group").hidden = !!reqSvc;
       reqSel.value = o.plan || PLAN_UNSURE;
       document.getElementById("reqNote").value = o.note || "";
       document.getElementById("reqErr").textContent = "";
       document.getElementById("reqBody").hidden = false; document.getElementById("reqDone").hidden = true;
       reqRefresh();
+      if (reqSvc) {
+        const opts = Array.prototype.slice.call(reqBiz.options), t = String(o.type || "").toLowerCase(), w = t.split(/[ \/&,]+/)[0];
+        const hit = opts.filter(function (x) { return x.value && x.value.toLowerCase() === t; })[0] || opts.filter(function (x) { return x.value && w.length > 3 && x.value.toLowerCase().indexOf(w) === 0; })[0];
+        reqBiz.value = hit ? hit.value : "";
+      }
       if (reqDlg.showModal) { if (!reqDlg.open) reqDlg.showModal(); } else reqDlg.setAttribute("open", "");
       setTimeout(function () { document.getElementById("reqName").focus(); }, 60);
-      track("request_open", { plan: reqSel.value });
+      track("request_open", { plan: reqSvc || reqSel.value });
     }
     function reqShut() { if (reqDlg.close) reqDlg.close(); else reqDlg.removeAttribute("open"); }
     reqSel.addEventListener("change", reqRefresh);
     document.getElementById("reqClose").addEventListener("click", reqShut);
     reqDlg.addEventListener("click", function (e) { if (e.target === reqDlg) reqShut(); });
-    document.getElementById("reqMore").addEventListener("click", function () { reqShut(); wizPick("Brand Creatives (Posters, Posts, Ad Videos)"); });
+    document.getElementById("reqMore").addEventListener("click", function () { reqShut(); wizPick(reqSvc || "Brand Creatives (Posters, Posts, Ad Videos)"); });
     document.getElementById("reqForm").addEventListener("submit", async function (e) {
       e.preventDefault();
       const err = document.getElementById("reqErr"), btn = document.getElementById("reqSend");
@@ -2347,9 +2343,9 @@
       if (!/^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/.test(d.email)) { err.textContent = "Please enter a valid email address."; document.getElementById("reqEmail").focus(); return; }
       if (!d.biz) { err.textContent = "Please select your business type."; reqBiz.focus(); return; }
       err.textContent = "";
-      const p = reqPlanObj(), planTxt = p ? p.opt : reqSel.value;
-      const details = "Plan: " + planTxt + (p ? " | Includes: " + p.get.join(", ") : "") + " | Business: " + d.biz + (d.note ? " | Note: " + d.note : "") + " | Sent from the plan request box";
-      const data = { name: d.name, phone: d.phone, email: d.email, businessType: d.biz, service: "Brand Creatives (Posters, Posts, Ad Videos)", details: details.slice(0, 990), website: d.web };
+      const p = reqSvc ? null : reqPlanObj(), planTxt = reqSvc || (p ? p.opt : reqSel.value);
+      const details = (reqSvc ? "Service: " : "Plan: ") + planTxt + (p ? " | Includes: " + p.get.join(", ") : "") + " | Business: " + d.biz + (d.note ? " | Note: " + d.note : "") + " | Sent from the plan request box";
+      const data = { name: d.name, phone: d.phone, email: d.email, businessType: d.biz, service: reqSvc || "Brand Creatives (Posters, Posts, Ad Videos)", details: details.slice(0, 990), website: d.web };
       if (d.web) { reqShut(); return; }
       if (Date.now() - lastSubmit < COOLDOWN_MS) { err.textContent = "Please wait a few seconds before sending again."; return; }
       const waText = "Hello Sarfaraz Tech Solutions,\nI want: " + planTxt + "\nName: " + d.name + "\nBusiness: " + d.biz + "\nPhone: " + d.phone;
