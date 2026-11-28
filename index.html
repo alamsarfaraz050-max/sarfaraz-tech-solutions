@@ -1524,9 +1524,9 @@
     document.addEventListener("click", function (e) {
       const a = e.target.closest && e.target.closest('a[href="#inquiry"]'); if (!a) return;
       const t = (a.textContent || "").toLowerCase();
-      if (t.indexOf("submit requirement") > -1) return; /* detailed requirement form stays on the page */
       e.preventDefault();
       const demo = t.indexOf("demo") > -1;
+      if (t.indexOf("submit requirement") > -1) { openReq({ service: "Requirement Submission", title: "Submit your requirement", hint: "Tell us what you want built. Write the details in the box below and we will call you with a clear quote." }); return; }
       openReq(demo ? { service: "Free Demo Request", title: "Get a free demo", hint: "Tell us your business and we will arrange a free demo for you." } : { service: "Free Quote Request", title: "Get a free quote", hint: "Tell us what you need and we will call you with a clear quote. No obligation." });
     });
     document.querySelectorAll("[data-quote]").forEach(function (btn) {
