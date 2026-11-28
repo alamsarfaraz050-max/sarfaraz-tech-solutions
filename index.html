@@ -1521,11 +1521,19 @@
     });
 
     /* ---------- Services -> open quote wizard at step 2 ---------- */
+    document.addEventListener("click", function (e) {
+      const a = e.target.closest && e.target.closest('a[href="#inquiry"]'); if (!a) return;
+      const t = (a.textContent || "").toLowerCase();
+      if (t.indexOf("submit requirement") > -1) return; /* detailed requirement form stays on the page */
+      e.preventDefault();
+      const demo = t.indexOf("demo") > -1;
+      openReq(demo ? { service: "Free Demo Request", title: "Get a free demo", hint: "Tell us your business and we will arrange a free demo for you." } : { service: "Free Quote Request", title: "Get a free quote", hint: "Tell us what you need and we will call you with a clear quote. No obligation." });
+    });
     document.querySelectorAll("[data-quote]").forEach(function (btn) {
       btn.addEventListener("click", function () { openReq({ service: btn.getAttribute("data-quote"), type: btn.getAttribute("data-type") }); });
     });
     document.querySelectorAll("[data-pick]").forEach(function (btn) {
-      btn.addEventListener("click", function () { wizPick(btn.getAttribute("data-pick")); });
+      btn.addEventListener("click", function () { openReq({ service: btn.getAttribute("data-pick"), type: btn.getAttribute("data-type") }); });
     });
     document.getElementById("year").textContent = new Date().getFullYear();
 
@@ -2202,12 +2210,8 @@
     ["users", "timeline"].forEach(function (id) { document.getElementById(id).addEventListener("change", saveDraft); });
 
     /* Quote / demo helpers used by cards, gallery and business demo */
-    function quoteFor(serviceName, note) {
-      wizPick(serviceName);
-      const d = document.getElementById("details");
-      if (d && note && d.value.indexOf(note) < 0) { d.value = (d.value ? d.value + " | " : "") + note; }
-      const card = document.getElementById("inquiryForm"); if (card) { card.classList.remove("flash"); void card.offsetWidth; card.classList.add("flash"); }
-      toast("Selected: " + serviceName + ". Now choose your modules and click Next.");
+    function quoteFor(serviceName, note, type) {
+      openReq({ service: serviceName, note: note || "", type: type || "" });
     }
     function goDemo(key) {
       if (key === "biz") { goBiz(bd.k); return; }
@@ -2222,7 +2226,7 @@
     }
     function bdQuote(kind) {
       const b = bdB();
-      quoteFor(kind === "app" ? "Custom Android App (APK)" : "Custom Software / Web Portal", "Business: " + b.n + " (viewed demo)");
+      quoteFor(kind === "app" ? "Custom Android App (APK)" : "Custom Software / Web Portal", "Business: " + b.n + " (viewed demo)", b.n);
     }
 
     /* Service buttons elsewhere on the page jump straight to step 2 */
@@ -2302,18 +2306,18 @@
     const reqDlg = document.getElementById("reqDialog"), reqSel = document.getElementById("reqPlan"), reqBiz = document.getElementById("reqBiz");
     reqSel.innerHTML = PLAN_OPTS.map(function (x) { return '<option value="' + esc(x) + '">' + esc(x) + "</option>"; }).join("");
     reqBiz.innerHTML = '<option value="">Select your business type</option>' + BD.map(function (b) { return '<option value="' + esc(b.n) + '">' + esc(b.n) + "</option>"; }).join("") + '<option value="Hospital / Clinic">Hospital / Clinic</option><option value="Company / Office / Factory">Company / Office / Factory</option>' + '<option value="Other / Custom Business">Other / Custom Business</option>';
-    let reqSvc = null;
+    let reqSvc = null, reqTitleTxt = "", reqHint = "";
     function reqPlanObj() { return PLANS.filter(function (x) { return x.opt === reqSel.value; })[0] || null; }
     function reqRefresh() {
       const p = reqPlanObj(), sum = document.getElementById("reqSum"), ttl = document.getElementById("reqTitle");
-      if (reqSvc) { ttl.textContent = "Get a quote"; sum.innerHTML = "<strong>" + esc(reqSvc) + "</strong>Share your details and we will send a clear quote. A free demo can be arranged."; return; }
+      if (reqSvc) { ttl.textContent = reqTitleTxt || "Get a quote"; sum.innerHTML = "<strong>" + esc(reqSvc) + "</strong>" + esc(reqHint || "Share your details and we will send a clear quote. A free demo can be arranged."); return; }
       if (p) { ttl.textContent = "Request the " + p.k + " Plan"; sum.innerHTML = "<strong>" + esc(p.k) + " plan: " + inr(p.price) + " / month</strong>" + esc(p.get.join(" • ")); }
       else if (reqSel.value === PLAN_SINGLE) { ttl.textContent = "Order single items"; sum.innerHTML = "<strong>Pay per item</strong>Posts, posters, invitations and visiting cards from ₹49, wedding card ₹99, reels ₹199, logo & brand kit ₹599. Tell us the items below."; }
       else { ttl.textContent = "Get a plan suggestion"; sum.innerHTML = "<strong>Not sure yet?</strong>Tell us about your business and we will suggest the best plan."; }
     }
     function openReq(o) {
       o = o || {};
-      reqSvc = o.service || null;
+      reqSvc = o.service || null; reqTitleTxt = o.title || ""; reqHint = o.hint || "";
       reqSel.closest(".form-group").hidden = !!reqSvc;
       reqSel.value = o.plan || PLAN_UNSURE;
       document.getElementById("reqNote").value = o.note || "";
@@ -2655,7 +2659,7 @@
       logEl.addEventListener("click", function (e) {
         var a = e.target.closest && e.target.closest("a[data-act]"); if (!a) return;
         e.preventDefault(); var v = SVC[a.getAttribute("data-k")]; if (!v) return; close();
-        if (a.getAttribute("data-act") === "quote") { wizPick(v.pick); } else { v.demo(); }
+        if (a.getAttribute("data-act") === "quote") { openReq({ service: v.pick, type: { hms: "Hospital / Clinic", erp: "Company / Office / Factory", party: "Political Party & Organisation" }[a.getAttribute("data-k")] || "" }); } else { v.demo(); }
       });
       document.querySelectorAll("[data-inq]").forEach(function (b) { b.addEventListener("click", function () { open(); inquire(b.getAttribute("data-inq")); }); });
       fab.addEventListener("click", open);
