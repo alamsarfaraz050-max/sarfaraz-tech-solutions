@@ -137,6 +137,10 @@
   .ico svg { width:16px; height:16px; }
   .ico:hover { background:var(--soft); }
   .ico.wa { background:var(--green); border-color:var(--green); color:#fff; } .ico.wa:hover { filter:brightness(.92); }
+  #lbar { position:fixed; top:0; left:0; right:0; height:3px; z-index:99; background:linear-gradient(90deg,transparent,#1456d6,transparent) no-repeat; background-size:35% 100%; animation:lb 1s linear infinite; }
+  @keyframes lb { from { background-position:-40% 0; } to { background-position:140% 0; } }
+  .skl td { padding:16px; } .skl i { display:block; height:12px; border-radius:6px; background:linear-gradient(90deg,#edf1f8,#f8faff,#edf1f8); background-size:200% 100%; animation:sh 1.2s linear infinite; }
+  @keyframes sh { from { background-position:200% 0; } to { background-position:-200% 0; } }
   .more { text-align:center; padding:14px; border-top:1px solid #edf1f8; }
   .empty { text-align:center; color:var(--muted); padding:56px 16px; }
   .empty svg { width:34px; height:34px; color:#b4c0d8; margin-bottom:8px; }
@@ -214,6 +218,7 @@
 </style>
 </head>
 <body>
+<div id="lbar" class="hide" aria-hidden="true"></div>
 
 <!-- ================= LOGIN ================= -->
 <div class="login" id="loginView">
@@ -323,6 +328,7 @@
   function digits(p) { return String(p || "").replace(/\D/g, "").replace(/^91(?=\d{10}$)/, ""); }
   function isDue(l) { return l.followup && l.followup <= today() && l.status !== "Won" && l.status !== "Lost"; }
   try { token = sessionStorage.getItem("sts_adm") || ""; } catch (e) {}
+  try { fetch(API, { mode: "no-cors", cache: "no-store" }).catch(function () {}); } catch (e) {} /* wakes the server while you type the password */
 
   function call(body) {
     body.token = token;
@@ -340,31 +346,38 @@
       .then(function (j) {
         if (!j.ok) { $("loginErr").textContent = j.error || "Could not sign in."; return; }
         token = j.token; try { sessionStorage.setItem("sts_adm", token); } catch (e2) {}
-        $("pw").value = ""; start();
+        $("pw").value = "";
+        if (j.leads) { setData(j.leads, j.chats || []); } start(!!j.leads);
       })
       .catch(function () { $("loginErr").textContent = "Could not reach the server. Check your internet and try again."; })
       .then(function () { b.disabled = false; b.textContent = "Sign in"; });
   });
   function logout(silent) {
     if (!silent && token) { fetch(API, { method: "POST", headers: { "Content-Type": "text/plain;charset=utf-8" }, body: JSON.stringify({ type: "admin", action: "logout", token: token }) }).catch(function () {}); }
-    token = ""; try { sessionStorage.removeItem("sts_adm"); } catch (e) {}
+    token = ""; try { sessionStorage.removeItem("sts_adm"); sessionStorage.removeItem("sts_cache"); } catch (e) {}
     $("appView").classList.add("hide"); $("loginView").classList.remove("hide"); closeDrawer();
     $("loginErr").textContent = silent ? "Your session expired. Please sign in again." : "";
   }
   $("logoutBtn").addEventListener("click", function () { logout(false); });
 
-  function start() {
+  function saveCache() { try { sessionStorage.setItem("sts_cache", JSON.stringify({ l: leads.slice().reverse(), c: chats })); } catch (e) {} }
+  function setData(ls, cs) { leads = (ls || []).slice().reverse(); chats = cs || []; saveCache(); if (!$("appView").classList.contains("hide")) renderAll(); }
+  function skeleton() { var r = ""; for (var i = 0; i < 7; i++) r += '<tr class="skl"><td><i style="width:60%"></i></td><td><i style="width:70%"></i></td><td><i style="width:80%"></i></td><td><i style="width:50%"></i></td><td><i style="width:40%"></i></td><td><i style="width:30%"></i></td><td></td></tr>'; $("leadBody").innerHTML = r; }
+  function start(haveData) {
     $("loginView").classList.add("hide"); $("appView").classList.remove("hide");
     var o = '<option value="">All statuses</option>'; STATUSES.forEach(function (s) { o += '<option>' + esc(s) + '</option>'; }); $("stSel").innerHTML = o;
-    load();
+    var c = null; try { c = JSON.parse(sessionStorage.getItem("sts_cache") || "null"); } catch (e) {}
+    if (haveData) { renderAll(); } else if (c && c.l) { leads = c.l.slice().reverse(); chats = c.c || []; renderAll(); load(); } else { skeleton(); load(); }
   }
   function load() {
-    var b = $("refreshBtn"); b.disabled = true;
-    Promise.all([call({ action: "list" }), call({ action: "chats" })]).then(function (r) {
-      if (!r[0].ok) { toast(r[0].error || "Could not load"); return; }
-      leads = (r[0].leads || []).reverse(); chats = r[1].ok ? (r[1].chats || []) : [];
-      renderAll();
-    }).catch(function (e) { toast(e.message || "Could not load. Try Refresh."); }).then(function () { b.disabled = false; });
+    var b = $("refreshBtn"); b.disabled = true; $("lbar").classList.remove("hide");
+    call({ action: "all" }).then(function (j) {
+      if (j.ok || !/unknown action/i.test(j.error || "")) return j;
+      return Promise.all([call({ action: "list" }), call({ action: "chats" })]).then(function (r) { return r[0].ok ? { ok: true, leads: r[0].leads, chats: r[1].ok ? r[1].chats : [] } : r[0]; });
+    }).then(function (j) {
+      if (!j.ok) { toast(j.error || "Could not load"); return; }
+      setData(j.leads, j.chats);
+    }).catch(function (e) { toast(e.message || "Could not load. Try Refresh."); }).then(function () { b.disabled = false; $("lbar").classList.add("hide"); });
   }
   $("refreshBtn").addEventListener("click", function () { load(); toast("Refreshing..."); });
 
@@ -524,12 +537,15 @@
     $("drawerBg").classList.remove("hide"); $("dClose").onclick = closeDrawer;
     $("dChips").onclick = function (e) { var b = e.target.closest("button"); if (!b) return; cur = b.getAttribute("data-s"); [].forEach.call($("dChips").children, function (c) { c.classList.toggle("on", c === b); }); };
     $("dSave").onclick = function () {
-      var b = $("dSave"); b.disabled = true; b.textContent = "Saving...";
-      call({ action: "update", id: l.id, status: cur, followup: $("dFu").value, amount: $("dAmt").value, notes: $("dNotes").value }).then(function (j) {
-        if (!j.ok) { $("dErr").textContent = j.error || "Could not save."; return; }
-        l.status = cur; l.followup = $("dFu").value; l.amount = $("dAmt").value.replace(/[^0-9.]/g, ""); l.notes = $("dNotes").value;
-        renderAll(); closeDrawer(); toast("Saved");
-      }).catch(function (e) { $("dErr").textContent = e.message || "Could not save."; }).then(function () { b.disabled = false; b.textContent = "Save changes"; });
+      var prev = { status: l.status, followup: l.followup, amount: l.amount, notes: l.notes };
+      var nv = { status: cur, followup: $("dFu").value, amount: $("dAmt").value.replace(/[^0-9.]/g, ""), notes: $("dNotes").value };
+      l.status = nv.status; l.followup = nv.followup; l.amount = nv.amount; l.notes = nv.notes; saveCache(); renderAll(); closeDrawer(); toast("Saving...");
+      call({ action: "update", id: l.id, status: nv.status, followup: nv.followup, amount: nv.amount, notes: nv.notes }).then(function (j) {
+        if (!j.ok) throw new Error(j.error || "Could not save.");
+        toast("Saved");
+      }).catch(function (e) {
+        l.status = prev.status; l.followup = prev.followup; l.amount = prev.amount; l.notes = prev.notes; saveCache(); renderAll(); toast("Not saved: " + (e.message || "try again"));
+      });
     };
   }
   function closeDrawer() { $("drawerBg").classList.add("hide"); }

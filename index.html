@@ -2365,7 +2365,7 @@
         const done = document.getElementById("reqDone"); done.hidden = false;
         document.getElementById("reqTitle").textContent = "Request received";
         done.innerHTML = '<div class="tick">✓</div><h3>Thank you, ' + esc(d.name) + '!</h3><p>Your Request ID: <strong>' + esc(out.requestId || "-") + "</strong></p><p>" +
-          (out.emailSent === false ? "Your request is saved. We will call or WhatsApp you shortly." : "A confirmation email is on its way. We will call or WhatsApp you shortly.") + '</p>' +
+          (out.emailSent === false ? "Your request is saved. We will call or WhatsApp you shortly." : (out.smsSent ? "Confirmation sent by SMS and email (check your Spam folder if you do not see the email). " : "A confirmation email is on its way (check your Spam folder if you do not see it). ") + "We will call or WhatsApp you shortly.") + '</p>' +
           '<a class="btn btn-wa btn-block" target="_blank" rel="noopener" href="' + waLink(waText + "\nRequest ID: " + (out.requestId || "")) + '">Also message us on WhatsApp</a><button type="button" class="btn btn-outline btn-block" id="reqOk">Close</button>';
         document.getElementById("reqOk").addEventListener("click", reqShut);
         ["reqName", "reqPhone", "reqEmail", "reqNote"].forEach(function (id) { document.getElementById(id).value = ""; }); reqBiz.value = "";
@@ -2523,7 +2523,7 @@
         showStep(1);
         showStatus("ok",
           "<strong>Request received!</strong> Your Request ID: <strong>" + escapeHtml(out.requestId || "-") + "</strong>. " +
-          (out.emailSent === false ? "We could not send the confirmation email, but your request is saved and our team will call or WhatsApp you shortly. Please note your Request ID." : "A confirmation email has been sent to you. Our team will contact you shortly.") +
+          (out.emailSent === false ? "We could not send the confirmation email, but your request is saved and our team will call or WhatsApp you shortly. Please note your Request ID." : (out.smsSent ? "A confirmation has been sent by SMS and email (check your Spam folder if you do not see the email). " : "A confirmation email has been sent to you (check your Spam folder if you do not see it). ") + "Our team will contact you shortly.") +
           waButton("Also send on WhatsApp for a faster reply", data, out.requestId));
       } catch (err) {
         const msg = err && err.name === "AbortError" ? "The request timed out." : (err && err.message) || "Something went wrong.";
