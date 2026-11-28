@@ -10,7 +10,7 @@
 <style>
   :root { --navy:#0b1f4a; --navy2:#10306b; --blue:#1456d6; --soft:#eef4ff; --line:#e2e8f2; --muted:#5b6b88; --bg:#f3f6fb; --green:#128c4a; --red:#c0392b; --amber:#b9770e; --shadow:0 1px 2px rgba(11,31,74,.06),0 6px 20px rgba(11,31,74,.06); }
   * { box-sizing:border-box; }
-  html,body { height:100%; }
+  html { -webkit-text-size-adjust:100%; }
   body { margin:0; font-family:Inter,system-ui,-apple-system,"Segoe UI",Roboto,Helvetica,Arial,sans-serif; background:var(--bg); color:var(--navy); font-size:14.5px; line-height:1.45; -webkit-font-smoothing:antialiased; }
   button,input,select,textarea { font:inherit; color:inherit; }
   .hide { display:none !important; }
@@ -85,7 +85,10 @@
   .toolbar .sw svg { position:absolute; left:12px; top:50%; transform:translateY(-50%); color:#8a98b4; }
   .toolbar input[type=search] { padding-left:38px; }
   .toolbar select { width:auto; min-width:150px; }
-  table { width:100%; border-collapse:collapse; }
+  body { min-height:100vh; }
+  .tscroll { overflow-x:auto; overflow-y:visible; -webkit-overflow-scrolling:touch; max-width:100%; }
+  .tscroll::-webkit-scrollbar { height:10px; } .tscroll::-webkit-scrollbar-thumb { background:#c3cee3; border-radius:6px; }
+  table { width:100%; min-width:780px; border-collapse:collapse; }
   th { text-align:left; font-size:.72rem; text-transform:uppercase; letter-spacing:.6px; color:var(--muted); font-weight:700; padding:11px 16px; background:#f8faff; border-bottom:1px solid var(--line); white-space:nowrap; }
   td { padding:13px 16px; border-bottom:1px solid #edf1f8; vertical-align:middle; }
   tbody tr { cursor:pointer; }
@@ -150,7 +153,7 @@
     .s-brand { border:0; margin:0; padding:0 8px 0 0; } .s-brand span { display:none; }
     .nav { grid-auto-flow:column; } .nav button { padding:9px 12px; } .s-foot { margin:0 0 0 auto; } .s-foot button span { display:none; }
     .main { padding:18px 14px 50px; }
-    table, thead, tbody, tr, td { display:block; } thead { display:none; }
+    table { min-width:0; } table, thead, tbody, tr, td { display:block; } thead { display:none; }
     tr { padding:12px 14px; border-bottom:1px solid #edf1f8; display:grid; grid-template-columns:1fr auto; gap:6px 10px; }
     td { padding:0; border:0; } td[data-h] { display:none; } td.c-st { grid-column:2; grid-row:1; } td.c-meta { grid-column:1 / -1; color:var(--muted); font-size:.84rem; display:block !important; }
     .two { grid-template-columns:1fr; }
@@ -215,10 +218,10 @@
         <div class="sw"><svg viewBox="0 0 24 24"><circle cx="11" cy="11" r="7"/><path d="M21 21l-4.3-4.3"/></svg><input type="search" id="q" placeholder="Search name, phone, business or service" aria-label="Search requests" /></div>
         <select id="stSel" aria-label="Status filter"></select>
       </div>
-      <table>
+      <div class="tscroll"><table>
         <thead><tr><th>Client</th><th>Phone</th><th>Service</th><th>Status</th><th>Follow-up</th><th>Quote</th></tr></thead>
         <tbody id="leadBody"></tbody>
-      </table>
+      </table></div>
     </section>
 
     <section class="card hide" id="chatsView">
@@ -226,10 +229,10 @@
         <div class="sw"><svg viewBox="0 0 24 24"><circle cx="11" cy="11" r="7"/><path d="M21 21l-4.3-4.3"/></svg><input type="search" id="cq" placeholder="Search chats or phone" aria-label="Search chats" /></div>
         <select id="cfSel" aria-label="Chat filter"><option value="">All chats</option><option value="phone">With phone number</option></select>
       </div>
-      <table>
+      <div class="tscroll"><table>
         <thead><tr><th>First question</th><th>Phone</th><th>Messages</th><th>Last activity</th><th>Follow-up</th></tr></thead>
         <tbody id="chatBody"></tbody>
-      </table>
+      </table></div>
     </section>
 
     <section class="card hide" id="qaView">
