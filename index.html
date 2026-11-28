@@ -710,6 +710,23 @@
       .plan-mid .ev, .plan-price .pper { display: none; }
       .plan-mid small { font-size: .85rem; }
     }
+    /* ---- prices only: compact rows ---- */
+    .plan-radio { display: none; }
+    .plan-head { grid-template-columns: 1fr auto auto; padding: 15px 18px; gap: 12px; }
+    .plan-mid b { font-size: 1.08rem; }
+    .plan-price { display: flex; align-items: baseline; gap: 5px; text-align: right; }
+    .plan-price strong { font-size: 1.3rem; }
+    .plan-price span { font-size: .8rem; color: var(--muted); font-weight: 600; }
+    .pick-hint { display: none; }
+    .cr-sub .launch { display: none; }
+    @media (max-width: 560px) {
+      #pricing .ptabs { display: flex; flex-wrap: nowrap; gap: 4px; padding: 4px; border-radius: 999px; width: 100%; margin-bottom: 18px; }
+      #pricing .ptab { flex: 1 1 0; padding: 10px 4px; font-size: .84rem; white-space: nowrap; }
+      .pr-row { grid-template-columns: 1fr auto; padding: 13px 14px; gap: 6px 10px; }
+      .pr-row .btn { grid-column: 1 / -1; }
+      .rate { padding: 12px 14px; }
+      .plan-head { padding: 14px; }
+    }
     /* ---------- Pricing ---------- */
     .cr-cta { display: flex; align-items: center; justify-content: center; gap: 14px; flex-wrap: wrap; margin: 34px 0 6px; color: var(--muted); font-weight: 600; }
     .ptabs { display: flex; gap: 6px; justify-content: center; flex-wrap: wrap; margin: 0 auto 28px; padding: 6px; background: var(--bg); border: 1px solid var(--line); border-radius: 999px; width: max-content; max-width: 100%; }
@@ -1101,12 +1118,11 @@
       <div class="container">
         <div class="section-title">
           <h2>Simple, Clear Pricing</h2>
-          <p>Launch rates. The final amount is confirmed in writing before you pay.</p>
         </div>
         <div class="ptabs" role="tablist" aria-label="Pricing categories">
-          <button type="button" role="tab" class="ptab on" id="pt-creatives" data-tab="creatives" aria-selected="true" aria-controls="pp-creatives">Posters, Posts &amp; Reels</button>
-          <button type="button" role="tab" class="ptab" id="pt-software" data-tab="software" aria-selected="false" aria-controls="pp-software" tabindex="-1">Software &amp; Apps</button>
-          <button type="button" role="tab" class="ptab" id="pt-special" data-tab="special" aria-selected="false" aria-controls="pp-special" tabindex="-1">Bulk Email &amp; Special</button>
+          <button type="button" role="tab" class="ptab on" id="pt-creatives" data-tab="creatives" aria-selected="true" aria-controls="pp-creatives">Creatives</button>
+          <button type="button" role="tab" class="ptab" id="pt-software" data-tab="software" aria-selected="false" aria-controls="pp-software" tabindex="-1">Software</button>
+          <button type="button" role="tab" class="ptab" id="pt-special" data-tab="special" aria-selected="false" aria-controls="pp-special" tabindex="-1">Email &amp; Special</button>
         </div>
 
         <div id="pp-creatives" class="ppanel" role="tabpanel" aria-labelledby="pt-creatives">
@@ -2266,8 +2282,8 @@
         return '<div class="plan-row" id="plan-' + p.k + '" data-plan="' + p.k + '">' +
           '<button type="button" class="plan-head" data-plan="' + p.k + '" role="radio" aria-checked="false" aria-expanded="false" aria-controls="pb-' + p.k + '">' +
           '<span class="plan-radio" aria-hidden="true"></span>' +
-          '<span class="plan-mid"><b>' + esc(p.k) + (p.k === "Growth" ? '<span class="plan-badge">Most popular</span>' : "") + "</b><small>" + esc(p.short) + '<span class="ev"> every month</span></small></span>' +
-          '<span class="plan-price"><strong>' + inr(p.price) + "</strong><span>per month<span class=\"pper\"> &bull; " + esc(p.per) + "</span></span></span>" +
+          '<span class="plan-mid"><b>' + esc(p.k) + "</b></span>" +
+          '<span class="plan-price"><strong>' + inr(p.price) + "</strong><span>/ month</span></span>" +
           '<span class="plan-chev" aria-hidden="true"></span></button>' +
           '<div class="plan-body" id="pb-' + p.k + '"><div><div class="plan-in">' +
           '<p class="pd-best"><b>Best for:</b> ' + esc(p.best) + "</p>" +
